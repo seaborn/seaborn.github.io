@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>An introduction to seaborn &mdash; seaborn 0.8.dev documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="seaborn 0.8.dev documentation" href="index.html" />
+    <link rel="next" title="What’s new in the package" href="whatsnew.html" />
+    <link rel="prev" title="Seaborn: statistical data visualization" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          seaborn</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="api.html">API</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="examples/index.html">Gallery</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">An introduction to seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">An introduction to seaborn</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="an-introduction-to-seaborn">
+<span id="introduction"></span><h1>An introduction to seaborn<a class="headerlink" href="#an-introduction-to-seaborn" title="Permalink to this headline">¶</a></h1>
+<p>Seaborn is a library for making attractive and informative statistical graphics
+in Python. It is built on top of <a class="reference external" href="http://matplotlib.org/">matplotlib</a> and
+tightly integrated with the <a class="reference external" href="http://pydata.org/">PyData</a> stack, including
+support for <a class="reference external" href="http://www.numpy.org/">numpy</a> and <a class="reference external" href="http://pandas.pydata.org/">pandas</a> data structures and statistical routines from
+<a class="reference external" href="http://scipy.org/">scipy</a> and <a class="reference external" href="http://statsmodels.sourceforge.net/">statsmodels</a>.</p>
+<p>Some of the features that seaborn offers are</p>
+<ul class="simple">
+<li>Several <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span>built-in themes</span></a> that improve on the default matplotlib aesthetics</li>
+<li>Tools for choosing <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>color palettes</span></a> to make beautiful plots that reveal patterns in your data</li>
+<li>Functions for visualizing <a class="reference internal" href="examples/distplot_options.html#distplot-options"><span>univariate</span></a> and <a class="reference internal" href="examples/joint_kde.html#joint-kde"><span>bivariate</span></a> distributions or for <a class="reference internal" href="examples/grouped_violinplots.html#grouped-violinplots"><span>comparing</span></a> them between subsets of data</li>
+<li>Tools that fit and visualize <a class="reference internal" href="examples/anscombes_quartet.html#anscombes-quartet"><span>linear regression</span></a> models for different kinds of <a class="reference internal" href="examples/pointplot_anova.html#pointplot-anova"><span>independent</span></a> and <a class="reference internal" href="examples/logistic_regression.html#logistic-regression"><span>dependent</span></a> variables</li>
+<li>Functions that visualize <a class="reference internal" href="examples/heatmap_annotation.html#heatmap-annotation"><span>matrices of data</span></a> and use clustering algorithms to <a class="reference internal" href="examples/structured_heatmap.html#structured-heatmap"><span>discover structure</span></a> in those matrices</li>
+<li>A function to plot <a class="reference internal" href="examples/timeseries_from_dataframe.html#timeseries-from-dataframe"><span>statistical timeseries</span></a> data with flexible estimation and <a class="reference internal" href="examples/timeseries_bootstrapped.html#timeseries-bootstrapped"><span>representation</span></a> of uncertainty around the estimate</li>
+<li>High-level abstractions for structuring <a class="reference internal" href="examples/faceted_histogram.html#faceted-histogram"><span>grids of plots</span></a> that let you easily build <a class="reference internal" href="examples/many_facets.html#many-facets"><span>complex</span></a> visualizations</li>
+</ul>
+<p>Seaborn aims to make visualization a central part of exploring and
+understanding data. The plotting functions operate on dataframes and arrays
+containing a whole dataset and internally perform the necessary aggregation and
+statistical model-fitting to produce informative plots. If matplotlib &#8220;tries to
+make easy things easy and hard things possible&#8221;, seaborn tries to make a
+well-defined set of hard things easy too.</p>
+<p>The plotting functions try to do something useful when called with a minimal
+set of arguments, and they expose a number of customizable options through
+additional parameters. Some of the functions plot directly into a matplotlib
+axes object, while others operate on an entire figure and produce plots with
+several panels. In the latter case, the plot is drawn using a Grid object that
+links the structure of the figure to the structure of the dataset in an
+abstract way.</p>
+<p>Because seaborn uses matplotlib, the graphics can be further tweaked using
+matplotlib tools and rendered with any of the matplotlib backends to generate
+publication-quality figures. Seaborn can also be used to target web-based
+graphics through the <a class="reference external" href="http://mpld3.github.io/">mpld3</a> and <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a> libraries.</p>
+<p>Seaborn should be thought of as a complement to matplotlib, not a replacement
+for it. When using seaborn, it is likely that you will often invoke matplotlib
+functions directly to draw simpler plots already available through the
+<code class="docutils literal"><span class="pre">pyplot</span></code> namespace. Further, while the seaborn functions aim to make plots
+that are reasonably &#8220;production ready&#8221; (including extracting semantic
+information from Pandas objects to add informative labels), full customization
+of the figures will require a sophisticated understanding of matplotlib objects.</p>
+<p>For more detailed information and copious examples of the syntax and resulting
+plots, you can check out the <a class="reference internal" href="examples/index.html#example-gallery"><span>example gallery</span></a>,
+<a class="reference internal" href="tutorial.html#tutorial"><span>tutorial</span></a> or <a class="reference internal" href="api.html#api-ref"><span>API reference</span></a>.</p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/introduction.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

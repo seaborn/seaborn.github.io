@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API reference &mdash; seaborn 0.8.dev documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.8.dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="seaborn 0.8.dev documentation" href="index.html" />
+    <link rel="next" title="seaborn.jointplot" href="generated/seaborn.jointplot.html" />
+    <link rel="prev" title="Barplot timeseries" href="examples/timeseries_of_barplots.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          seaborn</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="#">API</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="examples/index.html">Gallery</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">An introduction to seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">API reference</a><ul>
+<li><a class="reference internal" href="#distribution-plots">Distribution plots</a></li>
+<li><a class="reference internal" href="#regression-plots">Regression plots</a></li>
+<li><a class="reference internal" href="#categorical-plots">Categorical plots</a></li>
+<li><a class="reference internal" href="#matrix-plots">Matrix plots</a></li>
+<li><a class="reference internal" href="#timeseries-plots">Timeseries plots</a></li>
+<li><a class="reference internal" href="#miscellaneous-plots">Miscellaneous plots</a></li>
+<li><a class="reference internal" href="#axis-grids">Axis grids</a></li>
+<li><a class="reference internal" href="#style-frontend">Style frontend</a></li>
+<li><a class="reference internal" href="#color-palettes">Color palettes</a></li>
+<li><a class="reference internal" href="#palette-widgets">Palette widgets</a></li>
+<li><a class="reference internal" href="#utility-functions">Utility functions</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="api-reference">
+<span id="api-ref"></span><h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="distribution-plots">
+<span id="distribution-api"></span><h2>Distribution plots<a class="headerlink" href="#distribution-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal"><span class="pre">jointplot</span></code></a>(x,&nbsp;y[,&nbsp;data,&nbsp;kind,&nbsp;stat_func,&nbsp;...])</td>
+<td>Draw a plot of two variables with bivariate and univariate graphs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal"><span class="pre">pairplot</span></code></a>(data[,&nbsp;hue,&nbsp;hue_order,&nbsp;palette,&nbsp;...])</td>
+<td>Plot pairwise relationships in a dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal"><span class="pre">distplot</span></code></a>(a[,&nbsp;bins,&nbsp;hist,&nbsp;kde,&nbsp;rug,&nbsp;fit,&nbsp;...])</td>
+<td>Flexibly plot a univariate distribution of observations.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-obj docutils literal"><span class="pre">kdeplot</span></code></a>(data[,&nbsp;data2,&nbsp;shade,&nbsp;vertical,&nbsp;...])</td>
+<td>Fit and plot a univariate or bivariate kernel density estimate.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-obj docutils literal"><span class="pre">rugplot</span></code></a>(a[,&nbsp;height,&nbsp;axis,&nbsp;ax])</td>
+<td>Plot datapoints in an array as sticks on an axis.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="regression-plots">
+<span id="regression-api"></span><h2>Regression plots<a class="headerlink" href="#regression-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal"><span class="pre">lmplot</span></code></a>(x,&nbsp;y,&nbsp;data[,&nbsp;hue,&nbsp;col,&nbsp;row,&nbsp;palette,&nbsp;...])</td>
+<td>Plot data and regression model fits across a FacetGrid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-obj docutils literal"><span class="pre">regplot</span></code></a>(x,&nbsp;y[,&nbsp;data,&nbsp;x_estimator,&nbsp;x_bins,&nbsp;...])</td>
+<td>Plot data and a linear regression model fit.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.residplot.html#seaborn.residplot" title="seaborn.residplot"><code class="xref py py-obj docutils literal"><span class="pre">residplot</span></code></a>(x,&nbsp;y[,&nbsp;data,&nbsp;lowess,&nbsp;x_partial,&nbsp;...])</td>
+<td>Plot the residuals of a linear regression.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.interactplot.html#seaborn.interactplot" title="seaborn.interactplot"><code class="xref py py-obj docutils literal"><span class="pre">interactplot</span></code></a>(x1,&nbsp;x2,&nbsp;y[,&nbsp;data,&nbsp;filled,&nbsp;...])</td>
+<td>Visualize a continuous two-way interaction with a contour plot.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.coefplot.html#seaborn.coefplot" title="seaborn.coefplot"><code class="xref py py-obj docutils literal"><span class="pre">coefplot</span></code></a>(formula,&nbsp;data[,&nbsp;groupby,&nbsp;...])</td>
+<td>Plot the coefficients from a linear model.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="categorical-plots">
+<span id="categorical-api"></span><h2>Categorical plots<a class="headerlink" href="#categorical-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-obj docutils literal"><span class="pre">factorplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;row,&nbsp;col,&nbsp;...])</td>
+<td>Draw a categorical plot onto a FacetGrid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-obj docutils literal"><span class="pre">boxplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;hue_order,&nbsp;...])</td>
+<td>Draw a box plot to show distributions with respect to categories.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-obj docutils literal"><span class="pre">violinplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;...])</td>
+<td>Draw a combination of boxplot and kernel density estimate.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-obj docutils literal"><span class="pre">stripplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;...])</td>
+<td>Draw a scatterplot where one variable is categorical.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-obj docutils literal"><span class="pre">swarmplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;...])</td>
+<td>Draw a categorical scatterplot with non-overlapping points.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-obj docutils literal"><span class="pre">pointplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;...])</td>
+<td>Show point estimates and confidence intervals using scatter plot glyphs.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-obj docutils literal"><span class="pre">barplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;hue_order,&nbsp;...])</td>
+<td>Show point estimates and confidence intervals as rectangular bars.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-obj docutils literal"><span class="pre">countplot</span></code></a>([x,&nbsp;y,&nbsp;hue,&nbsp;data,&nbsp;order,&nbsp;...])</td>
+<td>Show the counts of observations in each categorical bin using bars.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="matrix-plots">
+<span id="matrix-api"></span><h2>Matrix plots<a class="headerlink" href="#matrix-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-obj docutils literal"><span class="pre">heatmap</span></code></a>(data[,&nbsp;vmin,&nbsp;vmax,&nbsp;cmap,&nbsp;center,&nbsp;...])</td>
+<td>Plot rectangular data as a color-encoded matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-obj docutils literal"><span class="pre">clustermap</span></code></a>(data[,&nbsp;pivot_kws,&nbsp;method,&nbsp;...])</td>
+<td>Plot a hierarchically clustered heatmap of a pandas DataFrame</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="timeseries-plots">
+<h2>Timeseries plots<a class="headerlink" href="#timeseries-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.tsplot.html#seaborn.tsplot" title="seaborn.tsplot"><code class="xref py py-obj docutils literal"><span class="pre">tsplot</span></code></a>(data[,&nbsp;time,&nbsp;unit,&nbsp;condition,&nbsp;value,&nbsp;...])</td>
+<td>Plot one or more timeseries with flexible representation of uncertainty.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="miscellaneous-plots">
+<h2>Miscellaneous plots<a class="headerlink" href="#miscellaneous-plots" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.palplot.html#seaborn.palplot" title="seaborn.palplot"><code class="xref py py-obj docutils literal"><span class="pre">palplot</span></code></a>(pal[,&nbsp;size])</td>
+<td>Plot the values in a color palette as a horizontal array.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="axis-grids">
+<span id="grid-api"></span><h2>Axis grids<a class="headerlink" href="#axis-grids" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-obj docutils literal"><span class="pre">FacetGrid</span></code></a>(data[,&nbsp;row,&nbsp;col,&nbsp;hue,&nbsp;col_wrap,&nbsp;...])</td>
+<td>Subplot grid for plotting conditional relationships.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-obj docutils literal"><span class="pre">PairGrid</span></code></a>(data[,&nbsp;hue,&nbsp;hue_order,&nbsp;palette,&nbsp;...])</td>
+<td>Subplot grid for plotting pairwise relationships in a dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal"><span class="pre">JointGrid</span></code></a>(x,&nbsp;y[,&nbsp;data,&nbsp;size,&nbsp;ratio,&nbsp;space,&nbsp;...])</td>
+<td>Grid for drawing a bivariate plot with marginal univariate plots.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="style-frontend">
+<span id="style-api"></span><h2>Style frontend<a class="headerlink" href="#style-frontend" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-obj docutils literal"><span class="pre">set</span></code></a>([context,&nbsp;style,&nbsp;palette,&nbsp;font,&nbsp;...])</td>
+<td>Set aesthetic parameters in one step.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-obj docutils literal"><span class="pre">axes_style</span></code></a>([style,&nbsp;rc])</td>
+<td>Return a parameter dict for the aesthetic style of the plots.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal"><span class="pre">set_style</span></code></a>([style,&nbsp;rc])</td>
+<td>Set the aesthetic style of the plots.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal"><span class="pre">plotting_context</span></code></a>([context,&nbsp;font_scale,&nbsp;rc])</td>
+<td>Return a parameter dict to scale elements of the figure.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal"><span class="pre">set_context</span></code></a>([context,&nbsp;font_scale,&nbsp;rc])</td>
+<td>Set the plotting context parameters.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal"><span class="pre">set_color_codes</span></code></a>([palette])</td>
+<td>Change how matplotlib color shorthands are interpreted.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.reset_defaults.html#seaborn.reset_defaults" title="seaborn.reset_defaults"><code class="xref py py-obj docutils literal"><span class="pre">reset_defaults</span></code></a>()</td>
+<td>Restore all RC params to default settings.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.reset_orig.html#seaborn.reset_orig" title="seaborn.reset_orig"><code class="xref py py-obj docutils literal"><span class="pre">reset_orig</span></code></a>()</td>
+<td>Restore all RC params to original settings (respects custom rc).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="color-palettes">
+<span id="palette-api"></span><h2>Color palettes<a class="headerlink" href="#color-palettes" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal"><span class="pre">set_palette</span></code></a>(palette[,&nbsp;n_colors,&nbsp;desat,&nbsp;...])</td>
+<td>Set the matplotlib color cycle using a seaborn palette.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal"><span class="pre">color_palette</span></code></a>([palette,&nbsp;n_colors,&nbsp;desat])</td>
+<td>Return a list of colors defining a color palette.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.husl_palette.html#seaborn.husl_palette" title="seaborn.husl_palette"><code class="xref py py-obj docutils literal"><span class="pre">husl_palette</span></code></a>([n_colors,&nbsp;h,&nbsp;s,&nbsp;l])</td>
+<td>Get a set of evenly spaced colors in HUSL hue space.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-obj docutils literal"><span class="pre">hls_palette</span></code></a>([n_colors,&nbsp;h,&nbsp;l,&nbsp;s])</td>
+<td>Get a set of evenly spaced colors in HLS hue space.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-obj docutils literal"><span class="pre">cubehelix_palette</span></code></a>([n_colors,&nbsp;start,&nbsp;rot,&nbsp;...])</td>
+<td>Make a sequential palette from the cubehelix system.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal"><span class="pre">dark_palette</span></code></a>(color[,&nbsp;n_colors,&nbsp;reverse,&nbsp;...])</td>
+<td>Make a sequential palette that blends from dark to <code class="docutils literal"><span class="pre">color</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal"><span class="pre">light_palette</span></code></a>(color[,&nbsp;n_colors,&nbsp;reverse,&nbsp;...])</td>
+<td>Make a sequential palette that blends from light to <code class="docutils literal"><span class="pre">color</span></code>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-obj docutils literal"><span class="pre">diverging_palette</span></code></a>(h_neg,&nbsp;h_pos[,&nbsp;s,&nbsp;l,&nbsp;sep,&nbsp;...])</td>
+<td>Make a diverging palette between two HUSL colors.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.blend_palette.html#seaborn.blend_palette" title="seaborn.blend_palette"><code class="xref py py-obj docutils literal"><span class="pre">blend_palette</span></code></a>(colors[,&nbsp;n_colors,&nbsp;as_cmap,&nbsp;input])</td>
+<td>Make a palette that blends between a list of colors.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-obj docutils literal"><span class="pre">xkcd_palette</span></code></a>(colors)</td>
+<td>Make a palette with color names from the xkcd color survey.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.crayon_palette.html#seaborn.crayon_palette" title="seaborn.crayon_palette"><code class="xref py py-obj docutils literal"><span class="pre">crayon_palette</span></code></a>(colors)</td>
+<td>Make a palette with color names from Crayola crayons.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.mpl_palette.html#seaborn.mpl_palette" title="seaborn.mpl_palette"><code class="xref py py-obj docutils literal"><span class="pre">mpl_palette</span></code></a>(name[,&nbsp;n_colors])</td>
+<td>Return discrete colors from a matplotlib palette.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="palette-widgets">
+<h2>Palette widgets<a class="headerlink" href="#palette-widgets" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.choose_colorbrewer_palette.html#seaborn.choose_colorbrewer_palette" title="seaborn.choose_colorbrewer_palette"><code class="xref py py-obj docutils literal"><span class="pre">choose_colorbrewer_palette</span></code></a>(data_type[,&nbsp;as_cmap])</td>
+<td>Select a palette from the ColorBrewer set.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette" title="seaborn.choose_cubehelix_palette"><code class="xref py py-obj docutils literal"><span class="pre">choose_cubehelix_palette</span></code></a>([as_cmap])</td>
+<td>Launch an interactive widget to create a sequential cubehelix palette.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.choose_light_palette.html#seaborn.choose_light_palette" title="seaborn.choose_light_palette"><code class="xref py py-obj docutils literal"><span class="pre">choose_light_palette</span></code></a>([input,&nbsp;as_cmap])</td>
+<td>Launch an interactive widget to create a light sequential palette.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.choose_dark_palette.html#seaborn.choose_dark_palette" title="seaborn.choose_dark_palette"><code class="xref py py-obj docutils literal"><span class="pre">choose_dark_palette</span></code></a>([input,&nbsp;as_cmap])</td>
+<td>Launch an interactive widget to create a dark sequential palette.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette" title="seaborn.choose_diverging_palette"><code class="xref py py-obj docutils literal"><span class="pre">choose_diverging_palette</span></code></a>([as_cmap])</td>
+<td>Launch an interactive widget to choose a diverging color palette.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="utility-functions">
+<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-obj docutils literal"><span class="pre">despine</span></code></a>([fig,&nbsp;ax,&nbsp;top,&nbsp;right,&nbsp;left,&nbsp;bottom,&nbsp;...])</td>
+<td>Remove the top and right spines from plot(s).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.desaturate.html#seaborn.desaturate" title="seaborn.desaturate"><code class="xref py py-obj docutils literal"><span class="pre">desaturate</span></code></a>(color,&nbsp;prop)</td>
+<td>Decrease the saturation channel of a color by some percent.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/seaborn.saturate.html#seaborn.saturate" title="seaborn.saturate"><code class="xref py py-obj docutils literal"><span class="pre">saturate</span></code></a>(color)</td>
+<td>Return a fully saturated color with the same hue.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/seaborn.set_hls_values.html#seaborn.set_hls_values" title="seaborn.set_hls_values"><code class="xref py py-obj docutils literal"><span class="pre">set_hls_values</span></code></a>(color[,&nbsp;h,&nbsp;l,&nbsp;s])</td>
+<td>Independently manipulate the h, l, or s channels of a color.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">ci_to_errsize</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">axlabel</span></code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/api.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

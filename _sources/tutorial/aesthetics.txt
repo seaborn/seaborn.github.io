@@ -1,0 +1,306 @@
+
+.. _aesthetics_tutorial:
+
+.. currentmodule:: seaborn
+
+Controlling figure aesthetics
+=============================
+
+Drawing attractive figures is important. When making figures for yourself, as you explore a dataset, it's nice to have plots that are pleasant to look at. Visualizations are also central to communicating quantitative insights to an audience, and in that setting it's even more necessary to have figures that catch the attention and draw a viewer in.
+
+Matplotlib is highly customizable, but it can be hard to know what settings to tweak to achieve an attractive plot. Seaborn comes with a number of customized themes and a high-level interface for controlling the look of matplotlib figures.
+
+.. code:: python
+
+    %matplotlib inline
+
+.. code:: python
+
+    import numpy as np
+    import matplotlib as mpl
+    import matplotlib.pyplot as plt
+    np.random.seed(sum(map(ord, "aesthetics")))
+
+Let's define a simple function to plot some offset sine waves, which will help us see the different stylistic parameters we can tweak.
+
+.. code:: python
+
+    def sinplot(flip=1):
+        x = np.linspace(0, 14, 100)
+        for i in range(1, 7):
+            plt.plot(x, np.sin(x + i * .5) * (7 - i) * flip)
+
+This is what the plot looks like with matplotlib defaults:
+
+.. code:: python
+
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_8_0.png
+
+
+To switch to seaborn defaults, simply import the package.
+
+.. code:: python
+
+    import seaborn as sns
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_10_0.png
+
+
+The seaborn defaults break from the MATLAB inspired aesthetic of matplotlib to plot in more muted colors over a light gray background with white grid lines. We find that the grid aids in the use of figures for conveying quantitative information – in almost all cases, figures should be preferred to tables. The white-on-gray grid that is used by default avoids being obtrusive. The grid is particularly useful in giving structure to figures with multiple facets, which is central to some of the more complex tools in the library.
+
+Seaborn splits matplotlib parameters into two independent groups. The first group sets the aesthetic style of the plot, and the second scales various elements of the figure so that it can be easily incorporated into different contexts.
+
+The interface for manipulating these parameters are two pairs of functions. To control the style, use the :func:`axes_style` and :func:`set_style` functions. To scale the plot, use the :func:`plotting_context` and :func:`set_context` functions. In both cases, the first function returns a dictionary of parameters and the second sets the matplotlib defaults.
+
+.. _axes_style:
+
+Styling figures with :func:`axes_style` and :func:`set_style`
+-------------------------------------------------------------
+
+There are five preset seaborn themes: ``darkgrid``, ``whitegrid``, ``dark``, ``white``, and ``ticks``. They are each suited to different applications and personal preferences. The default theme is ``darkgrid``. As mentioned above, the grid helps the plot serve as a lookup table for quantitative information, and the white-on grey helps to keep the grid from competing with lines that represent data. The ``whitegrid`` theme is similar, but it is better suited to plots with heavy data elements:
+
+.. code:: python
+
+    sns.set_style("whitegrid")
+    data = np.random.normal(size=(20, 6)) + np.arange(6) / 2
+    sns.boxplot(data=data);
+
+
+
+.. image:: aesthetics_files/aesthetics_12_0.png
+
+
+For many plots, (especially for settings like talks, where you primarily want to use figures to provide impressions of patterns in the data), the grid is less necessary.
+
+.. code:: python
+
+    sns.set_style("dark")
+
+.. code:: python
+
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_15_0.png
+
+
+.. code:: python
+
+    sns.set_style("white")
+
+.. code:: python
+
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_17_0.png
+
+
+Sometimes you might want to give a little extra structure to the plots, which is where ticks come in handy:
+
+.. code:: python
+
+    sns.set_style("ticks")
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_19_0.png
+
+
+.. _remove_spines:
+
+Removing spines with :func:`despine`
+------------------------------------
+
+Both the ``white`` and ``ticks`` styles can benefit from removing the top and right axes spines, which are not needed. It's impossible to do this through the matplotlib parameters, but you can call the seaborn function :func:`despine` to remove them:
+
+.. code:: python
+
+    sinplot()
+    sns.despine()
+
+
+
+.. image:: aesthetics_files/aesthetics_21_0.png
+
+
+Some plots benefit from offsetting the spines away from the data, which can also be done when calling :func:`despine`. When the ticks don't cover the whole range of the axis, the ``trim`` parameter will limit the range of the surviving spines.
+
+.. code:: python
+
+    f, ax = plt.subplots()
+    sns.violinplot(data=data)
+    sns.despine(offset=10, trim=True);
+
+
+
+.. image:: aesthetics_files/aesthetics_23_0.png
+
+
+You can also control which spines are removed with additional arguments to :func:`despine`:
+
+.. code:: python
+
+    sns.set_style("whitegrid")
+    sns.boxplot(data=data, palette="deep")
+    sns.despine(left=True)
+
+
+
+.. image:: aesthetics_files/aesthetics_25_0.png
+
+
+Temporarily setting figure style
+--------------------------------
+
+Although it's easy to switch back and forth, you can also use the :func:`axes_style` function in a ``with`` statement to temporarily set plot parameters. This also allows you to make figures with differently-styled axes:
+
+.. code:: python
+
+    with sns.axes_style("darkgrid"):
+        plt.subplot(211)
+        sinplot()
+    plt.subplot(212)
+    sinplot(-1)
+
+
+
+.. image:: aesthetics_files/aesthetics_27_0.png
+
+
+Overriding elements of the seaborn styles
+-----------------------------------------
+
+If you want to customize the seaborn styles, you can pass a dictionary of parameters to the ``rc`` argument of :func:`axes_style` and :func:`set_style`. Note that you can only override the parameters that are part of the style definition through this method. (However, the higher-level :func:`set` function takes a dictionary of any matplotlib parameters).
+
+If you want to see what parameters are included, you can just call the function with no arguments, which will return the current settings:
+
+.. code:: python
+
+    sns.axes_style()
+
+
+
+
+.. parsed-literal::
+
+    {'axes.axisbelow': True,
+     'axes.edgecolor': '.8',
+     'axes.facecolor': 'white',
+     'axes.grid': True,
+     'axes.labelcolor': '.15',
+     'axes.linewidth': 1.0,
+     'figure.facecolor': 'white',
+     'font.family': [u'sans-serif'],
+     'font.sans-serif': [u'Arial',
+      u'Liberation Sans',
+      u'Bitstream Vera Sans',
+      u'sans-serif'],
+     'grid.color': '.8',
+     'grid.linestyle': u'-',
+     'image.cmap': u'Greys',
+     'legend.frameon': False,
+     'legend.numpoints': 1,
+     'legend.scatterpoints': 1,
+     'lines.solid_capstyle': u'round',
+     'text.color': '.15',
+     'xtick.color': '.15',
+     'xtick.direction': u'out',
+     'xtick.major.size': 0.0,
+     'xtick.minor.size': 0.0,
+     'ytick.color': '.15',
+     'ytick.direction': u'out',
+     'ytick.major.size': 0.0,
+     'ytick.minor.size': 0.0}
+
+
+
+You can then set different versions of these parameters:
+
+.. code:: python
+
+    sns.set_style("darkgrid", {"axes.facecolor": ".9"})
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_31_0.png
+
+
+.. _plotting_context:
+
+Scaling plot elements with :func:`plotting_context` and :func:`set_context`
+---------------------------------------------------------------------------
+
+A separate set of parameters control the scale of plot elements, which should let you use the same code to make plots that are suited for use in settings where larger or smaller plots are appropriate.
+
+First let's reset the default parameters by calling :func:`set`:
+
+.. code:: python
+
+    sns.set()
+
+The four preset contexts, in order of relative size, are ``paper``, ``notebook``, ``talk``, and ``poster``. The ``notebook`` style is the default, and was used in the plots above.
+
+.. code:: python
+
+    sns.set_context("paper")
+    plt.figure(figsize=(8, 6))
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_35_0.png
+
+
+.. code:: python
+
+    sns.set_context("talk")
+    plt.figure(figsize=(8, 6))
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_36_0.png
+
+
+.. code:: python
+
+    sns.set_context("poster")
+    plt.figure(figsize=(8, 6))
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_37_0.png
+
+
+Most of what you now know about the style functions should transfer to the context functions.
+
+You can call :func:`set_context` with one of these names to set the parameters, and you can override the parameters by providing a dictionary of parameter values.
+
+You can also independently scale the size of the font elements when changing the context. (This option is also available through the top-level :func:`set` function).
+
+.. code:: python
+
+    sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 2.5})
+    sinplot()
+
+
+
+.. image:: aesthetics_files/aesthetics_39_0.png
+
+
+Similarly (although it might be less useful), you can temporarily control the scale of figures nested under a ``with`` statement.
+
+Both the style and the context can be quickly configured with the :func:`set` function. This function also sets the default color palette, but that will be covered in more detail in the :ref:`next section <palette_tutorial>` of the tutorial.

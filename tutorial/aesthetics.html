@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Controlling figure aesthetics &mdash; seaborn 0.8.dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="seaborn 0.8.dev documentation" href="../index.html" />
+    <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
+    <link rel="next" title="Choosing color palettes" href="color_palettes.html" />
+    <link rel="prev" title="Seaborn tutorial" href="../tutorial.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          seaborn</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../api.html">API</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../examples/index.html">Gallery</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Controlling figure aesthetics</a><ul>
+<li><a class="reference internal" href="#styling-figures-with-axes-style-and-set-style">Styling figures with <code class="docutils literal"><span class="pre">axes_style()</span></code> and <code class="docutils literal"><span class="pre">set_style()</span></code></a></li>
+<li><a class="reference internal" href="#removing-spines-with-despine">Removing spines with <code class="docutils literal"><span class="pre">despine()</span></code></a></li>
+<li><a class="reference internal" href="#temporarily-setting-figure-style">Temporarily setting figure style</a></li>
+<li><a class="reference internal" href="#overriding-elements-of-the-seaborn-styles">Overriding elements of the seaborn styles</a></li>
+<li><a class="reference internal" href="#scaling-plot-elements-with-plotting-context-and-set-context">Scaling plot elements with <code class="docutils literal"><span class="pre">plotting_context()</span></code> and <code class="docutils literal"><span class="pre">set_context()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="controlling-figure-aesthetics">
+<span id="aesthetics-tutorial"></span><h1>Controlling figure aesthetics<a class="headerlink" href="#controlling-figure-aesthetics" title="Permalink to this headline">¶</a></h1>
+<p>Drawing attractive figures is important. When making figures for yourself, as you explore a dataset, it&#8217;s nice to have plots that are pleasant to look at. Visualizations are also central to communicating quantitative insights to an audience, and in that setting it&#8217;s even more necessary to have figures that catch the attention and draw a viewer in.</p>
+<p>Matplotlib is highly customizable, but it can be hard to know what settings to tweak to achieve an attractive plot. Seaborn comes with a number of customized themes and a high-level interface for controlling the look of matplotlib figures.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>%matplotlib inline
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;aesthetics&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Let&#8217;s define a simple function to plot some offset sine waves, which will help us see the different stylistic parameters we can tweak.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinplot</span><span class="p">(</span><span class="n">flip</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">flip</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is what the plot looks like with matplotlib defaults:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_8_0.png" src="../_images/aesthetics_8_0.png" />
+<p>To switch to seaborn defaults, simply import the package.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_10_0.png" src="../_images/aesthetics_10_0.png" />
+<p>The seaborn defaults break from the MATLAB inspired aesthetic of matplotlib to plot in more muted colors over a light gray background with white grid lines. We find that the grid aids in the use of figures for conveying quantitative information – in almost all cases, figures should be preferred to tables. The white-on-gray grid that is used by default avoids being obtrusive. The grid is particularly useful in giving structure to figures with multiple facets, which is central to some of the more complex tools in the library.</p>
+<p>Seaborn splits matplotlib parameters into two independent groups. The first group sets the aesthetic style of the plot, and the second scales various elements of the figure so that it can be easily incorporated into different contexts.</p>
+<p>The interface for manipulating these parameters are two pairs of functions. To control the style, use the <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a> functions. To scale the plot, use the <a class="reference internal" href="../generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-func docutils literal"><span class="pre">plotting_context()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a> functions. In both cases, the first function returns a dictionary of parameters and the second sets the matplotlib defaults.</p>
+<div class="section" id="styling-figures-with-axes-style-and-set-style">
+<span id="axes-style"></span><h2>Styling figures with <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a><a class="headerlink" href="#styling-figures-with-axes-style-and-set-style" title="Permalink to this headline">¶</a></h2>
+<p>There are five preset seaborn themes: <code class="docutils literal"><span class="pre">darkgrid</span></code>, <code class="docutils literal"><span class="pre">whitegrid</span></code>, <code class="docutils literal"><span class="pre">dark</span></code>, <code class="docutils literal"><span class="pre">white</span></code>, and <code class="docutils literal"><span class="pre">ticks</span></code>. They are each suited to different applications and personal preferences. The default theme is <code class="docutils literal"><span class="pre">darkgrid</span></code>. As mentioned above, the grid helps the plot serve as a lookup table for quantitative information, and the white-on grey helps to keep the grid from competing with lines that represent data. The <code class="docutils literal"><span class="pre">whitegrid</span></code> theme is similar, but it is better suited to plots with heavy data elements:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_12_0.png" src="../_images/aesthetics_12_0.png" />
+<p>For many plots, (especially for settings like talks, where you primarily want to use figures to provide impressions of patterns in the data), the grid is less necessary.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_15_0.png" src="../_images/aesthetics_15_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_17_0.png" src="../_images/aesthetics_17_0.png" />
+<p>Sometimes you might want to give a little extra structure to the plots, which is where ticks come in handy:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_19_0.png" src="../_images/aesthetics_19_0.png" />
+</div>
+<div class="section" id="removing-spines-with-despine">
+<span id="remove-spines"></span><h2>Removing spines with <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a><a class="headerlink" href="#removing-spines-with-despine" title="Permalink to this headline">¶</a></h2>
+<p>Both the <code class="docutils literal"><span class="pre">white</span></code> and <code class="docutils literal"><span class="pre">ticks</span></code> styles can benefit from removing the top and right axes spines, which are not needed. It&#8217;s impossible to do this through the matplotlib parameters, but you can call the seaborn function <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a> to remove them:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sinplot</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_21_0.png" src="../_images/aesthetics_21_0.png" />
+<p>Some plots benefit from offsetting the spines away from the data, which can also be done when calling <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a>. When the ticks don&#8217;t cover the whole range of the axis, the <code class="docutils literal"><span class="pre">trim</span></code> parameter will limit the range of the surviving spines.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_23_0.png" src="../_images/aesthetics_23_0.png" />
+<p>You can also control which spines are removed with additional arguments to <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;deep&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_25_0.png" src="../_images/aesthetics_25_0.png" />
+</div>
+<div class="section" id="temporarily-setting-figure-style">
+<h2>Temporarily setting figure style<a class="headerlink" href="#temporarily-setting-figure-style" title="Permalink to this headline">¶</a></h2>
+<p>Although it&#8217;s easy to switch back and forth, you can also use the <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> function in a <code class="docutils literal"><span class="pre">with</span></code> statement to temporarily set plot parameters. This also allows you to make figures with differently-styled axes:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="n">sinplot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">sinplot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_27_0.png" src="../_images/aesthetics_27_0.png" />
+</div>
+<div class="section" id="overriding-elements-of-the-seaborn-styles">
+<h2>Overriding elements of the seaborn styles<a class="headerlink" href="#overriding-elements-of-the-seaborn-styles" title="Permalink to this headline">¶</a></h2>
+<p>If you want to customize the seaborn styles, you can pass a dictionary of parameters to the <code class="docutils literal"><span class="pre">rc</span></code> argument of <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a>. Note that you can only override the parameters that are part of the style definition through this method. (However, the higher-level <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> function takes a dictionary of any matplotlib parameters).</p>
+<p>If you want to see what parameters are included, you can just call the function with no arguments, which will return the current settings:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;.8&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.linewidth&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+ <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;font.sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;Arial&#39;</span><span class="p">,</span>
+  <span class="s1">u&#39;Liberation Sans&#39;</span><span class="p">,</span>
+  <span class="s1">u&#39;Bitstream Vera Sans&#39;</span><span class="p">,</span>
+  <span class="s1">u&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.8&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grid.linestyle&#39;</span><span class="p">:</span> <span class="s1">u&#39;-&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;image.cmap&#39;</span><span class="p">:</span> <span class="s1">u&#39;Greys&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;legend.frameon&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s1">&#39;legend.numpoints&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s1">&#39;legend.scatterpoints&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">u&#39;round&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">u&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.major.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.minor.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">u&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.major.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.minor.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>You can then set different versions of these parameters:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;.9&quot;</span><span class="p">})</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_31_0.png" src="../_images/aesthetics_31_0.png" />
+</div>
+<div class="section" id="scaling-plot-elements-with-plotting-context-and-set-context">
+<span id="plotting-context"></span><h2>Scaling plot elements with <a class="reference internal" href="../generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-func docutils literal"><span class="pre">plotting_context()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a><a class="headerlink" href="#scaling-plot-elements-with-plotting-context-and-set-context" title="Permalink to this headline">¶</a></h2>
+<p>A separate set of parameters control the scale of plot elements, which should let you use the same code to make plots that are suited for use in settings where larger or smaller plots are appropriate.</p>
+<p>First let&#8217;s reset the default parameters by calling <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a>:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The four preset contexts, in order of relative size, are <code class="docutils literal"><span class="pre">paper</span></code>, <code class="docutils literal"><span class="pre">notebook</span></code>, <code class="docutils literal"><span class="pre">talk</span></code>, and <code class="docutils literal"><span class="pre">poster</span></code>. The <code class="docutils literal"><span class="pre">notebook</span></code> style is the default, and was used in the plots above.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_35_0.png" src="../_images/aesthetics_35_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_36_0.png" src="../_images/aesthetics_36_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_37_0.png" src="../_images/aesthetics_37_0.png" />
+<p>Most of what you now know about the style functions should transfer to the context functions.</p>
+<p>You can call <a class="reference internal" href="../generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a> with one of these names to set the parameters, and you can override the parameters by providing a dictionary of parameter values.</p>
+<p>You can also independently scale the size of the font elements when changing the context. (This option is also available through the top-level <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> function).</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lines.linewidth&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">})</span>
+<span class="n">sinplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/aesthetics_39_0.png" src="../_images/aesthetics_39_0.png" />
+<p>Similarly (although it might be less useful), you can temporarily control the scale of figures nested under a <code class="docutils literal"><span class="pre">with</span></code> statement.</p>
+<p>Both the style and the context can be quickly configured with the <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> function. This function also sets the default color palette, but that will be covered in more detail in the <a class="reference internal" href="color_palettes.html#palette-tutorial"><span>next section</span></a> of the tutorial.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/aesthetics.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
