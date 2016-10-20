@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>seaborn.heatmap &mdash; seaborn 0.7.0 documentation</title>
+    <title>seaborn.heatmap &mdash; seaborn 0.7.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.7.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.0 documentation" href="../index.html" />
+    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
     <link rel="up" title="API reference" href="../api.html" />
     <link rel="next" title="seaborn.clustermap" href="seaborn.clustermap.html" />
     <link rel="prev" title="seaborn.countplot" href="seaborn.countplot.html" />
@@ -54,7 +54,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 <h1>seaborn.heatmap<a class="headerlink" href="#seaborn-heatmap" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.heatmap">
-<code class="descclassname">seaborn.</code><code class="descname">heatmap</code><span class="sig-paren">(</span><em>data</em>, <em>vmin=None</em>, <em>vmax=None</em>, <em>cmap=None</em>, <em>center=None</em>, <em>robust=False</em>, <em>annot=False</em>, <em>fmt='.2g'</em>, <em>annot_kws=None</em>, <em>linewidths=0</em>, <em>linecolor='white'</em>, <em>cbar=True</em>, <em>cbar_kws=None</em>, <em>cbar_ax=None</em>, <em>square=False</em>, <em>ax=None</em>, <em>xticklabels=True</em>, <em>yticklabels=True</em>, <em>mask=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.heatmap" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seaborn.</code><code class="descname">heatmap</code><span class="sig-paren">(</span><em>data</em>, <em>vmin=None</em>, <em>vmax=None</em>, <em>cmap=None</em>, <em>center=None</em>, <em>robust=False</em>, <em>annot=None</em>, <em>fmt='.2g'</em>, <em>annot_kws=None</em>, <em>linewidths=0</em>, <em>linecolor='white'</em>, <em>cbar=True</em>, <em>cbar_kws=None</em>, <em>cbar_ax=None</em>, <em>square=False</em>, <em>ax=None</em>, <em>xticklabels=True</em>, <em>yticklabels=True</em>, <em>mask=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.heatmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot rectangular data as a color-encoded matrix.</p>
 <p>This function tries to infer a good colormap to use from the data, but
 this is not guaranteed to work, so take care to make sure the kind of
@@ -168,13 +168,15 @@ use of a diverging colormap.</p>
 <div><p>If True and <code class="docutils literal"><span class="pre">vmin</span></code> or <code class="docutils literal"><span class="pre">vmax</span></code> are absent, the colormap range is
 computed with robust quantiles instead of the extreme values.</p>
 </div></blockquote>
-<p><strong>annot</strong> : bool, optional</p>
+<p><strong>annot</strong> : bool or rectangular dataset, optional</p>
 <blockquote>
-<div><p>If True, write the data value in each cell.</p>
+<div><p>If True, write the data value in each cell. If an array-like with the
+same shape as <code class="docutils literal"><span class="pre">data</span></code>, then use this to annotate the heatmap instead
+of the raw data.</p>
 </div></blockquote>
 <p><strong>fmt</strong> : string, optional</p>
 <blockquote>
-<div><p>String formatting code to use when <code class="docutils literal"><span class="pre">annot</span></code> is True.</p>
+<div><p>String formatting code to use when adding annotations.</p>
 </div></blockquote>
 <p><strong>annot_kws</strong> : dict of key, value mappings, optional</p>
 <blockquote>

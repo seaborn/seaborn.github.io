@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>seaborn.PairGrid &mdash; seaborn 0.7.0 documentation</title>
+    <title>seaborn.PairGrid &mdash; seaborn 0.7.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0',
+        VERSION:     '0.7.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.0 documentation" href="../index.html" />
+    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
     <link rel="up" title="API reference" href="../api.html" />
     <link rel="next" title="seaborn.JointGrid" href="seaborn.JointGrid.html" />
     <link rel="prev" title="seaborn.FacetGrid" href="seaborn.FacetGrid.html" />
@@ -54,7 +54,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -226,12 +226,23 @@ as it is the same object, but it makes it easier to deal with the
 doctests).</p>
 <p>Color the points using a categorical variable:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-PairGrid-3.png" src="../_images/seaborn-PairGrid-3.png" />
+</div>
+<p>Use a different style to show multiple histograms:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-PairGrid-4.png" src="../_images/seaborn-PairGrid-4.png" />
 </div>
 <p>Plot a subset of variables</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">])</span>
@@ -239,7 +250,7 @@ doctests).</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-PairGrid-4.png" src="../_images/seaborn-PairGrid-4.png" />
+<img alt="../_images/seaborn-PairGrid-5.png" src="../_images/seaborn-PairGrid-5.png" />
 </div>
 <p>Pass additional keyword arguments to the functions</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
@@ -248,7 +259,7 @@ doctests).</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-PairGrid-5.png" src="../_images/seaborn-PairGrid-5.png" />
+<img alt="../_images/seaborn-PairGrid-6.png" src="../_images/seaborn-PairGrid-6.png" />
 </div>
 <p>Use different variables for the rows and columns:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
@@ -258,7 +269,7 @@ doctests).</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-PairGrid-6.png" src="../_images/seaborn-PairGrid-6.png" />
+<img alt="../_images/seaborn-PairGrid-7.png" src="../_images/seaborn-PairGrid-7.png" />
 </div>
 <p>Use different functions on the upper and lower triangles:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
@@ -268,7 +279,7 @@ doctests).</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-PairGrid-7.png" src="../_images/seaborn-PairGrid-7.png" />
+<img alt="../_images/seaborn-PairGrid-8.png" src="../_images/seaborn-PairGrid-8.png" />
 </div>
 <p>Use different colors and markers for each categorical level:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span>
@@ -278,7 +289,7 @@ doctests).</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-PairGrid-8.png" src="../_images/seaborn-PairGrid-8.png" />
+<img alt="../_images/seaborn-PairGrid-9.png" src="../_images/seaborn-PairGrid-9.png" />
 </div>
 </dd></dl>
 
