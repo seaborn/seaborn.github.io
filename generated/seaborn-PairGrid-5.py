@@ -1,2 +1,3 @@
-g = sns.PairGrid(iris, vars=["sepal_length", "sepal_width"])
-g = g.map(plt.scatter)
+g = sns.PairGrid(iris)
+g = g.map_diag(plt.hist, edgecolor="w")
+g = g.map_offdiag(plt.scatter, edgecolor="w", s=40)

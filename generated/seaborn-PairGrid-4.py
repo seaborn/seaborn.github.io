@@ -1,4 +1,2 @@
-g = sns.PairGrid(iris, hue="species")
-g = g.map_diag(plt.hist, histtype="step", linewidth=3)
-g = g.map_offdiag(plt.scatter)
-g = g.add_legend()
+g = sns.PairGrid(iris, vars=["sepal_length", "sepal_width"])
+g = g.map(plt.scatter)

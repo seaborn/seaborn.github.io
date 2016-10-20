@@ -1,3 +1,4 @@
-tips["weekend"] = tips["day"].isin(["Sat", "Sun"])
-ax = sns.violinplot(x="day", y="total_bill", hue="weekend",
-                    data=tips, dodge=False)
+planets = sns.load_dataset("planets")
+ax = sns.violinplot(x="orbital_period", y="method",
+                    data=planets[planets.orbital_period < 1000],
+                    scale="width", palette="Set3")

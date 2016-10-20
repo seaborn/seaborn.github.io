@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>seaborn.violinplot &mdash; seaborn 0.8.dev documentation</title>
+    <title>seaborn.violinplot &mdash; seaborn 0.7.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.dev',
+        VERSION:     '0.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.8.dev documentation" href="../index.html" />
+    <link rel="top" title="seaborn 0.7.0 documentation" href="../index.html" />
     <link rel="up" title="API reference" href="../api.html" />
     <link rel="next" title="seaborn.stripplot" href="seaborn.stripplot.html" />
     <link rel="prev" title="seaborn.boxplot" href="seaborn.boxplot.html" />
@@ -54,7 +54,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.dev</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -127,7 +127,7 @@
 <h1>seaborn.violinplot<a class="headerlink" href="#seaborn-violinplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.violinplot">
-<code class="descclassname">seaborn.</code><code class="descname">violinplot</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>hue=None</em>, <em>data=None</em>, <em>order=None</em>, <em>hue_order=None</em>, <em>bw='scott'</em>, <em>cut=2</em>, <em>scale='area'</em>, <em>scale_hue=True</em>, <em>gridsize=100</em>, <em>width=0.8</em>, <em>inner='box'</em>, <em>split=False</em>, <em>dodge=True</em>, <em>orient=None</em>, <em>linewidth=None</em>, <em>color=None</em>, <em>palette=None</em>, <em>saturation=0.75</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.violinplot" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seaborn.</code><code class="descname">violinplot</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>hue=None</em>, <em>data=None</em>, <em>order=None</em>, <em>hue_order=None</em>, <em>bw='scott'</em>, <em>cut=2</em>, <em>scale='area'</em>, <em>scale_hue=True</em>, <em>gridsize=100</em>, <em>width=0.8</em>, <em>inner='box'</em>, <em>split=False</em>, <em>orient=None</em>, <em>linewidth=None</em>, <em>color=None</em>, <em>palette=None</em>, <em>saturation=0.75</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.violinplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a combination of boxplot and kernel density estimate.</p>
 <p>A violin plot plays a similar role as a box and whisker plot. It shows the
 distribution of quantitative data across several levels of one (or more)
@@ -220,11 +220,6 @@ datapoint. Using <code class="docutils literal"><span class="pre">None</span></c
 <div><p>When using hue nesting with a variable that takes two levels, setting
 <code class="docutils literal"><span class="pre">split</span></code> to True will draw half of a violin for each level. This can
 make it easier to directly compare the distributions.</p>
-</div></blockquote>
-<p><strong>dodge</strong> : bool, optional</p>
-<blockquote>
-<div><p>When hue nesting is used, whether elements should be shifted along the
-categorical axis.</p>
 </div></blockquote>
 <p><strong>orient</strong> : &#8220;v&#8221; | &#8220;h&#8221;, optional</p>
 <blockquote>
@@ -368,15 +363,6 @@ spec.</p>
 <div class="figure">
 <img alt="../_images/seaborn-violinplot-10.png" src="../_images/seaborn-violinplot-10.png" />
 </div>
-<p>Use <code class="docutils literal"><span class="pre">hue</span></code> without changing violin position or width:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;weekend&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span> <span class="s2">&quot;Sun&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;weekend&quot;</span><span class="p">,</span>
-<span class="gp">... </span>                    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="../_images/seaborn-violinplot-11.png" src="../_images/seaborn-violinplot-11.png" />
-</div>
 <p>Draw horizontal violins:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">planets</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;planets&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">,</span>
@@ -385,7 +371,7 @@ spec.</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-violinplot-12.png" src="../_images/seaborn-violinplot-12.png" />
+<img alt="../_images/seaborn-violinplot-11.png" src="../_images/seaborn-violinplot-11.png" />
 </div>
 <p>Draw a violin plot on to a <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> to group within an additional
 categorical variable:</p>
@@ -397,7 +383,7 @@ categorical variable:</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-violinplot-13.png" src="../_images/seaborn-violinplot-13.png" />
+<img alt="../_images/seaborn-violinplot-12.png" src="../_images/seaborn-violinplot-12.png" />
 </div>
 </dd></dl>
 

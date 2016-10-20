@@ -1,4 +1,4 @@
-g = sns.PairGrid(iris)
-g = g.map_upper(plt.scatter)
-g = g.map_lower(sns.kdeplot, cmap="Blues_d")
-g = g.map_diag(sns.kdeplot, lw=3, legend=False)
+g = sns.PairGrid(iris, hue="species", palette="Set2",
+                 hue_kws={"marker": ["o", "s", "D"]})
+g = g.map(plt.scatter, linewidths=1, edgecolor="w", s=40)
+g = g.add_legend()

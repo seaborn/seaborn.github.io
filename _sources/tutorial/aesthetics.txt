@@ -139,7 +139,7 @@ Some plots benefit from offsetting the spines away from the data, which can also
 .. code:: python
 
     f, ax = plt.subplots()
-    sns.violinplot(data=data)
+    sns.violinplot(data)
     sns.despine(offset=10, trim=True);
 
 
