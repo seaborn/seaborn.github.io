@@ -1,4 +1,4 @@
-import seaborn as sns; sns.set()
-flights = sns.load_dataset("flights")
-flights = flights.pivot("month", "year", "passengers")
-g = sns.clustermap(flights)
+import seaborn as sns; sns.set(color_codes=True)
+iris = sns.load_dataset("iris")
+species = iris.pop("species")
+g = sns.clustermap(iris)

@@ -1,1 +1,1 @@
-ax = sns.tsplot(data=data, estimator=np.median)
+ax = sns.tsplot(data=data, ci="sd")

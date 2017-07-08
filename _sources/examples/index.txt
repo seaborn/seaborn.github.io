@@ -102,9 +102,11 @@ Example gallery
 
    ./horizontal_boxplot
 
-   ./interactplot
+   ./jitter_stripplot
 
    ./joint_kde
+
+   ./large_distributions
 
    ./logistic_regression
 
@@ -117,8 +119,6 @@ Example gallery
    ./multiple_joint_kde
 
    ./multiple_regression
-
-   ./network_correlations
 
    ./pair_grid_with_kde
 
@@ -335,10 +335,10 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./interactplot.html>
-    <img src=../_static/interactplot_thumb.png>
+    <a href=./jitter_stripplot.html>
+    <img src=../_static/jitter_stripplot_thumb.png>
     <span class='figure-label'>
-    <p>interactplot</p>
+    <p>stripplot</p>
     </span>
     </a>
     </div>
@@ -352,6 +352,19 @@ Example gallery
     <img src=../_static/joint_kde_thumb.png>
     <span class='figure-label'>
     <p>jointplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./large_distributions.html>
+    <img src=../_static/large_distributions_thumb.png>
+    <span class='figure-label'>
+    <p>lvplot</p>
     </span>
     </a>
     </div>
@@ -430,19 +443,6 @@ Example gallery
     <img src=../_static/multiple_regression_thumb.png>
     <span class='figure-label'>
     <p>lmplot</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
-    <a href=./network_correlations.html>
-    <img src=../_static/network_correlations_thumb.png>
-    <span class='figure-label'>
-    <p>heatmap</p>
     </span>
     </a>
     </div>

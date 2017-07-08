@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s new in the package &mdash; seaborn 0.7.1 documentation</title>
+    <title>What’s new in the package &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="index.html" />
     <link rel="next" title="Installing and getting started" href="installing.html" />
     <link rel="prev" title="An introduction to seaborn" href="introduction.html" />
 <meta charset='utf-8'>
@@ -53,15 +54,15 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="api.html">API</a></li>
-                <li><a href="tutorial.html">Tutorial</a></li>
                 <li><a href="examples/index.html">Gallery</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -77,8 +78,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -93,6 +94,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">What&#8217;s new in the package</a><ul>
+<li><a class="reference internal" href="#v0-8-0-july-2017">v0.8.0 (July 2017)</a></li>
 <li><a class="reference internal" href="#v0-7-1-june-2016">v0.7.1 (June 2016)</a></li>
 <li><a class="reference internal" href="#v0-7-0-january-2016">v0.7.0 (January 2016)</a></li>
 <li><a class="reference internal" href="#v0-6-0-june-2015">v0.6.0 (June 2015)</a><ul>
@@ -106,46 +108,46 @@
 <li><a class="reference internal" href="#v0-5-0-november-2014">v0.5.0 (November 2014)</a><ul>
 <li><a class="reference internal" href="#plotting-functions">Plotting functions</a></li>
 <li><a class="reference internal" href="#color-palettes">Color palettes</a></li>
-<li><a class="reference internal" href="#id4">Bug fixes</a></li>
+<li><a class="reference internal" href="#id5">Bug fixes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-4-0-september-2014">v0.4.0 (September 2014)</a><ul>
-<li><a class="reference internal" href="#id5">Plotting functions</a></li>
+<li><a class="reference internal" href="#id6">Plotting functions</a></li>
 <li><a class="reference internal" href="#style-and-color-palettes">Style and color palettes</a></li>
 <li><a class="reference internal" href="#other-api-changes">Other API Changes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-3-1-april-2014">v0.3.1 (April 2014)</a><ul>
-<li><a class="reference internal" href="#id6">Plotting functions</a></li>
-<li><a class="reference internal" href="#id7">Bug Fixes</a></li>
+<li><a class="reference internal" href="#id7">Plotting functions</a></li>
+<li><a class="reference internal" href="#id8">Bug Fixes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-3-0-march-2014">v0.3.0 (March 2014)</a><ul>
-<li><a class="reference internal" href="#id8">New plotting functions</a></li>
+<li><a class="reference internal" href="#id9">New plotting functions</a></li>
 <li><a class="reference internal" href="#api-changes">API changes</a></li>
 <li><a class="reference internal" href="#other-changes">Other changes</a><ul>
 <li><a class="reference internal" href="#using-the-package">Using the package</a></li>
-<li><a class="reference internal" href="#id9">Plotting functions</a></li>
+<li><a class="reference internal" href="#id10">Plotting functions</a></li>
 <li><a class="reference internal" href="#style">Style</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-2-1-december-2013">v0.2.1 (December 2013)</a><ul>
-<li><a class="reference internal" href="#id10">Bug fixes</a></li>
+<li><a class="reference internal" href="#id11">Bug fixes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-2-0-december-2013">v0.2.0 (December 2013)</a><ul>
-<li><a class="reference internal" href="#id11">API changes</a></li>
-<li><a class="reference internal" href="#id12">New plotting functions</a></li>
-<li><a class="reference internal" href="#id13">Other changes</a><ul>
-<li><a class="reference internal" href="#id14">Plotting functions</a></li>
-<li><a class="reference internal" href="#id15">Color palettes</a></li>
+<li><a class="reference internal" href="#id12">API changes</a></li>
+<li><a class="reference internal" href="#id13">New plotting functions</a></li>
+<li><a class="reference internal" href="#id14">Other changes</a><ul>
+<li><a class="reference internal" href="#id15">Plotting functions</a></li>
+<li><a class="reference internal" href="#id16">Color palettes</a></li>
 <li><a class="reference internal" href="#plot-styling">Plot styling</a></li>
 <li><a class="reference internal" href="#general-package-issues">General package issues</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id16">Bug fixes</a></li>
+<li><a class="reference internal" href="#id17">Bug fixes</a></li>
 </ul>
 </li>
 </ul>
@@ -181,9 +183,33 @@
       
   <div class="section" id="what-s-new-in-the-package">
 <span id="whatsnew"></span><h1>What&#8217;s new in the package<a class="headerlink" href="#what-s-new-in-the-package" title="Permalink to this headline">¶</a></h1>
-<p>A catalog of new features, improvements, and bug-fixes in each release.</p>
+<div class="section" id="v0-8-0-july-2017">
+<h2>v0.8.0 (July 2017)<a class="headerlink" href="#v0-8-0-july-2017" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.824567"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.824567.svg" /></a>
+<ul class="simple">
+<li>The default style is no longer applied when seaborn is imported. It is now necessary to explicitly call <a class="reference internal" href="generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> or one or more of <a class="reference internal" href="generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a>, <a class="reference internal" href="generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a>, and <a class="reference internal" href="generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal"><span class="pre">set_palette()</span></code></a>. Correspondingly, the <code class="docutils literal"><span class="pre">seaborn.apionly</span></code> module has been deprecated.</li>
+<li>Changed the behavior of <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> (and by extension <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>) when plotting divergent dataesets (i.e. when the <code class="docutils literal"><span class="pre">center</span></code> parameter is used). Instead of extending the lower and upper limits of the colormap to be symettrical around the <code class="docutils literal"><span class="pre">center</span></code> value, the colormap is modified so that its middle color corresponds to <code class="docutils literal"><span class="pre">center</span></code>. This means that the full range of the colormap will not be used (unless the data or specified <code class="docutils literal"><span class="pre">vmin</span></code> and <code class="docutils literal"><span class="pre">vmax</span></code> are symettric), but the upper and lower limits of the colorbar will correspond to the range of the data. See the Github pull request <a class="reference external" href="https://github.com/mwaskom/seaborn/pull/1184">(#1184)</a> for examples of the behavior.</li>
+<li>Removed automatic detection of diverging data in <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> (and by extension <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>). If you want the colormap to be treated as diverging (see above), it is now necessary to specify the <code class="docutils literal"><span class="pre">center</span></code> value. When no colormap is specified, specifying <code class="docutils literal"><span class="pre">center</span></code> will still change the default to be one that is more appropriate for displaying diverging data.</li>
+<li>Added four new colormaps, created using <a class="reference external" href="https://github.com/matplotlib/viscm">viscm</a> for perceptual uniformity. The new colormaps include two sequential colormaps (&#8220;rocket&#8221; and &#8220;mako&#8221;) and two diverging colormaps (&#8220;icefire&#8221; and &#8220;vlag&#8221;). These colormaps are registered with matplotlib on seaborn input and the colormap objects can be accessed in the <code class="docutils literal"><span class="pre">seaborn.cm</span></code> namespace.</li>
+<li>Changed the default <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> colormaps to be &#8220;rocket&#8221; (in the case of sequential data) or &#8220;icefire&#8221; (in the case of diverging data). Note that this change reverses the direction of the luminance ramp from the previous defaults. While potentially confusing and disruptive, this change better aligns the seaborn defaults with the new matplotlib default colormap (&#8220;viridis&#8221;) and arguably better aligns the semantics of a &#8220;heat&#8221; map with the appearance of the colormap.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;auto&quot;</span></code> as a (default) option for tick labels in <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> and <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>. This will try to estimate how many ticks can be labeled without the text objects overlapping, which should improve performance for larger matrices.</li>
+<li>Added the <code class="docutils literal"><span class="pre">dodge</span></code> parameter to <a class="reference internal" href="generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal"><span class="pre">boxplot()</span></code></a>, <a class="reference internal" href="generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal"><span class="pre">violinplot()</span></code></a>, and <a class="reference internal" href="generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal"><span class="pre">barplot()</span></code></a> to allow use of <code class="docutils literal"><span class="pre">hue</span></code> without changing the position or width of the plot elements, as when the <code class="docutils literal"><span class="pre">hue</span></code> varible is not nested within the main categorical variable.</li>
+<li>Correspondingly, the <code class="docutils literal"><span class="pre">split</span></code> parameter for <a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal"><span class="pre">stripplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal"><span class="pre">swarmplot()</span></code></a> has been renamed to <code class="docutils literal"><span class="pre">dodge</span></code> for consistency with the other categorical functions (and for differentiation from the meaning of <code class="docutils literal"><span class="pre">split</span></code> in <a class="reference internal" href="generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal"><span class="pre">violinplot()</span></code></a>).</li>
+<li>Added the ability to draw a colorbar for a bivariate <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> with the <code class="docutils literal"><span class="pre">cbar</span></code> parameter (and related <code class="docutils literal"><span class="pre">cbar_ax</span></code> and <code class="docutils literal"><span class="pre">cbar_kws</span></code> parameters).</li>
+<li>Added the ability to use error bars to show standard deviations rather than bootstrap confidence intervals in most statistical functions by putting <code class="docutils literal"><span class="pre">ci=&quot;sd&quot;</span></code>.</li>
+<li>Allow side-specific offsets in <a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a>.</li>
+<li>Figure size is no longer part of the seaborn plotting context parameters.</li>
+<li>Put a cap on the number of bins used in <a class="reference internal" href="generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> for <code class="docutils literal"><span class="pre">type==&quot;hex&quot;</span></code> to avoid hanging when the reference rule prescribes too many.</li>
+<li>Turn off dendrogram axes in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a> rather than setting the background color to white.</li>
+<li>New matplotlib qualitative palettes (e.g. &#8220;tab10&#8221;) are now handled correctly.</li>
+<li>Some modules and functions have been internally reorganized; there should be no effect on code that uses the <code class="docutils literal"><span class="pre">seaborn</span></code> namespace.</li>
+<li>Added a deprecation warning to <a class="reference internal" href="generated/seaborn.tsplot.html#seaborn.tsplot" title="seaborn.tsplot"><code class="xref py py-func docutils literal"><span class="pre">tsplot()</span></code></a> function to indicate that it will be removed or replaced with a substantially altered version in a future release.</li>
+<li>The <code class="docutils literal"><span class="pre">interactplot</span></code> and <code class="docutils literal"><span class="pre">coefplot</span></code> functions are officially deprecated and will be removed in a future release.</li>
+</ul>
+</div>
 <div class="section" id="v0-7-1-june-2016">
 <h2>v0.7.1 (June 2016)<a class="headerlink" href="#v0-7-1-june-2016" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.54844"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.54844.svg" /></a>
 <ul class="simple">
 <li>Added the ability to put &#8220;caps&#8221; on the error bars that are drawn by <a class="reference internal" href="generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal"><span class="pre">barplot()</span></code></a> or <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> (and, by extension, <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>). Additionally, the line width of the error bars can now be controlled. These changes involve the new parameters <code class="docutils literal"><span class="pre">capsize</span></code> and <code class="docutils literal"><span class="pre">errwidth</span></code>. See the <a class="reference external" href="https://github.com/mwaskom/seaborn/pull/898">github pull request</a> for examples of usage.</li>
 <li>Improved the row and column colors display in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>. It is now possible to pass Pandas objects for these elements and, when possible, the semantic information in the Pandas objects will be used to add labels to the plot. When Pandas objects are used, the color data is matched against the main heatmap based on the index, not on position. This is more accurate, but it may lead to different results if current code assumed positional matching.</li>
@@ -200,6 +226,7 @@
 </div>
 <div class="section" id="v0-7-0-january-2016">
 <h2>v0.7.0 (January 2016)<a class="headerlink" href="#v0-7-0-january-2016" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.45133"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.45133.svg" /></a>
 <p>This is a major release from 0.6. The main new feature is <a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal"><span class="pre">swarmplot()</span></code></a> which implements the beeswarm approach for drawing categorical scatterplots. There are also some performance improvements, bug fixes, and updates for compatibility with new versions of dependencies.</p>
 <ul class="simple">
 <li>Added the <a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal"><span class="pre">swarmplot()</span></code></a> function, which draws beeswarm plots. These are categorical scatterplots, similar to those produced by <a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal"><span class="pre">stripplot()</span></code></a>, but position of the points on the categorical axis is chosen to avoid overlapping points. See the <a class="reference internal" href="tutorial/categorical.html#categorical-tutorial"><span>categorical plot tutorial</span></a> for more information.</li>
@@ -223,6 +250,7 @@
 </div>
 <div class="section" id="v0-6-0-june-2015">
 <h2>v0.6.0 (June 2015)<a class="headerlink" href="#v0-6-0-june-2015" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.19108"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19108.svg" /></a>
 <p>This is a major release from 0.5. The main objective of this release was to unify the API for categorical plots, which means that there are some relatively large API changes in some of the older functions. See below for details of those changes, which may break code written for older versions of seaborn. There are also some new functions (<a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal"><span class="pre">stripplot()</span></code></a>,  and <a class="reference internal" href="generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-func docutils literal"><span class="pre">countplot()</span></code></a>), numerous enhancements to existing functions, and bug fixes.</p>
 <p>Additionally, the documentation has been completely revamped and expanded for the 0.6 release. Now, the API docs page for each function has multiple examples with embedded plots showing how to use the various options. These pages should be considered the most comprehensive resource for examples, and the tutorial pages are now streamlined and oriented towards a higher-level overview of the various features.</p>
 <div class="section" id="changes-and-updates-to-categorical-plots">
@@ -301,7 +329,7 @@
 </div>
 <div class="section" id="v0-5-0-november-2014">
 <h2>v0.5.0 (November 2014)<a class="headerlink" href="#v0-5-0-november-2014" title="Permalink to this headline">¶</a></h2>
-<p>This is a major release from 0.4. Highlights include new functions for <a class="reference internal" href="examples/network_correlations.html#network-correlations"><span>plotting heatmaps</span></a>, possibly while <a class="reference internal" href="examples/structured_heatmap.html#structured-heatmap"><span>applying clustering algorithms</span></a> to discover structured relationships. These functions are complemented by new custom colormap functions and a full set of IPython widgets that allow interactive selection of colormap parameters. The <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>palette tutorial</span></a> has been rewritten to cover these new tools and more generally provide guidance on how to use color in visualizations. There are also a number of smaller changes and bugfixes.</p>
+<p>This is a major release from 0.4. Highlights include new functions for <span class="xref std std-ref">plotting heatmaps</span>, possibly while <a class="reference internal" href="examples/structured_heatmap.html#structured-heatmap"><span>applying clustering algorithms</span></a> to discover structured relationships. These functions are complemented by new custom colormap functions and a full set of IPython widgets that allow interactive selection of colormap parameters. The <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>palette tutorial</span></a> has been rewritten to cover these new tools and more generally provide guidance on how to use color in visualizations. There are also a number of smaller changes and bugfixes.</p>
 <div class="section" id="plotting-functions">
 <h3>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -321,8 +349,8 @@
 <li>Overhauled the color <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>palette tutorial</span></a> to organize the discussion by class of color palette and provide more motivation behind the various choices one might make when choosing colors for their data.</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>Bug fixes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Bug fixes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug in <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> that gave incorrect results (or a crash) when the input DataFrame has a non-default index.</li>
 <li>Fixed a bug in <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> where passing columns with a date-like datatype raised an exception.</li>
@@ -337,8 +365,8 @@
 <div class="section" id="v0-4-0-september-2014">
 <h2>v0.4.0 (September 2014)<a class="headerlink" href="#v0-4-0-september-2014" title="Permalink to this headline">¶</a></h2>
 <p>This is a major release from 0.3. Highlights include new approaches for <a class="reference internal" href="examples/scatterplot_matrix.html#scatterplot-matrix"><span>quick, high-level dataset exploration</span></a> (along with a more <a class="reference internal" href="examples/pair_grid_with_kde.html#pair-grid-with-kde"><span>flexible interface</span></a>) and easy creation of <a class="reference internal" href="examples/cubehelix_palette.html#cubehelix-palette"><span>perceptually-appropriate color palettes</span></a> using the cubehelix system. Along with these additions, there are a number of smaller changes that make visualizing data with seaborn easier and more powerful.</p>
-<div class="section" id="id5">
-<h3>Plotting functions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Plotting functions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A new object, <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a>, and a corresponding function <a class="reference internal" href="generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a>, for drawing grids of pairwise relationships in a dataset. This style of plot is sometimes called a &#8220;scatterplot matrix&#8221;, but the representation of the data in <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> is flexible and many styles other than scatterplots can be used. See the <a class="reference internal" href="tutorial/axis_grids.html#pair-grid"><span>docs</span></a> for more information. <strong>Note:</strong> due to a bug in older versions of matplotlib, you will have best results if you use these functions with matplotlib 1.4 or later.</li>
 <li>The rules for choosing default color palettes when variables are mapped to different colors have been unified (and thus changed in some cases). Now when no specific palette is requested, the current global color palette will be used, unless the number of variables to be mapped exceeds the number of unique colors in the palette, in which case the <code class="docutils literal"><span class="pre">&quot;husl&quot;</span></code> palette will be used to avoid cycling.</li>
@@ -371,15 +399,15 @@
 <div class="section" id="v0-3-1-april-2014">
 <h2>v0.3.1 (April 2014)<a class="headerlink" href="#v0-3-1-april-2014" title="Permalink to this headline">¶</a></h2>
 <p>This is a minor release from 0.3 with fixes for several bugs.</p>
-<div class="section" id="id6">
-<h3>Plotting functions<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Plotting functions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The size of the points in <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> are now scaled with the linewidth for better aesthetics across different plotting contexts.</li>
 <li>The <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> glyphs for different levels of the hue variable are drawn at different z-orders so that they appear uniform.</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>Bug Fixes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Bug Fixes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug in <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> (and thus affecting lmplot and factorplot) that appeared when <code class="docutils literal"><span class="pre">col_wrap</span></code> was used with a number of facets that did not evenly divide into the column width.</li>
 <li>Fixed an issue where the support for kernel density estimates was sometimes computed incorrectly.</li>
@@ -391,8 +419,8 @@
 <div class="section" id="v0-3-0-march-2014">
 <h2>v0.3.0 (March 2014)<a class="headerlink" href="#v0-3-0-march-2014" title="Permalink to this headline">¶</a></h2>
 <p>This is a major release from 0.2 with a number of enhancements to the plotting capabilities and styles. Highlights include <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a>, <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>, <a class="reference internal" href="generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a>, and an overhaul to <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span>style management</span></a>. There is also lots of new documentation, including an <a class="reference internal" href="examples/index.html#example-gallery"><span>example gallery</span></a> and reorganized <span class="xref std std-ref">tutorial</span>.</p>
-<div class="section" id="id8">
-<h3>New plotting functions<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>New plotting functions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> class adds a new form of functionality to seaborn, providing a way to abstractly structure a grid of plots corresponding to subsets of a dataset. It can be used with a wide variety of plotting functions (including most of the matplotlib and seaborn APIs. See the <a class="reference internal" href="tutorial/axis_grids.html#facet-grid"><span>tutorial</span></a> for more information.</li>
 <li>Version 0.3 introduces the <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> function, which is similar in spirit to <a class="reference internal" href="generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> but intended for use when the main independent variable is categorical instead of quantitative. <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> can draw a plot in either a point or bar representation using the corresponding Axes-level functions <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal"><span class="pre">barplot()</span></code></a> (which are also new). Additionally, the <a class="reference internal" href="generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> function can be used to draw box plots on a faceted grid. For examples of how to use these functions, you can refer to the <span class="xref std std-ref">tutorial</span>.</li>
@@ -418,13 +446,13 @@
 <li>The dependency load of the package has been reduced. It can now be installed and used with only <code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, and <code class="docutils literal"><span class="pre">pandas</span></code>. Although <code class="docutils literal"><span class="pre">statsmodels</span></code> is still recommended for full functionality, it is not required.</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h4>Plotting functions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id10">
+<h4>Plotting functions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><a class="reference internal" href="generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> (and <a class="reference internal" href="generated/seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal"><span class="pre">regplot()</span></code></a>) have two new options for fitting regression models: <code class="docutils literal"><span class="pre">lowess</span></code> and <code class="docutils literal"><span class="pre">robust</span></code>. The former fits a nonparametric smoother, while the latter fits a regression using methods that are less sensitive to outliers.</li>
 <li>The regression uncertainty in <a class="reference internal" href="generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal"><span class="pre">regplot()</span></code></a> is now estimated with fewer bootstrap iterations, so plotting should be faster.</li>
 <li>The univariate <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> can now be drawn as a <em>cumulative</em> density plot.</li>
-<li>Changed <a class="reference internal" href="generated/seaborn.interactplot.html#seaborn.interactplot" title="seaborn.interactplot"><code class="xref py py-func docutils literal"><span class="pre">interactplot()</span></code></a> to use a robust calculation of the data range when finding default limits for the contour colormap to work better when there are outliers in the data.</li>
+<li>Changed <code class="xref py py-func docutils literal"><span class="pre">interactplot()</span></code> to use a robust calculation of the data range when finding default limits for the contour colormap to work better when there are outliers in the data.</li>
 </ul>
 </div>
 <div class="section" id="style">
@@ -440,8 +468,8 @@
 <div class="section" id="v0-2-1-december-2013">
 <h2>v0.2.1 (December 2013)<a class="headerlink" href="#v0-2-1-december-2013" title="Permalink to this headline">¶</a></h2>
 <p>This is a bugfix release, with no new features.</p>
-<div class="section" id="id10">
-<h3>Bug fixes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Bug fixes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Changed the mechanics of <code class="docutils literal"><span class="pre">violinplot()</span></code> and <code class="docutils literal"><span class="pre">boxplot()</span></code> when using a
 <code class="docutils literal"><span class="pre">Series</span></code> object as data and performing a <code class="docutils literal"><span class="pre">groupby</span></code> to assign data to
@@ -469,8 +497,8 @@ significant improvements to color palette handling.</p>
 <p>In addition to the library enhancements, the documentation has been
 substantially rewritten to reflect the new features and improve the
 presentation of the ideas behind the package.</p>
-<div class="section" id="id11">
-<h3>API changes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>API changes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <code class="docutils literal"><span class="pre">tsplot()</span></code> function was rewritten to accept data in a long-form
 <code class="docutils literal"><span class="pre">DataFrame</span></code> and to plot different traces by condition. This introduced a
@@ -492,8 +520,8 @@ drawing bivariate densities.</li>
 In 0.2, <code class="docutils literal"><span class="pre">violin</span></code> will still work, but it will fire a <code class="docutils literal"><span class="pre">UserWarning</span></code>.</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>New plotting functions<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>New plotting functions<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <code class="docutils literal"><span class="pre">interactplot()</span></code> function draws a contour plot for an interactive
 linear model (i.e., the contour shows <code class="docutils literal"><span class="pre">y-hat</span></code> from the model <code class="docutils literal"><span class="pre">y</span> <span class="pre">~</span> <span class="pre">x1</span> <span class="pre">*</span>
@@ -506,10 +534,10 @@ contour plot if provided with two-dimensional input data.</li>
 color palette.</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>Other changes<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id14">
-<h4>Plotting functions<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<h3>Other changes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h4>Plotting functions<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>The <code class="docutils literal"><span class="pre">corrplot()</span></code> function can be drawn without the correlation coefficient
 annotation and with variable names on the side of the plot to work with large
@@ -531,8 +559,8 @@ control the order of the bins when using a Pandas object.</li>
 currently active axis instead of drawing a new one.</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h4>Color palettes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id16">
+<h4>Color palettes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added the <code class="docutils literal"><span class="pre">dark_palette()</span></code> and <code class="docutils literal"><span class="pre">blend_palette()</span></code> for on-the-fly creation
 of blended color palettes.</li>
@@ -567,8 +595,8 @@ into smaller modules grouped by general objective of the constituent plots.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id16">
-<h3>Bug fixes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>Bug fixes<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug where labels did not match data for <code class="docutils literal"><span class="pre">boxplot()</span></code> and <code class="docutils literal"><span class="pre">violinplot()</span></code>
 when using a groupby.</li>
@@ -598,14 +626,10 @@ function, so context or color palette can be cleanly changed.</li>
       
         <br/>
         
-<div id="sourcelink">
-  <a href="_sources/whatsnew.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

@@ -6,11 +6,11 @@
 Plotting on data-aware grids
 ============================
 
-When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either "lattice", or `"trellis" <http://netlib.bell-labs.com/cm/ms/departments/sia/project/trellis>`_ plotting, and it is related to the idea of `"small multiples" <http://en.wikipedia.org/wiki/Small_multiple>`_. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.
+When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either "lattice", or "trellis" plotting, and it is related to the idea of `"small multiples" <http://en.wikipedia.org/wiki/Small_multiple>`_. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.
 
 To use these features, your data has to be in a Pandas DataFrame and it must take the form of what Hadley Whickam calls `"tidy" data <http://vita.had.co.nz/papers/tidy-data.pdf>`_. In brief, that means your dataframe should be structured such that each column is a variable and each row is an observation.
 
-For advanced use, you can use the objects discussed in this part of the tutorial directly, which will provide maximum flexibility. Some seaborn functions (such as :func:`lmplot`, :func:`factorplot`, and :func:`pairplot`) also use them behind the scenes. Unlike other seaborn functions that are "Axes-level" and draw onto specific (possibly already-existing) matplotlib ``Axes`` without otherwise manipulating the figure, these higher-level functions create a figure when called and are generally more strict about how it gets set up. In some cases, arguments either to those functions or to the constructor of the class they rely on will provide a different interface attributes like the figure size, as in the case of :func:`lmplot` where you can set the height and aspect ratio for each facet rather than the overall size of the figure. Any function that uses one of these objects will always return it after plotting, though, and most of these objects have convenience methods for changing how the plot, often in a more abstract and easy way.
+For advanced use, you can use the objects discussed in this part of the tutorial directly, which will provide maximum flexibility. Some seaborn functions (such as :func:`lmplot`, :func:`factorplot`, and :func:`pairplot`) also use them behind the scenes. Unlike other seaborn functions that are "Axes-level" and draw onto specific (possibly already-existing) matplotlib ``Axes`` without otherwise manipulating the figure, these higher-level functions create a figure when called and are generally more strict about how it gets set up. In some cases, arguments either to those functions or to the constructor of the class they rely on will provide a different interface attributes like the figure size, as in the case of :func:`lmplot` where you can set the height and aspect ratio for each facet rather than the overall size of the figure. Any function that uses one of these objects will always return it after plotting, though, and most of these objects have convenience methods for changing how the plot is drawn, often in a more abstract and easy way.
 
 .. code:: python
 
@@ -32,8 +32,8 @@ For advanced use, you can use the objects discussed in this part of the tutorial
 
 .. _facet_grid:
 
-Subsetting data with :class:`FacetGrid`
----------------------------------------
+Plotting small multiples of data subsets
+----------------------------------------
 
 The :class:`FacetGrid` class is useful when you want to visualize the distribution of a variable or the relationship between multiple variables separately within subsets of your dataset. A :class:`FacetGrid` can be drawn with up to three dimensions: ``row``, ``col``, and ``hue``. The first two have obvious correspondence with the resulting array of axes; think of the hue variable as a third dimension along a depth axis, where different levels are plotted with different colors.
 
@@ -112,20 +112,14 @@ With versions of matplotlib > 1.4, you can pass parameters to be used in the `gr
 .. code:: python
 
     titanic = sns.load_dataset("titanic")
-    titanic = titanic.assign(deck=titanic.deck.astype(object)).sort("deck")
+    titanic = titanic.assign(deck=titanic.deck.astype(object)).sort_values("deck")
     g = sns.FacetGrid(titanic, col="class", sharex=False,
                       gridspec_kws={"width_ratios": [5, 3, 3]})
     g.map(sns.boxplot, "deck", "age");
 
 
-.. parsed-literal::
 
-    /Users/mwaskom/anaconda/lib/python2.7/site-packages/ipykernel/__main__.py:2: FutureWarning: sort(columns=....) is deprecated, use sort_values(by=.....)
-      from ipykernel import kernelapp as app
-
-
-
-.. image:: axis_grids_files/axis_grids_18_1.png
+.. image:: axis_grids_files/axis_grids_18_0.png
 
 
 The default ordering of the facets is derived from the information in the DataFrame. If the variable used to define facets has a categorical type, then the order of the categories is used. Otherwise, the facets will be in the order of appearence of the category levels. It is possible, however, to specify an ordering of any facet dimension with the appropriate ``*_order`` parameter:
@@ -303,8 +297,8 @@ Sometimes, though, you'll want to map a function that doesn't work the way you e
 
 .. _pair_grid:
 
-Plotting pairwise relationships with :class:`PairGrid` and :func:`pairplot`
----------------------------------------------------------------------------
+Plotting pairwise relationships in a dataset
+--------------------------------------------
 
 :class:`PairGrid` also allows you to quickly draw a grid of small subplots using the same plot type to visualize data in each. In a :class:`PairGrid`, each row and column is assigned to a different variable, so the resulting plot shows each pairwise relationship in the dataset. This style of plot is sometimes called a "scatterplot matrix", as this is the most common way to show each relationship, but :class:`PairGrid` is not limited to scatterplots.
 
@@ -423,4 +417,5 @@ You can also control the aesthetics of the plot with keyword arguments, and it r
 
 
 .. image:: axis_grids_files/axis_grids_58_0.png
+
 

@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Seaborn tutorial &mdash; seaborn 0.7.1 documentation</title>
+    <title>Seaborn tutorial &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,8 +31,10 @@
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="index.html" />
     <link rel="next" title="Controlling figure aesthetics" href="tutorial/aesthetics.html" />
+    <link rel="prev" title="Barplot timeseries" href="examples/timeseries_of_barplots.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -52,15 +54,15 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="api.html">API</a></li>
-                <li><a href="#">Tutorial</a></li>
                 <li><a href="examples/index.html">Gallery</a></li>
+                <li><a href="#">Tutorial</a></li>
+                <li><a href="api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -76,8 +78,8 @@
 <li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -133,19 +135,19 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/aesthetics.html">Controlling figure aesthetics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#styling-figures-with-axes-style-and-set-style">Styling figures with <code class="docutils literal"><span class="pre">axes_style()</span></code> and <code class="docutils literal"><span class="pre">set_style()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#removing-spines-with-despine">Removing spines with <code class="docutils literal"><span class="pre">despine()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#seaborn-figure-styles">Seaborn figure styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#removing-axes-spines">Removing axes spines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#temporarily-setting-figure-style">Temporarily setting figure style</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#overriding-elements-of-the-seaborn-styles">Overriding elements of the seaborn styles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#scaling-plot-elements-with-plotting-context-and-set-context">Scaling plot elements with <code class="docutils literal"><span class="pre">plotting_context()</span></code> and <code class="docutils literal"><span class="pre">set_context()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#scaling-plot-elements">Scaling plot elements</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/color_palettes.html">Choosing color palettes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#building-color-palettes-with-color-palette">Building color palettes with <code class="docutils literal"><span class="pre">color_palette()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#building-color-palettes">Building color palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#qualitative-color-palettes">Qualitative color palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#sequential-color-palettes">Sequential color palettes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#diverging-color-palettes">Diverging color palettes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#changing-default-palettes-with-set-palette">Changing default palettes with <code class="docutils literal"><span class="pre">set_palette()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#setting-the-default-color-palette">Setting the default color palette</a></li>
 </ul>
 </li>
 </ul>
@@ -161,20 +163,20 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#visualizing-pairwise-relationships-in-a-dataset">Visualizing pairwise relationships in a dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial/regression.html">Visualizing linear relationships</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#functions-to-draw-linear-regression-models">Functions to draw linear regression models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#fitting-different-kinds-of-models">Fitting different kinds of models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#conditioning-on-other-variables">Conditioning on other variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#controlling-the-size-and-shape-of-the-plot">Controlling the size and shape of the plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#plotting-a-regression-in-other-contexts">Plotting a regression in other contexts</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/categorical.html">Plotting with categorical data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#categorical-scatterplots">Categorical scatterplots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#distributions-of-observations-within-categories">Distributions of observations within categories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#statistical-estimation-within-categories">Statistical estimation within categories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#plotting-wide-form-data">Plotting &#8220;wide-form&#8221; data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#drawing-multi-panel-categorical-plots">Drawing multi-panel categorical plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/regression.html">Visualizing linear relationships</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#functions-to-draw-linear-regression-models">Functions to draw linear regression models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#fitting-different-kinds-of-models">Fitting different kinds of models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#conditioning-on-other-variables">Conditioning on other variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#controlling-the-size-and-shape-of-the-plot">Controlling the size and shape of the plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#plotting-a-regression-in-other-contexts">Plotting a regression in other contexts</a></li>
 </ul>
 </li>
 </ul>
@@ -185,8 +187,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorial/axis_grids.html">Plotting on data-aware grids</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#subsetting-data-with-facetgrid">Subsetting data with <code class="docutils literal"><span class="pre">FacetGrid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#plotting-pairwise-relationships-with-pairgrid-and-pairplot">Plotting pairwise relationships with <code class="docutils literal"><span class="pre">PairGrid</span></code> and <code class="docutils literal"><span class="pre">pairplot()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#plotting-small-multiples-of-data-subsets">Plotting small multiples of data subsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#plotting-pairwise-relationships-in-a-dataset">Plotting pairwise relationships in a dataset</a></li>
 </ul>
 </li>
 </ul>
@@ -206,14 +208,10 @@
       
         <br/>
         
-<div id="sourcelink">
-  <a href="_sources/tutorial.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

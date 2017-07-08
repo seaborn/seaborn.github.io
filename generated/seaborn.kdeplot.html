@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>seaborn.kdeplot &mdash; seaborn 0.7.1 documentation</title>
+    <title>seaborn.kdeplot &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="API reference" href="../api.html" />
     <link rel="next" title="seaborn.rugplot" href="seaborn.rugplot.html" />
     <link rel="prev" title="seaborn.distplot" href="seaborn.distplot.html" />
@@ -54,15 +55,15 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../api.html">API</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
                 <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -78,8 +79,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -127,7 +128,7 @@
 <h1>seaborn.kdeplot<a class="headerlink" href="#seaborn-kdeplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.kdeplot">
-<code class="descclassname">seaborn.</code><code class="descname">kdeplot</code><span class="sig-paren">(</span><em>data</em>, <em>data2=None</em>, <em>shade=False</em>, <em>vertical=False</em>, <em>kernel='gau'</em>, <em>bw='scott'</em>, <em>gridsize=100</em>, <em>cut=3</em>, <em>clip=None</em>, <em>legend=True</em>, <em>cumulative=False</em>, <em>shade_lowest=True</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.kdeplot" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seaborn.</code><code class="descname">kdeplot</code><span class="sig-paren">(</span><em>data</em>, <em>data2=None</em>, <em>shade=False</em>, <em>vertical=False</em>, <em>kernel='gau'</em>, <em>bw='scott'</em>, <em>gridsize=100</em>, <em>cut=3</em>, <em>clip=None</em>, <em>legend=True</em>, <em>cumulative=False</em>, <em>shade_lowest=True</em>, <em>cbar=False</em>, <em>cbar_ax=None</em>, <em>cbar_kws=None</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.kdeplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit and plot a univariate or bivariate kernel density estimate.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -188,9 +189,22 @@ relevant when drawing a univariate plot or when <code class="docutils literal"><
 Setting this to <code class="docutils literal"><span class="pre">False</span></code> can be useful when you want multiple
 densities on the same Axes.</p>
 </div></blockquote>
-<p><strong>ax</strong> : matplotlib axis, optional</p>
+<p><strong>cbar</strong> : bool, optional</p>
 <blockquote>
-<div><p>Axis to plot on, otherwise uses current axis.</p>
+<div><p>If True and drawing a bivariate KDE plot, add a colorbar.</p>
+</div></blockquote>
+<p><strong>cbar_ax</strong> : matplotlib axes, optional</p>
+<blockquote>
+<div><p>Existing axes to draw the colorbar onto, otherwise space is taken
+from the main axes.</p>
+</div></blockquote>
+<p><strong>cbar_kws</strong> : dict, optional</p>
+<blockquote>
+<div><p>Keyword arguments for <code class="docutils literal"><span class="pre">fig.colorbar()</span></code>.</p>
+</div></blockquote>
+<p><strong>ax</strong> : matplotlib axes, optional</p>
+<blockquote>
+<div><p>Axes to plot on, otherwise uses current axes.</p>
 </div></blockquote>
 <p><strong>kwargs</strong> : key, value pairings</p>
 <blockquote>
@@ -278,6 +292,13 @@ plot is being drawn.</p>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-8.png" src="../_images/seaborn-kdeplot-8.png" />
 </div>
+<p>Add a colorbar for the contours:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-kdeplot-9.png" src="../_images/seaborn-kdeplot-9.png" />
+</div>
 <p>Plot two shaded bivariate densities:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setosa</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="s2">&quot;setosa&quot;</span><span class="p">]</span>
@@ -289,7 +310,7 @@ plot is being drawn.</p>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-kdeplot-9.png" src="../_images/seaborn-kdeplot-9.png" />
+<img alt="../_images/seaborn-kdeplot-10.png" src="../_images/seaborn-kdeplot-10.png" />
 </div>
 </dd></dl>
 
@@ -307,14 +328,10 @@ plot is being drawn.</p>
       
         <br/>
         
-<div id="sourcelink">
-  <a href="../_sources/generated/seaborn.kdeplot.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

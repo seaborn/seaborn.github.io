@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Plotting with categorical data &mdash; seaborn 0.7.1 documentation</title>
+    <title>Plotting with categorical data &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,10 +31,11 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
-    <link rel="next" title="Plotting on data-aware grids" href="axis_grids.html" />
-    <link rel="prev" title="Visualizing linear relationships" href="regression.html" />
+    <link rel="next" title="Visualizing linear relationships" href="regression.html" />
+    <link rel="prev" title="Visualizing the distribution of a dataset" href="distributions.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -54,15 +55,15 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../api.html">API</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
                 <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -78,8 +79,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -208,6 +209,12 @@
 </pre></div>
 </div>
 <img alt="../_images/categorical_21_0.png" src="../_images/categorical_21_0.png" />
+<p>For boxplots, the assumption when using a <code class="docutils literal"><span class="pre">hue</span></code> variable is that it is nested within the <code class="docutils literal"><span class="pre">x</span></code> or <code class="docutils literal"><span class="pre">y</span></code> variable. This means that by default, the boxes for different levels of <code class="docutils literal"><span class="pre">hue</span></code> will be offset, as you can see above. If your <code class="docutils literal"><span class="pre">hue</span></code> variable is not nested, you can set the <code class="docutils literal"><span class="pre">dodge</span></code> parameter to disable offsetting:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;weekend&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span> <span class="s2">&quot;Sun&quot;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;weekend&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="bp">False</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/categorical_23_0.png" src="../_images/categorical_23_0.png" />
 </div>
 <div class="section" id="violinplots">
 <h3>Violinplots<a class="headerlink" href="#violinplots" title="Permalink to this headline">¶</a></h3>
@@ -215,30 +222,30 @@
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_23_0.png" src="../_images/categorical_23_0.png" />
+<img alt="../_images/categorical_25_0.png" src="../_images/categorical_25_0.png" />
 <p>This approach uses the kernel density estimate to provide a better description of the distribution of values. Additionally, the quartile and whikser values from the boxplot are shown inside the violin. Because the violinplot uses a KDE, there are some other parameters that may need tweaking, adding some complexity relative to the straightforward boxplot:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
                <span class="n">bw</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">scale_hue</span><span class="o">=</span><span class="bp">False</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_25_0.png" src="../_images/categorical_25_0.png" />
+<img alt="../_images/categorical_27_0.png" src="../_images/categorical_27_0.png" />
 <p>It&#8217;s also possible to &#8220;split&#8221; the violins when the hue parameter has only two levels, which can allow for a more efficient use of space:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_27_0.png" src="../_images/categorical_27_0.png" />
+<img alt="../_images/categorical_29_0.png" src="../_images/categorical_29_0.png" />
 <p>Finally, there are several options for the plot that is drawn on the interior of the violins, including ways to show each individual observation instead of the summary boxplot values:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
                <span class="n">split</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;stick&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_29_0.png" src="../_images/categorical_29_0.png" />
+<img alt="../_images/categorical_31_0.png" src="../_images/categorical_31_0.png" />
 <p>It can also be useful to combine <a class="reference internal" href="../generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal"><span class="pre">swarmplot()</span></code></a> or <a class="reference internal" href="../generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal"><span class="pre">swarmplot()</span></code></a> with <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal"><span class="pre">violinplot()</span></code></a> or <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal"><span class="pre">boxplot()</span></code></a> to show each observation along with a summary of the distribution:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_31_0.png" src="../_images/categorical_31_0.png" />
+<img alt="../_images/categorical_33_0.png" src="../_images/categorical_33_0.png" />
 </div>
 </div>
 <div class="section" id="statistical-estimation-within-categories">
@@ -250,17 +257,17 @@
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_33_0.png" src="../_images/categorical_33_0.png" />
+<img alt="../_images/categorical_35_0.png" src="../_images/categorical_35_0.png" />
 <p>A special case for the bar plot is when you want to show the number of observations in each category rather than computing a statistic for a second variable. This is similar to a histogram over a categorical, rather than quantitative, variable. In seaborn, it&#8217;s easy to do so with the <a class="reference internal" href="../generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-func docutils literal"><span class="pre">countplot()</span></code></a> function:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Greens_d&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_35_0.png" src="../_images/categorical_35_0.png" />
+<img alt="../_images/categorical_37_0.png" src="../_images/categorical_37_0.png" />
 <p>Both <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal"><span class="pre">barplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-func docutils literal"><span class="pre">countplot()</span></code></a> can be invoked with all of the options discussed above, along with others that are demonstrated in the detailed documentation for each function:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Greens_d&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_37_0.png" src="../_images/categorical_37_0.png" />
+<img alt="../_images/categorical_39_0.png" src="../_images/categorical_39_0.png" />
 </div>
 <div class="section" id="point-plots">
 <h3>Point plots<a class="headerlink" href="#point-plots" title="Permalink to this headline">¶</a></h3>
@@ -268,14 +275,14 @@
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_39_0.png" src="../_images/categorical_39_0.png" />
+<img alt="../_images/categorical_41_0.png" src="../_images/categorical_41_0.png" />
 <p>To make figures that reproduce well in black and white, it can be good to use different markers and line styles for the levels of the <code class="docutils literal"><span class="pre">hue</span></code> category:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span>
               <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;male&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;female&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">},</span>
               <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">],</span> <span class="n">linestyles</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">]);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_41_0.png" src="../_images/categorical_41_0.png" />
+<img alt="../_images/categorical_43_0.png" src="../_images/categorical_43_0.png" />
 </div>
 </div>
 <div class="section" id="plotting-wide-form-data">
@@ -284,43 +291,43 @@
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_43_0.png" src="../_images/categorical_43_0.png" />
+<img alt="../_images/categorical_45_0.png" src="../_images/categorical_45_0.png" />
 <p>Additionally, these functions accept vectors of Pandas or numpy objects rather than variables in a <code class="docutils literal"><span class="pre">DataFrame</span></code>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_45_0.png" src="../_images/categorical_45_0.png" />
+<img alt="../_images/categorical_47_0.png" src="../_images/categorical_47_0.png" />
 <p>To control the size and shape of plots made by the functions discussed above, you must set up the figure yourself using matplotlib commands. Of course, this also means that the plots can happily coexist in a multi-panel figure with other kinds of plots:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_47_0.png" src="../_images/categorical_47_0.png" />
+<img alt="../_images/categorical_49_0.png" src="../_images/categorical_49_0.png" />
 </div>
 <div class="section" id="drawing-multi-panel-categorical-plots">
 <h2>Drawing multi-panel categorical plots<a class="headerlink" href="#drawing-multi-panel-categorical-plots" title="Permalink to this headline">¶</a></h2>
-<p>As we mentioned above, there are two ways to draw categorical plots in seaborn. Similar to the duality in the regression plots, you can either use the functions introduced above, or the higher-level function <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>, which combines these functions with a <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-func docutils literal"><span class="pre">FacetGrid()</span></code></a> to add the ability to examine additional categories through the larger structure of the figure. By default, <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> produces a <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a>:</p>
+<p>As we mentioned above, there are two ways to draw categorical plots in seaborn. Similar to the duality in the regression plots, you can either use the functions introduced above, or the higher-level function <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>, which combines these functions with a <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-func docutils literal"><span class="pre">FacetGrid()</span></code></a> to add the ability to examine additional categories through the larger structure of the figure. By default, <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> produces a <a class="reference internal" href="../generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_49_0.png" src="../_images/categorical_49_0.png" />
+<img alt="../_images/categorical_51_0.png" src="../_images/categorical_51_0.png" />
 <p>However, the <code class="docutils literal"><span class="pre">kind</span></code> parameter lets you chose any of the kinds of plots discussed above:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_51_0.png" src="../_images/categorical_51_0.png" />
+<img alt="../_images/categorical_53_0.png" src="../_images/categorical_53_0.png" />
 <p>The main advantage of using a <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> is that it is very easy to &#8220;facet&#8221; the plot and investigate the role of other categorical variables:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span>
                <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;swarm&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_53_0.png" src="../_images/categorical_53_0.png" />
+<img alt="../_images/categorical_55_0.png" src="../_images/categorical_55_0.png" />
 <p>Any kind of plot can be drawn. Because of the way <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> works, to change the size and shape of the figure you need to specify the <code class="docutils literal"><span class="pre">size</span></code> and <code class="docutils literal"><span class="pre">aspect</span></code> arguments, which apply to each facet:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span>
                <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_55_0.png" src="../_images/categorical_55_0.png" />
+<img alt="../_images/categorical_57_0.png" src="../_images/categorical_57_0.png" />
 <p>It is important to note that you could also make this plot by using <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal"><span class="pre">boxplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> directly. However, special care must be taken to ensure that the order of the categorical variables is enforced in each facet, either by using data with a <code class="docutils literal"><span class="pre">Categorical</span></code> datatype or by passing <code class="docutils literal"><span class="pre">order</span></code> and <code class="docutils literal"><span class="pre">hue_order</span></code>.</p>
 <p>Because of the generalized API of the categorical plots, they should be easy to apply to other more complex contexts. For example, they are easily combined with a <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> to show categorical relationships across several different variables:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span>
@@ -330,7 +337,7 @@
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;pastel&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/categorical_57_0.png" src="../_images/categorical_57_0.png" />
+<img alt="../_images/categorical_59_0.png" src="../_images/categorical_59_0.png" />
 </div>
 </div>
 
@@ -346,14 +353,10 @@
       
         <br/>
         
-<div id="sourcelink">
-  <a href="../_sources/tutorial/categorical.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

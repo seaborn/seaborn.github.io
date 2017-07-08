@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Controlling figure aesthetics &mdash; seaborn 0.7.1 documentation</title>
+    <title>Controlling figure aesthetics &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
     <link rel="next" title="Choosing color palettes" href="color_palettes.html" />
     <link rel="prev" title="Seaborn tutorial" href="../tutorial.html" />
@@ -54,15 +55,15 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../api.html">API</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
                 <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -78,8 +79,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -94,11 +95,11 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Controlling figure aesthetics</a><ul>
-<li><a class="reference internal" href="#styling-figures-with-axes-style-and-set-style">Styling figures with <code class="docutils literal"><span class="pre">axes_style()</span></code> and <code class="docutils literal"><span class="pre">set_style()</span></code></a></li>
-<li><a class="reference internal" href="#removing-spines-with-despine">Removing spines with <code class="docutils literal"><span class="pre">despine()</span></code></a></li>
+<li><a class="reference internal" href="#seaborn-figure-styles">Seaborn figure styles</a></li>
+<li><a class="reference internal" href="#removing-axes-spines">Removing axes spines</a></li>
 <li><a class="reference internal" href="#temporarily-setting-figure-style">Temporarily setting figure style</a></li>
 <li><a class="reference internal" href="#overriding-elements-of-the-seaborn-styles">Overriding elements of the seaborn styles</a></li>
-<li><a class="reference internal" href="#scaling-plot-elements-with-plotting-context-and-set-context">Scaling plot elements with <code class="docutils literal"><span class="pre">plotting_context()</span></code> and <code class="docutils literal"><span class="pre">set_context()</span></code></a></li>
+<li><a class="reference internal" href="#scaling-plot-elements">Scaling plot elements</a></li>
 </ul>
 </li>
 </ul>
@@ -140,6 +141,7 @@
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;aesthetics&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -155,17 +157,17 @@
 </pre></div>
 </div>
 <img alt="../_images/aesthetics_8_0.png" src="../_images/aesthetics_8_0.png" />
-<p>To switch to seaborn defaults, simply import the package.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<p>To switch to seaborn defaults, simply call the <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> function.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="n">sinplot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../_images/aesthetics_10_0.png" src="../_images/aesthetics_10_0.png" />
-<p>The seaborn defaults break from the MATLAB inspired aesthetic of matplotlib to plot in more muted colors over a light gray background with white grid lines. We find that the grid aids in the use of figures for conveying quantitative information – in almost all cases, figures should be preferred to tables. The white-on-gray grid that is used by default avoids being obtrusive. The grid is particularly useful in giving structure to figures with multiple facets, which is central to some of the more complex tools in the library.</p>
+<p>(Note that in versions of seaborn prior to 0.8, <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> was called on import. On later versions, it must be explicitly invoked).</p>
 <p>Seaborn splits matplotlib parameters into two independent groups. The first group sets the aesthetic style of the plot, and the second scales various elements of the figure so that it can be easily incorporated into different contexts.</p>
 <p>The interface for manipulating these parameters are two pairs of functions. To control the style, use the <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a> functions. To scale the plot, use the <a class="reference internal" href="../generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-func docutils literal"><span class="pre">plotting_context()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a> functions. In both cases, the first function returns a dictionary of parameters and the second sets the matplotlib defaults.</p>
-<div class="section" id="styling-figures-with-axes-style-and-set-style">
-<span id="axes-style"></span><h2>Styling figures with <a class="reference internal" href="../generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal"><span class="pre">axes_style()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a><a class="headerlink" href="#styling-figures-with-axes-style-and-set-style" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="seaborn-figure-styles">
+<span id="axes-style"></span><h2>Seaborn figure styles<a class="headerlink" href="#seaborn-figure-styles" title="Permalink to this headline">¶</a></h2>
 <p>There are five preset seaborn themes: <code class="docutils literal"><span class="pre">darkgrid</span></code>, <code class="docutils literal"><span class="pre">whitegrid</span></code>, <code class="docutils literal"><span class="pre">dark</span></code>, <code class="docutils literal"><span class="pre">white</span></code>, and <code class="docutils literal"><span class="pre">ticks</span></code>. They are each suited to different applications and personal preferences. The default theme is <code class="docutils literal"><span class="pre">darkgrid</span></code>. As mentioned above, the grid helps the plot serve as a lookup table for quantitative information, and the white-on grey helps to keep the grid from competing with lines that represent data. The <code class="docutils literal"><span class="pre">whitegrid</span></code> theme is similar, but it is better suited to plots with heavy data elements:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -195,8 +197,8 @@
 </div>
 <img alt="../_images/aesthetics_19_0.png" src="../_images/aesthetics_19_0.png" />
 </div>
-<div class="section" id="removing-spines-with-despine">
-<span id="remove-spines"></span><h2>Removing spines with <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a><a class="headerlink" href="#removing-spines-with-despine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="removing-axes-spines">
+<span id="remove-spines"></span><h2>Removing axes spines<a class="headerlink" href="#removing-axes-spines" title="Permalink to this headline">¶</a></h2>
 <p>Both the <code class="docutils literal"><span class="pre">white</span></code> and <code class="docutils literal"><span class="pre">ticks</span></code> styles can benefit from removing the top and right axes spines, which are not needed. It&#8217;s impossible to do this through the matplotlib parameters, but you can call the seaborn function <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a> to remove them:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sinplot</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
@@ -244,25 +246,26 @@
  <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
  <span class="s1">&#39;axes.linewidth&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
  <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
- <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;sans-serif&#39;</span><span class="p">],</span>
- <span class="s1">&#39;font.sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;Arial&#39;</span><span class="p">,</span>
-  <span class="s1">u&#39;Liberation Sans&#39;</span><span class="p">,</span>
-  <span class="s1">u&#39;Bitstream Vera Sans&#39;</span><span class="p">,</span>
-  <span class="s1">u&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa">u</span><span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;font.sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa">u</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+  <span class="sa">u</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">,</span>
+  <span class="sa">u</span><span class="s1">&#39;Liberation Sans&#39;</span><span class="p">,</span>
+  <span class="sa">u</span><span class="s1">&#39;Bitstream Vera Sans&#39;</span><span class="p">,</span>
+  <span class="sa">u</span><span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
  <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.8&#39;</span><span class="p">,</span>
- <span class="s1">&#39;grid.linestyle&#39;</span><span class="p">:</span> <span class="s1">u&#39;-&#39;</span><span class="p">,</span>
- <span class="s1">&#39;image.cmap&#39;</span><span class="p">:</span> <span class="s1">u&#39;Greys&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grid.linestyle&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;image.cmap&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;rocket&#39;</span><span class="p">,</span>
  <span class="s1">&#39;legend.frameon&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
  <span class="s1">&#39;legend.numpoints&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
  <span class="s1">&#39;legend.scatterpoints&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">u&#39;round&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;round&#39;</span><span class="p">,</span>
  <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
  <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
- <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">u&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;out&#39;</span><span class="p">,</span>
  <span class="s1">&#39;xtick.major.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
  <span class="s1">&#39;xtick.minor.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
  <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
- <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">u&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;out&#39;</span><span class="p">,</span>
  <span class="s1">&#39;ytick.major.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
  <span class="s1">&#39;ytick.minor.size&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
 </pre></div>
@@ -274,8 +277,8 @@
 </div>
 <img alt="../_images/aesthetics_31_0.png" src="../_images/aesthetics_31_0.png" />
 </div>
-<div class="section" id="scaling-plot-elements-with-plotting-context-and-set-context">
-<span id="plotting-context"></span><h2>Scaling plot elements with <a class="reference internal" href="../generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-func docutils literal"><span class="pre">plotting_context()</span></code></a> and <a class="reference internal" href="../generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a><a class="headerlink" href="#scaling-plot-elements-with-plotting-context-and-set-context" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scaling-plot-elements">
+<span id="plotting-context"></span><h2>Scaling plot elements<a class="headerlink" href="#scaling-plot-elements" title="Permalink to this headline">¶</a></h2>
 <p>A separate set of parameters control the scale of plot elements, which should let you use the same code to make plots that are suited for use in settings where larger or smaller plots are appropriate.</p>
 <p>First let&#8217;s reset the default parameters by calling <a class="reference internal" href="../generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a>:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
@@ -283,19 +286,16 @@
 </div>
 <p>The four preset contexts, in order of relative size, are <code class="docutils literal"><span class="pre">paper</span></code>, <code class="docutils literal"><span class="pre">notebook</span></code>, <code class="docutils literal"><span class="pre">talk</span></code>, and <code class="docutils literal"><span class="pre">poster</span></code>. The <code class="docutils literal"><span class="pre">notebook</span></code> style is the default, and was used in the plots above.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sinplot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../_images/aesthetics_35_0.png" src="../_images/aesthetics_35_0.png" />
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sinplot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../_images/aesthetics_36_0.png" src="../_images/aesthetics_36_0.png" />
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sinplot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -325,14 +325,10 @@
       
         <br/>
         
-<div id="sourcelink">
-  <a href="../_sources/tutorial/aesthetics.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Plotting on data-aware grids &mdash; seaborn 0.7.1 documentation</title>
+    <title>Plotting on data-aware grids &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,9 +31,11 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
-    <link rel="prev" title="Plotting with categorical data" href="categorical.html" />
+    <link rel="next" title="API reference" href="../api.html" />
+    <link rel="prev" title="Visualizing linear relationships" href="regression.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -53,15 +55,15 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../api.html">API</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
                 <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -77,8 +79,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -93,11 +95,11 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Plotting on data-aware grids</a><ul>
-<li><a class="reference internal" href="#subsetting-data-with-facetgrid">Subsetting data with <code class="docutils literal"><span class="pre">FacetGrid</span></code></a><ul>
+<li><a class="reference internal" href="#plotting-small-multiples-of-data-subsets">Plotting small multiples of data subsets</a><ul>
 <li><a class="reference internal" href="#mapping-custom-functions-onto-the-grid">Mapping custom functions onto the grid</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#plotting-pairwise-relationships-with-pairgrid-and-pairplot">Plotting pairwise relationships with <code class="docutils literal"><span class="pre">PairGrid</span></code> and <code class="docutils literal"><span class="pre">pairplot()</span></code></a></li>
+<li><a class="reference internal" href="#plotting-pairwise-relationships-in-a-dataset">Plotting pairwise relationships in a dataset</a></li>
 </ul>
 </li>
 </ul>
@@ -131,9 +133,9 @@
       
   <div class="section" id="plotting-on-data-aware-grids">
 <span id="grid-tutorial"></span><h1>Plotting on data-aware grids<a class="headerlink" href="#plotting-on-data-aware-grids" title="Permalink to this headline">¶</a></h1>
-<p>When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either &#8220;lattice&#8221;, or <a class="reference external" href="http://netlib.bell-labs.com/cm/ms/departments/sia/project/trellis">&#8220;trellis&#8221;</a> plotting, and it is related to the idea of <a class="reference external" href="http://en.wikipedia.org/wiki/Small_multiple">&#8220;small multiples&#8221;</a>. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.</p>
+<p>When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either &#8220;lattice&#8221;, or &#8220;trellis&#8221; plotting, and it is related to the idea of <a class="reference external" href="http://en.wikipedia.org/wiki/Small_multiple">&#8220;small multiples&#8221;</a>. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.</p>
 <p>To use these features, your data has to be in a Pandas DataFrame and it must take the form of what Hadley Whickam calls <a class="reference external" href="http://vita.had.co.nz/papers/tidy-data.pdf">&#8220;tidy&#8221; data</a>. In brief, that means your dataframe should be structured such that each column is a variable and each row is an observation.</p>
-<p>For advanced use, you can use the objects discussed in this part of the tutorial directly, which will provide maximum flexibility. Some seaborn functions (such as <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a>) also use them behind the scenes. Unlike other seaborn functions that are &#8220;Axes-level&#8221; and draw onto specific (possibly already-existing) matplotlib <code class="docutils literal"><span class="pre">Axes</span></code> without otherwise manipulating the figure, these higher-level functions create a figure when called and are generally more strict about how it gets set up. In some cases, arguments either to those functions or to the constructor of the class they rely on will provide a different interface attributes like the figure size, as in the case of <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> where you can set the height and aspect ratio for each facet rather than the overall size of the figure. Any function that uses one of these objects will always return it after plotting, though, and most of these objects have convenience methods for changing how the plot, often in a more abstract and easy way.</p>
+<p>For advanced use, you can use the objects discussed in this part of the tutorial directly, which will provide maximum flexibility. Some seaborn functions (such as <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a>) also use them behind the scenes. Unlike other seaborn functions that are &#8220;Axes-level&#8221; and draw onto specific (possibly already-existing) matplotlib <code class="docutils literal"><span class="pre">Axes</span></code> without otherwise manipulating the figure, these higher-level functions create a figure when called and are generally more strict about how it gets set up. In some cases, arguments either to those functions or to the constructor of the class they rely on will provide a different interface attributes like the figure size, as in the case of <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> where you can set the height and aspect ratio for each facet rather than the overall size of the figure. Any function that uses one of these objects will always return it after plotting, though, and most of these objects have convenience methods for changing how the plot is drawn, often in a more abstract and easy way.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span>%matplotlib inline
 </pre></div>
 </div>
@@ -149,8 +151,8 @@
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;axis_grids&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="section" id="subsetting-data-with-facetgrid">
-<span id="facet-grid"></span><h2>Subsetting data with <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a><a class="headerlink" href="#subsetting-data-with-facetgrid" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plotting-small-multiples-of-data-subsets">
+<span id="facet-grid"></span><h2>Plotting small multiples of data subsets<a class="headerlink" href="#plotting-small-multiples-of-data-subsets" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> class is useful when you want to visualize the distribution of a variable or the relationship between multiple variables separately within subsets of your dataset. A <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> can be drawn with up to three dimensions: <code class="docutils literal"><span class="pre">row</span></code>, <code class="docutils literal"><span class="pre">col</span></code>, and <code class="docutils literal"><span class="pre">hue</span></code>. The first two have obvious correspondence with the resulting array of axes; think of the hue variable as a third dimension along a depth axis, where different levels are plotted with different colors.</p>
 <p>The class is used by initializing a <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> object with a dataframe and the names of the variables that will form the row, column, or hue dimensions of the grid. These variables should be categorical or discrete, and then the data at each level of the variable will be used for a facet along that axis. For example, say we wanted to examine differences between lunch and dinner in the <code class="docutils literal"><span class="pre">tips</span></code> dataset.</p>
 <p>Additionally, both <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal"><span class="pre">lmplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.factorplot.html#seaborn.factorplot" title="seaborn.factorplot"><code class="xref py py-func docutils literal"><span class="pre">factorplot()</span></code></a> use this object internally, and they return the object when they are finsihed so that it can be used for further tweaking.</p>
@@ -190,17 +192,13 @@
 <img alt="../_images/axis_grids_16_0.png" src="../_images/axis_grids_16_0.png" />
 <p>With versions of matplotlib &gt; 1.4, you can pass parameters to be used in the <cite>gridspec</cite> module. The can be used to draw attention to a particular facet by increasing its size. It&#8217;s particularly useful when visualizing distributions of datasets with unequal numbers of groups in each facet.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
-<span class="n">titanic</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">deck</span><span class="o">=</span><span class="n">titanic</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">))</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;deck&quot;</span><span class="p">)</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">deck</span><span class="o">=</span><span class="n">titanic</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;deck&quot;</span><span class="p">)</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                   <span class="n">gridspec_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;width_ratios&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">,</span> <span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span>/Users/mwaskom/anaconda/lib/python2.7/site-packages/ipykernel/__main__.py:2: FutureWarning: sort(columns=....) is deprecated, use sort_values(by=.....)
-  from ipykernel import kernelapp as app
-</pre></div>
-</div>
-<img alt="../_images/axis_grids_18_1.png" src="../_images/axis_grids_18_1.png" />
+<img alt="../_images/axis_grids_18_0.png" src="../_images/axis_grids_18_0.png" />
 <p>The default ordering of the facets is derived from the information in the DataFrame. If the variable used to define facets has a categorical type, then the order of the categories is used. Otherwise, the facets will be in the order of appearence of the category levels. It is possible, however, to specify an ordering of any facet dimension with the appropriate <code class="docutils literal"><span class="pre">*_order</span></code> parameter:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ordered_days</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">day</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">row_order</span><span class="o">=</span><span class="n">ordered_days</span><span class="p">,</span>
@@ -307,8 +305,8 @@
 <img alt="../_images/axis_grids_40_0.png" src="../_images/axis_grids_40_0.png" />
 </div>
 </div>
-<div class="section" id="plotting-pairwise-relationships-with-pairgrid-and-pairplot">
-<span id="pair-grid"></span><h2>Plotting pairwise relationships with <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a><a class="headerlink" href="#plotting-pairwise-relationships-with-pairgrid-and-pairplot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plotting-pairwise-relationships-in-a-dataset">
+<span id="pair-grid"></span><h2>Plotting pairwise relationships in a dataset<a class="headerlink" href="#plotting-pairwise-relationships-in-a-dataset" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> also allows you to quickly draw a grid of small subplots using the same plot type to visualize data in each. In a <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a>, each row and column is assigned to a different variable, so the resulting plot shows each pairwise relationship in the dataset. This style of plot is sometimes called a &#8220;scatterplot matrix&#8221;, as this is the most common way to show each relationship, but <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> is not limited to scatterplots.</p>
 <p>It&#8217;s important to understand the differences between a <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> and a <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a>. In the former, each facet shows the same relationship conditioned on different levels of other variables. In the latter, each plot shows a different relationship (although the upper and lower triangles will have mirrored plots). Using <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> can give you a very quick, very high-level summary of interesting relationships in your dataset.</p>
 <p>The basic usage of the class is very similar to <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a>. First you initialize the grid, then you pass plotting function to a <code class="docutils literal"><span class="pre">map</span></code> method and it will be called on each subplot. There is also a companion function, <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a> that trades off some flexibility for faster plotting.</p>
@@ -386,14 +384,10 @@
       
         <br/>
         
-<div id="sourcelink">
-  <a href="../_sources/tutorial/axis_grids.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

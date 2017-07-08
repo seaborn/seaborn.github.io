@@ -6,7 +6,7 @@
 Visualizing the distribution of a dataset
 =========================================
 
-When dealing with a set of data, often the first thing you'll want to do is get a sense for how the variables are distributed. This chapter of the tutorial will give a brief introduction to some of the tools in seborn for examining univariate and bivariate distributions. You may also want to look at the :ref:`categorical plots <categorical_tutorial>` chapter for examples of functions that make it easy to compare the distribution of a variable across levels of other variables.
+When dealing with a set of data, often the first thing you'll want to do is get a sense for how the variables are distributed. This chapter of the tutorial will give a brief introduction to some of the tools in seaborn for examining univariate and bivariate distributions. You may also want to look at the :ref:`categorical plots <categorical_tutorial>` chapter for examples of functions that make it easy to compare the distribution of a variable across levels of other variables.
 
 .. code:: python
 
@@ -174,7 +174,7 @@ You can also use :func:`distplot` to fit a parametric distribution to a dataset 
 Plotting bivariate distributions
 --------------------------------
 
-It can also be useful to visualize a bivariate distribution of two variables. The easiest way to do this in seaborn is to just the :func:`jointplot` function, which creates a multi-panel figure that shows both the bivariate (or joint) relationship between two variables along with the univariate (or marginal) distribution of each on separate axes.
+It can also be useful to visualize a bivariate distribution of two variables. The easiest way to do this in seaborn is to just use the :func:`jointplot` function, which creates a multi-panel figure that shows both the bivariate (or joint) relationship between two variables along with the univariate (or marginal) distribution of each on separate axes.
 
 .. code:: python
 
@@ -199,7 +199,7 @@ The most familiar way to visualize a bivariate distribution is a scatterplot, wh
 Hexbin plots
 ^^^^^^^^^^^^
 
-The bivariate analogue of a histogram is known as a "hexbin" plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It's availible through the matplotlib ``plt.hexbin`` function and as a style in :func:`jointplot`. It looks best with a white background:
+The bivariate analogue of a histogram is known as a "hexbin" plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It's available through the matplotlib ``plt.hexbin`` function and as a style in :func:`jointplot`. It looks best with a white background:
 
 .. code:: python
 
@@ -293,7 +293,7 @@ Much like the relationship between :func:`jointplot` and :class:`JointGrid`, the
 
 .. parsed-literal::
 
-    /Users/mwaskom/anaconda/lib/python2.7/site-packages/matplotlib/axes/_axes.py:519: UserWarning: No labelled objects found. Use label='...' kwarg on individual plots.
+    /Users/mwaskom/anaconda/lib/python2.7/site-packages/matplotlib/axes/_axes.py:545: UserWarning: No labelled objects found. Use label='...' kwarg on individual plots.
       warnings.warn("No labelled objects found. "
 
 

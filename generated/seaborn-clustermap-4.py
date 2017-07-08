@@ -1,1 +1,1 @@
-g = sns.clustermap(flights, cmap=cmap, figsize=(7, 5))
+g = sns.clustermap(iris, cmap="mako", robust=True)

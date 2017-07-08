@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Choosing color palettes &mdash; seaborn 0.7.1 documentation</title>
+    <title>Choosing color palettes &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="../index.html" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
     <link rel="next" title="Visualizing the distribution of a dataset" href="distributions.html" />
     <link rel="prev" title="Controlling figure aesthetics" href="aesthetics.html" />
@@ -54,15 +55,15 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../api.html">API</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
                 <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -78,8 +79,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -94,7 +95,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Choosing color palettes</a><ul>
-<li><a class="reference internal" href="#building-color-palettes-with-color-palette">Building color palettes with <code class="docutils literal"><span class="pre">color_palette()</span></code></a></li>
+<li><a class="reference internal" href="#building-color-palettes">Building color palettes</a></li>
 <li><a class="reference internal" href="#qualitative-color-palettes">Qualitative color palettes</a><ul>
 <li><a class="reference internal" href="#using-circular-color-systems">Using circular color systems</a></li>
 <li><a class="reference internal" href="#using-categorical-color-brewer-palettes">Using categorical Color Brewer palettes</a></li>
@@ -102,15 +103,15 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#sequential-color-palettes">Sequential color palettes</a><ul>
-<li><a class="reference internal" href="#sequential-palettes-with-cubehelix-palette">Sequential palettes with <code class="docutils literal"><span class="pre">cubehelix_palette()</span></code></a></li>
-<li><a class="reference internal" href="#custom-sequential-palettes-with-light-palette-and-dark-palette">Custom sequential palettes with <code class="docutils literal"><span class="pre">light_palette()</span></code> and <code class="docutils literal"><span class="pre">dark_palette()</span></code></a></li>
+<li><a class="reference internal" href="#sequential-cubehelix-palettes">Sequential &#8220;cubehelix&#8221; palettes</a></li>
+<li><a class="reference internal" href="#custom-sequential-palettes">Custom sequential palettes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#diverging-color-palettes">Diverging color palettes</a><ul>
-<li><a class="reference internal" href="#custom-diverging-palettes-with-diverging-palette">Custom diverging palettes with <code class="docutils literal"><span class="pre">diverging_palette()</span></code></a></li>
+<li><a class="reference internal" href="#custom-diverging-palettes">Custom diverging palettes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#changing-default-palettes-with-set-palette">Changing default palettes with <code class="docutils literal"><span class="pre">set_palette()</span></code></a></li>
+<li><a class="reference internal" href="#setting-the-default-color-palette">Setting the default color palette</a></li>
 </ul>
 </li>
 </ul>
@@ -158,8 +159,8 @@
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;palettes&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<div class="section" id="building-color-palettes-with-color-palette">
-<h2>Building color palettes with <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a><a class="headerlink" href="#building-color-palettes-with-color-palette" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="building-color-palettes">
+<h2>Building color palettes<a class="headerlink" href="#building-color-palettes" title="Permalink to this headline">¶</a></h2>
 <p>The most important function for working with discrete color palettes is <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a>. This function provides an interface to many (though not all) of the possible ways you can generate colors in seaborn, and it&#8217;s used internally by any function that has a <code class="docutils literal"><span class="pre">palette</span></code> argument (and in some cases for a <code class="docutils literal"><span class="pre">color</span></code> argument when multiple colors are needed).</p>
 <p><a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a> will accept the name of any seaborn palette or matplotlib colormap (except <code class="docutils literal"><span class="pre">jet</span></code>, which you should never use). It can also take a list of colors specified in any valid matplotlib format (RGB tuples, hex color codes, or HTML color names). The return value is always a list of RGB tuples.</p>
 <p>Finally, calling <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a> with no arguments will return the current default color cycle.</p>
@@ -226,7 +227,7 @@
 </pre></div>
 </div>
 <img alt="../_images/color_palettes_21_0.png" src="../_images/color_palettes_21_0.png" />
-<p>If you want to spend some time picking colors, this <a class="reference external" href="http://www.luminoso.com/colors/">interactive visualization</a> may be useful. In addition to pulling out single colors from the <code class="docutils literal"><span class="pre">xkcd_rgb</span></code> dictionary, you can also pass a list of names to the <a class="reference internal" href="../generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-func docutils literal"><span class="pre">xkcd_palette()</span></code></a> function.</p>
+<p>In addition to pulling out single colors from the <code class="docutils literal"><span class="pre">xkcd_rgb</span></code> dictionary, you can also pass a list of names to the <a class="reference internal" href="../generated/seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-func docutils literal"><span class="pre">xkcd_palette()</span></code></a> function.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;windows blue&quot;</span><span class="p">,</span> <span class="s2">&quot;amber&quot;</span><span class="p">,</span> <span class="s2">&quot;greyish&quot;</span><span class="p">,</span> <span class="s2">&quot;faded green&quot;</span><span class="p">,</span> <span class="s2">&quot;dusty purple&quot;</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">xkcd_palette</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
 </pre></div>
@@ -255,8 +256,8 @@
 </div>
 <img alt="../_images/color_palettes_29_0.png" src="../_images/color_palettes_29_0.png" />
 <p>Remember that you may want to use the <a class="reference internal" href="../generated/seaborn.choose_colorbrewer_palette.html#seaborn.choose_colorbrewer_palette" title="seaborn.choose_colorbrewer_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_colorbrewer_palette()</span></code></a> function to play with the various options, and you can set the <code class="docutils literal"><span class="pre">as_cmap</span></code> argument to <code class="docutils literal"><span class="pre">True</span></code> if you want the return value to be a colormap object that you can pass to seaborn or matplotlib functions.</p>
-<div class="section" id="sequential-palettes-with-cubehelix-palette">
-<span id="cubehelix-palettes"></span><h3>Sequential palettes with <a class="reference internal" href="../generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-func docutils literal"><span class="pre">cubehelix_palette()</span></code></a><a class="headerlink" href="#sequential-palettes-with-cubehelix-palette" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sequential-cubehelix-palettes">
+<span id="cubehelix-palettes"></span><h3>Sequential &#8220;cubehelix&#8221; palettes<a class="headerlink" href="#sequential-cubehelix-palettes" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="http://www.mrao.cam.ac.uk/~dag/CUBEHELIX/">cubehelix</a> color palette system makes sequential palettes with a linear increase or decrease in brightness and some variation in hue. This means that the information in your colormap will be preserved when converted to black and white (for printing) or when viewed by a colorblind individual.</p>
 <p>Matplotlib has the default cubehelix version built into it:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;cubehelix&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -288,8 +289,8 @@
 <img alt="../_images/color_palettes_40_0.png" src="../_images/color_palettes_40_0.png" />
 <p>To help select good palettes or colormaps using this system, you can use the <a class="reference internal" href="../generated/seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette" title="seaborn.choose_cubehelix_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_cubehelix_palette()</span></code></a> function in a notebook to launch an interactive app that will let you play with the different parameters. Pass <code class="docutils literal"><span class="pre">as_cmap=True</span></code> if you want the function to return a colormap (rather than a list) for use in function like <code class="docutils literal"><span class="pre">hexbin</span></code>.</p>
 </div>
-<div class="section" id="custom-sequential-palettes-with-light-palette-and-dark-palette">
-<h3>Custom sequential palettes with <a class="reference internal" href="../generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal"><span class="pre">light_palette()</span></code></a> and <a class="reference internal" href="../generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-func docutils literal"><span class="pre">dark_palette()</span></code></a><a class="headerlink" href="#custom-sequential-palettes-with-light-palette-and-dark-palette" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="custom-sequential-palettes">
+<h3>Custom sequential palettes<a class="headerlink" href="#custom-sequential-palettes" title="Permalink to this headline">¶</a></h3>
 <p>For a simpler interface to custom sequential palettes, you can use <a class="reference internal" href="../generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal"><span class="pre">light_palette()</span></code></a> or <a class="reference internal" href="../generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-func docutils literal"><span class="pre">dark_palette()</span></code></a>, which are both seeded with a single color and produce a palette that ramps either from light or dark desaturated values to that color. These functions are also accompanied by the <a class="reference internal" href="../generated/seaborn.choose_light_palette.html#seaborn.choose_light_palette" title="seaborn.choose_light_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_light_palette()</span></code></a> and <a class="reference internal" href="../generated/seaborn.choose_dark_palette.html#seaborn.choose_dark_palette" title="seaborn.choose_dark_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_dark_palette()</span></code></a> functions that launch interactive widgets to create these palettes.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">))</span>
 </pre></div>
@@ -341,9 +342,9 @@
 </pre></div>
 </div>
 <img alt="../_images/color_palettes_57_0.png" src="../_images/color_palettes_57_0.png" />
-<div class="section" id="custom-diverging-palettes-with-diverging-palette">
-<h3>Custom diverging palettes with <a class="reference internal" href="../generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-func docutils literal"><span class="pre">diverging_palette()</span></code></a><a class="headerlink" href="#custom-diverging-palettes-with-diverging-palette" title="Permalink to this headline">¶</a></h3>
-<p>You can also use the seaborn function <a class="reference internal" href="../generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-func docutils literal"><span class="pre">diverging_palette()</span></code></a> to create a custom colormap for diverging data. (Naturally there is also a companion interactive widget, <a class="reference internal" href="../generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette" title="seaborn.choose_diverging_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_diverging_palette()</span></code></a>). This function makes diverging palettes using the <code class="docutils literal"><span class="pre">husl</span></code> color system. You pass it two hues (in degreees) and, optionally, the lightness and saturation values for the extremes. Using <code class="docutils literal"><span class="pre">husl</span></code> means that the extreme values, and the resulting ramps to the midpoint, will be well-balanced</p>
+<div class="section" id="custom-diverging-palettes">
+<h3>Custom diverging palettes<a class="headerlink" href="#custom-diverging-palettes" title="Permalink to this headline">¶</a></h3>
+<p>You can also use the seaborn function <a class="reference internal" href="../generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-func docutils literal"><span class="pre">diverging_palette()</span></code></a> to create a custom colormap for diverging data. (Naturally there is also a companion interactive widget, <a class="reference internal" href="../generated/seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette" title="seaborn.choose_diverging_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_diverging_palette()</span></code></a>). This function makes diverging palettes using the <code class="docutils literal"><span class="pre">husl</span></code> color system. You pass it two hues (in degrees) and, optionally, the lightness and saturation values for the extremes. Using <code class="docutils literal"><span class="pre">husl</span></code> means that the extreme values, and the resulting ramps to the midpoint, will be well-balanced</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -364,8 +365,8 @@
 <img alt="../_images/color_palettes_64_0.png" src="../_images/color_palettes_64_0.png" />
 </div>
 </div>
-<div class="section" id="changing-default-palettes-with-set-palette">
-<span id="palette-contexts"></span><h2>Changing default palettes with <a class="reference internal" href="../generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal"><span class="pre">set_palette()</span></code></a><a class="headerlink" href="#changing-default-palettes-with-set-palette" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-the-default-color-palette">
+<span id="palette-contexts"></span><h2>Setting the default color palette<a class="headerlink" href="#setting-the-default-color-palette" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a> function has a companion called <a class="reference internal" href="../generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal"><span class="pre">set_palette()</span></code></a>. The relationship between them is similar to the pairs covered in the <a class="reference internal" href="aesthetics.html#aesthetics-tutorial"><span>aesthetics tutorial</span></a>. <a class="reference internal" href="../generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal"><span class="pre">set_palette()</span></code></a> accepts the same arguments as <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a>, but it changes the default matplotlib parameters so that the palette is used for all plots.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sinplot</span><span class="p">(</span><span class="n">flip</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -399,14 +400,10 @@
       
         <br/>
         
-<div id="sourcelink">
-  <a href="../_sources/tutorial/color_palettes.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

@@ -227,7 +227,7 @@ If there is structure in the residuals, it suggests that simple linear regressio
 Conditioning on other variables
 -------------------------------
 
-The plots above show many ways to explore the relationship between a pair of variables. Often, however, a more interesting question is "how does the relationship between these two variables change as a function of a third variable?" This is where the difference  between :func:`regplot` and :func:`lmplot` appears. While :func:`regplot` always shows a single relationsihp, :func:`lmplot` combines :func:`regplot` with :class:`FacetGrid` to provide an easy interface to show a linear regression on "faceted" plots that allow you to explore interactions with up to three additional categorical variables.
+The plots above show many ways to explore the relationship between a pair of variables. Often, however, a more interesting question is "how does the relationship between these two variables change as a function of a third variable?" This is where the difference  between :func:`regplot` and :func:`lmplot` appears. While :func:`regplot` always shows a single relationship, :func:`lmplot` combines :func:`regplot` with :class:`FacetGrid` to provide an easy interface to show a linear regression on "faceted" plots that allow you to explore interactions with up to three additional categorical variables.
 
 The best way to separate out a relationship is to plot both levels on the same axes and to use color to distinguish them:
 
@@ -276,7 +276,7 @@ To add another variable, you can draw multiple "facets" which each level of the 
 Controlling the size and shape of the plot
 ------------------------------------------
 
-Before we noted that the default plots made by :func:`regplot` and :func:`lmplot` look the same but on axes that have a different size and shape. This is because func:`regplot` is an "axes-level" function draws onto a specific axes. This means that you can make mutli-panel figures yourself and control exactly where the the regression plot goes. If no axes is provided, it simply uses the "currently active" axes, which is why the default plot has the same size and shape as most other matplotlib functions. To control the size, you need to create a figure object yourself.
+Before we noted that the default plots made by :func:`regplot` and :func:`lmplot` look the same but on axes that have a different size and shape. This is because :func:`regplot` is an "axes-level" function draws onto a specific axes. This means that you can make multi-panel figures yourself and control exactly where the regression plot goes. If no axes object is explictly provided, it simply uses the "currently active" axes, which is why the default plot has the same size and shape as most other matplotlib functions. To control the size, you need to create a figure object yourself.
 
 .. code:: python
 

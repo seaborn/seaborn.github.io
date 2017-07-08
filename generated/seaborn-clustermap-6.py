@@ -1,1 +1,1 @@
-g = sns.clustermap(flights, z_score=0)
+g = sns.clustermap(iris, col_cluster=False)

@@ -1,5 +1,3 @@
-g = sns.FacetGrid(tips, col="time", size=4, aspect=.7)
-(g.map(sns.violinplot, "sex", "total_bill", "smoker", split=True)
-  .despine(left=True)
-  .add_legend(title="smoker"))  # doctest: +ELLIPSIS
-# <seaborn.axisgrid.FacetGrid object at 0x...>
+ax = sns.violinplot(x="orbital_period", y="method",
+                    data=planets[planets.orbital_period < 1000],
+                    cut=0, scale="width", palette="Set3")

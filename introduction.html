@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>An introduction to seaborn &mdash; seaborn 0.7.1 documentation</title>
+    <title>An introduction to seaborn &mdash; seaborn 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.1',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -31,9 +31,10 @@
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="seaborn 0.7.1 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="seaborn 0.8.0 documentation" href="index.html" />
     <link rel="next" title="What’s new in the package" href="whatsnew.html" />
-    <link rel="prev" title="Seaborn: statistical data visualization" href="index.html" />
+    <link rel="prev" title="seaborn: statistical data visualization" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -53,15 +54,15 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="api.html">API</a></li>
-                <li><a href="tutorial.html">Tutorial</a></li>
                 <li><a href="examples/index.html">Gallery</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="api.html">API</a></li>
             
             
               <li class="dropdown globaltoc-container">
@@ -77,8 +78,8 @@
 <li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 </ul>
 </li>
@@ -131,7 +132,7 @@ support for <a class="reference external" href="http://www.numpy.org/">numpy</a>
 <a class="reference external" href="http://scipy.org/">scipy</a> and <a class="reference external" href="http://statsmodels.sourceforge.net/">statsmodels</a>.</p>
 <p>Some of the features that seaborn offers are</p>
 <ul class="simple">
-<li>Several <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span>built-in themes</span></a> that improve on the default matplotlib aesthetics</li>
+<li>Several <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span>built-in themes</span></a> for styling matplotlib graphics</li>
 <li>Tools for choosing <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>color palettes</span></a> to make beautiful plots that reveal patterns in your data</li>
 <li>Functions for visualizing <a class="reference internal" href="examples/distplot_options.html#distplot-options"><span>univariate</span></a> and <a class="reference internal" href="examples/joint_kde.html#joint-kde"><span>bivariate</span></a> distributions or for <a class="reference internal" href="examples/grouped_violinplots.html#grouped-violinplots"><span>comparing</span></a> them between subsets of data</li>
 <li>Tools that fit and visualize <a class="reference internal" href="examples/anscombes_quartet.html#anscombes-quartet"><span>linear regression</span></a> models for different kinds of <a class="reference internal" href="examples/pointplot_anova.html#pointplot-anova"><span>independent</span></a> and <a class="reference internal" href="examples/logistic_regression.html#logistic-regression"><span>dependent</span></a> variables</li>
@@ -150,22 +151,22 @@ set of arguments, and they expose a number of customizable options through
 additional parameters. Some of the functions plot directly into a matplotlib
 axes object, while others operate on an entire figure and produce plots with
 several panels. In the latter case, the plot is drawn using a Grid object that
-links the structure of the figure to the structure of the dataset in an
-abstract way.</p>
-<p>Because seaborn uses matplotlib, the graphics can be further tweaked using
-matplotlib tools and rendered with any of the matplotlib backends to generate
-publication-quality figures. Seaborn can also be used to target web-based
-graphics through the <a class="reference external" href="http://mpld3.github.io/">mpld3</a> and <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a> libraries.</p>
+links the structure of the figure to the structure of the dataset.</p>
 <p>Seaborn should be thought of as a complement to matplotlib, not a replacement
 for it. When using seaborn, it is likely that you will often invoke matplotlib
 functions directly to draw simpler plots already available through the
-<code class="docutils literal"><span class="pre">pyplot</span></code> namespace. Further, while the seaborn functions aim to make plots
-that are reasonably &#8220;production ready&#8221; (including extracting semantic
-information from Pandas objects to add informative labels), full customization
-of the figures will require a sophisticated understanding of matplotlib objects.</p>
-<p>For more detailed information and copious examples of the syntax and resulting
-plots, you can check out the <a class="reference internal" href="examples/index.html#example-gallery"><span>example gallery</span></a>,
-<a class="reference internal" href="tutorial.html#tutorial"><span>tutorial</span></a> or <a class="reference internal" href="api.html#api-ref"><span>API reference</span></a>.</p>
+<code class="docutils literal"><span class="pre">pyplot</span></code> namespace. Further, the seaborn functions aim to make plots that are
+reasonably &#8220;production ready&#8221; (including extracting semantic information from
+Pandas objects to add informative labels), but full customization will reqiure
+changing attributes on the matplotlib objects directly. The combination of
+seaborn&#8217;s high-level interface and matplotlib&#8217;s customizability and wide range
+of backends makes it easy to generate publication-quality figures.</p>
+<p>The documentation is divided into three separate domains. The breadth of
+functionality offered by the package is demonstrated in a set of short scripts
+and rendered in the <a class="reference internal" href="examples/index.html#example-gallery"><span>example gallery</span></a>. Some motivation
+behind the kind of plots that seaborn can help to make is explained in the
+<a class="reference internal" href="tutorial.html#tutorial"><span>tutorial</span></a>. Authoritative documentation on the options afforded
+by each function and class can be found by consulting the <a class="reference internal" href="api.html#api-ref"><span>API reference</span></a>.</p>
 </div>
 
 
@@ -180,14 +181,10 @@ plots, you can check out the <a class="reference internal" href="examples/index.
       
         <br/>
         
-<div id="sourcelink">
-  <a href="_sources/introduction.txt"
-     rel="nofollow">Source</a>
-</div>
       
     </p>
     <p>
-        &copy; Copyright 2012-2015, Michael Waskom.<br/>
+        &copy; Copyright 2012-2017, Michael Waskom.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
     </p>
   </div>

@@ -19,6 +19,7 @@ Matplotlib is highly customizable, but it can be hard to know what settings to t
     import numpy as np
     import matplotlib as mpl
     import matplotlib.pyplot as plt
+    import seaborn as sns
     np.random.seed(sum(map(ord, "aesthetics")))
 
 Let's define a simple function to plot some offset sine waves, which will help us see the different stylistic parameters we can tweak.
@@ -41,11 +42,11 @@ This is what the plot looks like with matplotlib defaults:
 .. image:: aesthetics_files/aesthetics_8_0.png
 
 
-To switch to seaborn defaults, simply import the package.
+To switch to seaborn defaults, simply call the :func:`set` function.
 
 .. code:: python
 
-    import seaborn as sns
+    sns.set()
     sinplot()
 
 
@@ -53,7 +54,7 @@ To switch to seaborn defaults, simply import the package.
 .. image:: aesthetics_files/aesthetics_10_0.png
 
 
-The seaborn defaults break from the MATLAB inspired aesthetic of matplotlib to plot in more muted colors over a light gray background with white grid lines. We find that the grid aids in the use of figures for conveying quantitative information – in almost all cases, figures should be preferred to tables. The white-on-gray grid that is used by default avoids being obtrusive. The grid is particularly useful in giving structure to figures with multiple facets, which is central to some of the more complex tools in the library.
+(Note that in versions of seaborn prior to 0.8, :func:`set` was called on import. On later versions, it must be explicitly invoked).
 
 Seaborn splits matplotlib parameters into two independent groups. The first group sets the aesthetic style of the plot, and the second scales various elements of the figure so that it can be easily incorporated into different contexts.
 
@@ -61,8 +62,8 @@ The interface for manipulating these parameters are two pairs of functions. To c
 
 .. _axes_style:
 
-Styling figures with :func:`axes_style` and :func:`set_style`
--------------------------------------------------------------
+Seaborn figure styles
+---------------------
 
 There are five preset seaborn themes: ``darkgrid``, ``whitegrid``, ``dark``, ``white``, and ``ticks``. They are each suited to different applications and personal preferences. The default theme is ``darkgrid``. As mentioned above, the grid helps the plot serve as a lookup table for quantitative information, and the white-on grey helps to keep the grid from competing with lines that represent data. The ``whitegrid`` theme is similar, but it is better suited to plots with heavy data elements:
 
@@ -119,8 +120,8 @@ Sometimes you might want to give a little extra structure to the plots, which is
 
 .. _remove_spines:
 
-Removing spines with :func:`despine`
-------------------------------------
+Removing axes spines
+--------------------
 
 Both the ``white`` and ``ticks`` styles can benefit from removing the top and right axes spines, which are not needed. It's impossible to do this through the matplotlib parameters, but you can call the seaborn function :func:`despine` to remove them:
 
@@ -203,12 +204,13 @@ If you want to see what parameters are included, you can just call the function 
      'figure.facecolor': 'white',
      'font.family': [u'sans-serif'],
      'font.sans-serif': [u'Arial',
+      u'DejaVu Sans',
       u'Liberation Sans',
       u'Bitstream Vera Sans',
       u'sans-serif'],
      'grid.color': '.8',
      'grid.linestyle': u'-',
-     'image.cmap': u'Greys',
+     'image.cmap': u'rocket',
      'legend.frameon': False,
      'legend.numpoints': 1,
      'legend.scatterpoints': 1,
@@ -239,8 +241,8 @@ You can then set different versions of these parameters:
 
 .. _plotting_context:
 
-Scaling plot elements with :func:`plotting_context` and :func:`set_context`
----------------------------------------------------------------------------
+Scaling plot elements
+---------------------
 
 A separate set of parameters control the scale of plot elements, which should let you use the same code to make plots that are suited for use in settings where larger or smaller plots are appropriate.
 
@@ -255,7 +257,6 @@ The four preset contexts, in order of relative size, are ``paper``, ``notebook``
 .. code:: python
 
     sns.set_context("paper")
-    plt.figure(figsize=(8, 6))
     sinplot()
 
 
@@ -266,7 +267,6 @@ The four preset contexts, in order of relative size, are ``paper``, ``notebook``
 .. code:: python
 
     sns.set_context("talk")
-    plt.figure(figsize=(8, 6))
     sinplot()
 
 
@@ -277,7 +277,6 @@ The four preset contexts, in order of relative size, are ``paper``, ``notebook``
 .. code:: python
 
     sns.set_context("poster")
-    plt.figure(figsize=(8, 6))
     sinplot()
 
 
