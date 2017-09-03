@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Plotting on data-aware grids &mdash; seaborn 0.8.0 documentation</title>
+    <title>Plotting on data-aware grids &mdash; seaborn 0.8.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.0" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.0',
+        VERSION:     '0.8.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.0 documentation" href="../index.html" />
+    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
     <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
     <link rel="next" title="API reference" href="../api.html" />
     <link rel="prev" title="Visualizing linear relationships" href="regression.html" />
@@ -55,7 +55,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -189,7 +189,11 @@
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/axis_grids_16_0.png" src="../_images/axis_grids_16_0.png" />
+<pre class="literal-block">
+/Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the barplot function without specifying <cite>order</cite> is likely to produce an incorrect plot.
+  warnings.warn(warning)
+</pre>
+<img alt="../_images/axis_grids_16_1.png" src="../_images/axis_grids_16_1.png" />
 <p>With versions of matplotlib &gt; 1.4, you can pass parameters to be used in the <cite>gridspec</cite> module. The can be used to draw attention to a particular facet by increasing its size. It&#8217;s particularly useful when visualizing distributions of datasets with unequal numbers of groups in each facet.</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
 <span class="n">titanic</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">deck</span><span class="o">=</span><span class="n">titanic</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">))</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;deck&quot;</span><span class="p">)</span>
@@ -198,7 +202,11 @@
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">,</span> <span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/axis_grids_18_0.png" src="../_images/axis_grids_18_0.png" />
+<pre class="literal-block">
+/Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the boxplot function without specifying <cite>order</cite> is likely to produce an incorrect plot.
+  warnings.warn(warning)
+</pre>
+<img alt="../_images/axis_grids_18_1.png" src="../_images/axis_grids_18_1.png" />
 <p>The default ordering of the facets is derived from the information in the DataFrame. If the variable used to define facets has a categorical type, then the order of the categories is used. Otherwise, the facets will be in the order of appearence of the category levels. It is possible, however, to specify an ordering of any facet dimension with the appropriate <code class="docutils literal"><span class="pre">*_order</span></code> parameter:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">ordered_days</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">day</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">row_order</span><span class="o">=</span><span class="n">ordered_days</span><span class="p">,</span>
@@ -228,7 +236,11 @@
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">,</span> <span class="s2">&quot;solutions&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.3&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="bp">None</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/axis_grids_26_0.png" src="../_images/axis_grids_26_0.png" />
+<pre class="literal-block">
+/Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the pointplot function without specifying <cite>order</cite> is likely to produce an incorrect plot.
+  warnings.warn(warning)
+</pre>
+<img alt="../_images/axis_grids_26_1.png" src="../_images/axis_grids_26_1.png" />
 <p>Once you&#8217;ve drawn a plot using <code class="xref py py-meth docutils literal"><span class="pre">FacetGrid.map()</span></code> (which can be called multiple times), you may want to adjust some aspects of the plot. There are also a number of methods on the <a class="reference internal" href="../generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> object for manipulating the figure at a higher level of abstraction. The most general is <code class="xref py py-meth docutils literal"><span class="pre">FacetGrid.set()</span></code>, and there are other more specialized methods like <code class="xref py py-meth docutils literal"><span class="pre">FacetGrid.set_axis_labels()</span></code>, which respects the fact that interior facets do not have axis labels. For example:</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>

@@ -106,6 +106,8 @@ Example gallery
 
    ./joint_kde
 
+   ./kde_joyplot
+
    ./large_distributions
 
    ./logistic_regression
@@ -139,8 +141,6 @@ Example gallery
    ./simple_violinplots
 
    ./structured_heatmap
-
-   ./timeseries_bootstrapped
 
    ./timeseries_from_dataframe
 
@@ -352,6 +352,19 @@ Example gallery
     <img src=../_static/joint_kde_thumb.png>
     <span class='figure-label'>
     <p>jointplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./kde_joyplot.html>
+    <img src=../_static/kde_joyplot_thumb.png>
+    <span class='figure-label'>
+    <p>FacetGrid</p>
     </span>
     </a>
     </div>
@@ -573,19 +586,6 @@ Example gallery
     <img src=../_static/structured_heatmap_thumb.png>
     <span class='figure-label'>
     <p>clustermap</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
-    <a href=./timeseries_bootstrapped.html>
-    <img src=../_static/timeseries_bootstrapped_thumb.png>
-    <span class='figure-label'>
-    <p>tsplot</p>
     </span>
     </a>
     </div>

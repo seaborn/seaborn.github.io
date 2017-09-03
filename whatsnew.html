@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s new in the package &mdash; seaborn 0.8.0 documentation</title>
+    <title>What’s new in the package &mdash; seaborn 0.8.1 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css?v=0.8.0" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.0',
+        VERSION:     '0.8.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.0 documentation" href="index.html" />
+    <link rel="top" title="seaborn 0.8.1 documentation" href="index.html" />
     <link rel="next" title="Installing and getting started" href="installing.html" />
     <link rel="prev" title="An introduction to seaborn" href="introduction.html" />
 <meta charset='utf-8'>
@@ -54,7 +54,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -94,6 +94,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">What&#8217;s new in the package</a><ul>
+<li><a class="reference internal" href="#v0-8-1-september-2017">v0.8.1 (September 2017)</a></li>
 <li><a class="reference internal" href="#v0-8-0-july-2017">v0.8.0 (July 2017)</a></li>
 <li><a class="reference internal" href="#v0-7-1-june-2016">v0.7.1 (June 2016)</a></li>
 <li><a class="reference internal" href="#v0-7-0-january-2016">v0.7.0 (January 2016)</a></li>
@@ -183,6 +184,23 @@
       
   <div class="section" id="what-s-new-in-the-package">
 <span id="whatsnew"></span><h1>What&#8217;s new in the package<a class="headerlink" href="#what-s-new-in-the-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v0-8-1-september-2017">
+<h2>v0.8.1 (September 2017)<a class="headerlink" href="#v0-8-1-september-2017" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.883859"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.883859.svg" /></a>
+<ul class="simple">
+<li>Added a warning in <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> when passing a categorical plot function without specifying <code class="docutils literal"><span class="pre">order</span></code> (or <code class="docutils literal"><span class="pre">hue_order</span></code> when <code class="docutils literal"><span class="pre">hue</span></code> is used), which is likely to produce a plot that is incorrect.</li>
+<li>Improved compatibility between <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal"><span class="pre">FacetGrid</span></code></a> or <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> and interactive matplotlib backends so that the legend no longer remains inside the figure when using <code class="docutils literal"><span class="pre">legend_out=True</span></code>.</li>
+<li>Changed categorical plot functions with small plot elements to use <a class="reference internal" href="generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-func docutils literal"><span class="pre">dark_palette()</span></code></a> instead of <a class="reference internal" href="generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal"><span class="pre">light_palette()</span></code></a> when generating a sequential palette from a specified color.</li>
+<li>Improved robustness of <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a> to data with fewer than two observations.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a> when using <code class="docutils literal"><span class="pre">yticklabels=False</span></code>.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> where colors were wrong if exactly three points were being drawn.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal"><span class="pre">pointplot()</span></code></a> where legend entries for missing data appeared with empty markers.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a> where an error was raised when annotating the main heatmap and showing category colors.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a> where row labels were not being properly rotated when they overlapped.</li>
+<li>Fixed a bug in <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> where the maximum limit on the density axes was not being updated when multiple densities were drawn.</li>
+<li>Improved compatibility with future versions of pandas.</li>
+</ul>
+</div>
 <div class="section" id="v0-8-0-july-2017">
 <h2>v0.8.0 (July 2017)<a class="headerlink" href="#v0-8-0-july-2017" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.824567"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.824567.svg" /></a>
@@ -190,7 +208,7 @@
 <li>The default style is no longer applied when seaborn is imported. It is now necessary to explicitly call <a class="reference internal" href="generated/seaborn.set.html#seaborn.set" title="seaborn.set"><code class="xref py py-func docutils literal"><span class="pre">set()</span></code></a> or one or more of <a class="reference internal" href="generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal"><span class="pre">set_style()</span></code></a>, <a class="reference internal" href="generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-func docutils literal"><span class="pre">set_context()</span></code></a>, and <a class="reference internal" href="generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal"><span class="pre">set_palette()</span></code></a>. Correspondingly, the <code class="docutils literal"><span class="pre">seaborn.apionly</span></code> module has been deprecated.</li>
 <li>Changed the behavior of <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> (and by extension <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>) when plotting divergent dataesets (i.e. when the <code class="docutils literal"><span class="pre">center</span></code> parameter is used). Instead of extending the lower and upper limits of the colormap to be symettrical around the <code class="docutils literal"><span class="pre">center</span></code> value, the colormap is modified so that its middle color corresponds to <code class="docutils literal"><span class="pre">center</span></code>. This means that the full range of the colormap will not be used (unless the data or specified <code class="docutils literal"><span class="pre">vmin</span></code> and <code class="docutils literal"><span class="pre">vmax</span></code> are symettric), but the upper and lower limits of the colorbar will correspond to the range of the data. See the Github pull request <a class="reference external" href="https://github.com/mwaskom/seaborn/pull/1184">(#1184)</a> for examples of the behavior.</li>
 <li>Removed automatic detection of diverging data in <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> (and by extension <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>). If you want the colormap to be treated as diverging (see above), it is now necessary to specify the <code class="docutils literal"><span class="pre">center</span></code> value. When no colormap is specified, specifying <code class="docutils literal"><span class="pre">center</span></code> will still change the default to be one that is more appropriate for displaying diverging data.</li>
-<li>Added four new colormaps, created using <a class="reference external" href="https://github.com/matplotlib/viscm">viscm</a> for perceptual uniformity. The new colormaps include two sequential colormaps (&#8220;rocket&#8221; and &#8220;mako&#8221;) and two diverging colormaps (&#8220;icefire&#8221; and &#8220;vlag&#8221;). These colormaps are registered with matplotlib on seaborn input and the colormap objects can be accessed in the <code class="docutils literal"><span class="pre">seaborn.cm</span></code> namespace.</li>
+<li>Added four new colormaps, created using <a class="reference external" href="https://github.com/matplotlib/viscm">viscm</a> for perceptual uniformity. The new colormaps include two sequential colormaps (&#8220;rocket&#8221; and &#8220;mako&#8221;) and two diverging colormaps (&#8220;icefire&#8221; and &#8220;vlag&#8221;). These colormaps are registered with matplotlib on seaborn import and the colormap objects can be accessed in the <code class="docutils literal"><span class="pre">seaborn.cm</span></code> namespace.</li>
 <li>Changed the default <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> colormaps to be &#8220;rocket&#8221; (in the case of sequential data) or &#8220;icefire&#8221; (in the case of diverging data). Note that this change reverses the direction of the luminance ramp from the previous defaults. While potentially confusing and disruptive, this change better aligns the seaborn defaults with the new matplotlib default colormap (&#8220;viridis&#8221;) and arguably better aligns the semantics of a &#8220;heat&#8221; map with the appearance of the colormap.</li>
 <li>Added <code class="docutils literal"><span class="pre">&quot;auto&quot;</span></code> as a (default) option for tick labels in <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a> and <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a>. This will try to estimate how many ticks can be labeled without the text objects overlapping, which should improve performance for larger matrices.</li>
 <li>Added the <code class="docutils literal"><span class="pre">dodge</span></code> parameter to <a class="reference internal" href="generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal"><span class="pre">boxplot()</span></code></a>, <a class="reference internal" href="generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal"><span class="pre">violinplot()</span></code></a>, and <a class="reference internal" href="generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal"><span class="pre">barplot()</span></code></a> to allow use of <code class="docutils literal"><span class="pre">hue</span></code> without changing the position or width of the plot elements, as when the <code class="docutils literal"><span class="pre">hue</span></code> varible is not nested within the main categorical variable.</li>
@@ -200,6 +218,7 @@
 <li>Allow side-specific offsets in <a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal"><span class="pre">despine()</span></code></a>.</li>
 <li>Figure size is no longer part of the seaborn plotting context parameters.</li>
 <li>Put a cap on the number of bins used in <a class="reference internal" href="generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> for <code class="docutils literal"><span class="pre">type==&quot;hex&quot;</span></code> to avoid hanging when the reference rule prescribes too many.</li>
+<li>Changed the y axis in <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal"><span class="pre">heatmap()</span></code></a>. Instead of reversing the rows of the data internally, the y axis is now inverted. This may affect code that draws on top of the heatmap in data coordinates.</li>
 <li>Turn off dendrogram axes in <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal"><span class="pre">clustermap()</span></code></a> rather than setting the background color to white.</li>
 <li>New matplotlib qualitative palettes (e.g. &#8220;tab10&#8221;) are now handled correctly.</li>
 <li>Some modules and functions have been internally reorganized; there should be no effect on code that uses the <code class="docutils literal"><span class="pre">seaborn</span></code> namespace.</li>

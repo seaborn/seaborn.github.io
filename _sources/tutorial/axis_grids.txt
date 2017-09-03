@@ -103,8 +103,14 @@ The size of the figure is set by providing the height of *each* facet, along wit
     g.map(sns.barplot, "sex", "total_bill");
 
 
+.. parsed-literal::
 
-.. image:: axis_grids_files/axis_grids_16_0.png
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
+      warnings.warn(warning)
+
+
+
+.. image:: axis_grids_files/axis_grids_16_1.png
 
 
 With versions of matplotlib > 1.4, you can pass parameters to be used in the `gridspec` module. The can be used to draw attention to a particular facet by increasing its size. It's particularly useful when visualizing distributions of datasets with unequal numbers of groups in each facet.
@@ -118,8 +124,14 @@ With versions of matplotlib > 1.4, you can pass parameters to be used in the `gr
     g.map(sns.boxplot, "deck", "age");
 
 
+.. parsed-literal::
 
-.. image:: axis_grids_files/axis_grids_18_0.png
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the boxplot function without specifying `order` is likely to produce an incorrect plot.
+      warnings.warn(warning)
+
+
+
+.. image:: axis_grids_files/axis_grids_18_1.png
 
 
 The default ordering of the facets is derived from the information in the DataFrame. If the variable used to define facets has a categorical type, then the order of the categories is used. Otherwise, the facets will be in the order of appearence of the category levels. It is possible, however, to specify an ordering of any facet dimension with the appropriate ``*_order`` parameter:
@@ -172,8 +184,14 @@ If you have many levels of one variable, you can plot it along the columns but "
     g.map(sns.pointplot, "solutions", "score", color=".3", ci=None);
 
 
+.. parsed-literal::
 
-.. image:: axis_grids_files/axis_grids_26_0.png
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:703: UserWarning: Using the pointplot function without specifying `order` is likely to produce an incorrect plot.
+      warnings.warn(warning)
+
+
+
+.. image:: axis_grids_files/axis_grids_26_1.png
 
 
 Once you've drawn a plot using :meth:`FacetGrid.map` (which can be called multiple times), you may want to adjust some aspects of the plot. There are also a number of methods on the :class:`FacetGrid` object for manipulating the figure at a higher level of abstraction. The most general is :meth:`FacetGrid.set`, and there are other more specialized methods like :meth:`FacetGrid.set_axis_labels`, which respects the fact that interior facets do not have axis labels. For example:
