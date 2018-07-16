@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn.kdeplot &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn.kdeplot &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="API reference" href="../api.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.rugplot" href="seaborn.rugplot.html" />
     <link rel="prev" title="seaborn.distplot" href="seaborn.distplot.html" />
 <meta charset='utf-8'>
@@ -41,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -124,7 +110,8 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="seaborn-kdeplot">
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-kdeplot">
 <h1>seaborn.kdeplot<a class="headerlink" href="#seaborn-kdeplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.kdeplot">
@@ -151,15 +138,19 @@ contours when data is bivariate).</p>
 <blockquote>
 <div><p>If True, density is on x-axis.</p>
 </div></blockquote>
-<p><strong>kernel</strong> : {&#8216;gau&#8217; | &#8216;cos&#8217; | &#8216;biw&#8217; | &#8216;epa&#8217; | &#8216;tri&#8217; | &#8216;triw&#8217; }, optional</p>
+<p><strong>kernel</strong> : {‘gau’ | ‘cos’ | ‘biw’ | ‘epa’ | ‘tri’ | ‘triw’ }, optional</p>
 <blockquote>
 <div><p>Code for shape of kernel to fit with. Bivariate KDE can only use
 gaussian kernel.</p>
 </div></blockquote>
-<p><strong>bw</strong> : {&#8216;scott&#8217; | &#8216;silverman&#8217; | scalar | pair of scalars }, optional</p>
+<p><strong>bw</strong> : {‘scott’ | ‘silverman’ | scalar | pair of scalars }, optional</p>
 <blockquote>
 <div><p>Name of reference method to determine kernel size, scalar factor,
-or scalar for each dimension of the bivariate plot.</p>
+or scalar for each dimension of the bivariate plot. Note that the
+underlying computational libraries have different interperetations
+for this parameter: <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> uses it directly, but <code class="docutils literal notranslate"><span class="pre">scipy</span></code>
+treats it as a scaling factor for the standard deviation of the
+data.</p>
 </div></blockquote>
 <p><strong>gridsize</strong> : int, optional</p>
 <blockquote>
@@ -185,8 +176,8 @@ a pair of (low, high) bounds for bivariate plots.</p>
 <p><strong>shade_lowest</strong> : bool, optional</p>
 <blockquote>
 <div><p>If True, shade the lowest contour of a bivariate KDE plot. Not
-relevant when drawing a univariate plot or when <code class="docutils literal"><span class="pre">shade=False</span></code>.
-Setting this to <code class="docutils literal"><span class="pre">False</span></code> can be useful when you want multiple
+relevant when drawing a univariate plot or when <code class="docutils literal notranslate"><span class="pre">shade=False</span></code>.
+Setting this to <code class="docutils literal notranslate"><span class="pre">False</span></code> can be useful when you want multiple
 densities on the same Axes.</p>
 </div></blockquote>
 <p><strong>cbar</strong> : bool, optional</p>
@@ -200,7 +191,7 @@ from the main axes.</p>
 </div></blockquote>
 <p><strong>cbar_kws</strong> : dict, optional</p>
 <blockquote>
-<div><p>Keyword arguments for <code class="docutils literal"><span class="pre">fig.colorbar()</span></code>.</p>
+<div><p>Keyword arguments for <code class="docutils literal notranslate"><span class="pre">fig.colorbar()</span></code>.</p>
 </div></blockquote>
 <p><strong>ax</strong> : matplotlib axes, optional</p>
 <blockquote>
@@ -208,8 +199,8 @@ from the main axes.</p>
 </div></blockquote>
 <p><strong>kwargs</strong> : key, value pairings</p>
 <blockquote>
-<div><p>Other keyword arguments are passed to <code class="docutils literal"><span class="pre">plt.plot()</span></code> or
-<code class="docutils literal"><span class="pre">plt.contour{f}</span></code> depending on whether a univariate or bivariate
+<div><p>Other keyword arguments are passed to <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> or
+<code class="docutils literal notranslate"><span class="pre">plt.contour{f}</span></code> depending on whether a univariate or bivariate
 plot is being drawn.</p>
 </div></blockquote>
 </td>
@@ -225,16 +216,16 @@ plot is being drawn.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal"><span class="pre">distplot</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distplot</span></code></a></dt>
 <dd>Flexibly plot a univariate distribution of observations.</dd>
-<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal"><span class="pre">jointplot</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt>
 <dd>Plot a joint dataset with bivariate and marginal distributions.</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Plot a basic univariate density:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -244,69 +235,69 @@ plot is being drawn.</p>
 <img alt="../_images/seaborn-kdeplot-1.png" src="../_images/seaborn-kdeplot-1.png" />
 </div>
 <p>Shade under the density curve and use a different color:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-2.png" src="../_images/seaborn-kdeplot-2.png" />
 </div>
 <p>Plot a bivariate density:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-3.png" src="../_images/seaborn-kdeplot-3.png" />
 </div>
 <p>Use filled contours:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-4.png" src="../_images/seaborn-kdeplot-4.png" />
 </div>
 <p>Use more contour levels and a different color palette:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples_d&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples_d&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-5.png" src="../_images/seaborn-kdeplot-5.png" />
 </div>
 <p>Use a narrower bandwith:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=.</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=.</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-6.png" src="../_images/seaborn-kdeplot-6.png" />
 </div>
 <p>Plot the density on the vertical axis:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-7.png" src="../_images/seaborn-kdeplot-7.png" />
 </div>
 <p>Limit the density curve within the range of the data:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-8.png" src="../_images/seaborn-kdeplot-8.png" />
 </div>
 <p>Add a colorbar for the contours:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-kdeplot-9.png" src="../_images/seaborn-kdeplot-9.png" />
 </div>
 <p>Plot two shaded bivariate densities:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setosa</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="s2">&quot;setosa&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">virginica</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="s2">&quot;virginica&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">setosa</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">,</span> <span class="n">setosa</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">shade_lowest</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">... </span>                 <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shade_lowest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">virginica</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">,</span> <span class="n">virginica</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">shade_lowest</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">... </span>                 <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shade_lowest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -331,8 +322,8 @@ plot is being drawn.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

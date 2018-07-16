@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>seaborn.scatterplot &#8212; seaborn 0.9.0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.lineplot" href="seaborn.lineplot.html" />
+    <link rel="prev" title="seaborn.relplot" href="seaborn.relplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          seaborn</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.scatterplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-scatterplot">
+<h1>seaborn.scatterplot<a class="headerlink" href="#seaborn-scatterplot" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="seaborn.scatterplot">
+<code class="descclassname">seaborn.</code><code class="descname">scatterplot</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>hue=None</em>, <em>style=None</em>, <em>size=None</em>, <em>data=None</em>, <em>palette=None</em>, <em>hue_order=None</em>, <em>hue_norm=None</em>, <em>sizes=None</em>, <em>size_order=None</em>, <em>size_norm=None</em>, <em>markers=True</em>, <em>style_order=None</em>, <em>x_bins=None</em>, <em>y_bins=None</em>, <em>units=None</em>, <em>estimator=None</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>alpha='auto'</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>legend='brief'</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.scatterplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a scatter plot with possibility of several semantic groupings.</p>
+<p>The relationship between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> can be shown for different subsets
+of the data using the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">style</span></code> parameters. These
+parameters control what visual semantics are used to identify the different
+subsets. It is possible to show up to three dimensions independently by
+using all three semantic types, but this style of plot can be hard to
+interpret and is often ineffective. Using redundant semantics (i.e. both
+<code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> for the same variable) can be helpful for making
+graphics more accessible.</p>
+<p>See the <a class="reference internal" href="../tutorial/relational.html#relational-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y</strong> : names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</p>
+<blockquote>
+<div><p>Input data variables; must be numeric. Can pass data directly or
+reference columns in <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</div></blockquote>
+<p><strong>hue</strong> : name of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</p>
+<blockquote>
+<div><p>Grouping variable that will produce points with different colors.
+Can be either categorical or numeric, although color mapping will
+behave differently in latter case.</p>
+</div></blockquote>
+<p><strong>size</strong> : name of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</p>
+<blockquote>
+<div><p>Grouping variable that will produce points with different sizes.
+Can be either categorical or numeric, although size mapping will
+behave differently in latter case.</p>
+</div></blockquote>
+<p><strong>style</strong> : name of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</p>
+<blockquote>
+<div><p>Grouping variable that will produce points with different markers.
+Can have a numeric dtype but will always be treated as categorical.</p>
+</div></blockquote>
+<p><strong>data</strong> : DataFrame</p>
+<blockquote>
+<div><p>Tidy (“long-form”) dataframe where each column is a variable and each
+row is an observation.</p>
+</div></blockquote>
+<p><strong>palette</strong> : palette name, list, or dict, optional</p>
+<blockquote>
+<div><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
+dictionary mapping hue levels to matplotlib colors.</p>
+</div></blockquote>
+<p><strong>hue_order</strong> : list, optional</p>
+<blockquote>
+<div><p>Specified order for the appearance of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable levels,
+otherwise they are determined from the data. Not relevant when the
+<code class="docutils literal notranslate"><span class="pre">hue</span></code> variable is numeric.</p>
+</div></blockquote>
+<p><strong>hue_norm</strong> : tuple or Normalize object, optional</p>
+<blockquote>
+<div><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+variable when it is numeric. Not relevant if it is categorical.</p>
+</div></blockquote>
+<p><strong>sizes</strong> : list, dict, or tuple, optional</p>
+<blockquote>
+<div><p>An object that determines how sizes are chosen when <code class="docutils literal notranslate"><span class="pre">size</span></code> is used.
+It can always be a list of size values or a dict mapping levels of the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable to sizes. When <code class="docutils literal notranslate"><span class="pre">size</span></code>  is numeric, it can also be
+a tuple specifying the minimum and maximum size to use such that other
+values are normalized within this range.</p>
+</div></blockquote>
+<p><strong>size_order</strong> : list, optional</p>
+<blockquote>
+<div><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">size</span></code> variable levels,
+otherwise they are determined from the data. Not relevant when the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
+</div></blockquote>
+<p><strong>size_norm</strong> : tuple or Normalize object, optional</p>
+<blockquote>
+<div><p>Normalization in data units for scaling plot objects when the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
+</div></blockquote>
+<p><strong>markers</strong> : boolean, list, or dictionary, optional</p>
+<blockquote>
+<div><p>Object determining how to draw the markers for different levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable. Setting to <code class="docutils literal notranslate"><span class="pre">True</span></code> will use default markers, or
+you can pass a list of markers or a dictionary mapping levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable to markers. Setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> will draw
+marker-less lines.  Markers are specified as in matplotlib.</p>
+</div></blockquote>
+<p><strong>style_order</strong> : list, optional</p>
+<blockquote>
+<div><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">style</span></code> variable levels
+otherwise they are determined from the data. Not relevant when the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable is numeric.</p>
+</div></blockquote>
+<p><strong>{x,y}_bins</strong> : lists or arrays or functions</p>
+<blockquote>
+<div><p><em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>units</strong> : {long_form_var}</p>
+<blockquote>
+<div><p>Grouping variable identifying sampling units. When used, a separate
+line will be drawn for each unit with appropriate semantics, but no
+legend entry will be added. Useful for showing distribution of
+experimental replicates when exact identities are not needed.</p>
+<p><em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>estimator</strong> : name of pandas method or callable or None, optional</p>
+<blockquote>
+<div><p>Method for aggregating across multiple observations of the <code class="docutils literal notranslate"><span class="pre">y</span></code>
+variable at the same <code class="docutils literal notranslate"><span class="pre">x</span></code> level. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all observations will
+be drawn.    
+<em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>ci</strong> : int or “sd” or None, optional</p>
+<blockquote>
+<div><p>Size of the confidence interval to draw when aggregating with an
+estimator. “sd” means to draw the standard deviation of the data.
+Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will skip bootstrapping.    
+<em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>n_boot</strong> : int, optional</p>
+<blockquote>
+<div><p>Number of bootstraps to use for computing the confidence interval.    
+<em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>alpha</strong> : float</p>
+<blockquote>
+<div><p>Proportional opacity of the points.</p>
+</div></blockquote>
+<p><strong>{x,y}_jitter</strong> : booleans or floats</p>
+<blockquote>
+<div><p><em>Currently non-functional.</em></p>
+</div></blockquote>
+<p><strong>legend</strong> : “brief”, “full”, or False, optional</p>
+<blockquote>
+<div><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
+variables will be represented with a sample of evenly spaced values.
+If “full”, every group will get an entry in the legend. If <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+no legend data is added and no legend is drawn.</p>
+</div></blockquote>
+<p><strong>ax</strong> : matplotlib Axes, optional</p>
+<blockquote>
+<div><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</div></blockquote>
+<p><strong>kwargs</strong> : key, value mappings</p>
+<blockquote>
+<div><p>Other keyword arguments are passed down to <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> at draw
+time.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> : matplotlib Axes</p>
+<blockquote class="last">
+<div><p>Returns the Axes object with the plot drawn onto it.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lineplot</span></code></a></dt>
+<dd>Show the relationship between two variables connected with lines to emphasize continuity.</dd>
+<dt><a class="reference internal" href="seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swarmplot</span></code></a></dt>
+<dd>Draw a scatter plot with one categorical variable, arranging the points to show the distribution of values.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Draw a simple scatter plot between two variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-1.png" src="../_images/seaborn-scatterplot-1.png" />
+</div>
+<p>Group by another variable and show the groups with different colors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-2.png" src="../_images/seaborn-scatterplot-2.png" />
+</div>
+<p>Show the grouping variable by varying both color and marker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-3.png" src="../_images/seaborn-scatterplot-3.png" />
+</div>
+<p>Vary colors and markers to show two different grouping variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-4.png" src="../_images/seaborn-scatterplot-4.png" />
+</div>
+<p>Show a quantitative variable by varying the size of the points:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-5.png" src="../_images/seaborn-scatterplot-5.png" />
+</div>
+<p>Also show the quantitative variable by also using continuous colors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-6.png" src="../_images/seaborn-scatterplot-6.png" />
+</div>
+<p>Use a different continuous color map:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">light</span><span class="o">=.</span><span class="mi">8</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-7.png" src="../_images/seaborn-scatterplot-7.png" />
+</div>
+<p>Change the minimum and maximum point size and show all sizes in legend:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">light</span><span class="o">=.</span><span class="mi">8</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">palette</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-8.png" src="../_images/seaborn-scatterplot-8.png" />
+</div>
+<p>Use a narrower range of color map intensities:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">light</span><span class="o">=.</span><span class="mi">8</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">hue_norm</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<span class="gp">... </span>                     <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-9.png" src="../_images/seaborn-scatterplot-9.png" />
+</div>
+<p>Vary the size with a categorical variable, and use a different palette:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">light</span><span class="o">=.</span><span class="mi">8</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-10.png" src="../_images/seaborn-scatterplot-10.png" />
+</div>
+<p>Use a specific set of markers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">markers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lunch&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;Dinner&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">markers</span><span class="o">=</span><span class="n">markers</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-11.png" src="../_images/seaborn-scatterplot-11.png" />
+</div>
+<p>Control plot attributes using matplotlib parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-12.png" src="../_images/seaborn-scatterplot-12.png" />
+</div>
+<p>Pass data vectors instead of names in a data frame:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">hue</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-13.png" src="../_images/seaborn-scatterplot-13.png" />
+</div>
+<p>Pass a wide-form dataset and plot against its index:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;1 1 2000&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wide_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">wide_df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-scatterplot-14.png" src="../_images/seaborn-scatterplot-14.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

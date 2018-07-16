@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn.set_palette &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn.set_palette &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="API reference" href="../api.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.color_palette" href="seaborn.color_palette.html" />
     <link rel="prev" title="seaborn.reset_orig" href="seaborn.reset_orig.html" />
 <meta charset='utf-8'>
@@ -41,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -124,7 +110,8 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="seaborn-set-palette">
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-set-palette">
 <h1>seaborn.set_palette<a class="headerlink" href="#seaborn-set-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.set_palette">
@@ -134,15 +121,15 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>palette</strong> : hls | husl | matplotlib colormap | seaborn color palette</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>palette</strong> : seaborn color paltte | matplotlib colormap | hls | husl</p>
 <blockquote>
-<div><p>Palette definition. Should be something that <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a>
+<div><p>Palette definition. Should be something that <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>
 can process.</p>
 </div></blockquote>
 <p><strong>n_colors</strong> : int</p>
 <blockquote>
 <div><p>Number of colors in the cycle. The default number of colors will depend
-on the format of <code class="docutils literal"><span class="pre">palette</span></code>, see the <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal"><span class="pre">color_palette()</span></code></a>
+on the format of <code class="docutils literal notranslate"><span class="pre">palette</span></code>, see the <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>
 documentation for more information.</p>
 </div></blockquote>
 <p><strong>desat</strong> : float</p>
@@ -151,8 +138,8 @@ documentation for more information.</p>
 </div></blockquote>
 <p><strong>color_codes</strong> : bool</p>
 <blockquote class="last">
-<div><p>If <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">palette</span></code> is a seaborn palette, remap the shorthand
-color codes (e.g. &#8220;b&#8221;, &#8220;g&#8221;, &#8220;r&#8221;, etc.) to the colors from this palette.</p>
+<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">palette</span></code> is a seaborn palette, remap the shorthand
+color codes (e.g. “b”, “g”, “r”, etc.) to the colors from this palette.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -161,19 +148,19 @@ color codes (e.g. &#8220;b&#8221;, &#8220;g&#8221;, &#8220;r&#8221;, etc.) to th
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal"><span class="pre">color_palette</span></code></a></dt>
-<dd>build a color palette or set the color cycle temporarily in a <code class="docutils literal"><span class="pre">with</span></code> statement.</dd>
-<dt><a class="reference internal" href="seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal"><span class="pre">set_context</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_palette</span></code></a></dt>
+<dd>build a color palette or set the color cycle temporarily in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</dd>
+<dt><a class="reference internal" href="seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_context</span></code></a></dt>
 <dd>set parameters to scale plot elements</dd>
-<dt><a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal"><span class="pre">set_style</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_style</span></code></a></dt>
 <dd>set the default parameters for figure style</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_palette</span><span class="p">(</span><span class="s2">&quot;Reds&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_palette</span><span class="p">(</span><span class="s2">&quot;Reds&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -195,8 +182,8 @@ color codes (e.g. &#8220;b&#8221;, &#8220;g&#8221;, &#8220;r&#8221;, etc.) to th
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

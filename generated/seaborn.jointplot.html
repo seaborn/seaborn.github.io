@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn.jointplot &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn.jointplot &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="API reference" href="../api.html" />
-    <link rel="next" title="seaborn.stripplot" href="seaborn.stripplot.html" />
-    <link rel="prev" title="seaborn.JointGrid" href="seaborn.JointGrid.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.pairplot" href="seaborn.pairplot.html" />
+    <link rel="prev" title="seaborn.countplot" href="seaborn.countplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -124,50 +110,48 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="seaborn-jointplot">
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-jointplot">
 <h1>seaborn.jointplot<a class="headerlink" href="#seaborn-jointplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.jointplot">
-<code class="descclassname">seaborn.</code><code class="descname">jointplot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>data=None</em>, <em>kind='scatter'</em>, <em>stat_func=&lt;function pearsonr&gt;</em>, <em>color=None</em>, <em>size=6</em>, <em>ratio=5</em>, <em>space=0.2</em>, <em>dropna=True</em>, <em>xlim=None</em>, <em>ylim=None</em>, <em>joint_kws=None</em>, <em>marginal_kws=None</em>, <em>annot_kws=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.jointplot" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">seaborn.</code><code class="descname">jointplot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>data=None</em>, <em>kind='scatter'</em>, <em>stat_func=None</em>, <em>color=None</em>, <em>height=6</em>, <em>ratio=5</em>, <em>space=0.2</em>, <em>dropna=True</em>, <em>xlim=None</em>, <em>ylim=None</em>, <em>joint_kws=None</em>, <em>marginal_kws=None</em>, <em>annot_kws=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.jointplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a plot of two variables with bivariate and univariate graphs.</p>
-<p>This function provides a convenient interface to the <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a>
+<p>This function provides a convenient interface to the <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>
 class, with several canned plot kinds. This is intended to be a fairly
 lightweight wrapper; if you need more flexibility, you should use
-<a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a> directly.</p>
+<a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y</strong> : strings or vectors</p>
 <blockquote>
-<div><p>Data or names of variables in <code class="docutils literal"><span class="pre">data</span></code>.</p>
+<div><p>Data or names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 </div></blockquote>
 <p><strong>data</strong> : DataFrame, optional</p>
 <blockquote>
-<div><p>DataFrame when <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> are variable names.</p>
+<div><p>DataFrame when <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are variable names.</p>
 </div></blockquote>
-<p><strong>kind</strong> : { &#8220;scatter&#8221; | &#8220;reg&#8221; | &#8220;resid&#8221; | &#8220;kde&#8221; | &#8220;hex&#8221; }, optional</p>
+<p><strong>kind</strong> : { “scatter” | “reg” | “resid” | “kde” | “hex” }, optional</p>
 <blockquote>
 <div><p>Kind of plot to draw.</p>
 </div></blockquote>
 <p><strong>stat_func</strong> : callable or None, optional</p>
 <blockquote>
-<div><p>Function used to calculate a statistic about the relationship and
-annotate the plot. Should map <cite>x</cite> and <cite>y</cite> either to a single value
-or to a (value, p) tuple. Set to <code class="docutils literal"><span class="pre">None</span></code> if you don&#8217;t want to
-annotate the plot.</p>
+<div><p><em>Deprecated</em></p>
 </div></blockquote>
 <p><strong>color</strong> : matplotlib color, optional</p>
 <blockquote>
 <div><p>Color used for the plot elements.</p>
 </div></blockquote>
-<p><strong>size</strong> : numeric, optional</p>
+<p><strong>height</strong> : numeric, optional</p>
 <blockquote>
 <div><p>Size of the figure (it will be square).</p>
 </div></blockquote>
 <p><strong>ratio</strong> : numeric, optional</p>
 <blockquote>
-<div><p>Ratio of joint axes size to marginal axes height.</p>
+<div><p>Ratio of joint axes height to marginal axes height.</p>
 </div></blockquote>
 <p><strong>space</strong> : numeric, optional</p>
 <blockquote>
@@ -175,7 +159,7 @@ annotate the plot.</p>
 </div></blockquote>
 <p><strong>dropna</strong> : bool, optional</p>
 <blockquote>
-<div><p>If True, remove observations that are missing from <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>.</p>
+<div><p>If True, remove observations that are missing from <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </div></blockquote>
 <p><strong>{x, y}lim</strong> : two-tuples, optional</p>
 <blockquote>
@@ -189,13 +173,13 @@ annotate the plot.</p>
 <blockquote>
 <div><p>Additional keyword arguments are passed to the function used to
 draw the plot on the joint Axes, superseding items in the
-<code class="docutils literal"><span class="pre">joint_kws</span></code> dictionary.</p>
+<code class="docutils literal notranslate"><span class="pre">joint_kws</span></code> dictionary.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>grid</strong> : <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>grid</strong> : <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a></p>
 <blockquote class="last">
-<div><p><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a> object with the plot on it.</p>
+<div><p><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> object with the plot on it.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -204,14 +188,14 @@ draw the plot on the joint Axes, superseding items in the
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal"><span class="pre">JointGrid</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid</span></code></a></dt>
 <dd>The Grid class used for drawing this plot. Use it directly if you need more flexibility.</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Draw a scatterplot with marginal histograms:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
@@ -220,14 +204,14 @@ draw the plot on the joint Axes, superseding items in the
 <img alt="../_images/seaborn-jointplot-1.png" src="../_images/seaborn-jointplot-1.png" />
 </div>
 <p>Add regression and kernel density fits:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-jointplot-2.png" src="../_images/seaborn-jointplot-2.png" />
 </div>
 <p>Replace the scatterplot with a joint histogram using hexagonal bins:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -235,7 +219,7 @@ draw the plot on the joint Axes, superseding items in the
 </div>
 <p>Replace the scatterplots and histograms with density estimates and align
 the marginal Axes tightly with the joint Axes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span>
 <span class="gp">... </span>                  <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 </pre></div>
@@ -243,50 +227,41 @@ the marginal Axes tightly with the joint Axes:</p>
 <div class="figure">
 <img alt="../_images/seaborn-jointplot-4.png" src="../_images/seaborn-jointplot-4.png" />
 </div>
-<p>Use a different statistic for the annotation:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                  <span class="n">stat_func</span><span class="o">=</span><span class="n">spearmanr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="../_images/seaborn-jointplot-5.png" src="../_images/seaborn-jointplot-5.png" />
-</div>
 <p>Draw a scatterplot, then add a joint density estimate:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                   <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
 <span class="gp">... </span>        <span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-jointplot-6.png" src="../_images/seaborn-jointplot-6.png" />
+<img alt="../_images/seaborn-jointplot-5.png" src="../_images/seaborn-jointplot-5.png" />
 </div>
 <p>Pass vectors in directly without using Pandas, then name the axes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="n">stat_func</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">)</span>
 <span class="gp">... </span>        <span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-jointplot-6.png" src="../_images/seaborn-jointplot-6.png" />
+</div>
+<p>Draw a smaller figure with more space devoted to the marginal plots:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                  <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-jointplot-7.png" src="../_images/seaborn-jointplot-7.png" />
 </div>
-<p>Draw a smaller figure with more space devoted to the marginal plots:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                  <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="../_images/seaborn-jointplot-8.png" src="../_images/seaborn-jointplot-8.png" />
-</div>
 <p>Pass keyword arguments down to the underlying plots:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span>
-<span class="gp">... </span>                  <span class="n">marginal_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span>
+<span class="gp">... </span>                  <span class="n">marginal_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
 <span class="gp">... </span>                  <span class="n">annot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">),</span>
 <span class="gp">... </span>                  <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-jointplot-9.png" src="../_images/seaborn-jointplot-9.png" />
+<img alt="../_images/seaborn-jointplot-8.png" src="../_images/seaborn-jointplot-8.png" />
 </div>
 </dd></dl>
 
@@ -307,8 +282,8 @@ the marginal Axes tightly with the joint Axes:</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

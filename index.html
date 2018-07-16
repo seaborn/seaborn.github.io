@@ -1,46 +1,33 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn: statistical data visualization &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn: statistical data visualization &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="An introduction to seaborn" href="introduction.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -53,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="#">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -73,11 +60,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 </ul>
@@ -144,29 +131,19 @@
  <div style="clear: both"></div>
  <div class="container-fluid hidden-xs hidden-sm">
    <div class="row">
-     <a href="examples/anscombes_quartet.html">
-       <div class="col-md-2 thumbnail">
-         <img src="_static/anscombes_quartet_thumb.png">
-       </div>
-     </a>
-     <a href="examples/multiple_regression.html">
-       <div class="col-md-2 thumbnail">
-         <img src="_static/multiple_regression_thumb.png">
-       </div>
-     </a>
-     <a href="examples/many_facets.html">
-       <div class="col-md-2 thumbnail">
-         <img src="_static/many_facets_thumb.png">
-       </div>
-     </a>
-     <a href="examples/structured_heatmap.html">
-       <div class="col-md-2 thumbnail">
-         <img src="_static/structured_heatmap_thumb.png">
-       </div>
-     </a>
      <a href="examples/scatterplot_matrix.html">
        <div class="col-md-2 thumbnail">
          <img src="_static/scatterplot_matrix_thumb.png">
+       </div>
+     </a>
+     <a href="examples/errorband_lineplots.html">
+       <div class="col-md-2 thumbnail">
+         <img src="_static/errorband_lineplots_thumb.png">
+       </div>
+     </a>
+     <a href="examples/different_scatter_variables.html">
+       <div class="col-md-2 thumbnail">
+         <img src="_static/different_scatter_variables_thumb.png">
        </div>
      </a>
      <a href="examples/horizontal_boxplot.html">
@@ -174,42 +151,64 @@
          <img src="_static/horizontal_boxplot_thumb.png">
        </div>
      </a>
+     <a href="examples/regression_marginals.html">
+       <div class="col-md-2 thumbnail">
+         <img src="_static/regression_marginals_thumb.png">
+       </div>
+     </a>
+     <a href="examples/many_facets.html">
+       <div class="col-md-2 thumbnail">
+         <img src="_static/many_facets_thumb.png">
+       </div>
+     </a>
    </div>
  </div>
  <br>
 
 <div class="container-fluid">
-<div class="row">
-<div class="col-md-6">
-<br><p>Seaborn is a Python visualization library based on matplotlib. It provides a
-high-level interface for drawing attractive statistical graphics.</p>
-<p>For a brief introduction to the ideas behind the package, you can read the
-<a class="reference internal" href="introduction.html#introduction"><span>introductory notes</span></a>. More practical information is on the
-<a class="reference internal" href="installing.html#installing"><span>installation page</span></a>. You may also want to browse the
-<a class="reference internal" href="examples/index.html#example-gallery"><span>example gallery</span></a> to get a sense for what you can do with seaborn and then check out the <a class="reference internal" href="tutorial.html#tutorial"><span>tutorial</span></a> and <a class="reference internal" href="api.html#api-ref"><span>API reference</span></a> to find out how.</p>
-<p>To see the code or report a bug, please visit the <a class="reference external" href="https://github.com/mwaskom/seaborn">github repository</a>. General support issues are most at home on <a class="reference external" href="http://stackoverflow.com/">stackoverflow</a>, where there is a seaborn tag.</p>
+  <div class="row">
+    <div class="col-md-6"><p>Seaborn is a Python data visualization library based on <a class="reference external" href="https://matplotlib.org">matplotlib</a>. It provides a high-level interface for drawing
+attractive and informative statistical graphics.</p>
+<p>For a brief introduction to the ideas behind the library, you can read the
+<a class="reference internal" href="introduction.html#introduction"><span class="std std-ref">introductory notes</span></a>. Visit the <a class="reference internal" href="installing.html#installing"><span class="std std-ref">installation page</span></a> to see how you can download the package. You can browse the
+<a class="reference internal" href="examples/index.html#example-gallery"><span class="std std-ref">example gallery</span></a> to see what you can do with seaborn,
+and then check out the <a class="reference internal" href="tutorial.html#tutorial"><span class="std std-ref">tutorial</span></a> and <a class="reference internal" href="api.html#api-ref"><span class="std std-ref">API reference</span></a> to find out how.</p>
+<p>To see the code or report a bug, please visit the <a class="reference external" href="https://github.com/mwaskom/seaborn">github repository</a>. General support issues are most at home on <a class="reference external" href="https://stackoverflow.com/">stackoverflow</a>, where there is a seaborn tag.</p>
 </div>
 <div class="col-md-3">
-<h2>Documentation</h2><div class="toctree-wrapper compound">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Contents</h3>
+    </div>
+<div class="panel-body"><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
 </ul>
 </div>
+    </div>
+  </div>
 </div>
 <div class="col-md-3">
-<h2>Features</h2><ul class="simple">
-<li>Style functions: <a class="reference internal" href="api.html#style-api"><span>API</span></a> | <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span>Tutorial</span></a></li>
-<li>Color palettes: <a class="reference internal" href="api.html#palette-api"><span>API</span></a> | <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span>Tutorial</span></a></li>
-<li>Distribution plots: <a class="reference internal" href="api.html#distribution-api"><span>API</span></a> | <a class="reference internal" href="tutorial/distributions.html#distribution-tutorial"><span>Tutorial</span></a></li>
-<li>Categorical plots: <a class="reference internal" href="api.html#categorical-api"><span>API</span></a> | <a class="reference internal" href="tutorial/categorical.html#categorical-tutorial"><span>Tutorial</span></a></li>
-<li>Regression plots: <a class="reference internal" href="api.html#regression-api"><span>API</span></a> | <a class="reference internal" href="tutorial/regression.html#regression-tutorial"><span>Tutorial</span></a></li>
-<li>Axis grid objects: <a class="reference internal" href="api.html#grid-api"><span>API</span></a> | <a class="reference internal" href="tutorial/axis_grids.html#grid-tutorial"><span>Tutorial</span></a></li>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Features</h3>
+    </div>
+    <div class="panel-body"><ul class="simple">
+<li>Relational: <a class="reference internal" href="api.html#relational-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/relational.html#relational-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Categorical: <a class="reference internal" href="api.html#categorical-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Distributions: <a class="reference internal" href="api.html#distribution-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/distributions.html#distribution-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Regressions: <a class="reference internal" href="api.html#regression-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/regression.html#regression-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Multiples: <a class="reference internal" href="api.html#grid-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/axis_grids.html#grid-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Style: <a class="reference internal" href="api.html#style-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li>Color: <a class="reference internal" href="api.html#palette-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span class="std std-ref">Tutorial</span></a></li>
 </ul>
+    </div>
+  </div>
 </div>
 </div>
 </div></div>
@@ -229,8 +228,8 @@ high-level interface for drawing attractive statistical graphics.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

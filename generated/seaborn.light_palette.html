@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn.light_palette &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn.light_palette &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="API reference" href="../api.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.diverging_palette" href="seaborn.diverging_palette.html" />
     <link rel="prev" title="seaborn.dark_palette" href="seaborn.dark_palette.html" />
 <meta charset='utf-8'>
@@ -41,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -124,27 +110,28 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="seaborn-light-palette">
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-light-palette">
 <h1>seaborn.light_palette<a class="headerlink" href="#seaborn-light-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.light_palette">
 <code class="descclassname">seaborn.</code><code class="descname">light_palette</code><span class="sig-paren">(</span><em>color</em>, <em>n_colors=6</em>, <em>reverse=False</em>, <em>as_cmap=False</em>, <em>input='rgb'</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.light_palette" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a sequential palette that blends from light to <code class="docutils literal"><span class="pre">color</span></code>.</p>
+<dd><p>Make a sequential palette that blends from light to <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p>
 <p>This kind of palette is good for data that range between relatively
 uninteresting low values and interesting high values.</p>
-<p>The <code class="docutils literal"><span class="pre">color</span></code> parameter can be specified in a number of ways, including
+<p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> parameter can be specified in a number of ways, including
 all options for defining a color in matplotlib and several additional
 color spaces that are handled by seaborn. You can also use the database
 of named colors from the XKCD color survey.</p>
 <p>If you are using the IPython notebook, you can also choose this palette
-interactively with the <a class="reference internal" href="seaborn.choose_light_palette.html#seaborn.choose_light_palette" title="seaborn.choose_light_palette"><code class="xref py py-func docutils literal"><span class="pre">choose_light_palette()</span></code></a> function.</p>
+interactively with the <a class="reference internal" href="seaborn.choose_light_palette.html#seaborn.choose_light_palette" title="seaborn.choose_light_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">choose_light_palette()</span></code></a> function.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>color</strong> : base color for high values</p>
 <blockquote>
-<div><p>hex code, html color name, or tuple in <code class="docutils literal"><span class="pre">input</span></code> space.</p>
+<div><p>hex code, html color name, or tuple in <code class="docutils literal notranslate"><span class="pre">input</span></code> space.</p>
 </div></blockquote>
 <p><strong>n_colors</strong> : int, optional</p>
 <blockquote>
@@ -158,7 +145,7 @@ interactively with the <a class="reference internal" href="seaborn.choose_light_
 <blockquote>
 <div><p>if True, return as a matplotlib colormap instead of list</p>
 </div></blockquote>
-<p><strong>input</strong> : {&#8216;rgb&#8217;, &#8216;hls&#8217;, &#8216;husl&#8217;, xkcd&#8217;}</p>
+<p><strong>input</strong> : {‘rgb’, ‘hls’, ‘husl’, xkcd’}</p>
 <blockquote>
 <div><p>Color space to interpret the input color. The first three options
 apply to tuple inputs and the latter applies to string inputs.</p>
@@ -169,7 +156,7 @@ apply to tuple inputs and the latter applies to string inputs.</p>
 <blockquote class="last">
 <div><p>List-like object of colors as RGB tuples, or colormap object that
 can map continuous values to colors, depending on the value of the
-<code class="docutils literal"><span class="pre">as_cmap</span></code> parameter.</p>
+<code class="docutils literal notranslate"><span class="pre">as_cmap</span></code> parameter.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -178,15 +165,15 @@ can map continuous values to colors, depending on the value of the
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal"><span class="pre">dark_palette</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt>
 <dd>Create a sequential palette with dark low values.</dd>
-<dt><a class="reference internal" href="seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-obj docutils literal"><span class="pre">diverging_palette</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diverging_palette</span></code></a></dt>
 <dd>Create a diverging palette with two colors.</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Generate a palette from an HTML color:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;purple&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -194,23 +181,23 @@ can map continuous values to colors, depending on the value of the
 <img alt="../_images/seaborn-light_palette-1.png" src="../_images/seaborn-light_palette-1.png" />
 </div>
 <p>Generate a palette that increases in lightness:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;seagreen&quot;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;seagreen&quot;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-light_palette-2.png" src="../_images/seaborn-light_palette-2.png" />
 </div>
 <p>Generate a palette from an HUSL-space seed:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">((</span><span class="mi">260</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;husl&quot;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">((</span><span class="mi">260</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;husl&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-light_palette-3.png" src="../_images/seaborn-light_palette-3.png" />
 </div>
 <p>Generate a colormap object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">arange</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;#2ecc71&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;#2ecc71&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -236,8 +223,8 @@ can map continuous values to colors, depending on the value of the
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

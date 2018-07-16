@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Visualizing the distribution of a dataset &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>Visualizing the distribution of a dataset &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="Seaborn tutorial" href="../tutorial.html" />
-    <link rel="next" title="Plotting with categorical data" href="categorical.html" />
-    <link rel="prev" title="Choosing color palettes" href="color_palettes.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualizing linear relationships" href="regression.html" />
+    <link rel="prev" title="Plotting with categorical data" href="categorical.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -97,14 +83,14 @@
 <li><a class="reference internal" href="#">Visualizing the distribution of a dataset</a><ul>
 <li><a class="reference internal" href="#plotting-univariate-distributions">Plotting univariate distributions</a><ul>
 <li><a class="reference internal" href="#histograms">Histograms</a></li>
-<li><a class="reference internal" href="#kernel-density-estimaton">Kernel density estimaton</a></li>
+<li><a class="reference internal" href="#kernel-density-estimation">Kernel density estimation</a></li>
 <li><a class="reference internal" href="#fitting-parametric-distributions">Fitting parametric distributions</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#plotting-bivariate-distributions">Plotting bivariate distributions</a><ul>
 <li><a class="reference internal" href="#scatterplots">Scatterplots</a></li>
 <li><a class="reference internal" href="#hexbin-plots">Hexbin plots</a></li>
-<li><a class="reference internal" href="#kernel-density-estimation">Kernel density estimation</a></li>
+<li><a class="reference internal" href="#id1">Kernel density estimation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#visualizing-pairwise-relationships-in-a-dataset">Visualizing pairwise relationships in a dataset</a></li>
@@ -141,54 +127,48 @@
       
   <div class="section" id="visualizing-the-distribution-of-a-dataset">
 <span id="distribution-tutorial"></span><h1>Visualizing the distribution of a dataset<a class="headerlink" href="#visualizing-the-distribution-of-a-dataset" title="Permalink to this headline">¶</a></h1>
-<p>When dealing with a set of data, often the first thing you&#8217;ll want to do is get a sense for how the variables are distributed. This chapter of the tutorial will give a brief introduction to some of the tools in seaborn for examining univariate and bivariate distributions. You may also want to look at the <a class="reference internal" href="categorical.html#categorical-tutorial"><span>categorical plots</span></a> chapter for examples of functions that make it easy to compare the distribution of a variable across levels of other variables.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span>%matplotlib inline
+<div class=col-md-9><p>When dealing with a set of data, often the first thing you’ll want to do is get a sense for how the variables are distributed. This chapter of the tutorial will give a brief introduction to some of the tools in seaborn for examining univariate and bivariate distributions. You may also want to look at the <a class="reference internal" href="categorical.html#categorical-tutorial"><span class="std std-ref">categorical plots</span></a> chapter for examples of functions that make it easy to compare the distribution of a variable across levels of other variables.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span><span class="p">,</span> <span class="n">integrate</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="s2">&quot;distributions&quot;</span><span class="p">)))</span>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="plotting-univariate-distributions">
 <h2>Plotting univariate distributions<a class="headerlink" href="#plotting-univariate-distributions" title="Permalink to this headline">¶</a></h2>
-<p>The most convenient way to take a quick look at a univariate distribution in seaborn is the <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a> function. By default, this will draw a <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram">histogram</a> and fit a <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a> (KDE).</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<p>The most convenient way to take a quick look at a univariate distribution in seaborn is the <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">distplot()</span></code></a> function. By default, this will draw a <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram">histogram</a> and fit a <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a> (KDE).</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_8_0.png" src="../_images/distributions_8_0.png" />
+<img alt="../_images/distributions_6_0.png" src="../_images/distributions_6_0.png" />
 <div class="section" id="histograms">
 <h3>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
-<p>Histograms are likely familiar, and a <code class="docutils literal"><span class="pre">hist</span></code> function already exists in matplotlib. A histogram represents the distribution of data by forming bins along the range of the data and then drawing bars to show the number of observations that fall in each bin.</p>
-<p>To illustrate this, let&#8217;s remove the density curve and add a rug plot, which draws a small vertical tick at each observation. You can make the rug plot itself with the <a class="reference internal" href="../generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal"><span class="pre">rugplot()</span></code></a> function, but it is also available in <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a>:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+<p>Histograms are likely familiar, and a <code class="docutils literal notranslate"><span class="pre">hist</span></code> function already exists in matplotlib. A histogram represents the distribution of data by forming bins along the range of the data and then drawing bars to show the number of observations that fall in each bin.</p>
+<p>To illustrate this, let’s remove the density curve and add a rug plot, which draws a small vertical tick at each observation. You can make the rug plot itself with the <a class="reference internal" href="../generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a> function, but it is also available in <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">distplot()</span></code></a>:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/distributions_8_0.png" src="../_images/distributions_8_0.png" />
+<p>When drawing histograms, the main choice you have is the number of bins to use and where to place them. <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">distplot()</span></code></a> uses a simple rule to make a good guess for what the right number is by default, but trying more or fewer bins might reveal other features in the data:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_10_0.png" src="../_images/distributions_10_0.png" />
-<p>When drawing histograms, the main choice you have is the number of bins to use and where to place them. <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a> uses a simple rule to make a good guess for what the right number is by default, but trying more or fewer bins might reveal other features in the data:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+</div>
+<div class="section" id="kernel-density-estimation">
+<h3>Kernel density estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">¶</a></h3>
+<p>The kernel density estimate may be less familiar, but it can be a useful tool for plotting the shape of a distribution. Like the histogram, the KDE plots encode the density of observations on one axis with height along the other axis:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_12_0.png" src="../_images/distributions_12_0.png" />
-</div>
-<div class="section" id="kernel-density-estimaton">
-<h3>Kernel density estimaton<a class="headerlink" href="#kernel-density-estimaton" title="Permalink to this headline">¶</a></h3>
-<p>The kernel density estimate may be less familiar, but it can be a useful tool for plotting the shape of a distribution. Like the histogram, the KDE plots encodes the density of observations on one axis with height along the other axis:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../_images/distributions_14_0.png" src="../_images/distributions_14_0.png" />
 <p>Drawing a KDE is more computationally involved than drawing a histogram. What happens is that each observation is first replaced with a normal (Gaussian) curve centered at that value:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">bandwidth</span> <span class="o">=</span> <span class="mf">1.06</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">5.</span><span class="p">)</span>
 <span class="n">support</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
@@ -202,122 +182,119 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_16_0.png" src="../_images/distributions_16_0.png" />
+<img alt="../_images/distributions_14_0.png" src="../_images/distributions_14_0.png" />
 <p>Next, these curves are summed to compute the value of the density at each point in the support grid. The resulting curve is then normalized so that the area under it is equal to 1:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">density</span> <span class="o">/=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">support</span><span class="p">)</span>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">trapz</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kernels</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">density</span> <span class="o">/=</span> <span class="n">trapz</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">support</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">support</span><span class="p">,</span> <span class="n">density</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_18_0.png" src="../_images/distributions_18_0.png" />
-<p>We can see that if we use the <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> function in seaborn, we get the same curve. This function is used by <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a>, but it provides a more direct interface with easier access to other options when you just want the density estimate:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+<img alt="../_images/distributions_16_0.png" src="../_images/distributions_16_0.png" />
+<p>We can see that if we use the <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a> function in seaborn, we get the same curve. This function is used by <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">distplot()</span></code></a>, but it provides a more direct interface with easier access to other options when you just want the density estimate:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_20_0.png" src="../_images/distributions_20_0.png" />
-<p>The bandwidth (<code class="docutils literal"><span class="pre">bw</span></code>) parameter of the KDE controls how tightly the estimation is fit to the data, much like the bin size in a histogram. It corresponds to the width of the kernels we plotted above. The default behavior tries to guess a good value using a common reference rule, but it may be helpful to try larger or smaller values:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<img alt="../_images/distributions_18_0.png" src="../_images/distributions_18_0.png" />
+<p>The bandwidth (<code class="docutils literal notranslate"><span class="pre">bw</span></code>) parameter of the KDE controls how tightly the estimation is fit to the data, much like the bin size in a histogram. It corresponds to the width of the kernels we plotted above. The default behavior tries to guess a good value using a common reference rule, but it may be helpful to try larger or smaller values:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;bw: 0.2&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;bw: 2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_22_0.png" src="../_images/distributions_22_0.png" />
-<p>As you can see above, the nature of the Gaussian KDE process means that estimation extends past the largest and smallest values in the dataset. It&#8217;s possible to control how far past the extreme values the curve is drawn with the <code class="docutils literal"><span class="pre">cut</span></code> parameter; however, this only influences how the curve is drawn and not how it is fit:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<img alt="../_images/distributions_20_0.png" src="../_images/distributions_20_0.png" />
+<p>As you can see above, the nature of the Gaussian KDE process means that estimation extends past the largest and smallest values in the dataset. It’s possible to control how far past the extreme values the curve is drawn with the <code class="docutils literal notranslate"><span class="pre">cut</span></code> parameter; however, this only influences how the curve is drawn and not how it is fit:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/distributions_22_0.png" src="../_images/distributions_22_0.png" />
+</div>
+<div class="section" id="fitting-parametric-distributions">
+<h3>Fitting parametric distributions<a class="headerlink" href="#fitting-parametric-distributions" title="Permalink to this headline">¶</a></h3>
+<p>You can also use <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">distplot()</span></code></a> to fit a parametric distribution to a dataset and visually evaluate how closely it corresponds to the observed data:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">);</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_24_0.png" src="../_images/distributions_24_0.png" />
 </div>
-<div class="section" id="fitting-parametric-distributions">
-<h3>Fitting parametric distributions<a class="headerlink" href="#fitting-parametric-distributions" title="Permalink to this headline">¶</a></h3>
-<p>You can also use <a class="reference internal" href="../generated/seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-func docutils literal"><span class="pre">distplot()</span></code></a> to fit a parametric distribution to a dataset and visually evaluate how closely it corresponds to the observed data:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../_images/distributions_26_0.png" src="../_images/distributions_26_0.png" />
-</div>
 </div>
 <div class="section" id="plotting-bivariate-distributions">
 <h2>Plotting bivariate distributions<a class="headerlink" href="#plotting-bivariate-distributions" title="Permalink to this headline">¶</a></h2>
-<p>It can also be useful to visualize a bivariate distribution of two variables. The easiest way to do this in seaborn is to just use the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> function, which creates a multi-panel figure that shows both the bivariate (or joint) relationship between two variables along with the univariate (or marginal) distribution of each on separate axes.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<p>It can also be useful to visualize a bivariate distribution of two variables. The easiest way to do this in seaborn is to just use the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> function, which creates a multi-panel figure that shows both the bivariate (or joint) relationship between two variables along with the univariate (or marginal) distribution of each on separate axes.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="section" id="scatterplots">
 <h3>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this headline">¶</a></h3>
-<p>The most familiar way to visualize a bivariate distribution is a scatterplot, where each observation is shown with point at the <em>x</em> and <em>y</em> values. This is analgous to a rug plot on two dimensions. You can draw a scatterplot with the matplotlib <code class="docutils literal"><span class="pre">plt.scatter</span></code> function, and it is also the default kind of plot shown by the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> function:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
+<p>The most familiar way to visualize a bivariate distribution is a scatterplot, where each observation is shown with point at the <em>x</em> and <em>y</em> values. This is analgous to a rug plot on two dimensions. You can draw a scatterplot with the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> function, and it is also the default kind of plot shown by the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> function:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_30_0.png" src="../_images/distributions_30_0.png" />
+<img alt="../_images/distributions_28_0.png" src="../_images/distributions_28_0.png" />
 </div>
 <div class="section" id="hexbin-plots">
 <h3>Hexbin plots<a class="headerlink" href="#hexbin-plots" title="Permalink to this headline">¶</a></h3>
-<p>The bivariate analogue of a histogram is known as a &#8220;hexbin&#8221; plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It&#8217;s available through the matplotlib <code class="docutils literal"><span class="pre">plt.hexbin</span></code> function and as a style in <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a>. It looks best with a white background:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<p>The bivariate analogue of a histogram is known as a “hexbin” plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It’s available through the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.hexbin</span></code> function and as a style in <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>. It looks best with a white background:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 <span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_32_0.png" src="../_images/distributions_32_0.png" />
+<img alt="../_images/distributions_30_0.png" src="../_images/distributions_30_0.png" />
 </div>
-<div class="section" id="kernel-density-estimation">
-<h3>Kernel density estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">¶</a></h3>
-<p>It is also posible to use the kernel density estimation procedure described above to visualize a bivariate distribution. In seaborn, this kind of plot is shown with a contour plot and is available as a style in <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a>:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">);</span>
+<div class="section" id="id1">
+<h3>Kernel density estimation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to use the kernel density estimation procedure described above to visualize a bivariate distribution. In seaborn, this kind of plot is shown with a contour plot and is available as a style in <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/distributions_32_0.png" src="../_images/distributions_32_0.png" />
+<p>You can also draw a two-dimensional kernel density plot with the <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a> function. This allows you to draw this kind of plot onto a specific (and possibly already existing) matplotlib axes, whereas the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> function manages its own figure:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_34_0.png" src="../_images/distributions_34_0.png" />
-<p>You can also draw a two-dimensional kernel density plot with the <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal"><span class="pre">kdeplot()</span></code></a> function. This allows you to draw this kind of plot onto a specific (and possibly already existing) matplotlib axes, whereas the <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> function manages its own figure:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<p>If you wish to show the bivariate density more continuously, you can simply increase the number of contour levels:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_36_0.png" src="../_images/distributions_36_0.png" />
-<p>If you wish to show the bivariate density more continuously, you can simply increase the number of contour levels:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../_images/distributions_38_0.png" src="../_images/distributions_38_0.png" />
-<p>The <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> function uses a <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a> to manage the figure. For more flexibility, you may want to draw your figure by using <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a> directly. <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> returns the <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a> object after plotting, which you can use to add more layers or to tweak other aspects of the visualization:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+<p>The <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> function uses a <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> to manage the figure. For more flexibility, you may want to draw your figure by using <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> directly. <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> returns the <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> object after plotting, which you can use to add more layers or to tweak other aspects of the visualization:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;$X$&quot;</span><span class="p">,</span> <span class="s2">&quot;$Y$&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_40_0.png" src="../_images/distributions_40_0.png" />
+<img alt="../_images/distributions_38_0.png" src="../_images/distributions_38_0.png" />
 </div>
 </div>
 <div class="section" id="visualizing-pairwise-relationships-in-a-dataset">
 <h2>Visualizing pairwise relationships in a dataset<a class="headerlink" href="#visualizing-pairwise-relationships-in-a-dataset" title="Permalink to this headline">¶</a></h2>
-<p>To plot multiple pairwise bivariate distributions in a dataset, you can use the <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a> function. This creates a matrix of axes and shows the relationship for each pair of columns in a DataFrame. by default, it also draws the univariate distribution of each variable on the diagonal Axes:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<p>To plot multiple pairwise bivariate distributions in a dataset, you can use the <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> function. This creates a matrix of axes and shows the relationship for each pair of columns in a DataFrame. by default, it also draws the univariate distribution of each variable on the diagonal Axes:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_42_0.png" src="../_images/distributions_42_0.png" />
-<p>Much like the relationship between <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal"><span class="pre">jointplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal"><span class="pre">JointGrid</span></code></a>, the <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal"><span class="pre">pairplot()</span></code></a> function is built on top of a <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal"><span class="pre">PairGrid</span></code></a> object, which can be used directly for more flexibility:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<img alt="../_images/distributions_40_0.png" src="../_images/distributions_40_0.png" />
+<p>Much like the relationship between <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>, the <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> function is built on top of a <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> object, which can be used directly for more flexibility:</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues_d&quot;</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span>/Users/mwaskom/anaconda/lib/python2.7/site-packages/matplotlib/axes/_axes.py:545: UserWarning: No labelled objects found. Use label=&#39;...&#39; kwarg on individual plots.
-  warnings.warn(&quot;No labelled objects found. &quot;
-</pre></div>
-</div>
-<img alt="../_images/distributions_44_1.png" src="../_images/distributions_44_1.png" />
-</div>
+<img alt="../_images/distributions_42_0.png" src="../_images/distributions_42_0.png" />
+</div></div>
 </div>
 
 
@@ -335,8 +312,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

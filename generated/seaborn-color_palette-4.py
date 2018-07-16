@@ -1,1 +1,1 @@
-sns.palplot(sns.color_palette("Set1", n_colors=8, desat=.5))
+sns.palplot(sns.color_palette("ch:2.5,-.2,dark=.3"))

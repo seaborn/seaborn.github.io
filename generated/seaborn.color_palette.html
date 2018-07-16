@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>seaborn.color_palette &mdash; seaborn 0.8.1 documentation</title>
-    
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.8.1" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/paper/bootstrap.min.css" type="text/css" />
+    <title>seaborn.color_palette &#8212; seaborn 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="seaborn 0.8.1 documentation" href="../index.html" />
-    <link rel="up" title="API reference" href="../api.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.husl_palette" href="seaborn.husl_palette.html" />
     <link rel="prev" title="seaborn.set_palette" href="seaborn.set_palette.html" />
 <meta charset='utf-8'>
@@ -41,8 +28,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head>
-  <body role="document">
+  </head><body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -55,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.8.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,11 +61,11 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">An introduction to seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What&#8217;s new in the package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing and getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Seaborn tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
 </ul>
 </ul>
@@ -124,7 +110,8 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="seaborn-color-palette">
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-color-palette">
 <h1>seaborn.color_palette<a class="headerlink" href="#seaborn-color-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.color_palette">
@@ -134,16 +121,18 @@
 <dt>Available seaborn palette names:</dt>
 <dd>deep, muted, bright, pastel, dark, colorblind</dd>
 <dt>Other options:</dt>
-<dd>hls, husl, any named matplotlib palette, list of colors</dd>
+<dd>name of matplotlib cmap, ‘ch:&lt;cubehelix arguments&gt;’, ‘hls’, ‘husl’,
+or a list of colors in any format matplotlib accepts</dd>
 </dl>
-<p>Calling this function with <code class="docutils literal"><span class="pre">palette=None</span></code> will return the current
+<p>Calling this function with <code class="docutils literal notranslate"><span class="pre">palette=None</span></code> will return the current
 matplotlib color cycle.</p>
 <p>Matplotlib palettes can be specified as reversed palettes by appending
-&#8220;_r&#8221; to the name or as dark palettes by appending &#8220;_d&#8221; to the name.
+“_r” to the name or as “dark” palettes by appending “_d” to the name.
 (These options are mutually exclusive, but the resulting list of colors
 can also be reversed).</p>
-<p>This function can also be used in a <code class="docutils literal"><span class="pre">with</span></code> statement to temporarily
+<p>This function can also be used in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement to temporarily
 set the color cycle for a plot or set of plots.</p>
+<p>See the <a class="reference internal" href="../tutorial/color_palettes.html#palette-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -155,8 +144,8 @@ colors are used but possibly cycled and desaturated.</p>
 </div></blockquote>
 <p><strong>n_colors</strong> : int, optional</p>
 <blockquote>
-<div><p>Number of colors in the palette. If <code class="docutils literal"><span class="pre">None</span></code>, the default will depend
-on how <code class="docutils literal"><span class="pre">palette</span></code> is specified. Named palettes default to 6 colors,
+<div><p>Number of colors in the palette. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default will depend
+on how <code class="docutils literal notranslate"><span class="pre">palette</span></code> is specified. Named palettes default to 6 colors,
 but grabbing the current palette or passing in a list of colors will
 not change the number of colors unless this is specified. Asking for
 more colors than exist in the palette will cause it to cycle.</p>
@@ -170,7 +159,7 @@ more colors than exist in the palette will cause it to cycle.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>palette</strong> : list of RGB tuples.</p>
 <blockquote class="last">
 <div><p>Color palette. Behaves like a list, but can be used as a context
-manager and possesses an <code class="docutils literal"><span class="pre">as_hex</span></code> method to convert to hex color
+manager and possesses an <code class="docutils literal notranslate"><span class="pre">as_hex</span></code> method to convert to hex color
 codes.</p>
 </div></blockquote>
 </td>
@@ -180,55 +169,69 @@ codes.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal"><span class="pre">set_palette</span></code></a></dt>
+<dt><a class="reference internal" href="seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_palette</span></code></a></dt>
 <dd>Set the default color cycle for all plots.</dd>
-<dt><a class="reference internal" href="seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal"><span class="pre">set_color_codes</span></code></a></dt>
-<dd>Reassign color codes like <code class="docutils literal"><span class="pre">&quot;b&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;g&quot;</span></code>, etc. to colors from one of the seaborn palettes.</dd>
+<dt><a class="reference internal" href="seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_color_codes</span></code></a></dt>
+<dd>Reassign color codes like <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span></code>, etc. to colors from one of the seaborn palettes.</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Show one of the &#8220;seaborn palettes&#8221;, which have the same basic order of hues
-as the default matplotlib color cycle but more attractive colors.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;muted&quot;</span><span class="p">))</span>
+<p>Calling with no arguments returns all colors from the current default
+color cycle:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-color_palette-1.png" src="../_images/seaborn-color_palette-1.png" />
 </div>
-<p>Use discrete values from one of the built-in matplotlib colormaps.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+<p>Show one of the other “seaborn palettes”, which have the same basic order
+of hues as the default matplotlib color cycle but more attractive colors.
+Calling with the name of a palette will return 6 colors by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;muted&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-color_palette-2.png" src="../_images/seaborn-color_palette-2.png" />
 </div>
-<p>Make a &#8220;dark&#8221; matplotlib sequential palette variant. (This can be good
-when coloring multiple lines or points that correspond to an ordered
-variable, where you don&#8217;t want the lightest lines to be invisible).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Blues_d&quot;</span><span class="p">))</span>
+<p>Use discrete values from one of the built-in matplotlib colormaps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-color_palette-3.png" src="../_images/seaborn-color_palette-3.png" />
 </div>
-<p>Use a categorical matplotlib palette, add some desaturation. (This can be
-good when making plots with large patches, which look best with dimmer
-colors).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">desat</span><span class="o">=.</span><span class="mi">5</span><span class="p">))</span>
+<p>Make a customized cubehelix color palette:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;ch:2.5,-.2,dark=.3&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="../_images/seaborn-color_palette-4.png" src="../_images/seaborn-color_palette-4.png" />
 </div>
+<p>Use a categorical matplotlib palette and add some desaturation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">desat</span><span class="o">=.</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-color_palette-5.png" src="../_images/seaborn-color_palette-5.png" />
+</div>
+<p>Make a “dark” matplotlib sequential palette variant. (This can be good
+when coloring multiple lines or points that correspond to an ordered
+variable, where you don’t want the lightest lines to be invisible):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Blues_d&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/seaborn-color_palette-6.png" src="../_images/seaborn-color_palette-6.png" />
+</div>
 <p>Use as a context manager:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;husl&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
 <span class="gp">... </span>   <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="../_images/seaborn-color_palette-5.png" src="../_images/seaborn-color_palette-5.png" />
+<img alt="../_images/seaborn-color_palette-7.png" src="../_images/seaborn-color_palette-7.png" />
 </div>
 </dd></dl>
 
@@ -249,8 +252,8 @@ colors).</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2017, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+        &copy; Copyright 2012-2018, Michael Waskom.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
     </p>
   </div>
 </footer>

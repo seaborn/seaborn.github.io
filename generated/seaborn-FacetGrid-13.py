@@ -9,5 +9,5 @@ def dateplot(x, y, **kwargs):
     ax = plt.gca()
     data = kwargs.pop("data")
     data.plot(x=x, y=y, ax=ax, grid=False, **kwargs)
-g = sns.FacetGrid(df, col="walk", col_wrap=2, size=3.5)
+g = sns.FacetGrid(df, col="walk", col_wrap=2, height=3.5)
 g = g.map_dataframe(dateplot, "date", "val")
