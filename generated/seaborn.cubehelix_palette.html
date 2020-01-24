@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.cubehelix_palette &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.cubehelix_palette &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,7 +114,7 @@
 <h1>seaborn.cubehelix_palette<a class="headerlink" href="#seaborn-cubehelix-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.cubehelix_palette">
-<code class="descclassname">seaborn.</code><code class="descname">cubehelix_palette</code><span class="sig-paren">(</span><em>n_colors=6</em>, <em>start=0</em>, <em>rot=0.4</em>, <em>gamma=1.0</em>, <em>hue=0.8</em>, <em>light=0.85</em>, <em>dark=0.15</em>, <em>reverse=False</em>, <em>as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.cubehelix_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">cubehelix_palette</code><span class="sig-paren">(</span><em class="sig-param">n_colors=6</em>, <em class="sig-param">start=0</em>, <em class="sig-param">rot=0.4</em>, <em class="sig-param">gamma=1.0</em>, <em class="sig-param">hue=0.8</em>, <em class="sig-param">light=0.85</em>, <em class="sig-param">dark=0.15</em>, <em class="sig-param">reverse=False</em>, <em class="sig-param">as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.cubehelix_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a sequential palette from the cubehelix system.</p>
 <p>This produces a colormap with linearly-decreasing (or increasing)
 brightness. That means that information will be preserved if printed to
@@ -126,68 +125,48 @@ defaults.</p>
 <p>In addition to using this function, it is also possible to generate a
 cubehelix palette generally in seaborn using a string-shorthand; see the
 example below.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>n_colors</strong> : int</p>
-<blockquote>
-<div><p>Number of colors in the palette.</p>
-</div></blockquote>
-<p><strong>start</strong> : float, 0 &lt;= start &lt;= 3</p>
-<blockquote>
-<div><p>The hue at the start of the helix.</p>
-</div></blockquote>
-<p><strong>rot</strong> : float</p>
-<blockquote>
-<div><p>Rotations around the hue wheel over the range of the palette.</p>
-</div></blockquote>
-<p><strong>gamma</strong> : float 0 &lt;= gamma</p>
-<blockquote>
-<div><p>Gamma factor to emphasize darker (gamma &lt; 1) or lighter (gamma &gt; 1)
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>Number of colors in the palette.</p>
+</dd>
+<dt><strong>start</strong><span class="classifier">float, 0 &lt;= start &lt;= 3</span></dt><dd><p>The hue at the start of the helix.</p>
+</dd>
+<dt><strong>rot</strong><span class="classifier">float</span></dt><dd><p>Rotations around the hue wheel over the range of the palette.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float 0 &lt;= gamma</span></dt><dd><p>Gamma factor to emphasize darker (gamma &lt; 1) or lighter (gamma &gt; 1)
 colors.</p>
-</div></blockquote>
-<p><strong>hue</strong> : float, 0 &lt;= hue &lt;= 1</p>
-<blockquote>
-<div><p>Saturation of the colors.</p>
-</div></blockquote>
-<p><strong>dark</strong> : float 0 &lt;= dark &lt;= 1</p>
-<blockquote>
-<div><p>Intensity of the darkest color in the palette.</p>
-</div></blockquote>
-<p><strong>light</strong> : float 0 &lt;= light &lt;= 1</p>
-<blockquote>
-<div><p>Intensity of the lightest color in the palette.</p>
-</div></blockquote>
-<p><strong>reverse</strong> : bool</p>
-<blockquote>
-<div><p>If True, the palette will go from dark to light.</p>
-</div></blockquote>
-<p><strong>as_cmap</strong> : bool</p>
-<blockquote>
-<div><p>If True, return a matplotlib colormap instead of a list of colors.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>palette or cmap</strong> : seaborn color palette or matplotlib colormap</p>
-<blockquote class="last">
-<div><p>List-like object of colors as RGB tuples, or colormap object that
+</dd>
+<dt><strong>hue</strong><span class="classifier">float, 0 &lt;= hue &lt;= 1</span></dt><dd><p>Saturation of the colors.</p>
+</dd>
+<dt><strong>dark</strong><span class="classifier">float 0 &lt;= dark &lt;= 1</span></dt><dd><p>Intensity of the darkest color in the palette.</p>
+</dd>
+<dt><strong>light</strong><span class="classifier">float 0 &lt;= light &lt;= 1</span></dt><dd><p>Intensity of the lightest color in the palette.</p>
+</dd>
+<dt><strong>reverse</strong><span class="classifier">bool</span></dt><dd><p>If True, the palette will go from dark to light.</p>
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a matplotlib colormap instead of a list of colors.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>palette or cmap</strong><span class="classifier">seaborn color palette or matplotlib colormap</span></dt><dd><p>List-like object of colors as RGB tuples, or colormap object that
 can map continuous values to colors, depending on the value of the
 <code class="docutils literal notranslate"><span class="pre">as_cmap</span></code> parameter.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette" title="seaborn.choose_cubehelix_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">choose_cubehelix_palette</span></code></a></dt>
-<dd>Launch an interactive widget to select cubehelix palette parameters.</dd>
-<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt>
-<dd>Create a sequential palette with dark low values.</dd>
-<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt>
-<dd>Create a sequential palette with bright low values.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.choose_cubehelix_palette.html#seaborn.choose_cubehelix_palette" title="seaborn.choose_cubehelix_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">choose_cubehelix_palette</span></code></a></dt><dd><p>Launch an interactive widget to select cubehelix palette parameters.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt><dd><p>Create a sequential palette with dark low values.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt><dd><p>Create a sequential palette with bright low values.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">References</p>
@@ -196,57 +175,57 @@ intensity images”. Bulletin of the Astromical Society of India, Vol. 39,
 p. 289-295.</p>
 <p class="rubric">Examples</p>
 <p>Generate the default palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-1.png" src="../_images/seaborn-cubehelix_palette-1.png" />
 </div>
 <p>Rotate backwards from the same starting location:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">rot</span><span class="o">=-.</span><span class="mi">4</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">rot</span><span class="o">=-.</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-2.png" src="../_images/seaborn-cubehelix_palette-2.png" />
 </div>
 <p>Use a different starting point and shorter rotation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">rot</span><span class="o">=.</span><span class="mi">1</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">rot</span><span class="o">=.</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-3.png" src="../_images/seaborn-cubehelix_palette-3.png" />
 </div>
 <p>Reverse the direction of the lightness ramp:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-4.png" src="../_images/seaborn-cubehelix_palette-4.png" />
 </div>
 <p>Generate a colormap object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">arange</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-5.png" src="../_images/seaborn-cubehelix_palette-5.png" />
 </div>
 <p>Use the full lightness range:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-6.png" src="../_images/seaborn-cubehelix_palette-6.png" />
 </div>
 <p>Use through the <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> interface:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;ch:2,r=.2,l=.6&quot;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;ch:2,r=.2,l=.6&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-cubehelix_palette-7.png" src="../_images/seaborn-cubehelix_palette-7.png" />
 </div>
 </dd></dl>
@@ -268,8 +247,8 @@ p. 289-295.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

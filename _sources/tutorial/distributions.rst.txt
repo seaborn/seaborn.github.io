@@ -1,4 +1,3 @@
-
 .. _distribution_tutorial:
 
 .. currentmodule:: seaborn
@@ -183,7 +182,7 @@ It can also be useful to visualize a bivariate distribution of two variables. Th
 Scatterplots
 ^^^^^^^^^^^^
 
-The most familiar way to visualize a bivariate distribution is a scatterplot, where each observation is shown with point at the *x* and *y* values. This is analgous to a rug plot on two dimensions. You can draw a scatterplot with the matplotlib ``plt.scatter`` function, and it is also the default kind of plot shown by the :func:`jointplot` function:
+The most familiar way to visualize a bivariate distribution is a scatterplot, where each observation is shown with point at the *x* and *y* values. This is analogous to a rug plot on two dimensions. You can draw a scatterplot with :func:`scatterplot`, and it is also the default kind of plot shown by the :func:`jointplot` function:
 
 .. code:: ipython3
 
@@ -197,7 +196,7 @@ The most familiar way to visualize a bivariate distribution is a scatterplot, wh
 Hexbin plots
 ^^^^^^^^^^^^
 
-The bivariate analogue of a histogram is known as a "hexbin" plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It's available through the matplotlib ``plt.hexbin`` function and as a style in :func:`jointplot`. It looks best with a white background:
+A bivariate analogue of a histogram is known as a "hexbin" plot, because it shows the counts of observations that fall within hexagonal bins. This plot works best with relatively large datasets. It's available through in matplotlib as :meth:`matplotlib.axes.Axes.hexbin` and as a style in :func:`jointplot`. It looks best with a white background:
 
 .. code:: ipython3
 
@@ -268,7 +267,7 @@ The :func:`jointplot` function uses a :class:`JointGrid` to manage the figure. F
 Visualizing pairwise relationships in a dataset
 -----------------------------------------------
 
-To plot multiple pairwise bivariate distributions in a dataset, you can use the :func:`pairplot` function. This creates a matrix of axes and shows the relationship for each pair of columns in a DataFrame. by default, it also draws the univariate distribution of each variable on the diagonal Axes:
+To plot multiple pairwise bivariate distributions in a dataset, you can use the :func:`pairplot` function. This creates a matrix of axes and shows the relationship for each pair of columns in a DataFrame. By default, it also draws the univariate distribution of each variable on the diagonal Axes:
 
 .. code:: ipython3
 
@@ -278,6 +277,17 @@ To plot multiple pairwise bivariate distributions in a dataset, you can use the 
 
 
 .. image:: distributions_files/distributions_40_0.png
+
+
+Specifying the ``hue`` parameter automatically changes the histograms to KDE plots to facilitate comparisons between multiple distributions.
+
+.. code:: ipython3
+
+    sns.pairplot(iris, hue="species");
+
+
+
+.. image:: distributions_files/distributions_42_0.png
 
 
 Much like the relationship between :func:`jointplot` and :class:`JointGrid`, the :func:`pairplot` function is built on top of a :class:`PairGrid` object, which can be used directly for more flexibility:
@@ -290,7 +300,7 @@ Much like the relationship between :func:`jointplot` and :class:`JointGrid`, the
 
 
 
-.. image:: distributions_files/distributions_42_0.png
+.. image:: distributions_files/distributions_44_0.png
 
 
 .. raw:: html

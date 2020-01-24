@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.diverging_palette &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.diverging_palette &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,92 +114,80 @@
 <h1>seaborn.diverging_palette<a class="headerlink" href="#seaborn-diverging-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.diverging_palette">
-<code class="descclassname">seaborn.</code><code class="descname">diverging_palette</code><span class="sig-paren">(</span><em>h_neg</em>, <em>h_pos</em>, <em>s=75</em>, <em>l=50</em>, <em>sep=10</em>, <em>n=6</em>, <em>center='light'</em>, <em>as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.diverging_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">diverging_palette</code><span class="sig-paren">(</span><em class="sig-param">h_neg</em>, <em class="sig-param">h_pos</em>, <em class="sig-param">s=75</em>, <em class="sig-param">l=50</em>, <em class="sig-param">sep=10</em>, <em class="sig-param">n=6</em>, <em class="sig-param">center='light'</em>, <em class="sig-param">as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.diverging_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a diverging palette between two HUSL colors.</p>
 <p>If you are using the IPython notebook, you can also choose this palette
 interactively with the <a class="reference internal" href="seaborn.choose_diverging_palette.html#seaborn.choose_diverging_palette" title="seaborn.choose_diverging_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">choose_diverging_palette()</span></code></a> function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>h_neg, h_pos</strong> : float in [0, 359]</p>
-<blockquote>
-<div><p>Anchor hues for negative and positive extents of the map.</p>
-</div></blockquote>
-<p><strong>s</strong> : float in [0, 100], optional</p>
-<blockquote>
-<div><p>Anchor saturation for both extents of the map.</p>
-</div></blockquote>
-<p><strong>l</strong> : float in [0, 100], optional</p>
-<blockquote>
-<div><p>Anchor lightness for both extents of the map.</p>
-</div></blockquote>
-<p><strong>n</strong> : int, optional</p>
-<blockquote>
-<div><p>Number of colors in the palette (if not returning a cmap)</p>
-</div></blockquote>
-<p><strong>center</strong> : {“light”, “dark”}, optional</p>
-<blockquote>
-<div><p>Whether the center of the palette is light or dark</p>
-</div></blockquote>
-<p><strong>as_cmap</strong> : bool, optional</p>
-<blockquote>
-<div><p>If true, return a matplotlib colormap object rather than a
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>h_neg, h_pos</strong><span class="classifier">float in [0, 359]</span></dt><dd><p>Anchor hues for negative and positive extents of the map.</p>
+</dd>
+<dt><strong>s</strong><span class="classifier">float in [0, 100], optional</span></dt><dd><p>Anchor saturation for both extents of the map.</p>
+</dd>
+<dt><strong>l</strong><span class="classifier">float in [0, 100], optional</span></dt><dd><p>Anchor lightness for both extents of the map.</p>
+</dd>
+<dt><strong>sep</strong><span class="classifier">int, optional</span></dt><dd><p>Size of the intermediate region.</p>
+</dd>
+<dt><strong>n</strong><span class="classifier">int, optional</span></dt><dd><p>Number of colors in the palette (if not returning a cmap)</p>
+</dd>
+<dt><strong>center</strong><span class="classifier">{“light”, “dark”}, optional</span></dt><dd><p>Whether the center of the palette is light or dark</p>
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool, optional</span></dt><dd><p>If true, return a matplotlib colormap object rather than a
 list of colors.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>palette or cmap</strong> : seaborn color palette or matplotlib colormap</p>
-<blockquote class="last">
-<div><p>List-like object of colors as RGB tuples, or colormap object that
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>palette or cmap</strong><span class="classifier">seaborn color palette or matplotlib colormap</span></dt><dd><p>List-like object of colors as RGB tuples, or colormap object that
 can map continuous values to colors, depending on the value of the
 <code class="docutils literal notranslate"><span class="pre">as_cmap</span></code> parameter.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt>
-<dd>Create a sequential palette with dark values.</dd>
-<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt>
-<dd>Create a sequential palette with light values.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt><dd><p>Create a sequential palette with dark values.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt><dd><p>Create a sequential palette with light values.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Generate a blue-white-red palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-diverging_palette-1.png" src="../_images/seaborn-diverging_palette-1.png" />
 </div>
 <p>Generate a brighter green-white-purple palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">275</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">275</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">55</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-diverging_palette-2.png" src="../_images/seaborn-diverging_palette-2.png" />
 </div>
 <p>Generate a blue-black-red palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
 <span class="gp">... </span>                                  <span class="n">n</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-diverging_palette-3.png" src="../_images/seaborn-diverging_palette-3.png" />
 </div>
 <p>Generate a colormap object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">arange</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-diverging_palette-4.png" src="../_images/seaborn-diverging_palette-4.png" />
 </div>
 </dd></dl>
@@ -222,8 +209,8 @@ can map continuous values to colors, depending on the value of the
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

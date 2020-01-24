@@ -1,1 +1,1 @@
-g = sns.clustermap(iris, col_cluster=False)
+g = sns.clustermap(iris, method="single")

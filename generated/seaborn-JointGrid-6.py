@@ -1,7 +1,4 @@
-g = sns.JointGrid(x="total_bill", y="tip", data=tips)
-g = g.plot_joint(plt.scatter,
-                 color="g", s=40, edgecolor="white")
-g = g.plot_marginals(sns.distplot, kde=False, color="g")
-rsquare = lambda a, b: stats.pearsonr(a, b)[0] ** 2
-g = g.annotate(rsquare, template="{stat}: {val:.2f}",
-               stat="$R^2$", loc="upper left", fontsize=12)
+g = sns.JointGrid(x="total_bill", y="tip", data=tips,
+                  height=5, ratio=2)
+g = g.plot_joint(sns.kdeplot, cmap="Reds_d")
+g = g.plot_marginals(sns.kdeplot, color="r", shade=True)

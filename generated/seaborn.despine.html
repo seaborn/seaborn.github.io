@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.despine &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.despine &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,32 +114,31 @@
 <h1>seaborn.despine<a class="headerlink" href="#seaborn-despine" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.despine">
-<code class="descclassname">seaborn.</code><code class="descname">despine</code><span class="sig-paren">(</span><em>fig=None</em>, <em>ax=None</em>, <em>top=True</em>, <em>right=True</em>, <em>left=False</em>, <em>bottom=False</em>, <em>offset=None</em>, <em>trim=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.despine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">despine</code><span class="sig-paren">(</span><em class="sig-param">fig=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">top=True</em>, <em class="sig-param">right=True</em>, <em class="sig-param">left=False</em>, <em class="sig-param">bottom=False</em>, <em class="sig-param">offset=None</em>, <em class="sig-param">trim=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.despine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove the top and right spines from plot(s).</p>
-<dl class="docutils">
-<dt>fig <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib figure, optional</span></dt>
-<dd>Figure to despine all axes of, default uses current figure.</dd>
-<dt>ax <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes, optional</span></dt>
-<dd>Specific axes object to despine.</dd>
-<dt>top, right, left, bottom <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional</span></dt>
-<dd>If True, remove that spine.</dd>
-<dt>offset <span class="classifier-delimiter">:</span> <span class="classifier">int or dict, optional</span></dt>
-<dd>Absolute distance, in points, spines should be moved away
+<dl class="simple">
+<dt>fig<span class="classifier">matplotlib figure, optional</span></dt><dd><p>Figure to despine all axes of, default uses current figure.</p>
+</dd>
+<dt>ax<span class="classifier">matplotlib axes, optional</span></dt><dd><p>Specific axes object to despine.</p>
+</dd>
+<dt>top, right, left, bottom<span class="classifier">boolean, optional</span></dt><dd><p>If True, remove that spine.</p>
+</dd>
+<dt>offset<span class="classifier">int or dict, optional</span></dt><dd><p>Absolute distance, in points, spines should be moved away
 from the axes (negative values move spines inward). A single value
 applies to all spines; a dict can be used to set offset values per
-side.</dd>
-<dt>trim <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
-<dd>If True, limit spines to the smallest and largest major tick
-on each non-despined axis.</dd>
+side.</p>
+</dd>
+<dt>trim<span class="classifier">bool, optional</span></dt><dd><p>If True, limit spines to the smallest and largest major tick
+on each non-despined axis.</p>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -160,8 +158,8 @@ on each non-despined axis.</dd>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

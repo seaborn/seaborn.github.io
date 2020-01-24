@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.axes_style &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.axes_style &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,49 +114,43 @@
 <h1>seaborn.axes_style<a class="headerlink" href="#seaborn-axes-style" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.axes_style">
-<code class="descclassname">seaborn.</code><code class="descname">axes_style</code><span class="sig-paren">(</span><em>style=None</em>, <em>rc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.axes_style" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">axes_style</code><span class="sig-paren">(</span><em class="sig-param">style=None</em>, <em class="sig-param">rc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.axes_style" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a parameter dict for the aesthetic style of the plots.</p>
 <p>This affects things like the color of the axes, whether a grid is
 enabled by default, and other aesthetic elements.</p>
 <p>This function returns an object that can be used in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement
 to temporarily change the style parameters.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>style</strong> : dict, None, or one of {darkgrid, whitegrid, dark, white, ticks}</p>
-<blockquote>
-<div><p>A dictionary of parameters or the name of a preconfigured set.</p>
-</div></blockquote>
-<p><strong>rc</strong> : dict, optional</p>
-<blockquote class="last">
-<div><p>Parameter mappings to override the values in the preset seaborn
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>style</strong><span class="classifier">dict, None, or one of {darkgrid, whitegrid, dark, white, ticks}</span></dt><dd><p>A dictionary of parameters or the name of a preconfigured set.</p>
+</dd>
+<dt><strong>rc</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameter mappings to override the values in the preset seaborn
 style dictionaries. This only updates parameters that are
 considered part of the style definition.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_style</span></code></a></dt>
-<dd>set the matplotlib parameters for a seaborn theme</dd>
-<dt><a class="reference internal" href="seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting_context</span></code></a></dt>
-<dd>return a parameter dict to to scale plot elements</dd>
-<dt><a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_palette</span></code></a></dt>
-<dd>define the color palette for a plot</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_style</span></code></a></dt><dd><p>set the matplotlib parameters for a seaborn theme</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting_context</span></code></a></dt><dd><p>return a parameter dict to to scale plot elements</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_palette</span></code></a></dt><dd><p>define the color palette for a plot</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">st</span> <span class="o">=</span> <span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">st</span> <span class="o">=</span> <span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;xtick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;ytick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;xtick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;ytick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="gp">... </span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>               
@@ -182,8 +175,8 @@ considered part of the style definition.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

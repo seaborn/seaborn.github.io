@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installing and getting started &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>Installing and getting started &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -86,7 +85,6 @@
 <li><a class="reference internal" href="#recommended-dependencies">Recommended dependencies</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#testing">Testing</a></li>
 <li><a class="reference internal" href="#bugs">Bugs</a></li>
 </ul>
 </li>
@@ -140,42 +138,31 @@
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Python 2.7 or 3.5+</li>
+<li><p>Python 3.6+</p></li>
 </ul>
 <div class="section" id="mandatory-dependencies">
 <h3>Mandatory dependencies<a class="headerlink" href="#mandatory-dependencies" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="http://www.numpy.org/">numpy</a> (&gt;= 1.9.3)</li>
-<li><a class="reference external" href="https://www.scipy.org/">scipy</a> (&gt;= 0.14.0)</li>
-<li><a class="reference external" href="https://matplotlib.org">matplotlib</a> (&gt;= 1.4.3)</li>
-<li><a class="reference external" href="https://pandas.pydata.org/">pandas</a> (&gt;= 0.15.2)</li>
+<li><p><a class="reference external" href="http://www.numpy.org/">numpy</a> (&gt;= 1.13.3)</p></li>
+<li><p><a class="reference external" href="https://www.scipy.org/">scipy</a> (&gt;= 1.0.1)</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a> (&gt;= 0.22.0)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a> (&gt;= 2.1.2)</p></li>
 </ul>
 </div>
 <div class="section" id="recommended-dependencies">
 <h3>Recommended dependencies<a class="headerlink" href="#recommended-dependencies" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://www.statsmodels.org/">statsmodels</a> (&gt;= 0.5.0)</li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/">statsmodels</a> (&gt;= 0.8.0)</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p>To test seaborn, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> in the root directory of the source
-distribution. This runs the unit test suite (using <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, but many older
-tests use <code class="docutils literal notranslate"><span class="pre">nose</span></code> asserts). It also runs the example code in function
-docstrings to smoke-test a broader and more realistic range of example usage.</p>
-<p>The full set of tests requires an internet connection to download the example
-datasets (if they haven’t been previously cached), but the unit tests should
-be possible to run offline.</p>
-</div>
 <div class="section" id="bugs">
 <h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
-<p>Please report any bugs you encounter through the github <a class="reference external" href="https://github.com/mwaskom/seaborn/issues/new">issue tracker</a>. It will be most helpful to
-include a reproducible example on one of the example datasets (accessed through
-<a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a>). It is difficult debug any issues without knowing the
-versions of seaborn and matplotlib you are using, as well as what <a class="reference external" href="https://matplotlib.org/faq/usage_faq.html#what-is-a-backend">matplotlib
-backend</a> you
-are using to draw the plots, so please include those in your bug report.</p>
+<p>Please report any bugs you encounter through the github <a class="reference external" href="https://github.com/mwaskom/seaborn/issues">issue tracker</a>. It will be most helpful to
+include a reproducible example on synthetic data or one of the example datasets
+(accessed through <a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a>). It is difficult to debug any issues
+without knowing the versions of seaborn and matplotlib you are using, as well
+as what <a class="reference external" href="https://matplotlib.org/faq/usage_faq.html#what-is-a-backend">matplotlib backend</a> you are have active, so please include those in your bug report.</p>
 </div></div>
 </div>
 
@@ -194,8 +181,8 @@ are using to draw the plots, so please include those in your bug report.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

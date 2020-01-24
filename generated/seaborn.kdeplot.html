@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.kdeplot &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.kdeplot &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,183 +114,147 @@
 <h1>seaborn.kdeplot<a class="headerlink" href="#seaborn-kdeplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.kdeplot">
-<code class="descclassname">seaborn.</code><code class="descname">kdeplot</code><span class="sig-paren">(</span><em>data</em>, <em>data2=None</em>, <em>shade=False</em>, <em>vertical=False</em>, <em>kernel='gau'</em>, <em>bw='scott'</em>, <em>gridsize=100</em>, <em>cut=3</em>, <em>clip=None</em>, <em>legend=True</em>, <em>cumulative=False</em>, <em>shade_lowest=True</em>, <em>cbar=False</em>, <em>cbar_ax=None</em>, <em>cbar_kws=None</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.kdeplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">kdeplot</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">data2=None</em>, <em class="sig-param">shade=False</em>, <em class="sig-param">vertical=False</em>, <em class="sig-param">kernel='gau'</em>, <em class="sig-param">bw='scott'</em>, <em class="sig-param">gridsize=100</em>, <em class="sig-param">cut=3</em>, <em class="sig-param">clip=None</em>, <em class="sig-param">legend=True</em>, <em class="sig-param">cumulative=False</em>, <em class="sig-param">shade_lowest=True</em>, <em class="sig-param">cbar=False</em>, <em class="sig-param">cbar_ax=None</em>, <em class="sig-param">cbar_kws=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.kdeplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit and plot a univariate or bivariate kernel density estimate.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> : 1d array-like</p>
-<blockquote>
-<div><p>Input data.</p>
-</div></blockquote>
-<p><strong>data2: 1d array-like, optional</strong></p>
-<blockquote>
-<div><p>Second input data. If present, a bivariate KDE will be estimated.</p>
-</div></blockquote>
-<p><strong>shade</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True, shade in the area under the KDE curve (or draw with filled
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">1d array-like</span></dt><dd><p>Input data.</p>
+</dd>
+<dt><strong>data2: 1d array-like, optional</strong></dt><dd><p>Second input data. If present, a bivariate KDE will be estimated.</p>
+</dd>
+<dt><strong>shade</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, shade in the area under the KDE curve (or draw with filled
 contours when data is bivariate).</p>
-</div></blockquote>
-<p><strong>vertical</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True, density is on x-axis.</p>
-</div></blockquote>
-<p><strong>kernel</strong> : {‘gau’ | ‘cos’ | ‘biw’ | ‘epa’ | ‘tri’ | ‘triw’ }, optional</p>
-<blockquote>
-<div><p>Code for shape of kernel to fit with. Bivariate KDE can only use
+</dd>
+<dt><strong>vertical</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, density is on x-axis.</p>
+</dd>
+<dt><strong>kernel</strong><span class="classifier">{‘gau’ | ‘cos’ | ‘biw’ | ‘epa’ | ‘tri’ | ‘triw’ }, optional</span></dt><dd><p>Code for shape of kernel to fit with. Bivariate KDE can only use
 gaussian kernel.</p>
-</div></blockquote>
-<p><strong>bw</strong> : {‘scott’ | ‘silverman’ | scalar | pair of scalars }, optional</p>
-<blockquote>
-<div><p>Name of reference method to determine kernel size, scalar factor,
+</dd>
+<dt><strong>bw</strong><span class="classifier">{‘scott’ | ‘silverman’ | scalar | pair of scalars }, optional</span></dt><dd><p>Name of reference method to determine kernel size, scalar factor,
 or scalar for each dimension of the bivariate plot. Note that the
 underlying computational libraries have different interperetations
 for this parameter: <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> uses it directly, but <code class="docutils literal notranslate"><span class="pre">scipy</span></code>
 treats it as a scaling factor for the standard deviation of the
 data.</p>
-</div></blockquote>
-<p><strong>gridsize</strong> : int, optional</p>
-<blockquote>
-<div><p>Number of discrete points in the evaluation grid.</p>
-</div></blockquote>
-<p><strong>cut</strong> : scalar, optional</p>
-<blockquote>
-<div><p>Draw the estimate to cut * bw from the extreme data points.</p>
-</div></blockquote>
-<p><strong>clip</strong> : pair of scalars, or pair of pair of scalars, optional</p>
-<blockquote>
-<div><p>Lower and upper bounds for datapoints used to fit KDE. Can provide
+</dd>
+<dt><strong>gridsize</strong><span class="classifier">int, optional</span></dt><dd><p>Number of discrete points in the evaluation grid.</p>
+</dd>
+<dt><strong>cut</strong><span class="classifier">scalar, optional</span></dt><dd><p>Draw the estimate to cut * bw from the extreme data points.</p>
+</dd>
+<dt><strong>clip</strong><span class="classifier">pair of scalars, or pair of pair of scalars, optional</span></dt><dd><p>Lower and upper bounds for datapoints used to fit KDE. Can provide
 a pair of (low, high) bounds for bivariate plots.</p>
-</div></blockquote>
-<p><strong>legend</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True, add a legend or label the axes when possible.</p>
-</div></blockquote>
-<p><strong>cumulative</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True, draw the cumulative distribution estimated by the kde.</p>
-</div></blockquote>
-<p><strong>shade_lowest</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True, shade the lowest contour of a bivariate KDE plot. Not
+</dd>
+<dt><strong>legend</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, add a legend or label the axes when possible.</p>
+</dd>
+<dt><strong>cumulative</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, draw the cumulative distribution estimated by the kde.</p>
+</dd>
+<dt><strong>shade_lowest</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, shade the lowest contour of a bivariate KDE plot. Not
 relevant when drawing a univariate plot or when <code class="docutils literal notranslate"><span class="pre">shade=False</span></code>.
 Setting this to <code class="docutils literal notranslate"><span class="pre">False</span></code> can be useful when you want multiple
 densities on the same Axes.</p>
-</div></blockquote>
-<p><strong>cbar</strong> : bool, optional</p>
-<blockquote>
-<div><p>If True and drawing a bivariate KDE plot, add a colorbar.</p>
-</div></blockquote>
-<p><strong>cbar_ax</strong> : matplotlib axes, optional</p>
-<blockquote>
-<div><p>Existing axes to draw the colorbar onto, otherwise space is taken
+</dd>
+<dt><strong>cbar</strong><span class="classifier">bool, optional</span></dt><dd><p>If True and drawing a bivariate KDE plot, add a colorbar.</p>
+</dd>
+<dt><strong>cbar_ax</strong><span class="classifier">matplotlib axes, optional</span></dt><dd><p>Existing axes to draw the colorbar onto, otherwise space is taken
 from the main axes.</p>
-</div></blockquote>
-<p><strong>cbar_kws</strong> : dict, optional</p>
-<blockquote>
-<div><p>Keyword arguments for <code class="docutils literal notranslate"><span class="pre">fig.colorbar()</span></code>.</p>
-</div></blockquote>
-<p><strong>ax</strong> : matplotlib axes, optional</p>
-<blockquote>
-<div><p>Axes to plot on, otherwise uses current axes.</p>
-</div></blockquote>
-<p><strong>kwargs</strong> : key, value pairings</p>
-<blockquote>
-<div><p>Other keyword arguments are passed to <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> or
+</dd>
+<dt><strong>cbar_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments for <code class="docutils literal notranslate"><span class="pre">fig.colorbar()</span></code>.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib axes, optional</span></dt><dd><p>Axes to plot on, otherwise uses current axes.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value pairings</span></dt><dd><p>Other keyword arguments are passed to <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> or
 <code class="docutils literal notranslate"><span class="pre">plt.contour{f}</span></code> depending on whether a univariate or bivariate
 plot is being drawn.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> : matplotlib Axes</p>
-<blockquote class="last">
-<div><p>Axes with plot.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Axes with plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distplot</span></code></a></dt>
-<dd>Flexibly plot a univariate distribution of observations.</dd>
-<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt>
-<dd>Plot a joint dataset with bivariate and marginal distributions.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.distplot.html#seaborn.distplot" title="seaborn.distplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distplot</span></code></a></dt><dd><p>Flexibly plot a univariate distribution of observations.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt><dd><p>Plot a joint dataset with bivariate and marginal distributions.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Plot a basic univariate density:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-1.png" src="../_images/seaborn-kdeplot-1.png" />
 </div>
 <p>Shade under the density curve and use a different color:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-2.png" src="../_images/seaborn-kdeplot-2.png" />
 </div>
 <p>Plot a bivariate density:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-3.png" src="../_images/seaborn-kdeplot-3.png" />
 </div>
 <p>Use filled contours:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-4.png" src="../_images/seaborn-kdeplot-4.png" />
 </div>
 <p>Use more contour levels and a different color palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples_d&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples_d&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-5.png" src="../_images/seaborn-kdeplot-5.png" />
 </div>
 <p>Use a narrower bandwith:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=.</span><span class="mi">15</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw</span><span class="o">=.</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-6.png" src="../_images/seaborn-kdeplot-6.png" />
 </div>
 <p>Plot the density on the vertical axis:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-7.png" src="../_images/seaborn-kdeplot-7.png" />
 </div>
 <p>Limit the density curve within the range of the data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-8.png" src="../_images/seaborn-kdeplot-8.png" />
 </div>
 <p>Add a colorbar for the contours:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-9.png" src="../_images/seaborn-kdeplot-9.png" />
 </div>
 <p>Plot two shaded bivariate densities:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setosa</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="s2">&quot;setosa&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">virginica</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span> <span class="o">==</span> <span class="s2">&quot;virginica&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">setosa</span><span class="o">.</span><span class="n">sepal_width</span><span class="p">,</span> <span class="n">setosa</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span>
@@ -300,7 +263,7 @@ plot is being drawn.</p>
 <span class="gp">... </span>                 <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shade_lowest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-kdeplot-10.png" src="../_images/seaborn-kdeplot-10.png" />
 </div>
 </dd></dl>
@@ -322,8 +285,8 @@ plot is being drawn.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

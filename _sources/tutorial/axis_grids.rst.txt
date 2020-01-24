@@ -1,4 +1,3 @@
-
 .. _grid_tutorial:
 
 .. currentmodule:: seaborn
@@ -11,7 +10,7 @@ Building structured multi-plot grids
    <div class=col-md-9>
 
 
-When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either "lattice", or "trellis" plotting, and it is related to the idea of `"small multiples" <https://en.wikipedia.org/wiki/Small_multiple>`_. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.
+When exploring medium-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either "lattice" or "trellis" plotting, and it is related to the idea of `"small multiples" <https://en.wikipedia.org/wiki/Small_multiple>`_. It allows a viewer to quickly extract a large amount of information about complex data. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.
 
 To use these features, your data has to be in a Pandas DataFrame and it must take the form of what Hadley Whickam calls `"tidy" data <https://vita.had.co.nz/papers/tidy-data.pdf>`_. In brief, that means your dataframe should be structured such that each column is a variable and each row is an observation.
 
@@ -101,7 +100,7 @@ The size of the figure is set by providing the height of *each* facet, along wit
 
 .. parsed-literal::
 
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:715: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:728: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
       warnings.warn(warning)
 
 
@@ -156,17 +155,11 @@ If you have many levels of one variable, you can plot it along the columns but "
 
     attend = sns.load_dataset("attention").query("subject <= 12")
     g = sns.FacetGrid(attend, col="subject", col_wrap=4, height=2, ylim=(0, 10))
-    g.map(sns.pointplot, "solutions", "score", color=".3", ci=None);
-
-
-.. parsed-literal::
-
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:715: UserWarning: Using the pointplot function without specifying `order` is likely to produce an incorrect plot.
-      warnings.warn(warning)
+    g.map(sns.pointplot, "solutions", "score", order=[1, 2, 3], color=".3", ci=None);
 
 
 
-.. image:: axis_grids_files/axis_grids_23_1.png
+.. image:: axis_grids_files/axis_grids_23_0.png
 
 
 Once you've drawn a plot using :meth:`FacetGrid.map` (which can be called multiple times), you may want to adjust some aspects of the plot. There are also a number of methods on the :class:`FacetGrid` object for manipulating the figure at a higher level of abstraction. The most general is :meth:`FacetGrid.set`, and there are other more specialized methods like :meth:`FacetGrid.set_axis_labels`, which respects the fact that interior facets do not have axis labels. For example:
@@ -207,7 +200,7 @@ Using custom functions
 
 You're not limited to existing matplotlib and seaborn functions when using :class:`FacetGrid`. However, to work properly, any function you use must follow a few rules:
 
-1. It must plot onto the "currently active" matplotlib ``Axes``. This will be true of functions in the ``matplotlib.pyplot`` namespace, and you can call ``plt.gca`` to get a reference to the current ``Axes`` if you want to work directly with its methods.
+1. It must plot onto the "currently active" matplotlib ``Axes``. This will be true of functions in the ``matplotlib.pyplot`` namespace, and you can call :func:`matplotlib.pyplot.gca` to get a reference to the current ``Axes`` if you want to work directly with its methods.
 2. It must accept the data that it plots in positional arguments. Internally, :class:`FacetGrid` will pass a ``Series`` of data for each of the named positional arguments passed to :meth:`FacetGrid.map`.
 3. It must be able to accept ``color`` and ``label`` keyword arguments, and, ideally, it will do something useful with them. In most cases, it's easiest to catch a generic dictionary of ``**kwargs`` and pass it along to the underlying plotting function.
 
@@ -245,7 +238,7 @@ If we want to make a bivariate plot, you should write the function so that it ac
 .. image:: axis_grids_files/axis_grids_31_0.png
 
 
-Because ``plt.scatter`` accepts ``color`` and ``label`` keyword arguments and does the right thing with them, we can add a hue facet without any difficulty:
+Because :func:`matplotlib.pyplot.scatter` accepts ``color`` and ``label`` keyword arguments and does the right thing with them, we can add a hue facet without any difficulty:
 
 .. code:: ipython3
 
@@ -272,7 +265,7 @@ This approach also lets us use additional aesthetics to distinguish the levels o
 .. image:: axis_grids_files/axis_grids_35_0.png
 
 
-Sometimes, though, you'll want to map a function that doesn't work the way you expect with the ``color`` and ``label`` keyword arguments. In this case, you'll want to explicitly catch them and handle them in the logic of your custom function. For example, this approach will allow use to map ``plt.hexbin``, which otherwise does not play well with the :class:`FacetGrid` API:
+Sometimes, though, you'll want to map a function that doesn't work the way you expect with the ``color`` and ``label`` keyword arguments. In this case, you'll want to explicitly catch them and handle them in the logic of your custom function. For example, this approach will allow use to map :func:`matplotlib.pyplot.hexbin`, which otherwise does not play well with the :class:`FacetGrid` API:
 
 .. code:: ipython3
 

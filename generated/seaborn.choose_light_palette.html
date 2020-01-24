@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.choose_light_palette &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.choose_light_palette &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,45 +114,39 @@
 <h1>seaborn.choose_light_palette<a class="headerlink" href="#seaborn-choose-light-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.choose_light_palette">
-<code class="descclassname">seaborn.</code><code class="descname">choose_light_palette</code><span class="sig-paren">(</span><em>input='husl'</em>, <em>as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.choose_light_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">choose_light_palette</code><span class="sig-paren">(</span><em class="sig-param">input='husl'</em>, <em class="sig-param">as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.choose_light_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch an interactive widget to create a light sequential palette.</p>
 <p>This corresponds with the <a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">light_palette()</span></code></a> function. This kind
 of palette is good for data that range between relatively uninteresting
 low values and interesting high values.</p>
 <p>Requires IPython 2+ and must be used in the notebook.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>input</strong> : {‘husl’, ‘hls’, ‘rgb’}</p>
-<blockquote>
-<div><p>Color space for defining the seed value. Note that the default is
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>input</strong><span class="classifier">{‘husl’, ‘hls’, ‘rgb’}</span></dt><dd><p>Color space for defining the seed value. Note that the default is
 different than the default input for <a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">light_palette()</span></code></a>.</p>
-</div></blockquote>
-<p><strong>as_cmap</strong> : bool</p>
-<blockquote>
-<div><p>If True, the return value is a matplotlib colormap rather than a
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, the return value is a matplotlib colormap rather than a
 list of discrete colors.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pal or cmap</strong> : list of colors or matplotlib colormap</p>
-<blockquote class="last">
-<div><p>Object that can be passed to plotting functions.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>pal or cmap</strong><span class="classifier">list of colors or matplotlib colormap</span></dt><dd><p>Object that can be passed to plotting functions.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt>
-<dd>Create a sequential palette with bright low values.</dd>
-<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt>
-<dd>Create a sequential palette with dark low values.</dd>
-<dt><a class="reference internal" href="seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubehelix_palette</span></code></a></dt>
-<dd>Create a sequential palette or colormap using the cubehelix system.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_palette</span></code></a></dt><dd><p>Create a sequential palette with bright low values.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_palette</span></code></a></dt><dd><p>Create a sequential palette with dark low values.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubehelix_palette</span></code></a></dt><dd><p>Create a sequential palette or colormap using the cubehelix system.</p>
+</dd>
 </dl>
 </div>
 </dd></dl>
@@ -175,8 +168,8 @@ list of discrete colors.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

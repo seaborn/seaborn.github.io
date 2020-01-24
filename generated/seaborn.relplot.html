@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.relplot &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.relplot &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,15 +114,15 @@
 <h1>seaborn.relplot<a class="headerlink" href="#seaborn-relplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.relplot">
-<code class="descclassname">seaborn.</code><code class="descname">relplot</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>hue=None</em>, <em>size=None</em>, <em>style=None</em>, <em>data=None</em>, <em>row=None</em>, <em>col=None</em>, <em>col_wrap=None</em>, <em>row_order=None</em>, <em>col_order=None</em>, <em>palette=None</em>, <em>hue_order=None</em>, <em>hue_norm=None</em>, <em>sizes=None</em>, <em>size_order=None</em>, <em>size_norm=None</em>, <em>markers=None</em>, <em>dashes=None</em>, <em>style_order=None</em>, <em>legend='brief'</em>, <em>kind='scatter'</em>, <em>height=5</em>, <em>aspect=1</em>, <em>facet_kws=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.relplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">relplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">style=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">row=None</em>, <em class="sig-param">col=None</em>, <em class="sig-param">col_wrap=None</em>, <em class="sig-param">row_order=None</em>, <em class="sig-param">col_order=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">hue_norm=None</em>, <em class="sig-param">sizes=None</em>, <em class="sig-param">size_order=None</em>, <em class="sig-param">size_norm=None</em>, <em class="sig-param">markers=None</em>, <em class="sig-param">dashes=None</em>, <em class="sig-param">style_order=None</em>, <em class="sig-param">legend='brief'</em>, <em class="sig-param">kind='scatter'</em>, <em class="sig-param">height=5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">facet_kws=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.relplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Figure-level interface for drawing relational plots onto a FacetGrid.</p>
 <p>This function provides access to several different axes-level functions
 that show the relationship between two variables with semantic mappings
 of subsets. The <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter selects the underlying axes-level
 function to use:</p>
 <ul class="simple">
-<li><a class="reference internal" href="seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">kind=&quot;scatter&quot;</span></code>; the default)</li>
-<li><a class="reference internal" href="seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">kind=&quot;line&quot;</span></code>)</li>
+<li><p><a class="reference internal" href="seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">kind=&quot;scatter&quot;</span></code>; the default)</p></li>
+<li><p><a class="reference internal" href="seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">kind=&quot;line&quot;</span></code>)</p></li>
 </ul>
 <p>Extra keyword arguments are passed to the underlying function, so you
 should refer to the documentation for each to see kind-specific options.</p>
@@ -136,193 +135,158 @@ interpret and is often ineffective. Using redundant semantics (i.e. both
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> for the same variable) can be helpful for making
 graphics more accessible.</p>
 <p>See the <a class="reference internal" href="../tutorial/relational.html#relational-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<p>The default treatment of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> (and to a lesser extent, <code class="docutils literal notranslate"><span class="pre">size</span></code>)
+semantic, if present, depends on whether the variable is inferred to
+represent “numeric” or “categorical” data. In particular, numeric variables
+are represented with a sequential colormap by default, and the legend
+entries show regular “ticks” with values that may or may not exist in the
+data. This behavior can be controlled through various parameters, as
+described and illustrated below.</p>
 <p>After plotting, the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> with the plot is returned and can
 be used directly to tweak supporting plot details or add other layers.</p>
 <p>Note that, unlike when using the underlying plotting functions directly,
 data must be passed in a long-form DataFrame with variables specified by
 passing strings to <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and other parameters.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y</strong> : names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
-<blockquote>
-<div><p>Input data variables; must be numeric.</p>
-</div></blockquote>
-<p><strong>hue</strong> : name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</p>
-<blockquote>
-<div><p>Grouping variable that will produce elements with different colors.
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Input data variables; must be numeric.</p>
+</dd>
+<dt><strong>hue</strong><span class="classifier">name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>Grouping variable that will produce elements with different colors.
 Can be either categorical or numeric, although color mapping will
 behave differently in latter case.</p>
-</div></blockquote>
-<p><strong>size</strong> : name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</p>
-<blockquote>
-<div><p>Grouping variable that will produce elements with different sizes.
+</dd>
+<dt><strong>size</strong><span class="classifier">name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>Grouping variable that will produce elements with different sizes.
 Can be either categorical or numeric, although size mapping will
 behave differently in latter case.</p>
-</div></blockquote>
-<p><strong>style</strong> : name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</p>
-<blockquote>
-<div><p>Grouping variable that will produce elements with different styles.
+</dd>
+<dt><strong>style</strong><span class="classifier">name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>Grouping variable that will produce elements with different styles.
 Can have a numeric dtype but will always be treated as categorical.</p>
-</div></blockquote>
-<p><strong>data</strong> : DataFrame</p>
-<blockquote>
-<div><p>Tidy (“long-form”) dataframe where each column is a variable and each
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (“long-form”) dataframe where each column is a variable and each
 row is an observation.</p>
-</div></blockquote>
-<p><strong>row, col</strong> : names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</p>
-<blockquote>
-<div><p>Categorical variables that will determine the faceting of the grid.</p>
-</div></blockquote>
-<p><strong>col_wrap</strong> : int, optional</p>
-<blockquote>
-<div><p>“Wrap” the column variable at this width, so that the column facets
+</dd>
+<dt><strong>row, col</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>Categorical variables that will determine the faceting of the grid.</p>
+</dd>
+<dt><strong>col_wrap</strong><span class="classifier">int, optional</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
 span multiple rows. Incompatible with a <code class="docutils literal notranslate"><span class="pre">row</span></code> facet.</p>
-</div></blockquote>
-<p><strong>row_order, col_order</strong> : lists of strings, optional</p>
-<blockquote>
-<div><p>Order to organize the rows and/or columns of the grid in, otherwise the
+</dd>
+<dt><strong>row_order, col_order</strong><span class="classifier">lists of strings, optional</span></dt><dd><p>Order to organize the rows and/or columns of the grid in, otherwise the
 orders are inferred from the data objects.</p>
-</div></blockquote>
-<p><strong>palette</strong> : palette name, list, or dict, optional</p>
-<blockquote>
-<div><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+</dd>
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict, optional</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
-</div></blockquote>
-<p><strong>hue_order</strong> : list, optional</p>
-<blockquote>
-<div><p>Specified order for the appearance of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable levels,
+</dd>
+<dt><strong>hue_order</strong><span class="classifier">list, optional</span></dt><dd><p>Specified order for the appearance of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable levels,
 otherwise they are determined from the data. Not relevant when the
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable is numeric.</p>
-</div></blockquote>
-<p><strong>hue_norm</strong> : tuple or Normalize object, optional</p>
-<blockquote>
-<div><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+</dd>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or Normalize object, optional</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
 variable when it is numeric. Not relevant if it is categorical.</p>
-</div></blockquote>
-<p><strong>sizes</strong> : list, dict, or tuple, optional</p>
-<blockquote>
-<div><p>An object that determines how sizes are chosen when <code class="docutils literal notranslate"><span class="pre">size</span></code> is used.
+</dd>
+<dt><strong>sizes</strong><span class="classifier">list, dict, or tuple, optional</span></dt><dd><p>An object that determines how sizes are chosen when <code class="docutils literal notranslate"><span class="pre">size</span></code> is used.
 It can always be a list of size values or a dict mapping levels of the
 <code class="docutils literal notranslate"><span class="pre">size</span></code> variable to sizes. When <code class="docutils literal notranslate"><span class="pre">size</span></code>  is numeric, it can also be
 a tuple specifying the minimum and maximum size to use such that other
 values are normalized within this range.</p>
-</div></blockquote>
-<p><strong>size_order</strong> : list, optional</p>
-<blockquote>
-<div><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">size</span></code> variable levels,
+</dd>
+<dt><strong>size_order</strong><span class="classifier">list, optional</span></dt><dd><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">size</span></code> variable levels,
 otherwise they are determined from the data. Not relevant when the
 <code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
-</div></blockquote>
-<p><strong>size_norm</strong> : tuple or Normalize object, optional</p>
-<blockquote>
-<div><p>Normalization in data units for scaling plot objects when the
+</dd>
+<dt><strong>size_norm</strong><span class="classifier">tuple or Normalize object, optional</span></dt><dd><p>Normalization in data units for scaling plot objects when the
 <code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
-</div></blockquote>
-<p><strong>legend</strong> : “brief”, “full”, or False, optional</p>
-<blockquote>
-<div><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
+</dd>
+<dt><strong>legend</strong><span class="classifier">“brief”, “full”, or False, optional</span></dt><dd><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
 variables will be represented with a sample of evenly spaced values.
 If “full”, every group will get an entry in the legend. If <code class="docutils literal notranslate"><span class="pre">False</span></code>,
 no legend data is added and no legend is drawn.</p>
-</div></blockquote>
-<p><strong>kind</strong> : string, optional</p>
-<blockquote>
-<div><p>Kind of plot to draw, corresponding to a seaborn relational plot.
+</dd>
+<dt><strong>kind</strong><span class="classifier">string, optional</span></dt><dd><p>Kind of plot to draw, corresponding to a seaborn relational plot.
 Options are {<code class="docutils literal notranslate"><span class="pre">scatter</span></code> and <code class="docutils literal notranslate"><span class="pre">line</span></code>}.</p>
-</div></blockquote>
-<p><strong>height</strong> : scalar, optional</p>
-<blockquote>
-<div><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
-</div></blockquote>
-<p><strong>aspect</strong> : scalar, optional</p>
-<blockquote>
-<div><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
+</dd>
+<dt><strong>height</strong><span class="classifier">scalar, optional</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
+</dd>
+<dt><strong>aspect</strong><span class="classifier">scalar, optional</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
 of each facet in inches.</p>
-</div></blockquote>
-<p><strong>facet_kws</strong> : dict, optional</p>
-<blockquote>
-<div><p>Dictionary of other keyword arguments to pass to <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
-</div></blockquote>
-<p><strong>kwargs</strong> : key, value pairings</p>
-<blockquote>
-<div><p>Other keyword arguments are passed through to the underlying plotting
+</dd>
+<dt><strong>facet_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Dictionary of other keyword arguments to pass to <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value pairings</span></dt><dd><p>Other keyword arguments are passed through to the underlying plotting
 function.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>g</strong> : <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p>
-<blockquote class="last">
-<div><p>Returns the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object with the plot on it for further
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>g</strong><span class="classifier"><a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></span></dt><dd><p>Returns the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object with the plot on it for further
 tweaking.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <p>Draw a single facet to use the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> legend placement:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-1.png" src="../_images/seaborn-relplot-1.png" />
 </div>
 <p>Facet on the columns with another variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-2.png" src="../_images/seaborn-relplot-2.png" />
 </div>
 <p>Facet on the columns and rows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-3.png" src="../_images/seaborn-relplot-3.png" />
 </div>
 <p>“Wrap” many column facets into multiple rows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-4.png" src="../_images/seaborn-relplot-4.png" />
 </div>
 <p>Use multiple semantic variables on each facet with specified attributes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">],</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
 <span class="gp">... </span>                <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-5.png" src="../_images/seaborn-relplot-5.png" />
 </div>
 <p>Use a different kind of plot:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fmri</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;fmri&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fmri</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;fmri&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-6.png" src="../_images/seaborn-relplot-6.png" />
 </div>
 <p>Change the size of each facet:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">7</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-relplot-7.png" src="../_images/seaborn-relplot-7.png" />
 </div>
 </dd></dl>
@@ -344,8 +308,8 @@ tweaking.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

@@ -1,1 +1,1 @@
-g = sns.pairplot(iris, kind="reg")
+g = sns.pairplot(iris, diag_kind="kde")

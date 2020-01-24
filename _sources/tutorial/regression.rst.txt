@@ -1,4 +1,3 @@
-
 .. _regression_tutorial:
 
 .. currentmodule:: seaborn
@@ -282,7 +281,7 @@ Before we noted that the default plots made by :func:`regplot` and :func:`lmplot
 .. image:: regression_files/regression_44_0.png
 
 
-In contrast, the size and shape of the :func:`lmplot` figure is controlled through the :class:`FacetGrid` interface using the ``size`` and ``aspect`` parameters, which apply to each *facet* in the plot, not to the overall figure itself:
+In contrast, the size and shape of the :func:`lmplot` figure is controlled through the :class:`FacetGrid` interface using the ``height`` and ``aspect`` parameters, which apply to each *facet* in the plot, not to the overall figure itself:
 
 .. code:: ipython3
 

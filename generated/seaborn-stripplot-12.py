@@ -1,3 +1,4 @@
-ax = sns.violinplot(x="day", y="total_bill", data=tips,
-                    inner=None, color=".8")
-ax = sns.stripplot(x="day", y="total_bill", data=tips, jitter=True)
+g = sns.catplot(x="sex", y="total_bill",
+                hue="smoker", col="time",
+                data=tips, kind="strip",
+                height=4, aspect=.7);

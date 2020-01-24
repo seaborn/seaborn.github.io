@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.countplot &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.countplot &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +20,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.jointplot" href="seaborn.jointplot.html" />
+    <link rel="next" title="seaborn.distplot" href="seaborn.distplot.html" />
     <link rel="prev" title="seaborn.barplot" href="seaborn.barplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,19 +114,19 @@
 <h1>seaborn.countplot<a class="headerlink" href="#seaborn-countplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.countplot">
-<code class="descclassname">seaborn.</code><code class="descname">countplot</code><span class="sig-paren">(</span><em>x=None</em>, <em>y=None</em>, <em>hue=None</em>, <em>data=None</em>, <em>order=None</em>, <em>hue_order=None</em>, <em>orient=None</em>, <em>color=None</em>, <em>palette=None</em>, <em>saturation=0.75</em>, <em>dodge=True</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.countplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">countplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.countplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the counts of observations in each categorical bin using bars.</p>
 <p>A count plot can be thought of as a histogram across a categorical, instead
 of quantitative, variable. The basic API and options are identical to those
 for <a class="reference internal" href="seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, so you can compare counts across nested variables.</p>
 <p>Input data can be passed in a variety of formats, including:</p>
 <ul class="simple">
-<li>Vectors of data represented as lists, numpy arrays, or pandas Series
-objects passed directly to the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameters.</li>
-<li>A “long-form” DataFrame, in which case the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">hue</span></code>
-variables will determine how the data are plotted.</li>
-<li>A “wide-form” DataFrame, such that each numeric column will be plotted.</li>
-<li>An array or list of vectors.</li>
+<li><p>Vectors of data represented as lists, numpy arrays, or pandas Series
+objects passed directly to the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameters.</p></li>
+<li><p>A “long-form” DataFrame, in which case the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+variables will determine how the data are plotted.</p></li>
+<li><p>A “wide-form” DataFrame, such that each numeric column will be plotted.</p></li>
+<li><p>An array or list of vectors.</p></li>
 </ul>
 <p>In most cases, it is possible to use numpy or Python objects, but pandas
 objects are preferable because the associated names will be used to
@@ -137,132 +136,111 @@ grouping variables to control the order of plot elements.</p>
 draws data at ordinal positions (0, 1, … n) on the relevant axis, even
 when the data has a numeric or date type.</p>
 <p>See the <a class="reference internal" href="../tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y, hue</strong> : names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</p>
-<blockquote>
-<div><p>Inputs for plotting long-form data. See examples for interpretation.</p>
-</div></blockquote>
-<p><strong>data</strong> : DataFrame, array, or list of arrays, optional</p>
-<blockquote>
-<div><p>Dataset for plotting. If <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are absent, this is
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y, hue</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</span></dt><dd><p>Inputs for plotting long-form data. See examples for interpretation.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame, array, or list of arrays, optional</span></dt><dd><p>Dataset for plotting. If <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are absent, this is
 interpreted as wide-form. Otherwise it is expected to be long-form.</p>
-</div></blockquote>
-<p><strong>order, hue_order</strong> : lists of strings, optional</p>
-<blockquote>
-<div><p>Order to plot the categorical levels in, otherwise the levels are
+</dd>
+<dt><strong>order, hue_order</strong><span class="classifier">lists of strings, optional</span></dt><dd><p>Order to plot the categorical levels in, otherwise the levels are
 inferred from the data objects.</p>
-</div></blockquote>
-<p><strong>orient</strong> : “v” | “h”, optional</p>
-<blockquote>
-<div><p>Orientation of the plot (vertical or horizontal). This is usually
+</dd>
+<dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
 inferred from the dtype of the input variables, but can be used to
 specify when the “categorical” variable is a numeric or when plotting
 wide-form data.</p>
-</div></blockquote>
-<p><strong>color</strong> : matplotlib color, optional</p>
-<blockquote>
-<div><p>Color for all of the elements, or seed for a gradient palette.</p>
-</div></blockquote>
-<p><strong>palette</strong> : palette name, list, or dict, optional</p>
-<blockquote>
-<div><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+</dd>
+<dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict, optional</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
-</div></blockquote>
-<p><strong>saturation</strong> : float, optional</p>
-<blockquote>
-<div><p>Proportion of the original saturation to draw colors at. Large patches
+</dd>
+<dt><strong>saturation</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion of the original saturation to draw colors at. Large patches
 often look better with slightly desaturated colors, but set this to
 <code class="docutils literal notranslate"><span class="pre">1</span></code> if you want the plot colors to perfectly match the input color
 spec.</p>
-</div></blockquote>
-<p><strong>dodge</strong> : bool, optional</p>
-<blockquote>
-<div><p>When hue nesting is used, whether elements should be shifted along the
+</dd>
+<dt><strong>dodge</strong><span class="classifier">bool, optional</span></dt><dd><p>When hue nesting is used, whether elements should be shifted along the
 categorical axis.</p>
-</div></blockquote>
-<p><strong>ax</strong> : matplotlib Axes, optional</p>
-<blockquote>
-<div><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
-</div></blockquote>
-<p><strong>kwargs</strong> : key, value mappings</p>
-<blockquote>
-<div><p>Other keyword arguments are passed to <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code>.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> : matplotlib Axes</p>
-<blockquote class="last">
-<div><p>Returns the Axes object with the plot drawn onto it.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Returns the Axes object with the plot drawn onto it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">barplot</span></code></a></dt>
-<dd>Show point estimates and confidence intervals using bars.</dd>
-<dt><a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catplot</span></code></a></dt>
-<dd>Combine a categorical plot with a class:<cite>FacetGrid</cite>.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">barplot</span></code></a></dt><dd><p>Show point estimates and confidence intervals using bars.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catplot</span></code></a></dt><dd><p>Combine a categorical plot with a <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Show value counts for a single categorical variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-1.png" src="../_images/seaborn-countplot-1.png" />
 </div>
 <p>Show value counts for two categorical variables:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-2.png" src="../_images/seaborn-countplot-2.png" />
 </div>
 <p>Plot the bars horizontally:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-3.png" src="../_images/seaborn-countplot-3.png" />
 </div>
 <p>Use a different color palette:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-4.png" src="../_images/seaborn-countplot-4.png" />
 </div>
-<p>Use <code class="docutils literal notranslate"><span class="pre">plt.bar</span></code> keyword arguments for a different look:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span>
+<p>Use <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a> parameters to control the style.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span>
 <span class="gp">... </span>                   <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span class="gp">... </span>                   <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
 <span class="gp">... </span>                   <span class="n">edgecolor</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-5.png" src="../_images/seaborn-countplot-5.png" />
 </div>
 <p>Use <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> to combine a <a class="reference internal" href="#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">countplot()</span></code></a> and a
 <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. This allows grouping within additional categorical
 variables. Using <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> is safer than using <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>
 directly, as it ensures synchronization of variable order across facets:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">7</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-countplot-6.png" src="../_images/seaborn-countplot-6.png" />
 </div>
 </dd></dl>
@@ -284,8 +262,8 @@ directly, as it ensures synchronization of variable order across facets:</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

@@ -1,3 +1,1 @@
-lut = dict(zip(species.unique(), "rbg"))
-row_colors = species.map(lut)
-g = sns.clustermap(iris, row_colors=row_colors)
+g = sns.clustermap(iris, standard_scale=1)

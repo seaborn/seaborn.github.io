@@ -1,2 +1,2 @@
-ax = sns.stripplot(x="sex", y="total_bill", hue="day",
-                   data=tips, jitter=True)
+ax = sns.stripplot(x="day", y="total_bill", hue="smoker",
+                   data=tips, palette="Set2", dodge=True)

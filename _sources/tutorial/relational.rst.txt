@@ -1,4 +1,3 @@
-
 .. _relational_tutorial:
 
 .. currentmodule:: seaborn
@@ -131,7 +130,7 @@ More examples for customizing how the different semantics are used to show stati
 Emphasizing continuity with line plots
 --------------------------------------
 
-Scatter plots are highly effective, but there is no universally optimal type of visualiation. Instead, the visual representation should be adapted for the specifics of the dataset and to the question you are trying to answer with the plot.
+Scatter plots are highly effective, but there is no universally optimal type of visualisation. Instead, the visual representation should be adapted for the specifics of the dataset and to the question you are trying to answer with the plot.
 
 With some datasets, you may want to understand changes in one variable as a function of time, or a similarly continuous variable. In this situation, a good choice is to draw a line plot. In seaborn, this can be accomplished by the :func:`lineplot` function, either directly or with :func:`relplot` by setting ``kind="line"``:
 
@@ -357,8 +356,18 @@ Line plots are often used to visualize data associated with real dates and times
     g.fig.autofmt_xdate()
 
 
+.. parsed-literal::
 
-.. image:: relational_files/relational_53_0.png
+    /Users/mwaskom/miniconda3/envs/seaborn-py37-latest/lib/python3.7/site-packages/pandas/plotting/_matplotlib/converter.py:103: FutureWarning: Using an implicitly registered datetime converter for a matplotlib plotting method. The converter was registered by pandas on import. Future versions of pandas will require you to explicitly register matplotlib converters.
+    
+    To register the converters:
+    	>>> from pandas.plotting import register_matplotlib_converters
+    	>>> register_matplotlib_converters()
+      warnings.warn(msg, FutureWarning)
+
+
+
+.. image:: relational_files/relational_53_1.png
 
 
 Showing multiple relationships with facets
@@ -405,7 +414,7 @@ When you want to examine effects across many levels of a variable, it can be a g
 .. image:: relational_files/relational_59_0.png
 
 
-These visualizations, which are often called "lattice" plots or "small-multiples", are very effective because they present the data in a format that makes it easy for the eye to detect both overall patterns and deviations from those patterns. While you should make use of the flexiblity afforded by :func:`scatterplot` and :func:`relplot`, always try to keep in mind that several simple plots are usually more effective than one complex plot.
+These visualizations, which are often called "lattice" plots or "small-multiples", are very effective because they present the data in a format that makes it easy for the eye to detect both overall patterns and deviations from those patterns. While you should make use of the flexibility afforded by :func:`scatterplot` and :func:`relplot`, always try to keep in mind that several simple plots are usually more effective than one complex plot.
 
 .. raw:: html
 

@@ -1,4 +1,3 @@
-
 .. _introduction:
 
 .. currentmodule:: seaborn
@@ -49,7 +48,7 @@ A few things have happened here. Let's go through them one by one:
 
     import seaborn as sns
 
-Behind the scenes, seaborn uses matplotlib to draw plots. Many tasks can be accomplished with only seaborn functions, but further customization might require using matplotlib directly. This is explained in more detail :ref:`below <intro_plot_customization>`. For interactive work, it's recommended to use a Jupyter/IPython interface in `matplotlib mode <https://ipython.readthedocs.io/en/stable/interactive/plotting.html>`_, or else you'll have to call :ref:`matplotlib.pyplot.show` when you want to see the plot.
+Behind the scenes, seaborn uses matplotlib to draw plots. Many tasks can be accomplished with only seaborn functions, but further customization might require using matplotlib directly. This is explained in more detail :ref:`below <intro_plot_customization>`. For interactive work, it's recommended to use a Jupyter/IPython interface in `matplotlib mode <https://ipython.readthedocs.io/en/stable/interactive/plotting.html>`_, or else you'll have to call :func:`matplotlib.pyplot.show` when you want to see the plot.
 
 2. We apply the default default seaborn theme, scaling, and color palette.
 
@@ -65,7 +64,7 @@ This uses the `matplotlib rcParam system <https://matplotlib.org/users/customizi
 
     tips = sns.load_dataset("tips")
 
-Most code in the docs will use the :func:`load_dataset` function to get quick access to an example dataset. There's nothing particularly special about these datasets; they are just pandas dataframes, and we could have loaded them with :ref:`pandas.read_csv` or build them by hand. Many examples use the "tips" dataset, which is very boring but quite useful for demonstration. The tips dataset illustrates the "tidy" approach to organizing a dataset. You'll get the most out of seaborn if your datasets are organized this way, and it is explained in more detail :ref:`below <intro_tidy_data>`.
+Most code in the docs will use the :func:`load_dataset` function to get quick access to an example dataset. There's nothing particularly special about these datasets; they are just pandas dataframes, and we could have loaded them with :func:`pandas.read_csv` or build them by hand. Many examples use the "tips" dataset, which is very boring but quite useful for demonstration. The tips dataset illustrates the "tidy" approach to organizing a dataset. You'll get the most out of seaborn if your datasets are organized this way, and it is explained in more detail :ref:`below <intro_tidy_data>`.
 
 4. We draw a faceted scatter plot with multiple semantic variables.
 
@@ -108,7 +107,7 @@ Notice how the ``size`` and ``style`` parameters are shared across the scatter a
 Statistical estimation and error bars
 -------------------------------------
 
-Often we are interested in the average value of one variable as a function of other variables. Many seaborn functions can automatically perform the statistical estimation that is neccesary to answer these questions:
+Often we are interested in the average value of one variable as a function of other variables. Many seaborn functions can automatically perform the statistical estimation that is necessary to answer these questions:
 
 .. code:: ipython3
 
@@ -124,7 +123,7 @@ Often we are interested in the average value of one variable as a function of ot
 
 When statistical values are estimated, seaborn will use bootstrapping to compute confidence intervals and draw error bars representing the uncertainty of the estimate.
 
-Statistical estimation in seaborn goes beyond descriptive statisitics. For example, it is also possible to enhance a scatterplot to include a linear regression model (and its uncertainty) using :func:`lmplot`:
+Statistical estimation in seaborn goes beyond descriptive statistics. For example, it is also possible to enhance a scatterplot to include a linear regression model (and its uncertainty) using :func:`lmplot`:
 
 .. code:: ipython3
 
@@ -202,7 +201,7 @@ The upshot is that the figure-level function needs to control the figure it live
 .. image:: introduction_files/introduction_23_0.png
 
 
-Controling the size of the figure-level functions works a little bit differently than it does for other matplotlib figures. Instead of setting the overall figure size, the figure-level functions are parameterized by the size of each facet. And instead of setting the height and width of each facet, you control the height and *aspect* ratio (ratio of width to height). This parameterization makes it easy to control the size of the graphic without thinking about exactly how many rows and columns it will have, although it can be a source of confusion:
+Controlling the size of the figure-level functions works a little bit differently than it does for other matplotlib figures. Instead of setting the overall figure size, the figure-level functions are parameterized by the size of each facet. And instead of setting the height and width of each facet, you control the height and *aspect* ratio (ratio of width to height). This parameterization makes it easy to control the size of the graphic without thinking about exactly how many rows and columns it will have, although it can be a source of confusion:
 
 .. code:: ipython3
 
@@ -273,7 +272,7 @@ The first way is to use one of the alternate seaborn themes to give your plots a
 
 For figure-specific customization, all seaborn functions accept a number of optional parameters for switching to non-default semantic mappings, such as different colors. (Appropriate use of color is critical for effective data visualization, and seaborn has :ref:`extensive support <palette_tutorial>` for customizing color palettes).
 
-Finally, where there is a direct correspondence with an underlying matplotlib function (like :func:`scatterplot` and ``plt.scatter``), additional keyword arguments will be passed through to the matplotlib layer:
+Finally, where there is a direct correspondence with an underlying matplotlib function (like :func:`scatterplot` and :meth:`matplotlib.axes.Axes.scatter`), additional keyword arguments will be passed through to the matplotlib layer:
 
 .. code:: ipython3
 
@@ -288,7 +287,7 @@ Finally, where there is a direct correspondence with an underlying matplotlib fu
 .. image:: introduction_files/introduction_33_0.png
 
 
-In the case of :func:`relplot` and other figure-level functions, that means there are a few levels of indirection because :func:`relplot` passes its exta keyword arguments to the underlying seaborn axes-level function, which passes *its* extra keyword arguments to the underlying matplotlib function. So it might take some effort to find the right documentation for the parameters you'll need to use, but in principle an extremely high level of customization is possible.
+In the case of :func:`relplot` and other figure-level functions, that means there are a few levels of indirection because :func:`relplot` passes its exta keyword arguments to the underlying seaborn axes-level function, which passes *its* extra keyword arguments to the underlying matplotlib function. So it might take some effort to find the right documentation for the parameters you'll need to use, but in principle an extremely detailed level of customization is possible.
 
 Some customization of figure-level functions can be accomplished through additional parameters that get passed to :class:`FacetGrid`, and you can use the methods on that object to control many other properties of the figure. For even more tweaking, you can access the matplotlib objects that the plot is drawn onto, which are stored as attributes:
 
@@ -317,7 +316,7 @@ Because the figure-level functions are oriented towards efficient exploration, u
 Organizing datasets
 -------------------
 
-As mentioned above, seaborn will be most powerful when your datasets have a particular organization. This format ia alternately called "long-form" or "tidy" data and is described in detail by Hadley Wickham in this `academic paper <http://vita.had.co.nz/papers/tidy-data.html>`_. The rules can be simply stated:
+As mentioned above, seaborn will be most powerful when your datasets have a particular organization. This format is alternately called "long-form" or "tidy" data and is described in detail by Hadley Wickham in this `academic paper <http://vita.had.co.nz/papers/tidy-data.html>`_. The rules can be simply stated:
 
 1. Each variable is a column
 2. Each observation is a row
@@ -334,17 +333,17 @@ A helpful mindset for determining whether your data are tidy is to think backwar
 .. raw:: html
 
     <div>
-    <style>
-        .dataframe thead tr:only-child th {
-            text-align: right;
-        }
-    
-        .dataframe thead th {
-            text-align: left;
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
         }
     
         .dataframe tbody tr th {
             vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
         }
     </style>
     <table border="1" class="dataframe">
@@ -429,17 +428,17 @@ In some domains, the tidy format might feel awkward at first. Timeseries data, f
 .. raw:: html
 
     <div>
-    <style>
-        .dataframe thead tr:only-child th {
-            text-align: right;
-        }
-    
-        .dataframe thead th {
-            text-align: left;
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
         }
     
         .dataframe tbody tr th {
             vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
         }
     </style>
     <table border="1" class="dataframe">
@@ -500,7 +499,7 @@ In some domains, the tidy format might feel awkward at first. Timeseries data, f
 
 
 
-Many seaborn functions can plot wide-form data, but only with limited functionality. To take advantage of the features that depend on tidy-formatted data, you'll likely find the ``pandas.melt`` function useful for "un-pivoting" a wide-form dataframe. More information and useful examples can be found `in this blog post <https://tomaugspurger.github.io/modern-5-tidy.html>`_ by one of the pandas developers.
+Many seaborn functions can plot wide-form data, but only with limited functionality. To take advantage of the features that depend on tidy-formatted data, you'll likely find the :func:`pandas.melt` function useful for "un-pivoting" a wide-form dataframe. More information and useful examples can be found `in this blog post <https://tomaugspurger.github.io/modern-5-tidy.html>`_ by one of the pandas developers.
 
 .. _intro_next_steps:
 

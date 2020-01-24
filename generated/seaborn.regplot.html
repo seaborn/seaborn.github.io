@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.regplot &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.regplot &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,177 +114,131 @@
 <h1>seaborn.regplot<a class="headerlink" href="#seaborn-regplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.regplot">
-<code class="descclassname">seaborn.</code><code class="descname">regplot</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>data=None</em>, <em>x_estimator=None</em>, <em>x_bins=None</em>, <em>x_ci='ci'</em>, <em>scatter=True</em>, <em>fit_reg=True</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>units=None</em>, <em>order=1</em>, <em>logistic=False</em>, <em>lowess=False</em>, <em>robust=False</em>, <em>logx=False</em>, <em>x_partial=None</em>, <em>y_partial=None</em>, <em>truncate=False</em>, <em>dropna=True</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>label=None</em>, <em>color=None</em>, <em>marker='o'</em>, <em>scatter_kws=None</em>, <em>line_kws=None</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.regplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">regplot</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">data=None</em>, <em class="sig-param">x_estimator=None</em>, <em class="sig-param">x_bins=None</em>, <em class="sig-param">x_ci='ci'</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">fit_reg=True</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=1</em>, <em class="sig-param">logistic=False</em>, <em class="sig-param">lowess=False</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">logx=False</em>, <em class="sig-param">x_partial=None</em>, <em class="sig-param">y_partial=None</em>, <em class="sig-param">truncate=True</em>, <em class="sig-param">dropna=True</em>, <em class="sig-param">x_jitter=None</em>, <em class="sig-param">y_jitter=None</em>, <em class="sig-param">label=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">marker='o'</em>, <em class="sig-param">scatter_kws=None</em>, <em class="sig-param">line_kws=None</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.regplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot data and a linear regression model fit.</p>
 <p>There are a number of mutually exclusive options for estimating the
 regression model. See the <a class="reference internal" href="../tutorial/regression.html#regression-tutorial"><span class="std std-ref">tutorial</span></a> for more
 information.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y: string, series, or vector array</strong></p>
-<blockquote>
-<div><p>Input variables. If strings, these should correspond with column names
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y: string, series, or vector array</strong></dt><dd><p>Input variables. If strings, these should correspond with column names
 in <code class="docutils literal notranslate"><span class="pre">data</span></code>. When pandas objects are used, axes will be labeled with
 the series name.</p>
-</div></blockquote>
-<p><strong>data</strong> : DataFrame</p>
-<blockquote>
-<div><p>Tidy (“long-form”) dataframe where each column is a variable and each
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (“long-form”) dataframe where each column is a variable and each
 row is an observation.</p>
-</div></blockquote>
-<p><strong>x_estimator</strong> : callable that maps vector -&gt; scalar, optional</p>
-<blockquote>
-<div><p>Apply this function to each unique value of <code class="docutils literal notranslate"><span class="pre">x</span></code> and plot the
+</dd>
+<dt><strong>x_estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Apply this function to each unique value of <code class="docutils literal notranslate"><span class="pre">x</span></code> and plot the
 resulting estimate. This is useful when <code class="docutils literal notranslate"><span class="pre">x</span></code> is a discrete variable.
 If <code class="docutils literal notranslate"><span class="pre">x_ci</span></code> is given, this estimate will be bootstrapped and a
 confidence interval will be drawn.</p>
-</div></blockquote>
-<p><strong>x_bins</strong> : int or vector, optional</p>
-<blockquote>
-<div><p>Bin the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable into discrete bins and then estimate the central
+</dd>
+<dt><strong>x_bins</strong><span class="classifier">int or vector, optional</span></dt><dd><p>Bin the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable into discrete bins and then estimate the central
 tendency and a confidence interval. This binning only influences how
 the scatterplot is drawn; the regression is still fit to the original
 data.  This parameter is interpreted either as the number of
 evenly-sized (not necessary spaced) bins or the positions of the bin
 centers. When this parameter is used, it implies that the default of
 <code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> is <code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code>.</p>
-</div></blockquote>
-<p><strong>x_ci</strong> : “ci”, “sd”, int in [0, 100] or None, optional</p>
-<blockquote>
-<div><p>Size of the confidence interval used when plotting a central tendency
+</dd>
+<dt><strong>x_ci</strong><span class="classifier">“ci”, “sd”, int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval used when plotting a central tendency
 for discrete values of <code class="docutils literal notranslate"><span class="pre">x</span></code>. If <code class="docutils literal notranslate"><span class="pre">&quot;ci&quot;</span></code>, defer to the value of the
 <code class="docutils literal notranslate"><span class="pre">ci</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>, skip bootstrapping and show the
 standard deviation of the observations in each bin.</p>
-</div></blockquote>
-<p><strong>scatter</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, draw a scatterplot with the underlying observations (or
+</dd>
+<dt><strong>scatter</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, draw a scatterplot with the underlying observations (or
 the <code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> values).</p>
-</div></blockquote>
-<p><strong>fit_reg</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate and plot a regression model relating the <code class="docutils literal notranslate"><span class="pre">x</span></code>
+</dd>
+<dt><strong>fit_reg</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate and plot a regression model relating the <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p>
-</div></blockquote>
-<p><strong>ci</strong> : int in [0, 100] or None, optional</p>
-<blockquote>
-<div><p>Size of the confidence interval for the regression estimate. This will
+</dd>
+<dt><strong>ci</strong><span class="classifier">int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval for the regression estimate. This will
 be drawn using translucent bands around the regression line. The
 confidence interval is estimated using a bootstrap; for large
 datasets, it may be advisable to avoid that computation by setting
 this parameter to None.</p>
-</div></blockquote>
-<p><strong>n_boot</strong> : int, optional</p>
-<blockquote>
-<div><p>Number of bootstrap resamples used to estimate the <code class="docutils literal notranslate"><span class="pre">ci</span></code>. The default
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int, optional</span></dt><dd><p>Number of bootstrap resamples used to estimate the <code class="docutils literal notranslate"><span class="pre">ci</span></code>. The default
 value attempts to balance time and stability; you may want to increase
 this value for “final” versions of plots.</p>
-</div></blockquote>
-<p><strong>units</strong> : variable name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</p>
-<blockquote>
-<div><p>If the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> observations are nested within sampling units,
+</dd>
+<dt><strong>units</strong><span class="classifier">variable name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>If the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> observations are nested within sampling units,
 those can be specified here. This will be taken into account when
 computing the confidence intervals by performing a multilevel bootstrap
 that resamples both units and observations (within unit). This does not
 otherwise influence how the regression is estimated or drawn.</p>
-</div></blockquote>
-<p><strong>order</strong> : int, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">order</span></code> is greater than 1, use <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to estimate a
+</dd>
+<dt><strong>seed</strong><span class="classifier">int, numpy.random.Generator, or numpy.random.RandomState, optional</span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
+<dt><strong>order</strong><span class="classifier">int, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">order</span></code> is greater than 1, use <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to estimate a
 polynomial regression.</p>
-</div></blockquote>
-<p><strong>logistic</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, assume that <code class="docutils literal notranslate"><span class="pre">y</span></code> is a binary variable and use
+</dd>
+<dt><strong>logistic</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, assume that <code class="docutils literal notranslate"><span class="pre">y</span></code> is a binary variable and use
 <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a logistic regression model. Note that this
 is substantially more computationally intensive than linear regression,
 so you may wish to decrease the number of bootstrap resamples
 (<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set <code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
-</div></blockquote>
-<p><strong>lowess</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a nonparametric lowess
+</dd>
+<dt><strong>lowess</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a nonparametric lowess
 model (locally weighted linear regression). Note that confidence
 intervals cannot currently be drawn for this kind of model.</p>
-</div></blockquote>
-<p><strong>robust</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a robust regression. This
+</dd>
+<dt><strong>robust</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a robust regression. This
 will de-weight outliers. Note that this is substantially more
 computationally intensive than standard linear regression, so you may
 wish to decrease the number of bootstrap resamples (<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set
 <code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
-</div></blockquote>
-<p><strong>logx</strong> : bool, optional</p>
-<blockquote>
-<div><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate a linear regression of the form y ~ log(x), but
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate a linear regression of the form y ~ log(x), but
 plot the scatterplot and regression model in the input space. Note that
 <code class="docutils literal notranslate"><span class="pre">x</span></code> must be positive for this to work.</p>
-</div></blockquote>
-<p><strong>{x,y}_partial</strong> : strings in <code class="docutils literal notranslate"><span class="pre">data</span></code> or matrices</p>
-<blockquote>
-<div><p>Confounding variables to regress out of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables
+</dd>
+<dt><strong>{x,y}_partial</strong><span class="classifier">strings in <code class="docutils literal notranslate"><span class="pre">data</span></code> or matrices</span></dt><dd><p>Confounding variables to regress out of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables
 before plotting.</p>
-</div></blockquote>
-<p><strong>truncate</strong> : bool, optional</p>
-<blockquote>
-<div><p>By default, the regression line is drawn to fill the x axis limits
+</dd>
+<dt><strong>truncate</strong><span class="classifier">bool, optional</span></dt><dd><p>By default, the regression line is drawn to fill the x axis limits
 after the scatterplot is drawn. If <code class="docutils literal notranslate"><span class="pre">truncate</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will
 instead by bounded by the data limits.</p>
-</div></blockquote>
-<p><strong>{x,y}_jitter</strong> : floats, optional</p>
-<blockquote>
-<div><p>Add uniform random noise of this size to either the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code>
+</dd>
+<dt><strong>{x,y}_jitter</strong><span class="classifier">floats, optional</span></dt><dd><p>Add uniform random noise of this size to either the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code>
 variables. The noise is added to a copy of the data after fitting the
 regression, and only influences the look of the scatterplot. This can
 be helpful when plotting variables that take discrete values.</p>
-</div></blockquote>
-<p><strong>label</strong> : string</p>
-<blockquote>
-<div><p>Label to apply to ether the scatterplot or regression line (if
+</dd>
+<dt><strong>label</strong><span class="classifier">string</span></dt><dd><p>Label to apply to either the scatterplot or regression line (if
 <code class="docutils literal notranslate"><span class="pre">scatter</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>) for use in a legend.</p>
-</div></blockquote>
-<p><strong>color</strong> : matplotlib color</p>
-<blockquote>
-<div><p>Color to apply to all plot elements; will be superseded by colors
+</dd>
+<dt><strong>color</strong><span class="classifier">matplotlib color</span></dt><dd><p>Color to apply to all plot elements; will be superseded by colors
 passed in <code class="docutils literal notranslate"><span class="pre">scatter_kws</span></code> or <code class="docutils literal notranslate"><span class="pre">line_kws</span></code>.</p>
-</div></blockquote>
-<p><strong>marker</strong> : matplotlib marker code</p>
-<blockquote>
-<div><p>Marker to use for the scatterplot glyphs.</p>
-</div></blockquote>
-<p><strong>{scatter,line}_kws</strong> : dictionaries</p>
-<blockquote>
-<div><p>Additional keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> and
+</dd>
+<dt><strong>marker</strong><span class="classifier">matplotlib marker code</span></dt><dd><p>Marker to use for the scatterplot glyphs.</p>
+</dd>
+<dt><strong>{scatter,line}_kws</strong><span class="classifier">dictionaries</span></dt><dd><p>Additional keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> and
 <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
-</div></blockquote>
-<p><strong>ax</strong> : matplotlib Axes, optional</p>
-<blockquote>
-<div><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> : matplotlib Axes</p>
-<blockquote class="last">
-<div><p>The Axes object containing the plot.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>The Axes object containing the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmplot</span></code></a></dt>
-<dd>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> to plot multiple linear relationships in a dataset.</dd>
-<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt>
-<dd>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</dd>
-<dt><a class="reference internal" href="seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairplot</span></code></a></dt>
-<dd>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</dd>
-<dt><a class="reference internal" href="seaborn.residplot.html#seaborn.residplot" title="seaborn.residplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residplot</span></code></a></dt>
-<dd>Plot the residuals of a linear regression model.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> to plot multiple linear relationships in a dataset.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.residplot.html#seaborn.residplot" title="seaborn.residplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residplot</span></code></a></dt><dd><p>Plot the residuals of a linear regression model.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Notes</p>
@@ -298,100 +251,100 @@ functions, although these do not directly accept all of <a class="reference inte
 parameters.</p>
 <p class="rubric">Examples</p>
 <p>Plot the relationship between two variables in a DataFrame:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-1.png" src="../_images/seaborn-regplot-1.png" />
 </div>
 <p>Plot with two variables defined as numpy arrays; use a different color:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[(</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">.</span><span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-2.png" src="../_images/seaborn-regplot-2.png" />
 </div>
 <p>Plot with two variables defined as pandas Series; use a different marker:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x_var&quot;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y_var&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-3.png" src="../_images/seaborn-regplot-3.png" />
 </div>
 <p>Use a 68% confidence interval, which corresponds with the standard error
-of the estimate:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">)</span>
+of the estimate, and extend the regression line to the axis limits:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-4.png" src="../_images/seaborn-regplot-4.png" />
 </div>
 <p>Plot with a discrete <code class="docutils literal notranslate"><span class="pre">x</span></code> variable and add some jitter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x_jitter</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x_jitter</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-5.png" src="../_images/seaborn-regplot-5.png" />
 </div>
 <p>Plot with a discrete <code class="docutils literal notranslate"><span class="pre">x</span></code> variable showing means and confidence intervals
 for unique values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
 <span class="gp">... </span>                 <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-6.png" src="../_images/seaborn-regplot-6.png" />
 </div>
 <p>Plot with a continuous variable divided into discrete bins:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">x_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">x_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-7.png" src="../_images/seaborn-regplot-7.png" />
 </div>
-<p>Fit a higher-order polynomial regression and truncate the model prediction:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ans</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;anscombe&quot;</span><span class="p">)</span>
+<p>Fit a higher-order polynomial regression:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ans</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;anscombe&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;II&quot;</span><span class="p">],</span>
 <span class="gp">... </span>                 <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
-<span class="gp">... </span>                 <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">... </span>                 <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-8.png" src="../_images/seaborn-regplot-8.png" />
 </div>
 <p>Fit a robust regression and don’t plot a confidence interval:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">],</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">],</span>
 <span class="gp">... </span>                 <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
 <span class="gp">... </span>                 <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-9.png" src="../_images/seaborn-regplot-9.png" />
 </div>
 <p>Fit a logistic regression; jitter the y variable and use fewer bootstrap
 iterations:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;big_tip&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">tip</span> <span class="o">/</span> <span class="n">tips</span><span class="o">.</span><span class="n">total_bill</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">175</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;big_tip&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">tip</span> <span class="o">/</span> <span class="n">tips</span><span class="o">.</span><span class="n">total_bill</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">175</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;big_tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
 <span class="gp">... </span>                 <span class="n">logistic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_boot</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">y_jitter</span><span class="o">=.</span><span class="mi">03</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
+<div class="figure align-default">
 <img alt="../_images/seaborn-regplot-10.png" src="../_images/seaborn-regplot-10.png" />
 </div>
-<p>Fit the regression model using log(x) and truncate the model prediction:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">logx</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<p>Fit the regression model using log(x):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">logx</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure">
-<img alt="../_images/seaborn-regplot-11.png" src="../_images/seaborn-regplot-11.png" />
+<div class="figure align-default">
+<img alt="../_images/seaborn-regplot-111.png" src="../_images/seaborn-regplot-111.png" />
 </div>
 </dd></dl>
 
@@ -412,8 +365,8 @@ iterations:</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

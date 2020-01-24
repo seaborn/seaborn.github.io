@@ -1,1 +1,1 @@
-g = sns.clustermap(iris, standard_scale=1)
+g = sns.clustermap(iris, z_score=0, cmap="vlag")

@@ -1,1 +1,1 @@
-g = sns.clustermap(iris, figsize=(6, 7))
+g = sns.clustermap(iris, metric="correlation")

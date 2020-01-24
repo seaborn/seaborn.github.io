@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn: statistical data visualization &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn: statistical data visualization &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -40,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="#">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -133,32 +132,32 @@
    <div class="row">
      <a href="examples/scatterplot_matrix.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/scatterplot_matrix_thumb.png?v=0.9.0">
+         <img src="_static/scatterplot_matrix_thumb.png">
        </div>
      </a>
      <a href="examples/errorband_lineplots.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/errorband_lineplots_thumb.png?v=0.9.0">
+         <img src="_static/errorband_lineplots_thumb.png">
        </div>
      </a>
      <a href="examples/different_scatter_variables.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/different_scatter_variables_thumb.png?v=0.9.0">
+         <img src="_static/different_scatter_variables_thumb.png">
        </div>
      </a>
      <a href="examples/horizontal_boxplot.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/horizontal_boxplot_thumb.png?v=0.9.0">
+         <img src="_static/horizontal_boxplot_thumb.png">
        </div>
      </a>
      <a href="examples/regression_marginals.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/regression_marginals_thumb.png?v=0.9.0">
+         <img src="_static/regression_marginals_thumb.png">
        </div>
      </a>
      <a href="examples/many_facets.html">
        <div class="col-md-2 thumbnail">
-         <img src="_static/many_facets_thumb.png?v=0.9.0">
+         <img src="_static/many_facets_thumb.png">
        </div>
      </a>
    </div>
@@ -170,9 +169,9 @@
     <div class="col-md-6"><p>Seaborn is a Python data visualization library based on <a class="reference external" href="https://matplotlib.org">matplotlib</a>. It provides a high-level interface for drawing
 attractive and informative statistical graphics.</p>
 <p>For a brief introduction to the ideas behind the library, you can read the
-<a class="reference internal" href="introduction.html#introduction"><span class="std std-ref">introductory notes</span></a>. Visit the <a class="reference internal" href="installing.html#installing"><span class="std std-ref">installation page</span></a> to see how you can download the package. You can browse the
-<a class="reference internal" href="examples/index.html#example-gallery"><span class="std std-ref">example gallery</span></a> to see what you can do with seaborn,
-and then check out the <a class="reference internal" href="tutorial.html#tutorial"><span class="std std-ref">tutorial</span></a> and <a class="reference internal" href="api.html#api-ref"><span class="std std-ref">API reference</span></a> to find out how.</p>
+<a class="reference internal" href="introduction.html"><span class="doc">introductory notes</span></a>. Visit the <a class="reference internal" href="installing.html"><span class="doc">installation page</span></a> to see how you can download the package. You can browse the
+<a class="reference internal" href="examples/index.html"><span class="doc">example gallery</span></a> to see what you can do with seaborn,
+and then check out the <a class="reference internal" href="tutorial.html"><span class="doc">tutorial</span></a> and <a class="reference internal" href="api.html"><span class="doc">API reference</span></a> to find out how.</p>
 <p>To see the code or report a bug, please visit the <a class="reference external" href="https://github.com/mwaskom/seaborn">github repository</a>. General support issues are most at home on <a class="reference external" href="https://stackoverflow.com/">stackoverflow</a>, where there is a seaborn tag.</p>
 </div>
 <div class="col-md-3">
@@ -199,13 +198,13 @@ and then check out the <a class="reference internal" href="tutorial.html#tutoria
       <h3 class="panel-title">Features</h3>
     </div>
     <div class="panel-body"><ul class="simple">
-<li>Relational: <a class="reference internal" href="api.html#relational-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/relational.html#relational-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Categorical: <a class="reference internal" href="api.html#categorical-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Distributions: <a class="reference internal" href="api.html#distribution-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/distributions.html#distribution-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Regressions: <a class="reference internal" href="api.html#regression-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/regression.html#regression-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Multiples: <a class="reference internal" href="api.html#grid-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/axis_grids.html#grid-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Style: <a class="reference internal" href="api.html#style-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/aesthetics.html#aesthetics-tutorial"><span class="std std-ref">Tutorial</span></a></li>
-<li>Color: <a class="reference internal" href="api.html#palette-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span class="std std-ref">Tutorial</span></a></li>
+<li><p>Relational: <a class="reference internal" href="api.html#relational-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/relational.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Categorical: <a class="reference internal" href="api.html#categorical-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/categorical.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Distribution: <a class="reference internal" href="api.html#distribution-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/distributions.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Regression: <a class="reference internal" href="api.html#regression-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/regression.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Multiples: <a class="reference internal" href="api.html#grid-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/axis_grids.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Style: <a class="reference internal" href="api.html#style-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/aesthetics.html"><span class="doc">Tutorial</span></a></p></li>
+<li><p>Color: <a class="reference internal" href="api.html#palette-api"><span class="std std-ref">API</span></a> | <a class="reference internal" href="tutorial/color_palettes.html"><span class="doc">Tutorial</span></a></p></li>
 </ul>
     </div>
   </div>
@@ -228,8 +227,8 @@ and then check out the <a class="reference internal" href="tutorial.html#tutoria
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

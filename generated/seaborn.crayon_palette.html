@@ -2,18 +2,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>seaborn.crayon_palette &#8212; seaborn 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>seaborn.crayon_palette &#8212; seaborn 0.10.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/style.css?v=0.9.0" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -41,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,35 +114,31 @@
 <h1>seaborn.crayon_palette<a class="headerlink" href="#seaborn-crayon-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.crayon_palette">
-<code class="descclassname">seaborn.</code><code class="descname">crayon_palette</code><span class="sig-paren">(</span><em>colors</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.crayon_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">crayon_palette</code><span class="sig-paren">(</span><em class="sig-param">colors</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.crayon_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a palette with color names from Crayola crayons.</p>
 <p>Colors are taken from here:
 <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors">https://en.wikipedia.org/wiki/List_of_Crayola_crayon_colors</a></p>
 <p>This is just a simple wrapper around the <code class="docutils literal notranslate"><span class="pre">seaborn.crayons</span></code> dictionary.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>colors</strong> : list of strings</p>
-<blockquote>
-<div><p>List of keys in the <code class="docutils literal notranslate"><span class="pre">seaborn.crayons</span></code> dictionary.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>palette</strong> : seaborn color palette</p>
-<blockquote class="last">
-<div><p>Returns the list of colors as rgb tuples in an object that behaves like
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>colors</strong><span class="classifier">list of strings</span></dt><dd><p>List of keys in the <code class="docutils literal notranslate"><span class="pre">seaborn.crayons</span></code> dictionary.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>palette</strong><span class="classifier">seaborn color palette</span></dt><dd><p>Returns the list of colors as rgb tuples in an object that behaves like
 other seaborn color palettes.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd_palette</span></code></a></dt>
-<dd>Make a palette with named colors from the XKCD color survey.</dd>
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.xkcd_palette.html#seaborn.xkcd_palette" title="seaborn.xkcd_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd_palette</span></code></a></dt><dd><p>Make a palette with named colors from the XKCD color survey.</p>
+</dd>
 </dl>
 </div>
 </dd></dl>
@@ -165,8 +160,8 @@ other seaborn color palettes.</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2018, Michael Waskom.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>
