@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>An introduction to seaborn &#8212; seaborn 0.10.0 documentation</title>
+    <title>An introduction to seaborn &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -151,7 +151,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
-<p>Behind the scenes, seaborn uses matplotlib to draw plots. Many tasks can be accomplished with only seaborn functions, but further customization might require using matplotlib directly. This is explained in more detail <a class="reference internal" href="#intro-plot-customization"><span class="std std-ref">below</span></a>. For interactive work, it’s recommended to use a Jupyter/IPython interface in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">matplotlib mode</a>, or else you’ll have to call <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> when you want to see the plot.</p>
+<p>Behind the scenes, seaborn uses matplotlib to draw plots. Many tasks can be accomplished with only seaborn functions, but further customization might require using matplotlib directly. This is explained in more detail <a class="reference internal" href="#intro-plot-customization"><span class="std std-ref">below</span></a>. For interactive work, it’s recommended to use a Jupyter/IPython interface in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">matplotlib mode</a>, or else you’ll have to call <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.2.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> when you want to see the plot.</p>
 <ol class="arabic simple" start="2">
 <li><p>We apply the default default seaborn theme, scaling, and color palette.</p></li>
 </ol>
@@ -165,7 +165,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Most code in the docs will use the <a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a> function to get quick access to an example dataset. There’s nothing particularly special about these datasets; they are just pandas dataframes, and we could have loaded them with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v0.25.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a> or build them by hand. Many examples use the “tips” dataset, which is very boring but quite useful for demonstration. The tips dataset illustrates the “tidy” approach to organizing a dataset. You’ll get the most out of seaborn if your datasets are organized this way, and it is explained in more detail <a class="reference internal" href="#intro-tidy-data"><span class="std std-ref">below</span></a>.</p>
+<p>Most code in the docs will use the <a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a> function to get quick access to an example dataset. There’s nothing particularly special about these datasets; they are just pandas dataframes, and we could have loaded them with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.0.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a> or build them by hand. Many examples use the “tips” dataset, which is very boring but quite useful for demonstration. The tips dataset illustrates the “tidy” approach to organizing a dataset. You’ll get the most out of seaborn if your datasets are organized this way, and it is explained in more detail <a class="reference internal" href="#intro-tidy-data"><span class="std std-ref">below</span></a>.</p>
 <ol class="arabic simple" start="4">
 <li><p>We draw a faceted scatter plot with multiple semantic variables.</p></li>
 </ol>
@@ -280,7 +280,7 @@
 </div>
 <img alt="_images/introduction_31_0.png" src="_images/introduction_31_0.png" />
 <p>For figure-specific customization, all seaborn functions accept a number of optional parameters for switching to non-default semantic mappings, such as different colors. (Appropriate use of color is critical for effective data visualization, and seaborn has <a class="reference internal" href="tutorial/color_palettes.html#palette-tutorial"><span class="std std-ref">extensive support</span></a> for customizing color palettes).</p>
-<p>Finally, where there is a direct correspondence with an underlying matplotlib function (like <a class="reference internal" href="generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> and <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>), additional keyword arguments will be passed through to the matplotlib layer:</p>
+<p>Finally, where there is a direct correspondence with an underlying matplotlib function (like <a class="reference internal" href="generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> and <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>), additional keyword arguments will be passed through to the matplotlib layer:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
             <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
             <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">],</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">125</span><span class="p">),</span>
@@ -308,7 +308,7 @@
 </div>
 <div class="section" id="organizing-datasets">
 <span id="intro-tidy-data"></span><h2>Organizing datasets<a class="headerlink" href="#organizing-datasets" title="Permalink to this headline">¶</a></h2>
-<p>As mentioned above, seaborn will be most powerful when your datasets have a particular organization. This format is alternately called “long-form” or “tidy” data and is described in detail by Hadley Wickham in this <a class="reference external" href="http://vita.had.co.nz/papers/tidy-data.html">academic paper</a>. The rules can be simply stated:</p>
+<p>As mentioned above, seaborn will be most powerful when your datasets have a particular organization. This format is alternately called “long-form” or “tidy” data and is described in detail by Hadley Wickham in this <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.html">academic paper</a>. The rules can be simply stated:</p>
 <ol class="arabic simple">
 <li><p>Each variable is a column</p></li>
 <li><p>Each observation is a row</p></li>
@@ -469,7 +469,7 @@
     </tr>
   </tbody>
 </table>
-</div><p>Many seaborn functions can plot wide-form data, but only with limited functionality. To take advantage of the features that depend on tidy-formatted data, you’ll likely find the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.melt.html#pandas.melt" title="(in pandas v0.25.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.melt()</span></code></a> function useful for “un-pivoting” a wide-form dataframe. More information and useful examples can be found <a class="reference external" href="https://tomaugspurger.github.io/modern-5-tidy.html">in this blog post</a> by one of the pandas developers.</p>
+</div><p>Many seaborn functions can plot wide-form data, but only with limited functionality. To take advantage of the features that depend on tidy-formatted data, you’ll likely find the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.melt.html#pandas.melt" title="(in pandas v1.0.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.melt()</span></code></a> function useful for “un-pivoting” a wide-form dataframe. More information and useful examples can be found <a class="reference external" href="https://tomaugspurger.github.io/modern-5-tidy.html">in this blog post</a> by one of the pandas developers.</p>
 </div>
 <div class="section" id="next-steps">
 <span id="intro-next-steps"></span><h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
@@ -492,8 +492,8 @@
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

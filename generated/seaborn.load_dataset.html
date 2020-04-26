@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.load_dataset &#8212; seaborn 0.10.0 documentation</title>
+    <title>seaborn.load_dataset &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.despine" href="seaborn.despine.html" />
+    <link rel="next" title="seaborn.get_dataset_names" href="seaborn.get_dataset_names.html" />
     <link rel="prev" title="seaborn.choose_diverging_palette" href="seaborn.choose_diverging_palette.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,19 +115,32 @@
 <dl class="function">
 <dt id="seaborn.load_dataset">
 <code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">load_dataset</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">cache=True</em>, <em class="sig-param">data_home=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.load_dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a dataset from the online repository (requires internet).</p>
-<dl class="field-list simple">
+<dd><p>Load an example dataset from the online repository (requires internet).</p>
+<p>This function provides quick access to a small number of example datasets
+that are useful for documenting seaborn or generating reproducible examples
+for bug reports. It is not necessary for normal usage.</p>
+<p>Note that some of the datasets have a small amount of preprocessing applied
+to define a proper ordering for categorical variables.</p>
+<p>Use <a class="reference internal" href="seaborn.get_dataset_names.html#seaborn.get_dataset_names" title="seaborn.get_dataset_names"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_dataset_names()</span></code></a> to see a list of available datasets.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the dataset (<cite>name</cite>.csv on
-<a class="reference external" href="https://github.com/mwaskom/seaborn-data">https://github.com/mwaskom/seaborn-data</a>).  You can obtain list of
-available datasets using <code class="xref py py-func docutils literal notranslate"><span class="pre">get_dataset_names()</span></code></p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the dataset (<code class="docutils literal notranslate"><span class="pre">{name}.csv</span></code> on
+<a class="reference external" href="https://github.com/mwaskom/seaborn-data">https://github.com/mwaskom/seaborn-data</a>).</p>
 </dd>
-<dt><strong>cache</strong><span class="classifier">boolean, optional</span></dt><dd><p>If True, then cache data locally and use the cache on subsequent calls</p>
+<dt><strong>cache</strong><span class="classifier">boolean, optional</span></dt><dd><p>If True, try to load from the local cache first, and save to the cache
+if a download is required.</p>
 </dd>
-<dt><strong>data_home</strong><span class="classifier">string, optional</span></dt><dd><p>The directory in which to cache data. By default, uses ~/seaborn-data/</p>
+<dt><strong>data_home</strong><span class="classifier">string, optional</span></dt><dd><p>The directory in which to cache data; see <a class="reference internal" href="seaborn.get_data_home.html#seaborn.get_data_home" title="seaborn.get_data_home"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data_home()</span></code></a>.</p>
 </dd>
-<dt><strong>kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Passed to pandas.read_csv</p>
+<dt><strong>kws</strong><span class="classifier">keys and values, optional</span></dt><dd><p>Additional keyword arguments are passed to passed through to
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.0.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>df</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt><dd><p>Tabular data, possibly with some preprocessing applied.</p>
 </dd>
 </dl>
 </dd>
@@ -151,8 +164,8 @@ available datasets using <code class="xref py py-func docutils literal notransla
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

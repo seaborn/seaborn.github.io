@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>What’s new in each version &#8212; seaborn 0.10.0 documentation</title>
+    <title>What’s new in each version &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -80,6 +80,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">What’s new in each version</a><ul>
+<li><a class="reference internal" href="#v0-10-1-april-2020">v0.10.1 (April 2020)</a></li>
 <li><a class="reference internal" href="#v0-10-0-january-2020">v0.10.0 (January 2020)</a><ul>
 <li><a class="reference internal" href="#looking-forward">Looking forward</a></li>
 </ul>
@@ -188,7 +189,24 @@
   <div class="section" id="what-s-new-in-each-version">
 <span id="whatsnew"></span><h1>What’s new in each version<a class="headerlink" href="#what-s-new-in-each-version" title="Permalink to this headline">¶</a></h1>
 <p>This page contains information about what has changed in each new version of <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. Each release is also marked with a DOI from <a class="reference external" href="https://doi.org/10.5281/zenodo.592845">Zenodo</a>, which can be used to cite the library.</p>
-<div class="col-md-9"><div class="section" id="v0-10-0-january-2020">
+<div class="col-md-9"><div class="section" id="v0-10-1-april-2020">
+<h2>v0.10.1 (April 2020)<a class="headerlink" href="#v0-10-1-april-2020" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.3767070"><img alt="https://zenodo.org/badge/DOI/10.5281/zenodo.3767070.svg" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3767070.svg" /></a>
+<p>This is minor release with bug fixes for issues identified since 0.10.0.</p>
+<ul class="simple">
+<li><p>Fixed a bug that appeared within the bootstrapping algorithm on 32-bit systems.</p></li>
+<li><p>Fixed a bug where <a class="reference internal" href="generated/seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> would crash on singleton inputs. Now a crash is avoided and regression estimation/plotting is skipped.</p></li>
+<li><p>Fixed a bug where <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a> would ignore user-specified under/over/bad values when recentering a colormap.</p></li>
+<li><p>Fixed a bug where <a class="reference internal" href="generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a> would use values from masked cells when computing default colormap limits.</p></li>
+<li><p>Fixed a bug where <a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal notranslate"><span class="pre">despine()</span></code></a> would cause an error when trying to trim spines on a matplotlib categorical axis.</p></li>
+<li><p>Adapted to a change in matplotlib that caused problems with single swarm plots.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">showfliers</span></code> parameter to <a class="reference internal" href="generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a> to suppress plotting of outlier data points, matching the API of <a class="reference internal" href="generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a>.</p></li>
+<li><p>Avoided seeing an error from statmodels when data with an IQR of 0 is passed to <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">legend.title_fontsize</span></code> to the <a class="reference internal" href="generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-func docutils literal notranslate"><span class="pre">plotting_context()</span></code></a> definition.</p></li>
+<li><p>Deprecated several utility functions that are no longer used internally (<code class="docutils literal notranslate"><span class="pre">percentiles</span></code>, <code class="docutils literal notranslate"><span class="pre">sig_stars</span></code>, <code class="docutils literal notranslate"><span class="pre">pmf_hist</span></code>, and <code class="docutils literal notranslate"><span class="pre">sort_df</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="v0-10-0-january-2020">
 <h2>v0.10.0 (January 2020)<a class="headerlink" href="#v0-10-0-january-2020" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.3629446"><img alt="https://zenodo.org/badge/DOI/10.5281/zenodo.3629446.svg" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3629446.svg" /></a>
 <p>This is a major update that is being released simultaneously with version 0.9.1. It has all of the same features (and bugs!) as 0.9.1, but there are important changes to the dependencies.</p>
@@ -223,9 +241,9 @@
 <li><p>Generalized the idea of “diagonal” axes in <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> to any axes that share an x and y variable.</p></li>
 <li><p>In <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable is now excluded from the default list of variables that make up the rows and columns of the grid.</p></li>
 <li><p>Exposed the <code class="docutils literal notranslate"><span class="pre">layout_pad</span></code> parameter in <a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> and set a smaller default than what matptlotlib sets for more efficient use of space in dense grids.</p></li>
-<li><p>It is now possible to force a categorical interpretation of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> varaible in a relational plot by passing the name of a categorical palette (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;deep&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;Set2&quot;</span></code>). This complements the (previously supported) option of passig a list/dict of colors.</p></li>
+<li><p>It is now possible to force a categorical interpretation of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable in a relational plot by passing the name of a categorical palette (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;deep&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;Set2&quot;</span></code>). This complements the (previously supported) option of passing a list/dict of colors.</p></li>
 <li><p>Added the <code class="docutils literal notranslate"><span class="pre">tree_kws</span></code> parameter to <a class="reference internal" href="generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal notranslate"><span class="pre">clustermap()</span></code></a> to control the properties of the lines in the dendrogram.</p></li>
-<li><p>Added the ability to pass hierarchical label names to the <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> legend, which also fixes a bug in <a class="reference internal" href="generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> when the same label appeared in diffent semantics.</p></li>
+<li><p>Added the ability to pass hierarchical label names to the <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> legend, which also fixes a bug in <a class="reference internal" href="generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> when the same label appeared in different semantics.</p></li>
 <li><p>Improved support for grouping observations based on pandas index information in categorical plots.</p></li>
 </ul>
 </div>
@@ -783,8 +801,8 @@ function, so context or color palette can be cleanly changed.</p></li>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

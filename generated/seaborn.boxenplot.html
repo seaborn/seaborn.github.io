@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.boxenplot &#8212; seaborn 0.10.0 documentation</title>
+    <title>seaborn.boxenplot &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -114,7 +114,7 @@
 <h1>seaborn.boxenplot<a class="headerlink" href="#seaborn-boxenplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.boxenplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">boxenplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">width=0.8</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">k_depth='proportion'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">scale='exponential'</em>, <em class="sig-param">outlier_prop=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.boxenplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">boxenplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">width=0.8</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">k_depth='proportion'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">scale='exponential'</em>, <em class="sig-param">outlier_prop=None</em>, <em class="sig-param">showfliers=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.boxenplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw an enhanced box plot for larger datasets.</p>
 <p>This style of plot was originally named a “letter value” plot because it
 shows a large number of quantiles that are defined as “letter values”.  It
@@ -190,11 +190,13 @@ is proportional to the percentage of data covered.</p>
 k_depth to determine the number of percentiles to draw. Defaults to
 0.007 as a proportion of outliers. Should be in range [0, 1].</p>
 </dd>
+<dt><strong>showfliers</strong><span class="classifier">bool, optional</span></dt><dd><p>If False, suppress the plotting of outliers.</p>
+</dd>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> and
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> and
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -307,8 +309,8 @@ ensures synchronization of variable order across facets:</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.lineplot &#8212; seaborn 0.10.0 documentation</title>
+    <title>seaborn.lineplot &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -221,8 +221,8 @@ lines will connect points in the order they appear in the dataset.</p>
 or discrete error bars.</p>
 </dd>
 <dt><strong>err_kws</strong><span class="classifier">dict of keyword arguments</span></dt><dd><p>Additional paramters to control the aesthetics of the error bars. The
-kwargs are passed either to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>
-or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.errorbar()</span></code></a>, depending on <code class="docutils literal notranslate"><span class="pre">err_style</span></code>.</p>
+kwargs are passed either to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.errorbar()</span></code></a>, depending on <code class="docutils literal notranslate"><span class="pre">err_style</span></code>.</p>
 </dd>
 <dt><strong>legend</strong><span class="classifier">“brief”, “full”, or False, optional</span></dt><dd><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
 variables will be represented with a sample of evenly spaced values.
@@ -232,7 +232,7 @@ no legend data is added and no legend is drawn.</p>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed down to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -390,7 +390,7 @@ no legend data is added and no legend is drawn.</p>
 <div class="figure align-default">
 <img alt="../_images/seaborn-lineplot-15.png" src="../_images/seaborn-lineplot-15.png" />
 </div>
-<p>Plot a single Series, pass kwargs to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.1.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>:</p>
+<p>Plot a single Series, pass kwargs to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">wide_df</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;coral&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -436,8 +436,8 @@ ensures synchronization of the semantic mappings across facets.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

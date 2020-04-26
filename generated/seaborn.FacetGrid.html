@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.FacetGrid &#8212; seaborn 0.10.0 documentation</title>
+    <title>seaborn.FacetGrid &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,9 +132,10 @@ parameter for the specific visualization the way that axes-level
 functions that accept <code class="docutils literal notranslate"><span class="pre">hue</span></code> will.</p>
 <p>When using seaborn functions that infer semantic mappings from a
 dataset, care must be taken to synchronize those mappings across
-facets. In most cases, it will be better to use a figure-level function
-(e.g. <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> or <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a>) than to use
-<a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> directly.</p>
+facets (e.g., by defing the <code class="docutils literal notranslate"><span class="pre">hue</span></code> mapping with a palette dict or
+setting the data type of the variables to <code class="docutils literal notranslate"><span class="pre">category</span></code>). In most cases,
+it will be better to use a figure-level function (e.g. <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a>
+or <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a>) than to use <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> directly.</p>
 <p>The basic workflow is to initialize the <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object with
 the dataset and the variables that are used to structure the grid. Then
 one or more plotting functions can be applied to each subset by calling
@@ -186,14 +187,14 @@ the last column. This option is experimental and may not work in all
 cases.</p>
 </dd>
 <dt><strong>{x, y}lim: tuples, optional</strong></dt><dd><p>Limits for each of the axes on each facet (only relevant when
-share{x, y} is True.</p>
+share{x, y} is True).</p>
 </dd>
 <dt><strong>subplot_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Dictionary of keyword arguments passed to matplotlib subplot(s)
 methods.</p>
 </dd>
 <dt><strong>gridspec_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Dictionary of keyword arguments passed to matplotlib’s <code class="docutils literal notranslate"><span class="pre">gridspec</span></code>
-module (via <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code>). Requires matplotlib &gt;= 1.4 and is
-ignored if <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+module (via <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code>). Ignored if <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> is not
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -479,8 +480,8 @@ column names as positional variables:</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

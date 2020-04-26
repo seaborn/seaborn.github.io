@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.lmplot &#8212; seaborn 0.10.0 documentation</title>
+    <title>seaborn.lmplot &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -237,9 +237,8 @@ plot the scatterplot and regression model in the input space. Note that
 <dt><strong>{x,y}_partial</strong><span class="classifier">strings in <code class="docutils literal notranslate"><span class="pre">data</span></code> or matrices</span></dt><dd><p>Confounding variables to regress out of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables
 before plotting.</p>
 </dd>
-<dt><strong>truncate</strong><span class="classifier">bool, optional</span></dt><dd><p>By default, the regression line is drawn to fill the x axis limits
-after the scatterplot is drawn. If <code class="docutils literal notranslate"><span class="pre">truncate</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will
-instead by bounded by the data limits.</p>
+<dt><strong>truncate</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the regression line is bounded by the data limits. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, it extends to the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis limits.</p>
 </dd>
 <dt><strong>{x,y}_jitter</strong><span class="classifier">floats, optional</span></dt><dd><p>Add uniform random noise of this size to either the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code>
 variables. The noise is added to a copy of the data after fitting the
@@ -377,8 +376,8 @@ the plot:</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

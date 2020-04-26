@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Choosing color palettes &#8212; seaborn 0.10.0 documentation</title>
+    <title>Choosing color palettes &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -171,7 +171,7 @@
 </div>
 <img alt="../_images/color_palettes_12_0.png" src="../_images/color_palettes_12_0.png" />
 <p>However, because of the way the human visual system works, colors that are even “intensity” in terms of their RGB levels won’t necessarily look equally intense. <a class="reference external" href="https://en.wikipedia.org/wiki/Color_vision">We perceive</a> yellows and greens as relatively brighter and blues as relatively darker, which can be a problem when aiming for uniformity with the <code class="docutils literal notranslate"><span class="pre">hls</span></code> system.</p>
-<p>To remedy this, seaborn provides an interface to the <a class="reference external" href="http://www.hsluv.org/">husl</a> system (since renamed to HSLuv), which also makes it easy to select evenly spaced hues while keeping the apparent brightness and saturation much more uniform.</p>
+<p>To remedy this, seaborn provides an interface to the <a class="reference external" href="https://www.hsluv.org/">husl</a> system (since renamed to HSLuv), which also makes it easy to select evenly spaced hues while keeping the apparent brightness and saturation much more uniform.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;husl&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -180,7 +180,7 @@
 </div>
 <div class="section" id="using-categorical-color-brewer-palettes">
 <h3>Using categorical Color Brewer palettes<a class="headerlink" href="#using-categorical-color-brewer-palettes" title="Permalink to this headline">¶</a></h3>
-<p>Another source of visually pleasing categorical palettes comes from the <a class="reference external" href="http://colorbrewer2.org/">Color Brewer</a> tool (which also has sequential and diverging palettes, as we’ll see below). These also exist as matplotlib colormaps, but they are not handled properly. In seaborn, when you ask for a qualitative Color Brewer palette, you’ll always get the discrete colors, but this means that at a certain point they will begin to cycle.</p>
+<p>Another source of visually pleasing categorical palettes comes from the <a class="reference external" href="https://colorbrewer2.org/">Color Brewer</a> tool (which also has sequential and diverging palettes, as we’ll see below). These also exist as matplotlib colormaps, but they are not handled properly. In seaborn, when you ask for a qualitative Color Brewer palette, you’ll always get the discrete colors, but this means that at a certain point they will begin to cycle.</p>
 <p>A nice feature of the Color Brewer website is that it provides some guidance on which palettes are color blind safe. There is a variety of <a class="reference external" href="https://en.wikipedia.org/wiki/Color_blindness">kinds</a> of color blindness, but the most common variant leads to difficulty distinguishing reds and greens. It’s generally a good idea to avoid using red and green for plot elements that need to be discriminated based on color. [This comparison](<a class="reference external" href="https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486">https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486</a>) can be helpful to understand how the the seaborn color palettes perform for different type of colorblindess.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Paired&quot;</span><span class="p">))</span>
 </pre></div>
@@ -383,8 +383,8 @@
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>

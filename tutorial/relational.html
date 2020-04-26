@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Visualizing statistical relationships &#8212; seaborn 0.10.0 documentation</title>
+    <title>Visualizing statistical relationships &#8212; seaborn 0.10.1 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v0.10.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -40,7 +40,7 @@
         </button>
         <a class="navbar-brand" href="../index.html">
           seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -175,7 +175,7 @@
 </pre></div>
 </div>
 <img alt="../_images/relational_16_0.png" src="../_images/relational_16_0.png" />
-<p>Unlike with <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="(in Matplotlib v3.1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter()</span></code></a>, the literal value of the variable is not used to pick the area of the point. Instead, the range of values in data units is normalized into a range in area units. This range can be customized:</p>
+<p>Unlike with <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="(in Matplotlib v3.2.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter()</span></code></a>, the literal value of the variable is not used to pick the area of the point. Instead, the range of values in data units is normalized into a range in area units. This range can be customized:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -308,15 +308,7 @@
 <span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">seaborn</span><span class="o">-</span><span class="n">py37</span><span class="o">-</span><span class="n">latest</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">plotting</span><span class="o">/</span><span class="n">_matplotlib</span><span class="o">/</span><span class="n">converter</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">103</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">Using</span> <span class="n">an</span> <span class="n">implicitly</span> <span class="n">registered</span> <span class="n">datetime</span> <span class="n">converter</span> <span class="k">for</span> <span class="n">a</span> <span class="n">matplotlib</span> <span class="n">plotting</span> <span class="n">method</span><span class="o">.</span> <span class="n">The</span> <span class="n">converter</span> <span class="n">was</span> <span class="n">registered</span> <span class="n">by</span> <span class="n">pandas</span> <span class="n">on</span> <span class="n">import</span><span class="o">.</span> <span class="n">Future</span> <span class="n">versions</span> <span class="n">of</span> <span class="n">pandas</span> <span class="n">will</span> <span class="n">require</span> <span class="n">you</span> <span class="n">to</span> <span class="n">explicitly</span> <span class="n">register</span> <span class="n">matplotlib</span> <span class="n">converters</span><span class="o">.</span>
-
-<span class="n">To</span> <span class="n">register</span> <span class="n">the</span> <span class="n">converters</span><span class="p">:</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">register_matplotlib_converters</span>
-    <span class="o">&gt;&gt;&gt;</span> <span class="n">register_matplotlib_converters</span><span class="p">()</span>
-  <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="../_images/relational_53_1.png" src="../_images/relational_53_1.png" />
+<img alt="../_images/relational_53_0.png" src="../_images/relational_53_0.png" />
 </div>
 </div>
 <div class="section" id="showing-multiple-relationships-with-facets">
@@ -362,8 +354,8 @@
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="http://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
     </p>
   </div>
 </footer>
