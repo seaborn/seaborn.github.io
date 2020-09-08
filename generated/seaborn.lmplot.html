@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.lmplot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.lmplot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.regplot" href="seaborn.regplot.html" />
-    <link rel="prev" title="seaborn.rugplot" href="seaborn.rugplot.html" />
+    <link rel="prev" title="seaborn.countplot" href="seaborn.countplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.lmplot<a class="headerlink" href="#seaborn-lmplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.lmplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">lmplot</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">data</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">col=None</em>, <em class="sig-param">row=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">col_wrap=None</em>, <em class="sig-param">height=5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">markers='o'</em>, <em class="sig-param">sharex=True</em>, <em class="sig-param">sharey=True</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">col_order=None</em>, <em class="sig-param">row_order=None</em>, <em class="sig-param">legend=True</em>, <em class="sig-param">legend_out=True</em>, <em class="sig-param">x_estimator=None</em>, <em class="sig-param">x_bins=None</em>, <em class="sig-param">x_ci='ci'</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">fit_reg=True</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=1</em>, <em class="sig-param">logistic=False</em>, <em class="sig-param">lowess=False</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">logx=False</em>, <em class="sig-param">x_partial=None</em>, <em class="sig-param">y_partial=None</em>, <em class="sig-param">truncate=True</em>, <em class="sig-param">x_jitter=None</em>, <em class="sig-param">y_jitter=None</em>, <em class="sig-param">scatter_kws=None</em>, <em class="sig-param">line_kws=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.lmplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">lmplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">col=None</em>, <em class="sig-param">row=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">col_wrap=None</em>, <em class="sig-param">height=5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">markers='o'</em>, <em class="sig-param">sharex=True</em>, <em class="sig-param">sharey=True</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">col_order=None</em>, <em class="sig-param">row_order=None</em>, <em class="sig-param">legend=True</em>, <em class="sig-param">legend_out=True</em>, <em class="sig-param">x_estimator=None</em>, <em class="sig-param">x_bins=None</em>, <em class="sig-param">x_ci='ci'</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">fit_reg=True</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=1</em>, <em class="sig-param">logistic=False</em>, <em class="sig-param">lowess=False</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">logx=False</em>, <em class="sig-param">x_partial=None</em>, <em class="sig-param">y_partial=None</em>, <em class="sig-param">truncate=True</em>, <em class="sig-param">x_jitter=None</em>, <em class="sig-param">y_jitter=None</em>, <em class="sig-param">scatter_kws=None</em>, <em class="sig-param">line_kws=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.lmplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot data and regression model fits across a FacetGrid.</p>
 <p>This function combines <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. It is
 intended as a convenient interface to fit regression models across
@@ -142,16 +145,16 @@ row is an observation.</p>
 separate facets in the grid. See the <code class="docutils literal notranslate"><span class="pre">*_order</span></code> parameters to control
 the order of levels of this variable.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">palette name, list, or dict, optional</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
 </dd>
-<dt><strong>col_wrap</strong><span class="classifier">int, optional</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
+<dt><strong>col_wrap</strong><span class="classifier">int</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
 span multiple rows. Incompatible with a <code class="docutils literal notranslate"><span class="pre">row</span></code> facet.</p>
 </dd>
-<dt><strong>height</strong><span class="classifier">scalar, optional</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
+<dt><strong>height</strong><span class="classifier">scalar</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
 </dd>
-<dt><strong>aspect</strong><span class="classifier">scalar, optional</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
+<dt><strong>aspect</strong><span class="classifier">scalar</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
 of each facet in inches.</p>
 </dd>
 <dt><strong>markers</strong><span class="classifier">matplotlib marker code or list of marker codes, optional</span></dt><dd><p>Markers for the scatterplot. If a list, each marker in the list will be
@@ -166,7 +169,7 @@ are pandas categoricals, the category order.</p>
 </dd>
 <dt><strong>legend</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> and there is a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable, add a legend.</p>
 </dd>
-<dt><strong>legend_out</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
+<dt><strong>legend_out</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
 drawn outside the plot on the center right.</p>
 </dd>
 <dt><strong>x_estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Apply this function to each unique value of <code class="docutils literal notranslate"><span class="pre">x</span></code> and plot the
@@ -273,7 +276,7 @@ of the other options for plotting the data and models. There are also
 other examples for how to manipulate plot using the returned object on
 the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> docs.</p>
 <p>Plot a simple linear relationship between two variables:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>

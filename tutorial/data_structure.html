@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data structures accepted by seaborn &#8212; seaborn 0.11.0 documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualizing statistical relationships" href="relational.html" />
+    <link rel="prev" title="Overview of seaborn plotting functions" href="function_overview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Data structures accepted by seaborn</a><ul>
+<li><a class="reference internal" href="#long-form-vs-wide-form-data">Long-form vs. wide-form data</a><ul>
+<li><a class="reference internal" href="#long-form-data">Long-form data</a></li>
+<li><a class="reference internal" href="#wide-form-data">Wide-form data</a></li>
+<li><a class="reference internal" href="#messy-data">Messy data</a></li>
+<li><a class="reference internal" href="#further-reading-and-take-home-points">Further reading and take-home points</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#options-for-visualizing-long-form-data">Options for visualizing long-form data</a></li>
+<li><a class="reference internal" href="#options-for-visualizing-wide-form-data">Options for visualizing wide-form data</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="data-structures-accepted-by-seaborn">
+<span id="data-tutorial"></span><h1>Data structures accepted by seaborn<a class="headerlink" href="#data-structures-accepted-by-seaborn" title="Permalink to this headline">¶</a></h1>
+<div class=col-md-9><p>As a data visualization library, seaborn requires that you provide it with data. This chapter explains the various ways to accomplish that task. Seaborn supports several different dataset formats, and most functions accept data represented with objects from the <a class="reference external" href="https://pandas.pydata.org/">pandas</a> or <a class="reference external" href="https://numpy.org/">numpy</a> libraries as well as built-in Python types like lists and dictionaries. Understanding the usage patterns associated with these different options will help you quickly create useful visualizations for nearly any dataset.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of current writing (v0.11.0), the full breadth of options covered here are supported by only a subset of the modules in seaborn (namely, the <a class="reference internal" href="../api.html#relational-api"><span class="std std-ref">relational</span></a> and <a class="reference internal" href="../api.html#distribution-api"><span class="std std-ref">distribution</span></a> modules). The other modules offer much of the same flexibility, but have some exceptions (e.g., <a class="reference internal" href="../generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lmplot()</span></code></a> are limited to long-form data with named variables). The data-ingest code will be standardized over the next few release cycles, but until that point, be mindful of the specific documentation for each function if it is not doing what you expect with your dataset.</p>
+</div>
+<div class="section" id="long-form-vs-wide-form-data">
+<h2>Long-form vs. wide-form data<a class="headerlink" href="#long-form-vs-wide-form-data" title="Permalink to this headline">¶</a></h2>
+<p>Most plotting functions in seaborn are oriented towards <em>vectors</em> of data. When plotting <code class="docutils literal notranslate"><span class="pre">x</span></code> against <code class="docutils literal notranslate"><span class="pre">y</span></code>, each variable should be a vector. Seaborn accepts data <em>sets</em> that have more than one vector organized in some tabular fashion. There is a fundamental distinction between “long-form” and “wide-form” data tables, and seaborn will treat each differently.</p>
+<div class="section" id="long-form-data">
+<h3>Long-form data<a class="headerlink" href="#long-form-data" title="Permalink to this headline">¶</a></h3>
+<p>A long-form data table has the following characteristics:</p>
+<ul class="simple">
+<li><p>Each variable is a column</p></li>
+<li><p>Each observation is a row</p></li>
+</ul>
+<p>As a simple example, consider the “flights” dataset, which records the number of airline passengers who flew in each month from 1949 to 1960. This dataset has three variables (<em>year</em>, <em>month</em>, and number of <em>passengers</em>):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;flights&quot;</span><span class="p">)</span>
+<span class="n">flights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1949</td>
+      <td>Jan</td>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1949</td>
+      <td>Feb</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1949</td>
+      <td>Mar</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1949</td>
+      <td>Apr</td>
+      <td>129</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1949</td>
+      <td>May</td>
+      <td>121</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>With long-form data, columns in the table are given roles in the plot by explicitly assigning them to one of the variables. For example, making a monthly plot of the number of passengers per year looks like this:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_6_0.png" src="../_images/data_structure_6_0.png" />
+<p>The advantage of long-form data is that it lends itself well to this explicit specification of the plot. It can accomodate datasets of arbitrary complexity, so long as the variables and observations can be clearly defined. But this format takes some getting used to, because it is often not the model of the data that one has in their head.</p>
+</div>
+<div class="section" id="wide-form-data">
+<h3>Wide-form data<a class="headerlink" href="#wide-form-data" title="Permalink to this headline">¶</a></h3>
+<p>For simple datasets, it is often more intuitive to think about data the way it might be viewed in a spreadsheet, where the columns and rows contain <em>levels</em> of different variables. For example, we can convert the flights dataset into a wide-form organization by  “pivoting” it so that each column has each month’s time series over years:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
+<span class="n">flights_wide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>month</th>
+      <th>Jan</th>
+      <th>Feb</th>
+      <th>Mar</th>
+      <th>Apr</th>
+      <th>May</th>
+      <th>Jun</th>
+      <th>Jul</th>
+      <th>Aug</th>
+      <th>Sep</th>
+      <th>Oct</th>
+      <th>Nov</th>
+      <th>Dec</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1949</th>
+      <td>112</td>
+      <td>118</td>
+      <td>132</td>
+      <td>129</td>
+      <td>121</td>
+      <td>135</td>
+      <td>148</td>
+      <td>148</td>
+      <td>136</td>
+      <td>119</td>
+      <td>104</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>1950</th>
+      <td>115</td>
+      <td>126</td>
+      <td>141</td>
+      <td>135</td>
+      <td>125</td>
+      <td>149</td>
+      <td>170</td>
+      <td>170</td>
+      <td>158</td>
+      <td>133</td>
+      <td>114</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1951</th>
+      <td>145</td>
+      <td>150</td>
+      <td>178</td>
+      <td>163</td>
+      <td>172</td>
+      <td>178</td>
+      <td>199</td>
+      <td>199</td>
+      <td>184</td>
+      <td>162</td>
+      <td>146</td>
+      <td>166</td>
+    </tr>
+    <tr>
+      <th>1952</th>
+      <td>171</td>
+      <td>180</td>
+      <td>193</td>
+      <td>181</td>
+      <td>183</td>
+      <td>218</td>
+      <td>230</td>
+      <td>242</td>
+      <td>209</td>
+      <td>191</td>
+      <td>172</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>1953</th>
+      <td>196</td>
+      <td>196</td>
+      <td>236</td>
+      <td>235</td>
+      <td>229</td>
+      <td>243</td>
+      <td>264</td>
+      <td>272</td>
+      <td>237</td>
+      <td>211</td>
+      <td>180</td>
+      <td>201</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Here we have the same three variables, but they are organized differently. The variables in this dataset are linked to the <em>dimensions</em> of the table, rather than to named fields. Each observation is defined by both the value at a cell in the table and the coordinates of that cell with respect to the row and column indices.</p>
+<p>With long-form data, we can access variables in the dataset by their name. That is not the case with wide-form data. Nevertheless, because there is a clear association between the dimensions of the table and the variable in the dataset, seaborn is able to assign those variables roles in the plot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Seaborn treats the argument to <code class="docutils literal notranslate"><span class="pre">data</span></code> as wide form when neither <code class="docutils literal notranslate"><span class="pre">x</span></code> nor <code class="docutils literal notranslate"><span class="pre">y</span></code> are assigned.</p>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_11_0.png" src="../_images/data_structure_11_0.png" />
+<p>This plot looks very  similar to the one before. Seaborn has assigned the index of the dataframe to <code class="docutils literal notranslate"><span class="pre">x</span></code>, the values of the dataframe to <code class="docutils literal notranslate"><span class="pre">y</span></code>, and it has drawn a separate line for each month. There is a notable difference between the two plots, however. When the dataset went through the “pivot” operation that converted it from long-form to wide-form, the information about what the values mean was lost. As a result, there is no y axis label. (The lines also have dashes here, becuase <a class="reference internal" href="../generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> has mapped the column variable to both the <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> semantic so that the plot is more accessible. We didn’t do that in the long-form case, but we could have by setting <code class="docutils literal notranslate"><span class="pre">style=&quot;month&quot;</span></code>).</p>
+<p>Thus far, we did much less typing while using wide-form data and made nearly the same plot. This seems easier! But a big advantage of long-form data is that, once you have the data in the correct format, you no longer need to think about its <em>structure</em>. You can design your plots by thinking only about the variables contained within it. For example, to draw lines that represent the monthly time series for each year, simply reassign the variables:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_13_0.png" src="../_images/data_structure_13_0.png" />
+<p>To achieve the same remapping with the wide-form dataset, we would need to transpose the table:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_15_0.png" src="../_images/data_structure_15_0.png" />
+<p>(This example also illustrates another wrinkle, which is that seaborn currently considers the column variable in a wide-form dataset to be categorical regardless of its datatype, whereas, because the long-form variable is numeric, it is assigned a quantitative color palette and legend. This may change in the future).</p>
+<p>The absence of explicit variable assignments also means that each plot type needs to define a fixed mapping between the dimensions of the wide-form data and the roles in the plot. Because ths natural mapping may vary across plot types, the results are less predictable when using wide-form data. For example, the <a class="reference internal" href="../api.html#categorical-api"><span class="std std-ref">categorical</span></a> plots assign the <em>column</em> dimension of the table to <code class="docutils literal notranslate"><span class="pre">x</span></code> and then aggregate across the rows (ignoring the index):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_17_0.png" src="../_images/data_structure_17_0.png" />
+<p>When using pandas to represent wide-form data, you are limited to just a few variables (no more than three). This is because seaborn does not make use of multi-index information, which is how pandas represents additional variables in a tabular format. The <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> project offers labeled N-dimensional array objects, which can be considered a generalization of wide-form data to higher dimensions. At present, seaborn does not directly support objects from <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, but they can be transformed into a long-form <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method and then plotted in seaborn like any other long-form data set.</p>
+<p>In summary, we can think of long-form and wide-form datasets as looking something like this:</p>
+<img alt="../_images/data_structure_19_0.png" src="../_images/data_structure_19_0.png" />
+</div>
+<div class="section" id="messy-data">
+<h3>Messy data<a class="headerlink" href="#messy-data" title="Permalink to this headline">¶</a></h3>
+<p>Many datasets cannot be clearly interpreted using either long-form or wide-form rules. If datasets that are clearly long-form or wide-form are <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.pdf">“tidy”</a>, we might say that these more ambiguous datasets are “messy”. In a messy dataset, the variables are neither uniquely defined by the keys nor by the dimensions of the table. This often occurs with <em>repeated-measures</em> data, where it is natural to organize a table such that each row corresponds to the <em>unit</em> of data collection. Consider this simple dataset from a psychology experiment in which twenty subjects performed a memory task where they studied anagrams while their attention was either divided or focused:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anagrams</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;anagrams&quot;</span><span class="p">)</span>
+<span class="n">anagrams</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subidr</th>
+      <th>attnr</th>
+      <th>num1</th>
+      <th>num2</th>
+      <th>num3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>divided</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>divided</td>
+      <td>3</td>
+      <td>4.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>divided</td>
+      <td>3</td>
+      <td>5.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>divided</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>divided</td>
+      <td>4</td>
+      <td>5.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>divided</td>
+      <td>5</td>
+      <td>5.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>divided</td>
+      <td>5</td>
+      <td>4.5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>divided</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>divided</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>divided</td>
+      <td>6</td>
+      <td>5.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>focused</td>
+      <td>6</td>
+      <td>5.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>focused</td>
+      <td>8</td>
+      <td>9.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>focused</td>
+      <td>6</td>
+      <td>5.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>focused</td>
+      <td>8</td>
+      <td>8.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>focused</td>
+      <td>8</td>
+      <td>8.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>focused</td>
+      <td>6</td>
+      <td>8.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>focused</td>
+      <td>7</td>
+      <td>7.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>focused</td>
+      <td>7</td>
+      <td>8.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>focused</td>
+      <td>5</td>
+      <td>6.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>focused</td>
+      <td>6</td>
+      <td>6.0</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>The attention variable is <em>between-subjects</em>, but there is also a <em>within-subjects</em> variable: the number of possible solutions to the anagrams, which varied from 1 to 3. The dependent measure is a score of memory performance. These two variables (number and score) are jointly encoded across several columns. As a result, the whole dataset is neither clearly long-form nor clearly wide-form.</p>
+<p>How might we tell seaborn to plot the average score as a function of attention and number of solutions? We’d first need to coerce the data into one of our two structures. Let’s transform it to a tidy long-form table, such that each variable is a column and each row is an observation. We can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="(in pandas v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.melt()</span></code></a> to accomplish this task:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anagrams_long</span> <span class="o">=</span> <span class="n">anagrams</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subidr&quot;</span><span class="p">,</span> <span class="s2">&quot;attnr&quot;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;solutions&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
+<span class="n">anagrams_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subidr</th>
+      <th>attnr</th>
+      <th>solutions</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>divided</td>
+      <td>num1</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>divided</td>
+      <td>num1</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>divided</td>
+      <td>num1</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>divided</td>
+      <td>num1</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>divided</td>
+      <td>num1</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Now we can make the plot that we want:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">anagrams_long</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;solutions&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;attnr&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_25_0.png" src="../_images/data_structure_25_0.png" />
+</div>
+<div class="section" id="further-reading-and-take-home-points">
+<h3>Further reading and take-home points<a class="headerlink" href="#further-reading-and-take-home-points" title="Permalink to this headline">¶</a></h3>
+<p>For a longer discussion about tabular data structures, you could read the <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.pdf">“Tidy Data”</a> paper by Hadley Whickham. Note that seaborn uses a slightly different set of concepts than are defined in the paper. While the paper associates tidyness with long-form structure, we have drawn a distinction between “tidy wide-form” data, where there is a clear mapping between variables in the dataset and the dimensions of the table, and “messy data”, where no such mapping exists.</p>
+<p>The long-form structure has clear advantages. It allows you to create figures by explicitly assigning variables in the dataset to roles in plot, and you can do so with more than three variables. When possible, try to represent your data with a long-form structure when embarking on serious analysis. Most of the examples in the seaborn documentation will use long-form data. But in cases where it is more natural to keep the dataset wide, remember that seaborn can remain useful.</p>
+</div>
+</div>
+<div class="section" id="options-for-visualizing-long-form-data">
+<h2>Options for visualizing long-form data<a class="headerlink" href="#options-for-visualizing-long-form-data" title="Permalink to this headline">¶</a></h2>
+<p>While long-form data has a precise definition, seaborn is fairly flexible in terms of how it is actually organized across the data structures in memory. The examples in the rest of the documentation will typically use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects and reference variables in them by assigning names of their columns to the variables in the plot. But it is also possible to store vectors in a Python dictionary or a class that implements that interface:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_dict</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_dict</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_28_0.png" src="../_images/data_structure_28_0.png" />
+<p>Many pandas operations, such as a the split-apply-combine operations of a group-by, will produce a dataframe where information has moved from the columns of the input dataframe to the index of the output. So long as the name is retained, you can still reference the data as normal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_avg</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_avg</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_30_0.png" src="../_images/data_structure_30_0.png" />
+<p>Additionally, it’s possible to pass vectors of data directly as arguments to <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and other plotting variables. If these vectors are pandas objects, the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute will be used to label the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="n">flights_avg</span><span class="o">.</span><span class="n">index</span>
+<span class="n">passengers</span> <span class="o">=</span> <span class="n">flights_avg</span><span class="p">[</span><span class="s2">&quot;passengers&quot;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">passengers</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_32_0.png" src="../_images/data_structure_32_0.png" />
+<p>Numpy arrays and other objects that implement the Python sequence interface work too, but if they don’t have names, the plot will not be as informative without further tweaking:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">year</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">passengers</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_34_0.png" src="../_images/data_structure_34_0.png" />
+</div>
+<div class="section" id="options-for-visualizing-wide-form-data">
+<h2>Options for visualizing wide-form data<a class="headerlink" href="#options-for-visualizing-wide-form-data" title="Permalink to this headline">¶</a></h2>
+<p>The options for passing wide-form data are even more flexible. As with long-form data, pandas objects are preferable because the name (and, in some cases, index) information can be used. But in essence, any format that can be viewed as a single vector or a collection of vectors can be passed to <code class="docutils literal notranslate"><span class="pre">data</span></code>, and a valid plot can usually be constructed.</p>
+<p>The example we saw above used a rectangular <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, which can be thought of as a collection of its columns. A dict or list of pandas objects will also work, but we’ll lose the axis labels:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">flights_wide</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide_list</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_36_0.png" src="../_images/data_structure_36_0.png" />
+<p>The vectors in a collection do not need to have the same length. If they have an <code class="docutils literal notranslate"><span class="pre">index</span></code>, it will be used to align them:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_series</span> <span class="o">=</span> <span class="p">[</span><span class="n">flights_wide</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">1955</span><span class="p">,</span> <span class="s2">&quot;Jan&quot;</span><span class="p">],</span> <span class="n">flights_wide</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1952</span><span class="p">:,</span> <span class="s2">&quot;Aug&quot;</span><span class="p">]]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">two_series</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_38_0.png" src="../_images/data_structure_38_0.png" />
+<p>Whereas an ordinal index will be used for numpy arrays or simple Python sequences:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">two_series</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">two_arrays</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_40_0.png" src="../_images/data_structure_40_0.png" />
+<p>But a dictionary of such vectors will at least use the keys:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_arrays_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">two_series</span><span class="p">}</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">two_arrays_dict</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_42_0.png" src="../_images/data_structure_42_0.png" />
+<p>Rectangular numpy arrays are treated just like a dataframe without index information, so they are viewed as a collection of column vectors. Note that this is different from how numpy indexing operations work, where a single indexer will access a row. But it is consistent with how pandas would turn the array into a dataframe or how matplotlib would plot it:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_array</span> <span class="o">=</span> <span class="n">flights_wide</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_array</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_44_0.png" src="../_images/data_structure_44_0.png" />
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

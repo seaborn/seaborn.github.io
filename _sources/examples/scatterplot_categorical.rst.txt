@@ -1,5 +1,7 @@
 
 
+.. currentmodule:: seaborn
+
 .. _scatterplot_categorical:
 
 
@@ -8,16 +10,17 @@ Scatterplot with categorical variables
 
 
 
+
 .. image:: _images/scatterplot_categorical.png
 
-**Python source code:** :download:`[download source: scatterplot_categorical.py]<scatterplot_categorical.py>`
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`swarmplot`
 
 .. raw:: html
 
     <div class="col-md-9">
 
 .. literalinclude:: scatterplot_categorical.py
-    :lines: 6-
+    :lines: 8-
 
 .. raw:: html
 

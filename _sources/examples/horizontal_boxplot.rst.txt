@@ -1,5 +1,7 @@
 
 
+.. currentmodule:: seaborn
+
 .. _horizontal_boxplot:
 
 
@@ -10,7 +12,7 @@ Horizontal boxplot with observations
 
 .. image:: _images/horizontal_boxplot.png
 
-**Python source code:** :download:`[download source: horizontal_boxplot.py]<horizontal_boxplot.py>`
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`boxplot`, :func:`stripplot`, :func:`despine`
 
 .. raw:: html
 

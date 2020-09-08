@@ -1,1 +1,1 @@
-ax = sns.swarmplot(x="time", y="tip", data=tips, size=6)
+ax = sns.swarmplot(x="time", y="total_bill", data=tips, size=6)

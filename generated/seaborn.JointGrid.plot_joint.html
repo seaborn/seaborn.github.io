@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.JointGrid.plot_joint &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.JointGrid.plot_joint &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -115,20 +118,23 @@
 <dl class="method">
 <dt id="seaborn.JointGrid.plot_joint">
 <code class="sig-prename descclassname">JointGrid.</code><code class="sig-name descname">plot_joint</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">func</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid.plot_joint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a bivariate plot of <cite>x</cite> and <cite>y</cite>.</p>
+<dd><p>Draw a bivariate plot on the joint axes of the grid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>func</strong><span class="classifier">plotting callable</span></dt><dd><p>This must take two 1d arrays of data as the first two
-positional arguments, and it must plot on the “current” axes.</p>
+<dt><strong>func</strong><span class="classifier">plotting callable</span></dt><dd><p>If a seaborn function, it should accept <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Otherwise,
+it must accept <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> vectors of data as the first two
+positional arguments, and it must plot on the “current” axes.
+If <code class="docutils literal notranslate"><span class="pre">hue</span></code> was defined in the class constructor, the function must
+accept <code class="docutils literal notranslate"><span class="pre">hue</span></code> as a parameter.</p>
 </dd>
-<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Keyword argument are passed to the plotting function.</p>
+<dt><strong>kwargs</strong></dt><dd><p>Keyword argument are passed to the plotting function.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">JointGrid instance</span></dt><dd><p>Returns <cite>self</cite>.</p>
+<dt><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> instance</dt><dd><p>Returns <code class="docutils literal notranslate"><span class="pre">self</span></code> for easy method chaining.</p>
 </dd>
 </dl>
 </dd>

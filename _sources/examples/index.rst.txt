@@ -76,17 +76,9 @@ Example gallery
 
    ./anscombes_quartet
 
-   ./color_palettes
-
-   ./cubehelix_palette
-
    ./different_scatter_variables
 
-   ./distplot_options
-
    ./errorband_lineplots
-
-   ./facet_projections
 
    ./faceted_histogram
 
@@ -98,21 +90,25 @@ Example gallery
 
    ./grouped_violinplots
 
-   ./heatmap_annotation
+   ./heat_scatter
 
    ./hexbin_marginals
 
-   ./horizontal_barplot
+   ./histogram_stacked
 
    ./horizontal_boxplot
 
    ./jitter_stripplot
+
+   ./joint_histogram
 
    ./joint_kde
 
    ./kde_ridgeplot
 
    ./large_distributions
+
+   ./layered_bivariate_plot
 
    ./logistic_regression
 
@@ -122,7 +118,11 @@ Example gallery
 
    ./marginal_ticks
 
-   ./multiple_joint_kde
+   ./multiple_bivariate_kde
+
+   ./multiple_conditional_kde
+
+   ./multiple_ecdf
 
    ./multiple_regression
 
@@ -132,7 +132,15 @@ Example gallery
 
    ./pairgrid_dotplot
 
+   ./palette_choices
+
+   ./palette_generation
+
+   ./part_whole_bars
+
    ./pointplot_anova
+
+   ./radial_facets
 
    ./regression_marginals
 
@@ -148,7 +156,15 @@ Example gallery
 
    ./simple_violinplots
 
+   ./smooth_bivariate_kde
+
+   ./spreadsheet_heatmap
+
    ./structured_heatmap
+
+   ./three_variable_histogram
+
+   ./timeseries_facets
 
    ./wide_data_lineplot
 
@@ -174,49 +190,10 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./color_palettes.html>
-    <img src=../_static/color_palettes_thumb.png>
-    <span class='figure-label'>
-    <p>barplot</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
-    <a href=./cubehelix_palette.html>
-    <img src=../_static/cubehelix_palette_thumb.png>
-    <span class='figure-label'>
-    <p>kdeplot</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
     <a href=./different_scatter_variables.html>
     <img src=../_static/different_scatter_variables_thumb.png>
     <span class='figure-label'>
     <p>scatterplot</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
-    <a href=./distplot_options.html>
-    <img src=../_static/distplot_options_thumb.png>
-    <span class='figure-label'>
-    <p>distplot</p>
     </span>
     </a>
     </div>
@@ -239,23 +216,10 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./facet_projections.html>
-    <img src=../_static/facet_projections_thumb.png>
-    <span class='figure-label'>
-    <p>FacetGrid</p>
-    </span>
-    </a>
-    </div>
-
-
-
-.. raw:: html
-
-    <div class='figure align-center'>
     <a href=./faceted_histogram.html>
     <img src=../_static/faceted_histogram_thumb.png>
     <span class='figure-label'>
-    <p>FacetGrid</p>
+    <p>displot</p>
     </span>
     </a>
     </div>
@@ -317,10 +281,10 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./heatmap_annotation.html>
-    <img src=../_static/heatmap_annotation_thumb.png>
+    <a href=./heat_scatter.html>
+    <img src=../_static/heat_scatter_thumb.png>
     <span class='figure-label'>
-    <p>heatmap</p>
+    <p>relplot</p>
     </span>
     </a>
     </div>
@@ -343,10 +307,10 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./horizontal_barplot.html>
-    <img src=../_static/horizontal_barplot_thumb.png>
+    <a href=./histogram_stacked.html>
+    <img src=../_static/histogram_stacked_thumb.png>
     <span class='figure-label'>
-    <p>barplot</p>
+    <p>histplot</p>
     </span>
     </a>
     </div>
@@ -373,6 +337,19 @@ Example gallery
     <img src=../_static/jitter_stripplot_thumb.png>
     <span class='figure-label'>
     <p>stripplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./joint_histogram.html>
+    <img src=../_static/joint_histogram_thumb.png>
+    <span class='figure-label'>
+    <p>JointGrid</p>
     </span>
     </a>
     </div>
@@ -412,6 +389,19 @@ Example gallery
     <img src=../_static/large_distributions_thumb.png>
     <span class='figure-label'>
     <p>boxenplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./layered_bivariate_plot.html>
+    <img src=../_static/layered_bivariate_plot_thumb.png>
+    <span class='figure-label'>
+    <p>scatterplot</p>
     </span>
     </a>
     </div>
@@ -473,10 +463,36 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
-    <a href=./multiple_joint_kde.html>
-    <img src=../_static/multiple_joint_kde_thumb.png>
+    <a href=./multiple_bivariate_kde.html>
+    <img src=../_static/multiple_bivariate_kde_thumb.png>
     <span class='figure-label'>
     <p>kdeplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./multiple_conditional_kde.html>
+    <img src=../_static/multiple_conditional_kde_thumb.png>
+    <span class='figure-label'>
+    <p>displot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./multiple_ecdf.html>
+    <img src=../_static/multiple_ecdf_thumb.png>
+    <span class='figure-label'>
+    <p>displot</p>
     </span>
     </a>
     </div>
@@ -538,10 +554,62 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
+    <a href=./palette_choices.html>
+    <img src=../_static/palette_choices_thumb.png>
+    <span class='figure-label'>
+    <p>barplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./palette_generation.html>
+    <img src=../_static/palette_generation_thumb.png>
+    <span class='figure-label'>
+    <p>kdeplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./part_whole_bars.html>
+    <img src=../_static/part_whole_bars_thumb.png>
+    <span class='figure-label'>
+    <p>barplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
     <a href=./pointplot_anova.html>
     <img src=../_static/pointplot_anova_thumb.png>
     <span class='figure-label'>
     <p>catplot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./radial_facets.html>
+    <img src=../_static/radial_facets_thumb.png>
+    <span class='figure-label'>
+    <p>FacetGrid</p>
     </span>
     </a>
     </div>
@@ -619,7 +687,7 @@ Example gallery
     <a href=./scatterplot_sizes.html>
     <img src=../_static/scatterplot_sizes_thumb.png>
     <span class='figure-label'>
-    <p>scatterplot</p>
+    <p>relplot</p>
     </span>
     </a>
     </div>
@@ -642,10 +710,62 @@ Example gallery
 .. raw:: html
 
     <div class='figure align-center'>
+    <a href=./smooth_bivariate_kde.html>
+    <img src=../_static/smooth_bivariate_kde_thumb.png>
+    <span class='figure-label'>
+    <p>JointGrid</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./spreadsheet_heatmap.html>
+    <img src=../_static/spreadsheet_heatmap_thumb.png>
+    <span class='figure-label'>
+    <p>heatmap</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
     <a href=./structured_heatmap.html>
     <img src=../_static/structured_heatmap_thumb.png>
     <span class='figure-label'>
     <p>clustermap</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./three_variable_histogram.html>
+    <img src=../_static/three_variable_histogram_thumb.png>
+    <span class='figure-label'>
+    <p>displot</p>
+    </span>
+    </a>
+    </div>
+
+
+
+.. raw:: html
+
+    <div class='figure align-center'>
+    <a href=./timeseries_facets.html>
+    <img src=../_static/timeseries_facets_thumb.png>
+    <span class='figure-label'>
+    <p>relplot</p>
     </span>
     </a>
     </div>

@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _three_variable_histogram:
+
+
+Trivariate histogram with two categorical variables
+===================================================
+
+
+
+
+.. image:: _images/three_variable_histogram.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`displot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: three_variable_histogram.py
+    :lines: 8-
+
+.. raw:: html
+
+    </div>
+

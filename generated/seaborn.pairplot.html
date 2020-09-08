@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.pairplot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.pairplot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,13 +117,13 @@
 <h1>seaborn.pairplot<a class="headerlink" href="#seaborn-pairplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.pairplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">pairplot</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">vars=None</em>, <em class="sig-param">x_vars=None</em>, <em class="sig-param">y_vars=None</em>, <em class="sig-param">kind='scatter'</em>, <em class="sig-param">diag_kind='auto'</em>, <em class="sig-param">markers=None</em>, <em class="sig-param">height=2.5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">corner=False</em>, <em class="sig-param">dropna=True</em>, <em class="sig-param">plot_kws=None</em>, <em class="sig-param">diag_kws=None</em>, <em class="sig-param">grid_kws=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.pairplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">pairplot</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">vars=None</em>, <em class="sig-param">x_vars=None</em>, <em class="sig-param">y_vars=None</em>, <em class="sig-param">kind='scatter'</em>, <em class="sig-param">diag_kind='auto'</em>, <em class="sig-param">markers=None</em>, <em class="sig-param">height=2.5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">corner=False</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">plot_kws=None</em>, <em class="sig-param">diag_kws=None</em>, <em class="sig-param">grid_kws=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.pairplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot pairwise relationships in a dataset.</p>
 <p>By default, this function will create a grid of Axes such that each numeric
-variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> will by shared in the y-axis across a single row and
-in the x-axis across a single column. The diagonal Axes are treated
-differently, drawing a plot to show the univariate distribution of the data
-for the variable in that column.</p>
+variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> will by shared across the y-axes across a single row and
+the x-axes across a single column. The diagonal plots are treated
+differently: a univariate distribution plot is drawn to show the marginal
+distribution of the data in each column.</p>
 <p>It is also possible to show a subset of variables or plot different
 variables on the rows and columns.</p>
 <p>This is a high-level interface for <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> that is intended to
@@ -128,43 +131,43 @@ make it easy to draw a few common styles. You should use <a class="reference int
 directly if you need more flexibility.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (long-form) dataframe where each column is a variable and
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier"><cite>pandas.DataFrame</cite></span></dt><dd><p>Tidy (long-form) dataframe where each column is a variable and
 each row is an observation.</p>
 </dd>
-<dt><strong>hue</strong><span class="classifier">string (variable name), optional</span></dt><dd><p>Variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> to map plot aspects to different colors.</p>
+<dt><strong>hue</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> to map plot aspects to different colors.</p>
 </dd>
 <dt><strong>hue_order</strong><span class="classifier">list of strings</span></dt><dd><p>Order for the levels of the hue variable in the palette</p>
 </dd>
 <dt><strong>palette</strong><span class="classifier">dict or seaborn color palette</span></dt><dd><p>Set of colors for mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. If a dict, keys
 should be values  in the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable.</p>
 </dd>
-<dt><strong>vars</strong><span class="classifier">list of variable names, optional</span></dt><dd><p>Variables within <code class="docutils literal notranslate"><span class="pre">data</span></code> to use, otherwise use every column with
+<dt><strong>vars</strong><span class="classifier">list of variable names</span></dt><dd><p>Variables within <code class="docutils literal notranslate"><span class="pre">data</span></code> to use, otherwise use every column with
 a numeric datatype.</p>
 </dd>
-<dt><strong>{x, y}_vars</strong><span class="classifier">lists of variable names, optional</span></dt><dd><p>Variables within <code class="docutils literal notranslate"><span class="pre">data</span></code> to use separately for the rows and
+<dt><strong>{x, y}_vars</strong><span class="classifier">lists of variable names</span></dt><dd><p>Variables within <code class="docutils literal notranslate"><span class="pre">data</span></code> to use separately for the rows and
 columns of the figure; i.e. to make a non-square plot.</p>
 </dd>
-<dt><strong>kind</strong><span class="classifier">{‘scatter’, ‘reg’}, optional</span></dt><dd><p>Kind of plot for the non-identity relationships.</p>
+<dt><strong>kind</strong><span class="classifier">{‘scatter’, ‘kde’, ‘hist’, ‘reg’}</span></dt><dd><p>Kind of plot to make.</p>
 </dd>
-<dt><strong>diag_kind</strong><span class="classifier">{‘auto’, ‘hist’, ‘kde’, None}, optional</span></dt><dd><p>Kind of plot for the diagonal subplots. The default depends on whether
-<code class="docutils literal notranslate"><span class="pre">&quot;hue&quot;</span></code> is used or not.</p>
+<dt><strong>diag_kind</strong><span class="classifier">{‘auto’, ‘hist’, ‘kde’, None}</span></dt><dd><p>Kind of plot for the diagonal subplots. If ‘auto’, choose based on
+whether or not <code class="docutils literal notranslate"><span class="pre">hue</span></code> is used.</p>
 </dd>
-<dt><strong>markers</strong><span class="classifier">single matplotlib marker code or list, optional</span></dt><dd><p>Either the marker to use for all datapoints or a list of markers with
-a length the same as the number of levels in the hue variable so that
+<dt><strong>markers</strong><span class="classifier">single matplotlib marker code or list</span></dt><dd><p>Either the marker to use for all scatterplot points or a list of markers
+with a length the same as the number of levels in the hue variable so that
 differently colored points will also have different scatterplot
 markers.</p>
 </dd>
-<dt><strong>height</strong><span class="classifier">scalar, optional</span></dt><dd><p>Height (in inches) of each facet.</p>
+<dt><strong>height</strong><span class="classifier">scalar</span></dt><dd><p>Height (in inches) of each facet.</p>
 </dd>
-<dt><strong>aspect</strong><span class="classifier">scalar, optional</span></dt><dd><p>Aspect * height gives the width (in inches) of each facet.</p>
+<dt><strong>aspect</strong><span class="classifier">scalar</span></dt><dd><p>Aspect * height gives the width (in inches) of each facet.</p>
 </dd>
-<dt><strong>corner</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, don’t add axes to the upper (off-diagonal) triangle of the
+<dt><strong>corner</strong><span class="classifier">bool</span></dt><dd><p>If True, don’t add axes to the upper (off-diagonal) triangle of the
 grid, making this a “corner” plot.</p>
 </dd>
-<dt><strong>dropna</strong><span class="classifier">boolean, optional</span></dt><dd><p>Drop missing values from the data before plotting.</p>
+<dt><strong>dropna</strong><span class="classifier">boolean</span></dt><dd><p>Drop missing values from the data before plotting.</p>
 </dd>
-<dt><strong>{plot, diag, grid}_kws</strong><span class="classifier">dicts, optional</span></dt><dd><p>Dictionaries of keyword arguments. <code class="docutils literal notranslate"><span class="pre">plot_kws</span></code> are passed to the
+<dt><strong>{plot, diag, grid}_kws</strong><span class="classifier">dicts</span></dt><dd><p>Dictionaries of keyword arguments. <code class="docutils literal notranslate"><span class="pre">plot_kws</span></code> are passed to the
 bivariate plotting function, <code class="docutils literal notranslate"><span class="pre">diag_kws</span></code> are passed to the univariate
 plotting function, and <code class="docutils literal notranslate"><span class="pre">grid_kws</span></code> are passed to the <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>
 constructor.</p>
@@ -183,96 +186,76 @@ constructor.</p>
 <dl class="simple">
 <dt><a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid</span></code></a></dt><dd><p>Subplot grid for more flexible plotting of pairwise relationships.</p>
 </dd>
+<dt><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid</span></code></a></dt><dd><p>Grid for plotting joint and marginal distributions of two variables.</p>
+</dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Draw scatterplots for joint relationships and histograms for univariate
-distributions:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<p>The simplest invocation uses <a class="reference internal" href="seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> for each pairing of the variables and <a class="reference internal" href="seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> for the marginal plots along the diagonal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-1.png" src="../_images/seaborn-pairplot-1.png" />
-</div>
-<p>Show different levels of a categorical variable by the color of plot
-elements:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<img alt="../_images/pairplot_1_0.png" src="../_images/pairplot_1_0.png" />
+<p>Assigning a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable adds a semantic mapping and changes the default marginal plot to a layered kernel density estimate (KDE):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-2.png" src="../_images/seaborn-pairplot-2.png" />
-</div>
-<p>Use a different color palette:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;husl&quot;</span><span class="p">)</span>
+<img alt="../_images/pairplot_3_0.png" src="../_images/pairplot_3_0.png" />
+<p>It’s possible to force marginal histograms:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-3.png" src="../_images/seaborn-pairplot-3.png" />
-</div>
-<p>Use different markers for each level of the hue variable:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])</span>
+<img alt="../_images/pairplot_5_0.png" src="../_images/pairplot_5_0.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter determines both the diagonal and off-diagonal plotting style. Several options are available, including using <a class="reference internal" href="seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a> to draw KDEs:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-4.png" src="../_images/seaborn-pairplot-4.png" />
-</div>
-<p>Plot a subset of variables:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">])</span>
+<img alt="../_images/pairplot_7_0.png" src="../_images/pairplot_7_0.png" />
+<p>Or <a class="reference internal" href="seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> to draw both bivariate and univariate histograms:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-5.png" src="../_images/seaborn-pairplot-5.png" />
-</div>
-<p>Draw larger plots:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">])</span>
+<img alt="../_images/pairplot_9_0.png" src="../_images/pairplot_9_0.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">markers</span></code> parameter applies a style mapping on the off-diagonal axes. Currently, it will be redundant with the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-6.png" src="../_images/seaborn-pairplot-6.png" />
-</div>
-<p>Plot different variables in the rows and columns:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">x_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">],</span>
-<span class="gp">... </span>                 <span class="n">y_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="s2">&quot;petal_length&quot;</span><span class="p">])</span>
+<img alt="../_images/pairplot_11_0.png" src="../_images/pairplot_11_0.png" />
+<p>As with other figure-level functions, the size of the figure is controlled by setting the <code class="docutils literal notranslate"><span class="pre">height</span></code> of each individual subplot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-7.png" src="../_images/seaborn-pairplot-7.png" />
-</div>
-<p>Plot only the lower triangle of bivariate axes:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<img alt="../_images/pairplot_13_0.png" src="../_images/pairplot_13_0.png" />
+<p>Use <code class="docutils literal notranslate"><span class="pre">vars</span></code> or <code class="docutils literal notranslate"><span class="pre">x_vars</span></code> and <code class="docutils literal notranslate"><span class="pre">y_vars</span></code> to select the variables to plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">penguins</span><span class="p">,</span>
+    <span class="n">x_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">],</span>
+    <span class="n">y_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-8.png" src="../_images/seaborn-pairplot-8.png" />
-</div>
-<p>Use kernel density estimates for univariate plots:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
+<img alt="../_images/pairplot_15_0.png" src="../_images/pairplot_15_0.png" />
+<p>Set <code class="docutils literal notranslate"><span class="pre">corner=True</span></code> to plot only the lower triangle:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-9.png" src="../_images/seaborn-pairplot-9.png" />
-</div>
-<p>Fit linear regression models to the scatter plots:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">)</span>
+<img alt="../_images/pairplot_17_0.png" src="../_images/pairplot_17_0.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">plot_kws</span></code> and <code class="docutils literal notranslate"><span class="pre">diag_kws</span></code> parameters accept dicts of keyword arguments to customize the off-diagonal and diagonal plots, respectively:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">penguins</span><span class="p">,</span>
+    <span class="n">plot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">diag_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-10.png" src="../_images/seaborn-pairplot-10.png" />
-</div>
-<p>Pass keyword arguments down to the underlying functions (it may be easier
-to use <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> directly):</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">plot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-<span class="gp">... </span>                 <span class="n">diag_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<img alt="../_images/pairplot_19_0.png" src="../_images/pairplot_19_0.png" />
+<p>The return object is the underlying <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>, which can be used to further customize the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_lower</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
-<img alt="../_images/seaborn-pairplot-111.png" src="../_images/seaborn-pairplot-111.png" />
-</div>
+<img alt="../_images/pairplot_21_0.png" src="../_images/pairplot_21_0.png" />
 </dd></dl>
 
 </div>

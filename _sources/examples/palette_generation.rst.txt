@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _palette_generation:
+
+
+Different cubehelix palettes
+============================
+
+
+
+.. image:: _images/palette_generation.png
+
+**seaborn components used:** :func:`set_theme`, :func:`cubehelix_palette`, :func:`kdeplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: palette_generation.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _timeseries_facets:
+
+
+Small multiple time series
+--------------------------
+
+
+
+
+.. image:: _images/timeseries_facets.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`relplot`, :func:`lineplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: timeseries_facets.py
+    :lines: 8-
+
+.. raw:: html
+
+    </div>
+

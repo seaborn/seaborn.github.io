@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.hls_palette &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.hls_palette &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.hls_palette<a class="headerlink" href="#seaborn-hls-palette" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.hls_palette">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">hls_palette</code><span class="sig-paren">(</span><em class="sig-param">n_colors=6</em>, <em class="sig-param">h=0.01</em>, <em class="sig-param">l=0.6</em>, <em class="sig-param">s=0.65</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.hls_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">hls_palette</code><span class="sig-paren">(</span><em class="sig-param">n_colors=6</em>, <em class="sig-param">h=0.01</em>, <em class="sig-param">l=0.6</em>, <em class="sig-param">s=0.65</em>, <em class="sig-param">as_cmap=False</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.hls_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a set of evenly spaced colors in HLS hue space.</p>
 <p>h, l, and s should be between 0 and 1</p>
 <dl class="field-list simple">
@@ -132,21 +135,20 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>palette</strong><span class="classifier">seaborn color palette</span></dt><dd><p>List-like object of colors as RGB tuples.</p>
-</dd>
+<dt>list of RGB tuples or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></dt><dd></dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="seaborn.husl_palette.html#seaborn.husl_palette" title="seaborn.husl_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">husl_palette</span></code></a></dt><dd><p>Make a palette using evently spaced circular hues in the HUSL system.</p>
+<dt><a class="reference internal" href="seaborn.husl_palette.html#seaborn.husl_palette" title="seaborn.husl_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">husl_palette</span></code></a></dt><dd><p>Make a palette using evenly spaced hues in the HUSL system.</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
 <p>Create a palette of 10 colors with the default parameters:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>

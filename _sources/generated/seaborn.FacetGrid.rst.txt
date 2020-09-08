@@ -33,6 +33,7 @@ seaborn.FacetGrid
       ~FacetGrid.set_xticklabels
       ~FacetGrid.set_ylabels
       ~FacetGrid.set_yticklabels
+      ~FacetGrid.tight_layout
    
    
 
@@ -43,5 +44,9 @@ seaborn.FacetGrid
    .. autosummary::
    
       ~FacetGrid.ax
+      ~FacetGrid.axes
+      ~FacetGrid.axes_dict
+      ~FacetGrid.fig
+      ~FacetGrid.legend
    
    

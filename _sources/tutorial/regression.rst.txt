@@ -2,8 +2,8 @@
 
 .. currentmodule:: seaborn
 
-Visualizing linear relationships
-================================
+Visualizing regression models
+=============================
 
 .. raw:: html
 
@@ -21,7 +21,7 @@ In the spirit of Tukey, the regression plots in seaborn are primarily intended t
 
 .. code:: ipython3
 
-    sns.set(color_codes=True)
+    sns.set_theme(color_codes=True)
 
 .. code:: ipython3
 

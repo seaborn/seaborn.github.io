@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.clustermap &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.clustermap &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,23 +117,22 @@
 <h1>seaborn.clustermap<a class="headerlink" href="#seaborn-clustermap" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.clustermap">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">clustermap</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">pivot_kws=None</em>, <em class="sig-param">method='average'</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">z_score=None</em>, <em class="sig-param">standard_scale=None</em>, <em class="sig-param">figsize=(10</em>, <em class="sig-param">10)</em>, <em class="sig-param">cbar_kws=None</em>, <em class="sig-param">row_cluster=True</em>, <em class="sig-param">col_cluster=True</em>, <em class="sig-param">row_linkage=None</em>, <em class="sig-param">col_linkage=None</em>, <em class="sig-param">row_colors=None</em>, <em class="sig-param">col_colors=None</em>, <em class="sig-param">mask=None</em>, <em class="sig-param">dendrogram_ratio=0.2</em>, <em class="sig-param">colors_ratio=0.03</em>, <em class="sig-param">cbar_pos=(0.02</em>, <em class="sig-param">0.8</em>, <em class="sig-param">0.05</em>, <em class="sig-param">0.18)</em>, <em class="sig-param">tree_kws=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.clustermap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">clustermap</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">pivot_kws=None</em>, <em class="sig-param">method='average'</em>, <em class="sig-param">metric='euclidean'</em>, <em class="sig-param">z_score=None</em>, <em class="sig-param">standard_scale=None</em>, <em class="sig-param">figsize=(10</em>, <em class="sig-param">10)</em>, <em class="sig-param">cbar_kws=None</em>, <em class="sig-param">row_cluster=True</em>, <em class="sig-param">col_cluster=True</em>, <em class="sig-param">row_linkage=None</em>, <em class="sig-param">col_linkage=None</em>, <em class="sig-param">row_colors=None</em>, <em class="sig-param">col_colors=None</em>, <em class="sig-param">mask=None</em>, <em class="sig-param">dendrogram_ratio=0.2</em>, <em class="sig-param">colors_ratio=0.03</em>, <em class="sig-param">cbar_pos=(0.02</em>, <em class="sig-param">0.8</em>, <em class="sig-param">0.05</em>, <em class="sig-param">0.18)</em>, <em class="sig-param">tree_kws=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.clustermap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot a matrix dataset as a hierarchically-clustered heatmap.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>data: 2D array-like</strong></dt><dd><p>Rectangular data for clustering. Cannot contain NAs.</p>
+<dt><strong>data</strong><span class="classifier">2D array-like</span></dt><dd><p>Rectangular data for clustering. Cannot contain NAs.</p>
 </dd>
 <dt><strong>pivot_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>If <cite>data</cite> is a tidy dataframe, can provide keyword arguments for
 pivot to create a rectangular dataframe.</p>
 </dd>
-<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Linkage method to use for calculating clusters.
-See scipy.cluster.hierarchy.linkage documentation for more information:
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html</a></p>
+<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Linkage method to use for calculating clusters. See
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> documentation for more
+information.</p>
 </dd>
 <dt><strong>metric</strong><span class="classifier">str, optional</span></dt><dd><p>Distance metric to use for the data. See
-scipy.spatial.distance.pdist documentation for more options
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html</a>
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" title="(in SciPy v1.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist()</span></code></a> documentation for more options.
 To use different metrics (or methods) for rows and columns, you may
 construct each linkage matrix yourself and provide them as
 {row,col}_linkage.</p>
@@ -145,9 +147,9 @@ This ensures that each row (column) has mean of 0 and variance of 1.</p>
 dimension, meaning for each row or column, subtract the minimum and
 divide each by its maximum.</p>
 </dd>
-<dt><strong>figsize: (width, height), optional</strong></dt><dd><p>Overall size of the figure.</p>
+<dt><strong>figsize</strong><span class="classifier">(width, height), optional</span></dt><dd><p>Overall size of the figure.</p>
 </dd>
-<dt><strong>cbar_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">cbar_kws</span></code> in <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>, e.g. to
+<dt><strong>cbar_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">cbar_kws</span></code> in <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>, e.g. to
 add a label to the colorbar.</p>
 </dd>
 <dt><strong>{row,col}_cluster</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, cluster the {rows, columns}.</p>
@@ -163,26 +165,26 @@ from the DataFrames column names or from the name of the Series.
 DataFrame/Series colors are also matched to the data by their
 index, ensuring colors are drawn in the correct order.</p>
 </dd>
-<dt><strong>mask</strong><span class="classifier">boolean array or DataFrame, optional</span></dt><dd><p>If passed, data will not be shown in cells where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is True.
+<dt><strong>mask</strong><span class="classifier">bool array or DataFrame, optional</span></dt><dd><p>If passed, data will not be shown in cells where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is True.
 Cells with missing values are automatically masked. Only used for
 visualizing, not for calculating.</p>
 </dd>
-<dt><strong>{dendrogram,colors}_ratio: float, or pair of floats, optional</strong></dt><dd><p>Proportion of the figure size devoted to the two marginal elements. If
+<dt><strong>{dendrogram,colors}_ratio</strong><span class="classifier">float, or pair of floats, optional</span></dt><dd><p>Proportion of the figure size devoted to the two marginal elements. If
 a pair is given, they correspond to (row, col) ratios.</p>
 </dd>
 <dt><strong>cbar_pos</strong><span class="classifier">(left, bottom, width, height), optional</span></dt><dd><p>Position of the colorbar axes in the figure. Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will
 disable the colorbar.</p>
 </dd>
-<dt><strong>tree_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameters for the <a class="reference external" href="https://matplotlib.org/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a>
+<dt><strong>tree_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameters for the <a class="reference external" href="https://matplotlib.org/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a>
 that is used to plot the lines of the dendrogram tree.</p>
 </dd>
-<dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a></p>
+<dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>clustergrid</strong><span class="classifier">ClusterGrid</span></dt><dd><p>A ClusterGrid instance.</p>
+<dd class="field-even"><dl>
+<dt><strong>clustergrid</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterGrid</span></code></span></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterGrid</span></code> instance.</p>
 </dd>
 </dl>
 </dd>
@@ -196,7 +198,7 @@ want to save the figure object without clipping the dendrograms.</p>
 <code class="docutils literal notranslate"><span class="pre">clustergrid.dendrogram_col.reordered_ind</span></code></p>
 <p class="rubric">Examples</p>
 <p>Plot a clustered heatmap:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">species</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>

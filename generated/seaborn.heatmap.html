@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.heatmap &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.heatmap &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.heatmap<a class="headerlink" href="#seaborn-heatmap" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.heatmap">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">heatmap</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">vmin=None</em>, <em class="sig-param">vmax=None</em>, <em class="sig-param">cmap=None</em>, <em class="sig-param">center=None</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">annot=None</em>, <em class="sig-param">fmt='.2g'</em>, <em class="sig-param">annot_kws=None</em>, <em class="sig-param">linewidths=0</em>, <em class="sig-param">linecolor='white'</em>, <em class="sig-param">cbar=True</em>, <em class="sig-param">cbar_kws=None</em>, <em class="sig-param">cbar_ax=None</em>, <em class="sig-param">square=False</em>, <em class="sig-param">xticklabels='auto'</em>, <em class="sig-param">yticklabels='auto'</em>, <em class="sig-param">mask=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.heatmap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">heatmap</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">*</em>, <em class="sig-param">vmin=None</em>, <em class="sig-param">vmax=None</em>, <em class="sig-param">cmap=None</em>, <em class="sig-param">center=None</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">annot=None</em>, <em class="sig-param">fmt='.2g'</em>, <em class="sig-param">annot_kws=None</em>, <em class="sig-param">linewidths=0</em>, <em class="sig-param">linecolor='white'</em>, <em class="sig-param">cbar=True</em>, <em class="sig-param">cbar_kws=None</em>, <em class="sig-param">cbar_ax=None</em>, <em class="sig-param">square=False</em>, <em class="sig-param">xticklabels='auto'</em>, <em class="sig-param">yticklabels='auto'</em>, <em class="sig-param">mask=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.heatmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot rectangular data as a color-encoded matrix.</p>
 <p>This is an Axes-level function and will draw the heatmap into the
 currently-active Axes if none is provided to the <code class="docutils literal notranslate"><span class="pre">ax</span></code> argument.  Part of
@@ -144,22 +147,23 @@ computed with robust quantiles instead of the extreme values.</p>
 same shape as <code class="docutils literal notranslate"><span class="pre">data</span></code>, then use this to annotate the heatmap instead
 of the data. Note that DataFrames will match on position, not index.</p>
 </dd>
-<dt><strong>fmt</strong><span class="classifier">string, optional</span></dt><dd><p>String formatting code to use when adding annotations.</p>
+<dt><strong>fmt</strong><span class="classifier">str, optional</span></dt><dd><p>String formatting code to use when adding annotations.</p>
 </dd>
-<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <code class="docutils literal notranslate"><span class="pre">ax.text</span></code> when <code class="docutils literal notranslate"><span class="pre">annot</span></code> is True.</p>
+<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
+is True.</p>
 </dd>
 <dt><strong>linewidths</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the lines that will divide each cell.</p>
 </dd>
 <dt><strong>linecolor</strong><span class="classifier">color, optional</span></dt><dd><p>Color of the lines that will divide each cell.</p>
 </dd>
-<dt><strong>cbar</strong><span class="classifier">boolean, optional</span></dt><dd><p>Whether to draw a colorbar.</p>
+<dt><strong>cbar</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to draw a colorbar.</p>
 </dd>
-<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <cite>fig.colorbar</cite>.</p>
+<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
 </dd>
 <dt><strong>cbar_ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes in which to draw the colorbar, otherwise take space from the
 main Axes.</p>
 </dd>
-<dt><strong>square</strong><span class="classifier">boolean, optional</span></dt><dd><p>If True, set the Axes aspect to “equal” so each cell will be
+<dt><strong>square</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, set the Axes aspect to “equal” so each cell will be
 square-shaped.</p>
 </dd>
 <dt><strong>xticklabels, yticklabels</strong><span class="classifier">“auto”, bool, list-like, or int, optional</span></dt><dd><p>If True, plot the column names of the dataframe. If False, don’t plot
@@ -167,14 +171,14 @@ the column names. If list-like, plot these alternate labels as the
 xticklabels. If an integer, use the column names but plot only every
 n label. If “auto”, try to densely plot non-overlapping labels.</p>
 </dd>
-<dt><strong>mask</strong><span class="classifier">boolean array or DataFrame, optional</span></dt><dd><p>If passed, data will not be shown in cells where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is True.
+<dt><strong>mask</strong><span class="classifier">bool array or DataFrame, optional</span></dt><dd><p>If passed, data will not be shown in cells where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is True.
 Cells with missing values are automatically masked.</p>
 </dd>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes in which to draw the plot, otherwise use the currently-active
 Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to
-<code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code>.</p>
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -195,7 +199,7 @@ Axes.</p>
 <p class="rubric">Examples</p>
 <p>Plot a heatmap for a numpy array:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">uniform_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">uniform_data</span><span class="p">)</span>
 </pre></div>
@@ -249,7 +253,7 @@ Axes.</p>
 <img alt="../_images/seaborn-heatmap-7.png" src="../_images/seaborn-heatmap-7.png" />
 </div>
 <p>Center the colormap at a specific value:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">flights</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="mi">1955</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">flights</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="mi">1955</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="figure align-default">

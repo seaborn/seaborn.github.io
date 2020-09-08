@@ -1,1 +1,1 @@
-ax = sns.heatmap(flights, center=flights.loc["January", 1955])
+ax = sns.heatmap(flights, center=flights.loc["Jan", 1955])

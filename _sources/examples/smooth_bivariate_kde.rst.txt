@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _smooth_bivariate_kde:
+
+
+Smooth kernel density with marginal histograms
+==============================================
+
+
+
+.. image:: _images/smooth_bivariate_kde.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`JointGrid`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: smooth_bivariate_kde.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

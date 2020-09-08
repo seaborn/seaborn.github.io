@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.catplot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.catplot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.stripplot" href="seaborn.stripplot.html" />
-    <link rel="prev" title="seaborn.lineplot" href="seaborn.lineplot.html" />
+    <link rel="prev" title="seaborn.distplot" href="seaborn.distplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.catplot<a class="headerlink" href="#seaborn-catplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.catplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">catplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">row=None</em>, <em class="sig-param">col=None</em>, <em class="sig-param">col_wrap=None</em>, <em class="sig-param">estimator=&lt;function mean at 0x105c7d9e0&gt;</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">row_order=None</em>, <em class="sig-param">col_order=None</em>, <em class="sig-param">kind='strip'</em>, <em class="sig-param">height=5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">legend=True</em>, <em class="sig-param">legend_out=True</em>, <em class="sig-param">sharex=True</em>, <em class="sig-param">sharey=True</em>, <em class="sig-param">margin_titles=False</em>, <em class="sig-param">facet_kws=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.catplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">catplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">row=None</em>, <em class="sig-param">col=None</em>, <em class="sig-param">col_wrap=None</em>, <em class="sig-param">estimator=&lt;function mean at 0x10c363940&gt;</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">row_order=None</em>, <em class="sig-param">col_order=None</em>, <em class="sig-param">kind='strip'</em>, <em class="sig-param">height=5</em>, <em class="sig-param">aspect=1</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">legend=True</em>, <em class="sig-param">legend_out=True</em>, <em class="sig-param">sharex=True</em>, <em class="sig-param">sharey=True</em>, <em class="sig-param">margin_titles=False</em>, <em class="sig-param">facet_kws=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.catplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Figure-level interface for drawing categorical plots onto a
 <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
 <p>This function provides access to several axes-level functions that
@@ -144,7 +147,7 @@ should refer to the documentation for each to see kind-specific options.</p>
 passed in a long-form DataFrame with variables specified by passing strings
 to <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">hue</span></code>, etc.</p>
 <p>As in the case with the underlying plot functions, if variables have a
-<code class="docutils literal notranslate"><span class="pre">categorical</span></code> data type, the the levels of the categorical variables, and
+<code class="docutils literal notranslate"><span class="pre">categorical</span></code> data type, the levels of the categorical variables, and
 their order will be inferred from the objects. Otherwise you may have to
 use alter the dataframe sorting or use the function parameters (<code class="docutils literal notranslate"><span class="pre">orient</span></code>,
 <code class="docutils literal notranslate"><span class="pre">order</span></code>, <code class="docutils literal notranslate"><span class="pre">hue_order</span></code>, etc.) to set up the plot correctly.</p>
@@ -164,7 +167,7 @@ to a variable, and each row should correspond to an observation.</p>
 </dd>
 <dt><strong>row, col</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>Categorical variables that will determine the faceting of the grid.</p>
 </dd>
-<dt><strong>col_wrap</strong><span class="classifier">int, optional</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
+<dt><strong>col_wrap</strong><span class="classifier">int</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
 span multiple rows. Incompatible with a <code class="docutils literal notranslate"><span class="pre">row</span></code> facet.</p>
 </dd>
 <dt><strong>estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Statistical function to estimate within each categorical bin.</p>
@@ -188,35 +191,35 @@ inferred from the data objects.</p>
 <dt><strong>row_order, col_order</strong><span class="classifier">lists of strings, optional</span></dt><dd><p>Order to organize the rows and/or columns of the grid in, otherwise the
 orders are inferred from the data objects.</p>
 </dd>
-<dt><strong>kind</strong><span class="classifier">string, optional</span></dt><dd><p>The kind of plot to draw (corresponds to the name of a categorical
-plotting function. Options are: “point”, “bar”, “strip”, “swarm”,
-“box”, “violin”, or “boxen”.</p>
+<dt><strong>kind</strong><span class="classifier">str, optional</span></dt><dd><p>The kind of plot to draw, corresponds to the name of a categorical
+axes-level plotting function. Options are: “strip”, “swarm”, “box”, “violin”,
+“boxen”, “point”, “bar”, or “count”.</p>
 </dd>
-<dt><strong>height</strong><span class="classifier">scalar, optional</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
+<dt><strong>height</strong><span class="classifier">scalar</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
 </dd>
-<dt><strong>aspect</strong><span class="classifier">scalar, optional</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
+<dt><strong>aspect</strong><span class="classifier">scalar</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
 of each facet in inches.</p>
 </dd>
 <dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
-inferred from the dtype of the input variables, but can be used to
-specify when the “categorical” variable is a numeric or when plotting
-wide-form data.</p>
+inferred based on the type of the input variables, but it can be used
+to resolve ambiguitiy when both <cite>x</cite> and <cite>y</cite> are numeric or when
+plotting wide-form data.</p>
 </dd>
 <dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">palette name, list, or dict, optional</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
 </dd>
 <dt><strong>legend</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> and there is a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable, draw a legend on the plot.</p>
 </dd>
-<dt><strong>legend_out</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
+<dt><strong>legend_out</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
 drawn outside the plot on the center right.</p>
 </dd>
 <dt><strong>share{x,y}</strong><span class="classifier">bool, ‘col’, or ‘row’ optional</span></dt><dd><p>If true, the facets will share y axes across columns and/or x axes
 across rows.</p>
 </dd>
-<dt><strong>margin_titles</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the titles for the row variable are drawn to the right of
+<dt><strong>margin_titles</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the titles for the row variable are drawn to the right of
 the last column. This option is experimental and may not work in all
 cases.</p>
 </dd>
@@ -238,7 +241,7 @@ tweaking.</p>
 <p class="rubric">Examples</p>
 <p>Draw a single facet to use the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> legend placement:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exercise</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;exercise&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">exercise</span><span class="p">)</span>
 </pre></div>
@@ -273,7 +276,7 @@ tweaking.</p>
 </div>
 <p>Make many column facets and wrap them into the rows of the grid:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="o">.</span><span class="n">deck</span><span class="o">.</span><span class="n">notnull</span><span class="p">()],</span>
 <span class="gp">... </span>                <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>

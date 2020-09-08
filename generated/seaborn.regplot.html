@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.regplot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.regplot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.regplot<a class="headerlink" href="#seaborn-regplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.regplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">regplot</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">data=None</em>, <em class="sig-param">x_estimator=None</em>, <em class="sig-param">x_bins=None</em>, <em class="sig-param">x_ci='ci'</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">fit_reg=True</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=1</em>, <em class="sig-param">logistic=False</em>, <em class="sig-param">lowess=False</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">logx=False</em>, <em class="sig-param">x_partial=None</em>, <em class="sig-param">y_partial=None</em>, <em class="sig-param">truncate=True</em>, <em class="sig-param">dropna=True</em>, <em class="sig-param">x_jitter=None</em>, <em class="sig-param">y_jitter=None</em>, <em class="sig-param">label=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">marker='o'</em>, <em class="sig-param">scatter_kws=None</em>, <em class="sig-param">line_kws=None</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.regplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">regplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">x_estimator=None</em>, <em class="sig-param">x_bins=None</em>, <em class="sig-param">x_ci='ci'</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">fit_reg=True</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">order=1</em>, <em class="sig-param">logistic=False</em>, <em class="sig-param">lowess=False</em>, <em class="sig-param">robust=False</em>, <em class="sig-param">logx=False</em>, <em class="sig-param">x_partial=None</em>, <em class="sig-param">y_partial=None</em>, <em class="sig-param">truncate=True</em>, <em class="sig-param">dropna=True</em>, <em class="sig-param">x_jitter=None</em>, <em class="sig-param">y_jitter=None</em>, <em class="sig-param">label=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">marker='o'</em>, <em class="sig-param">scatter_kws=None</em>, <em class="sig-param">line_kws=None</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.regplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot data and a linear regression model fit.</p>
 <p>There are a number of mutually exclusive options for estimating the
 regression model. See the <a class="reference internal" href="../tutorial/regression.html#regression-tutorial"><span class="std std-ref">tutorial</span></a> for more
@@ -250,7 +253,7 @@ functions, although these do not directly accept all of <a class="reference inte
 parameters.</p>
 <p class="rubric">Examples</p>
 <p>Plot the relationship between two variables in a DataFrame:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>

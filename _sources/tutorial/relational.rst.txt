@@ -11,7 +11,7 @@ Visualizing statistical relationships
 
 Statistical analysis is a process of understanding how variables in a dataset relate to each other and how those relationships depend on other variables. Visualization can be a core component of this process because, when data are visualized properly, the human visual system can see trends and patterns that indicate a relationship.
 
-We will discuss three seaborn functions in this tutorial. The one we will use most is :func:`relplot`. This is a :ref:`figure-level function <intro_func_types>` for visualizing statistical relationships using two common approaches: scatter plots and line plots. :func:`relplot` combines a :class:`FacetGrid` with one of two axes-level functions:
+We will discuss three seaborn functions in this tutorial. The one we will use most is :func:`relplot`. This is a :doc:`figure-level function <function_overview>` for visualizing statistical relationships using two common approaches: scatter plots and line plots. :func:`relplot` combines a :class:`FacetGrid` with one of two axes-level functions:
 
 - :func:`scatterplot` (with ``kind="scatter"``; the default)
 - :func:`lineplot` (with ``kind="line"``)
@@ -24,7 +24,7 @@ As we will see, these functions can be quite illuminating because they use simpl
     import pandas as pd
     import matplotlib.pyplot as plt
     import seaborn as sns
-    sns.set(style="darkgrid")
+    sns.set_theme(style="darkgrid")
 
 .. _scatterplot_tutorial:
 
@@ -309,7 +309,8 @@ Or you can alter how the colormap is normalized:
     sns.relplot(x="time", y="firing_rate",
                 hue="coherence", style="choice",
                 hue_norm=LogNorm(),
-                kind="line", data=dots);
+                kind="line",
+                data=dots.query("coherence > 0"));
 
 
 

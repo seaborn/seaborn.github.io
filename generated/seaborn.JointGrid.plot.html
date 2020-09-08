@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.JointGrid.plot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.JointGrid.plot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,19 +117,25 @@
 <h1>seaborn.JointGrid.plot<a class="headerlink" href="#seaborn-jointgrid-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="seaborn.JointGrid.plot">
-<code class="sig-prename descclassname">JointGrid.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">joint_func</em>, <em class="sig-param">marginal_func</em>, <em class="sig-param">annot_func=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid.plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut to draw the full plot.</p>
-<p>Use <cite>plot_joint</cite> and <cite>plot_marginals</cite> directly for more control.</p>
+<code class="sig-prename descclassname">JointGrid.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">joint_func</em>, <em class="sig-param">marginal_func</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the plot by passing functions for joint and marginal axes.</p>
+<p>This method passes the <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> dictionary to both functions. If you
+need more control, call <a class="reference internal" href="seaborn.JointGrid.plot_joint.html#seaborn.JointGrid.plot_joint" title="seaborn.JointGrid.plot_joint"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JointGrid.plot_joint()</span></code></a> and
+<a class="reference internal" href="seaborn.JointGrid.plot_marginals.html#seaborn.JointGrid.plot_marginals" title="seaborn.JointGrid.plot_marginals"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JointGrid.plot_marginals()</span></code></a> directly with specific parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>joint_func, marginal_func: callables</strong></dt><dd><p>Functions to draw the bivariate and univariate plots.</p>
+<dt><strong>joint_func, marginal_func: callables</strong></dt><dd><p>Functions to draw the bivariate and univariate plots. See methods
+referenced above for information about the required characteristics
+of these functions.</p>
+</dd>
+<dt><strong>kwargs</strong></dt><dd><p>Additional keyword arguments are passed to both functions.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>self</strong><span class="classifier">JointGrid instance</span></dt><dd><p>Returns <cite>self</cite>.</p>
+<dt><a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> instance</dt><dd><p>Returns <code class="docutils literal notranslate"><span class="pre">self</span></code> for easy method chaining.</p>
 </dd>
 </dl>
 </dd>

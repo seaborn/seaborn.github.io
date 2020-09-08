@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.boxenplot &#8212; seaborn 0.10.1 documentation</title>
+    <title>seaborn.boxenplot &#8212; seaborn 0.11.0 documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.10.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -38,9 +38,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
-          seaborn</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.10.1</b></span>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -66,6 +66,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 </ul>
 </ul>
 </li>
@@ -114,7 +117,7 @@
 <h1>seaborn.boxenplot<a class="headerlink" href="#seaborn-boxenplot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="seaborn.boxenplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">boxenplot</code><span class="sig-paren">(</span><em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">width=0.8</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">k_depth='proportion'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">scale='exponential'</em>, <em class="sig-param">outlier_prop=None</em>, <em class="sig-param">showfliers=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.boxenplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">boxenplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">width=0.8</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">k_depth='tukey'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">scale='exponential'</em>, <em class="sig-param">outlier_prop=0.007</em>, <em class="sig-param">trust_alpha=0.05</em>, <em class="sig-param">showfliers=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.boxenplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw an enhanced box plot for larger datasets.</p>
 <p>This style of plot was originally named a “letter value” plot because it
 shows a large number of quantiles that are defined as “letter values”.  It
@@ -153,13 +156,13 @@ interpreted as wide-form. Otherwise it is expected to be long-form.</p>
 inferred from the data objects.</p>
 </dd>
 <dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
-inferred from the dtype of the input variables, but can be used to
-specify when the “categorical” variable is a numeric or when plotting
-wide-form data.</p>
+inferred based on the type of the input variables, but it can be used
+to resolve ambiguitiy when both <cite>x</cite> and <cite>y</cite> are numeric or when
+plotting wide-form data.</p>
 </dd>
 <dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">palette name, list, or dict, optional</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
 </dd>
@@ -174,29 +177,34 @@ elements for one level of the major grouping variable.</p>
 <dt><strong>dodge</strong><span class="classifier">bool, optional</span></dt><dd><p>When hue nesting is used, whether elements should be shifted along the
 categorical axis.</p>
 </dd>
-<dt><strong>k_depth</strong><span class="classifier">“proportion” | “tukey” | “trustworthy”, optional</span></dt><dd><p>The number of boxes, and by extension number of percentiles, to draw.
+<dt><strong>k_depth</strong><span class="classifier">{“tukey”, “proportion”, “trustworthy”, “full”} or scalar,    optional</span></dt><dd><p>The number of boxes, and by extension number of percentiles, to draw.
 All methods are detailed in Wickham’s paper. Each makes different
 assumptions about the number of outliers and leverages different
-statistical properties.</p>
+statistical properties. If “proportion”, draw no more than
+<cite>outlier_prop</cite> extreme observations. If “full”, draw <cite>log(n)+1</cite> boxes.</p>
 </dd>
 <dt><strong>linewidth</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the gray lines that frame the plot elements.</p>
 </dd>
-<dt><strong>scale</strong><span class="classifier">“linear” | “exponential” | “area”</span></dt><dd><p>Method to use for the width of the letter value boxes. All give similar
+<dt><strong>scale</strong><span class="classifier">{“exponential”, “linear”, “area”}, optional</span></dt><dd><p>Method to use for the width of the letter value boxes. All give similar
 results visually. “linear” reduces the width by a constant linear
 factor, “exponential” uses the proportion of data not covered, “area”
 is proportional to the percentage of data covered.</p>
 </dd>
-<dt><strong>outlier_prop</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion of data believed to be outliers. Used in conjunction with
-k_depth to determine the number of percentiles to draw. Defaults to
-0.007 as a proportion of outliers. Should be in range [0, 1].</p>
+<dt><strong>outlier_prop</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion of data believed to be outliers. Must be in the range
+(0, 1]. Used to determine the number of boxes to plot when
+<cite>k_depth=”proportion”</cite>.</p>
+</dd>
+<dt><strong>trust_alpha</strong><span class="classifier">float, optional</span></dt><dd><p>Confidence level for a box to be plotted. Used to determine the
+number of boxes to plot when <cite>k_depth=”trustworthy”</cite>. Must be in the
+range (0, 1).</p>
 </dd>
 <dt><strong>showfliers</strong><span class="classifier">bool, optional</span></dt><dd><p>If False, suppress the plotting of outliers.</p>
 </dd>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> and
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.2.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> and
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -221,7 +229,7 @@ k_depth to determine the number of percentiles to draw. Defaults to
 <p class="rubric">Examples</p>
 <p>Draw a single horizontal boxen plot:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxenplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">])</span>
 </pre></div>
@@ -269,9 +277,10 @@ k_depth to determine the number of percentiles to draw. Defaults to
 <img alt="../_images/seaborn-boxenplot-6.png" src="../_images/seaborn-boxenplot-6.png" />
 </div>
 <p>Use <a class="reference internal" href="seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">stripplot()</span></code></a> to show the datapoints on top of the boxes:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxenplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxenplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                   <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                   <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="gp">... </span>                   <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.26&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">

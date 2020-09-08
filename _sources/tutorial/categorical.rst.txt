@@ -40,7 +40,7 @@ In this tutorial, we'll mostly focus on the figure-level interface, :func:`catpl
 
     import seaborn as sns
     import matplotlib.pyplot as plt
-    sns.set(style="ticks", color_codes=True)
+    sns.set_theme(style="ticks", color_codes=True)
 
 Categorical scatterplots
 ------------------------
@@ -50,7 +50,7 @@ The default representation of the data in :func:`catplot` uses a scatterplot. Th
 .. code:: ipython3
 
     tips = sns.load_dataset("tips")
-    sns.catplot(x="day", y="total_bill", data=tips);
+    sns.catplot(x="day", y="total_bill", data=tips)
 
 
 
@@ -61,7 +61,7 @@ The ``jitter`` parameter controls the magnitude of jitter or disables it altoget
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", jitter=False, data=tips);
+    sns.catplot(x="day", y="total_bill", jitter=False, data=tips)
 
 
 
@@ -72,7 +72,7 @@ The second approach adjusts the points along the categorical axis using an algor
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", kind="swarm", data=tips);
+    sns.catplot(x="day", y="total_bill", kind="swarm", data=tips)
 
 
 
@@ -83,7 +83,7 @@ Similar to the relational plots, it's possible to add another dimension to a cat
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="sex", kind="swarm", data=tips);
+    sns.catplot(x="day", y="total_bill", hue="sex", kind="swarm", data=tips)
 
 
 
@@ -94,8 +94,7 @@ Unlike with numerical data, it is not always obvious how to order the levels of 
 
 .. code:: ipython3
 
-    sns.catplot(x="size", y="total_bill", kind="swarm",
-                data=tips.query("size != 3"));
+    sns.catplot(x="size", y="total_bill", data=tips)
 
 
 
@@ -106,7 +105,7 @@ The other option for choosing a default ordering is to take the levels of the ca
 
 .. code:: ipython3
 
-    sns.catplot(x="smoker", y="tip", order=["No", "Yes"], data=tips);
+    sns.catplot(x="smoker", y="tip", order=["No", "Yes"], data=tips)
 
 
 
@@ -117,7 +116,7 @@ We've referred to the idea of "categorical axis". In these examples, that's alwa
 
 .. code:: ipython3
 
-    sns.catplot(x="total_bill", y="day", hue="time", kind="swarm", data=tips);
+    sns.catplot(x="total_bill", y="day", hue="time", kind="swarm", data=tips)
 
 
 
@@ -136,7 +135,7 @@ The first is the familiar :func:`boxplot`. This kind of plot shows the three qua
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", kind="box", data=tips);
+    sns.catplot(x="day", y="total_bill", kind="box", data=tips)
 
 
 
@@ -147,7 +146,7 @@ When adding a ``hue`` semantic, the box for each level of the semantic variable 
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="smoker", kind="box", data=tips);
+    sns.catplot(x="day", y="total_bill", hue="smoker", kind="box", data=tips)
 
 
 
@@ -160,7 +159,7 @@ This behavior is called "dodging" and is turned on by default because it is assu
 
     tips["weekend"] = tips["day"].isin(["Sat", "Sun"])
     sns.catplot(x="day", y="total_bill", hue="weekend",
-                kind="box", dodge=False, data=tips);
+                kind="box", dodge=False, data=tips)
 
 
 
@@ -173,7 +172,7 @@ A related function, :func:`boxenplot`, draws a plot that is similar to a box plo
 
     diamonds = sns.load_dataset("diamonds")
     sns.catplot(x="color", y="price", kind="boxen",
-                data=diamonds.sort_values("color"));
+                data=diamonds.sort_values("color"))
 
 
 
@@ -188,7 +187,7 @@ A different approach is a :func:`violinplot`, which combines a boxplot with the 
 .. code:: ipython3
 
     sns.catplot(x="total_bill", y="day", hue="sex",
-                kind="violin", data=tips);
+                kind="violin", data=tips)
 
 
 
@@ -201,7 +200,7 @@ This approach uses the kernel density estimate to provide a richer description o
 
     sns.catplot(x="total_bill", y="day", hue="sex",
                 kind="violin", bw=.15, cut=0,
-                data=tips);
+                data=tips)
 
 
 
@@ -213,7 +212,7 @@ It's also possible to "split" the violins when the hue parameter has only two le
 .. code:: ipython3
 
     sns.catplot(x="day", y="total_bill", hue="sex",
-                kind="violin", split=True, data=tips);
+                kind="violin", split=True, data=tips)
 
 
 
@@ -226,7 +225,7 @@ Finally, there are several options for the plot that is drawn on the interior of
 
     sns.catplot(x="day", y="total_bill", hue="sex",
                 kind="violin", inner="stick", split=True,
-                palette="pastel", data=tips);
+                palette="pastel", data=tips)
 
 
 
@@ -238,7 +237,7 @@ It can also be useful to combine :func:`swarmplot` or :func:`striplot` with a bo
 .. code:: ipython3
 
     g = sns.catplot(x="day", y="total_bill", kind="violin", inner=None, data=tips)
-    sns.swarmplot(x="day", y="total_bill", color="k", size=3, data=tips, ax=g.ax);
+    sns.swarmplot(x="day", y="total_bill", color="k", size=3, data=tips, ax=g.ax)
 
 
 
@@ -258,7 +257,7 @@ A familiar style of plot that accomplishes this goal is a bar plot. In seaborn, 
 .. code:: ipython3
 
     titanic = sns.load_dataset("titanic")
-    sns.catplot(x="sex", y="survived", hue="class", kind="bar", data=titanic);
+    sns.catplot(x="sex", y="survived", hue="class", kind="bar", data=titanic)
 
 
 
@@ -269,7 +268,7 @@ A special case for the bar plot is when you want to show the number of observati
 
 .. code:: ipython3
 
-    sns.catplot(x="deck", kind="count", palette="ch:.25", data=titanic);
+    sns.catplot(x="deck", kind="count", palette="ch:.25", data=titanic)
 
 
 
@@ -282,7 +281,7 @@ Both :func:`barplot` and :func:`countplot` can be invoked with all of the option
 
     sns.catplot(y="deck", hue="class", kind="count",
                 palette="pastel", edgecolor=".6",
-                data=titanic);
+                data=titanic)
 
 
 
@@ -296,7 +295,7 @@ An alternative style for visualizing the same information is offered by the :fun
 
 .. code:: ipython3
 
-    sns.catplot(x="sex", y="survived", hue="class", kind="point", data=titanic);
+    sns.catplot(x="sex", y="survived", hue="class", kind="point", data=titanic)
 
 
 
@@ -310,7 +309,7 @@ While the categorical functions lack the ``style`` semantic of the relational fu
     sns.catplot(x="class", y="survived", hue="sex",
                 palette={"male": "g", "female": "m"},
                 markers=["^", "o"], linestyles=["-", "--"],
-                kind="point", data=titanic);
+                kind="point", data=titanic)
 
 
 
@@ -325,7 +324,7 @@ While using "long-form" or "tidy" data is preferred, these functions can also by
 .. code:: ipython3
 
     iris = sns.load_dataset("iris")
-    sns.catplot(data=iris, orient="h", kind="box");
+    sns.catplot(data=iris, orient="h", kind="box")
 
 
 
@@ -336,7 +335,7 @@ Additionally, the axes-level functions accept vectors of Pandas or numpy objects
 
 .. code:: ipython3
 
-    sns.violinplot(x=iris.species, y=iris.sepal_length);
+    sns.violinplot(x=iris.species, y=iris.sepal_length)
 
 
 
@@ -348,7 +347,7 @@ To control the size and shape of plots made by the functions discussed above, yo
 .. code:: ipython3
 
     f, ax = plt.subplots(figsize=(7, 3))
-    sns.countplot(y="deck", data=titanic, color="c");
+    sns.countplot(y="deck", data=titanic, color="c")
 
 
 
@@ -365,8 +364,8 @@ Just like :func:`relplot`, the fact that :func:`catplot` is built on a :class:`F
 .. code:: ipython3
 
     sns.catplot(x="day", y="total_bill", hue="smoker",
-                col="time", aspect=.6,
-                kind="swarm", data=tips);
+                col="time", aspect=.7,
+                kind="swarm", data=tips)
 
 
 
@@ -380,7 +379,7 @@ For further customization of the plot, you can use the methods on the :class:`Fa
     g = sns.catplot(x="fare", y="survived", row="class",
                     kind="box", orient="h", height=1.5, aspect=4,
                     data=titanic.query("fare > 0"))
-    g.set(xscale="log");
+    g.set(xscale="log")
 
 
 
