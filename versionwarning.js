@@ -1,5 +1,5 @@
 (function() {
-    const regex = /\d\.\d+/;
+    const regex = /archive\/\d\.\d+/;
     
     var showWarning = (msg) => {
         $('.content').prepend(
