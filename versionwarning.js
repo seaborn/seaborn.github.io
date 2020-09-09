@@ -18,7 +18,6 @@
             '</a>' +
             '</p>')
     };
-    var versionPath = location.pathname.split('/')[1];
-    if (versionPath.match(regex)) { showWarning() }
+    if (location.pathname.match(regex)) { showWarning() }
 })()
 
