@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Data structures accepted by seaborn &#8212; seaborn 0.11.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data structures accepted by seaborn &#8212; seaborn 0.11.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.0" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico?v=0.11.0"/>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Visualizing statistical relationships" href="relational.html" />
@@ -26,6 +23,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -69,6 +70,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
 </ul>
 </ul>
 </li>
@@ -121,7 +123,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="data-structures-accepted-by-seaborn">
 <span id="data-tutorial"></span><h1>Data structures accepted by seaborn<a class="headerlink" href="#data-structures-accepted-by-seaborn" title="Permalink to this headline">¶</a></h1>
@@ -367,7 +369,7 @@
 </pre></div>
 </div>
 <img alt="../_images/data_structure_17_0.png" src="../_images/data_structure_17_0.png" />
-<p>When using pandas to represent wide-form data, you are limited to just a few variables (no more than three). This is because seaborn does not make use of multi-index information, which is how pandas represents additional variables in a tabular format. The <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> project offers labeled N-dimensional array objects, which can be considered a generalization of wide-form data to higher dimensions. At present, seaborn does not directly support objects from <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, but they can be transformed into a long-form <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method and then plotted in seaborn like any other long-form data set.</p>
+<p>When using pandas to represent wide-form data, you are limited to just a few variables (no more than three). This is because seaborn does not make use of multi-index information, which is how pandas represents additional variables in a tabular format. The <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> project offers labeled N-dimensional array objects, which can be considered a generalization of wide-form data to higher dimensions. At present, seaborn does not directly support objects from <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, but they can be transformed into a long-form <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method and then plotted in seaborn like any other long-form data set.</p>
 <p>In summary, we can think of long-form and wide-form datasets as looking something like this:</p>
 <img alt="../_images/data_structure_19_0.png" src="../_images/data_structure_19_0.png" />
 </div>
@@ -567,7 +569,7 @@
   </tbody>
 </table>
 </div><p>The attention variable is <em>between-subjects</em>, but there is also a <em>within-subjects</em> variable: the number of possible solutions to the anagrams, which varied from 1 to 3. The dependent measure is a score of memory performance. These two variables (number and score) are jointly encoded across several columns. As a result, the whole dataset is neither clearly long-form nor clearly wide-form.</p>
-<p>How might we tell seaborn to plot the average score as a function of attention and number of solutions? We’d first need to coerce the data into one of our two structures. Let’s transform it to a tidy long-form table, such that each variable is a column and each row is an observation. We can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="(in pandas v1.1.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.melt()</span></code></a> to accomplish this task:</p>
+<p>How might we tell seaborn to plot the average score as a function of attention and number of solutions? We’d first need to coerce the data into one of our two structures. Let’s transform it to a tidy long-form table, such that each variable is a column and each row is an observation. We can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="(in pandas v1.1.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.melt()</span></code></a> to accomplish this task:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anagrams_long</span> <span class="o">=</span> <span class="n">anagrams</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subidr&quot;</span><span class="p">,</span> <span class="s2">&quot;attnr&quot;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;solutions&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
 <span class="n">anagrams_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -648,7 +650,7 @@
 </div>
 <div class="section" id="options-for-visualizing-long-form-data">
 <h2>Options for visualizing long-form data<a class="headerlink" href="#options-for-visualizing-long-form-data" title="Permalink to this headline">¶</a></h2>
-<p>While long-form data has a precise definition, seaborn is fairly flexible in terms of how it is actually organized across the data structures in memory. The examples in the rest of the documentation will typically use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects and reference variables in them by assigning names of their columns to the variables in the plot. But it is also possible to store vectors in a Python dictionary or a class that implements that interface:</p>
+<p>While long-form data has a precise definition, seaborn is fairly flexible in terms of how it is actually organized across the data structures in memory. The examples in the rest of the documentation will typically use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects and reference variables in them by assigning names of their columns to the variables in the plot. But it is also possible to store vectors in a Python dictionary or a class that implements that interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_dict</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_dict</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
@@ -676,7 +678,7 @@
 <div class="section" id="options-for-visualizing-wide-form-data">
 <h2>Options for visualizing wide-form data<a class="headerlink" href="#options-for-visualizing-wide-form-data" title="Permalink to this headline">¶</a></h2>
 <p>The options for passing wide-form data are even more flexible. As with long-form data, pandas objects are preferable because the name (and, in some cases, index) information can be used. But in essence, any format that can be viewed as a single vector or a collection of vectors can be passed to <code class="docutils literal notranslate"><span class="pre">data</span></code>, and a valid plot can usually be constructed.</p>
-<p>The example we saw above used a rectangular <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, which can be thought of as a collection of its columns. A dict or list of pandas objects will also work, but we’ll lose the axis labels:</p>
+<p>The example we saw above used a rectangular <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, which can be thought of as a collection of its columns. A dict or list of pandas objects will also work, but we’ll lose the axis labels:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">flights_wide</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide_list</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
@@ -725,7 +727,7 @@
     </p>
     <p>
     &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
 </footer>

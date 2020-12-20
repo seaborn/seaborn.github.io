@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Visualizing distributions of data &#8212; seaborn 0.11.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizing distributions of data &#8212; seaborn 0.11.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.0" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico?v=0.11.0"/>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Plotting with categorical data" href="categorical.html" />
@@ -26,6 +23,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -69,6 +70,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
 </ul>
 </ul>
 </li>
@@ -131,12 +133,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="visualizing-distributions-of-data">
 <span id="distribution-tutorial"></span><h1>Visualizing distributions of data<a class="headerlink" href="#visualizing-distributions-of-data" title="Permalink to this headline">¶</a></h1>
 <div class=col-md-9><p>An early step in any effort to analyze or model data should be to understand how the variables are distributed. Techniques for distribution visualization can provide quick answers to many important questions. What range do the observations cover? What is their central tendency? Are they heavily skewed in one direction? Is there evidence for bimodality? Are there significant outliers? Do the answers to these questions vary across subsets defined by other variables?</p>
-<p>The <a class="reference internal" href="../api.html#distribution-api"><span class="std std-ref">distributions module</span></a> contains several functions designed to answer questions such as these. The axes-level functions are <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ecdfplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a>. They are grouped together within the figure-level <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, :func`jointplot`, and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> functions.</p>
+<p>The <a class="reference internal" href="../api.html#distribution-api"><span class="std std-ref">distributions module</span></a> contains several functions designed to answer questions such as these. The axes-level functions are <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ecdfplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a>. They are grouped together within the figure-level <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> functions.</p>
 <p>There are several different approaches to visualizing a distribution, and each has its relative advantages and drawbacks. It is important to understand theses factors so that you can choose the best approach for your particular aim.</p>
 <div class="section" id="plotting-univariate-histograms">
 <span id="tutorial-hist"></span><h2>Plotting univariate histograms<a class="headerlink" href="#plotting-univariate-histograms" title="Permalink to this headline">¶</a></h2>
@@ -149,7 +151,7 @@
 <p>This plot immediately affords a few insights about the <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code> variable. For instance, we can see that the most common flipper length is about 195 mm, but the distribution appears bimodal, so this one number does not represent the data well.</p>
 <div class="section" id="choosing-the-bin-size">
 <h3>Choosing the bin size<a class="headerlink" href="#choosing-the-bin-size" title="Permalink to this headline">¶</a></h3>
-<p>The size of the bins is an important parameter, and using the wrong bin size can mislead by obscuring important features of the data or by creating apparent features out of random variability. By default, <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>/<a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> choose a default bin size based on the variance of the data and the number of observations. But you should not be over-reliant on such automatic approaches, because they depend on particular assumptions about the structure of your data. It is always advisable to check that your impressions of the distribution are consistent across different bin sizes. To choose the size directly, set the <cite>binwidth</cite> parameter:</p>
+<p>The size of the bins is an important parameter, and using the wrong bin size can mislead by obscuring important features of the data or by creating apparent features out of random variability. By default, <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>/<a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> choose a default bin size based on the variance of the data and the number of observations. But you should not be over-reliant on such automatic approaches, because they depend on particular assumptions about the structure of your data. It is always advisable to check that your impressions of the distribution are consistent across different bin sizes. To choose the size directly, set the <code class="docutils literal notranslate"><span class="pre">binwidth</span></code> parameter:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -183,7 +185,7 @@
 </div>
 <div class="section" id="conditioning-on-other-variables">
 <h3>Conditioning on other variables<a class="headerlink" href="#conditioning-on-other-variables" title="Permalink to this headline">¶</a></h3>
-<p>Once you understand the distribution of a variable, the next step is often to ask whether features of that distribution differ across other variables in the dataset. For example, what accounts for the bimodal distribution of flipper lengths that we saw above? <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> provide support for conditional subsetting via the <code class="docutils literal notranslate"><span class="pre">hue``semantic.</span> <span class="pre">Assigning</span> <span class="pre">a</span> <span class="pre">variable</span> <span class="pre">to</span> <span class="pre">``hue</span></code> will draw a separate histogram for each of its unique values and distinguish them by color:</p>
+<p>Once you understand the distribution of a variable, the next step is often to ask whether features of that distribution differ across other variables in the dataset. For example, what accounts for the bimodal distribution of flipper lengths that we saw above? <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> provide support for conditional subsetting via the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic. Assigning a variable to <code class="docutils literal notranslate"><span class="pre">hue</span></code> will draw a separate histogram for each of its unique values and distinguish them by color:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -440,7 +442,7 @@
     </p>
     <p>
     &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
 </footer>

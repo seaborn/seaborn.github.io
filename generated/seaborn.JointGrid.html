@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.JointGrid &#8212; seaborn 0.11.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.JointGrid &#8212; seaborn 0.11.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.0" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico?v=0.11.0"/>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.JointGrid.plot" href="seaborn.JointGrid.plot.html" />
@@ -26,6 +23,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,27 +112,27 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="body col-md-12 content" role="main">
       
   </div>
 <div class=col-md-9 content><div class="section" id="seaborn-jointgrid">
 <h1>seaborn.JointGrid<a class="headerlink" href="#seaborn-jointgrid" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="seaborn.JointGrid">
-<em class="property">class </em><code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">JointGrid</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">height=6</em>, <em class="sig-param">ratio=5</em>, <em class="sig-param">space=0.2</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">xlim=None</em>, <em class="sig-param">ylim=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">marginal_ticks=False</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">hue_norm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">JointGrid</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Grid for drawing a bivariate plot with marginal univariate plots.</p>
 <p>Many plots can be drawn by using the figure-level interface <a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>.
 Use this class directly when you need more flexibility.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="seaborn.JointGrid.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">height=6</em>, <em class="sig-param">ratio=5</em>, <em class="sig-param">space=0.2</em>, <em class="sig-param">dropna=False</em>, <em class="sig-param">xlim=None</em>, <em class="sig-param">ylim=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">marginal_ticks=False</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">hue_norm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">ratio</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">space</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">dropna</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">xlim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ylim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">marginal_ticks</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hue</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_norm</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.JointGrid.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the grid of subplots and store data internally for easy plotting.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
 <dt><strong>x, y</strong><span class="classifier">vectors or keys in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Variables that specify positions on the x and y axes.</p>
 </dd>
-<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
 assigned to named variables or a wide-form dataset that will be internally
 reshaped.</p>
 </dd>
@@ -151,14 +152,14 @@ reshaped.</p>
 Note: unlike in <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> or <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>, the axes-level
 functions must support <code class="docutils literal notranslate"><span class="pre">hue</span></code> to use it in <a class="reference internal" href="#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
 String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
 imply categorical mapping, while a colormap object implies numeric mapping.</p>
 </dd>
 <dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
 or an object that will map from data units into a [0, 1] interval. Usage
 implies numeric mapping.</p>
 </dd>
@@ -207,7 +208,7 @@ implies numeric mapping.</p>
 </pre></div>
 </div>
 <img alt="../_images/JointGrid_9_0.png" src="../_images/JointGrid_9_0.png" />
-<p>You can then plot by accessing the <code class="docutils literal notranslate"><span class="pre">ax_joint</span></code>, <code class="docutils literal notranslate"><span class="pre">ax_marg_x</span></code>, and <code class="docutils literal notranslate"><span class="pre">ax_marg_y</span></code> attributes, which are <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects:</p>
+<p>You can then plot by accessing the <code class="docutils literal notranslate"><span class="pre">ax_joint</span></code>, <code class="docutils literal notranslate"><span class="pre">ax_marg_x</span></code>, and <code class="docutils literal notranslate"><span class="pre">ax_marg_y</span></code> attributes, which are <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">()</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">],</span> <span class="n">penguins</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="p">)</span>
@@ -292,7 +293,7 @@ implies numeric mapping.</p>
     </p>
     <p>
     &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
 </footer>

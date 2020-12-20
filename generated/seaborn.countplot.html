@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>seaborn.countplot &#8212; seaborn 0.11.0 documentation</title>
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.countplot &#8212; seaborn 0.11.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.0" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico?v=0.11.0"/>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.lmplot" href="seaborn.lmplot.html" />
@@ -26,6 +23,10 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -40,7 +41,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -111,14 +112,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="body col-md-12 content" role="main">
       
   </div>
 <div class=col-md-9 content><div class="section" id="seaborn-countplot">
 <h1>seaborn.countplot<a class="headerlink" href="#seaborn-countplot" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="seaborn.countplot">
-<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">countplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.countplot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">countplot</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">orient</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">saturation</span><span class="o">=</span><span class="default_value">0.75</span></em>, <em class="sig-param"><span class="n">dodge</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.countplot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the counts of observations in each categorical bin using bars.</p>
 <p>A count plot can be thought of as a histogram across a categorical, instead
 of quantitative, variable. The basic API and options are identical to those
@@ -153,7 +154,7 @@ inferred from the data objects.</p>
 </dd>
 <dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
 inferred based on the type of the input variables, but it can be used
-to resolve ambiguitiy when both <cite>x</cite> and <cite>y</cite> are numeric or when
+to resolve ambiguitiy when both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numeric or when
 plotting wide-form data.</p>
 </dd>
 <dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
@@ -173,7 +174,7 @@ categorical axis.</p>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.3.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -225,7 +226,7 @@ categorical axis.</p>
 <div class="figure align-default">
 <img alt="../_images/seaborn-countplot-4.png" src="../_images/seaborn-countplot-4.png" />
 </div>
-<p>Use <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.3.1)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a> parameters to control the style.</p>
+<p>Use <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.3.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a> parameters to control the style.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;who&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">titanic</span><span class="p">,</span>
 <span class="gp">... </span>                   <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span class="gp">... </span>                   <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -267,7 +268,7 @@ directly, as it ensures synchronization of variable order across facets:</p>
     </p>
     <p>
     &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
 </footer>
