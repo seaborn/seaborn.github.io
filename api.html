@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API reference &#8212; seaborn 0.11.1 documentation</title>
+    <title>API reference &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="index.html"><span><img src="_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -270,12 +271,6 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p></td>
 <td><p>Multi-plot grid for plotting conditional relationships.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FacetGrid.map</span></code></a></p></td>
-<td><p>Apply a plotting function to each facet’s subset of the data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FacetGrid.map_dataframe</span></code></a></p></td>
-<td><p>Like <code class="docutils literal notranslate"><span class="pre">.map</span></code> but passes args as strings and inserts data in kwargs.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -292,21 +287,6 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid</span></code></a></p></td>
 <td><p>Subplot grid for plotting pairwise relationships in a dataset.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.map.html#seaborn.PairGrid.map" title="seaborn.PairGrid.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid.map</span></code></a></p></td>
-<td><p>Plot with the same function in every subplot.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.map_diag.html#seaborn.PairGrid.map_diag" title="seaborn.PairGrid.map_diag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid.map_diag</span></code></a></p></td>
-<td><p>Plot with a univariate function on each diagonal subplot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.map_offdiag.html#seaborn.PairGrid.map_offdiag" title="seaborn.PairGrid.map_offdiag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid.map_offdiag</span></code></a></p></td>
-<td><p>Plot with a bivariate function on the off-diagonal subplots.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.map_lower.html#seaborn.PairGrid.map_lower" title="seaborn.PairGrid.map_lower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid.map_lower</span></code></a></p></td>
-<td><p>Plot with a bivariate function on the lower diagonal subplots.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.PairGrid.map_upper.html#seaborn.PairGrid.map_upper" title="seaborn.PairGrid.map_upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid.map_upper</span></code></a></p></td>
-<td><p>Plot with a bivariate function on the upper diagonal subplots.</p></td>
 </tr>
 </tbody>
 </table>
@@ -325,15 +305,6 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid</span></code></a></p></td>
 <td><p>Grid for drawing a bivariate plot with marginal univariate plots.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.JointGrid.plot.html#seaborn.JointGrid.plot" title="seaborn.JointGrid.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid.plot</span></code></a></p></td>
-<td><p>Draw the plot by passing functions for joint and marginal axes.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.JointGrid.plot_joint.html#seaborn.JointGrid.plot_joint" title="seaborn.JointGrid.plot_joint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid.plot_joint</span></code></a></p></td>
-<td><p>Draw a bivariate plot on the joint axes of the grid.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.JointGrid.plot_marginals.html#seaborn.JointGrid.plot_marginals" title="seaborn.JointGrid.plot_marginals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointGrid.plot_marginals</span></code></a></p></td>
-<td><p>Draw univariate plots on each marginal axes.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -347,19 +318,19 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_theme</span></code></a></p></td>
-<td><p>Set multiple theme parameters in one step.</p></td>
+<td><p>Set aspects of the visual theme for all matplotlib and seaborn plots.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes_style</span></code></a></p></td>
-<td><p>Return a parameter dict for the aesthetic style of the plots.</p></td>
+<td><p>Get the parameters that control the general style of the plots.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_style</span></code></a></p></td>
-<td><p>Set the aesthetic style of the plots.</p></td>
+<td><p>Set the parameters that control the general style of the plots.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting_context</span></code></a></p></td>
-<td><p>Return a parameter dict to scale elements of the figure.</p></td>
+<td><p>Get the parameters that control the scaling of plot elements.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_context</span></code></a></p></td>
-<td><p>Set the plotting context parameters.</p></td>
+<td><p>Set the parameters that control the scaling of plot elements.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_color_codes</span></code></a></p></td>
 <td><p>Change how matplotlib color shorthands are interpreted.</p></td>
@@ -457,26 +428,29 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_dataset</span></code></a></p></td>
-<td><p>Load an example dataset from the online repository (requires internet).</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.get_dataset_names.html#seaborn.get_dataset_names" title="seaborn.get_dataset_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_names</span></code></a></p></td>
-<td><p>Report available example datasets, useful for reporting issues.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.get_data_home.html#seaborn.get_data_home" title="seaborn.get_data_home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data_home</span></code></a></p></td>
-<td><p>Return a path to the cache directory for example datasets.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">despine</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">despine</span></code></a></p></td>
 <td><p>Remove the top and right spines from plot(s).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.desaturate.html#seaborn.desaturate" title="seaborn.desaturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">desaturate</span></code></a></p></td>
-<td><p>Decrease the saturation channel of a color by some percent.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.move_legend.html#seaborn.move_legend" title="seaborn.move_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">move_legend</span></code></a></p></td>
+<td><p>Recreate a plot’s legend at a new location.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.saturate.html#seaborn.saturate" title="seaborn.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">saturate</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.saturate.html#seaborn.saturate" title="seaborn.saturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">saturate</span></code></a></p></td>
 <td><p>Return a fully saturated color with the same hue.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.desaturate.html#seaborn.desaturate" title="seaborn.desaturate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">desaturate</span></code></a></p></td>
+<td><p>Decrease the saturation channel of a color by some percent.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.set_hls_values.html#seaborn.set_hls_values" title="seaborn.set_hls_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hls_values</span></code></a></p></td>
 <td><p>Independently manipulate the h, l, or s channels of a color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_dataset</span></code></a></p></td>
+<td><p>Load an example dataset from the online repository (requires internet).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.get_dataset_names.html#seaborn.get_dataset_names" title="seaborn.get_dataset_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataset_names</span></code></a></p></td>
+<td><p>Report available example datasets, useful for reporting issues.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.get_data_home.html#seaborn.get_data_home" title="seaborn.get_data_home"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data_home</span></code></a></p></td>
+<td><p>Return a path to the cache directory for example datasets.</p></td>
 </tr>
 </tbody>
 </table>
@@ -498,7 +472,7 @@
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

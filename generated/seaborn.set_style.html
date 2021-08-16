@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.set_style &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.set_style &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -120,13 +121,17 @@
 <dl class="py function">
 <dt id="seaborn.set_style">
 <code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">set_style</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">style</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rc</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.set_style" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the aesthetic style of the plots.</p>
-<p>This affects things like the color of the axes, whether a grid is
-enabled by default, and other aesthetic elements.</p>
+<dd><p>Set the parameters that control the general style of the plots.</p>
+<p>The style parameters control properties like the color of the background and
+whether a grid is enabled by default. This is accomplished using the
+<a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html#matplotlib-rcparams" title="(in Matplotlib v3.4.3)"><span class="xref std std-ref">matplotlib rcParams system</span></a>.</p>
+<p>The options are illustrated in the
+<a class="reference internal" href="../tutorial/aesthetics.html"><span class="doc">aesthetics tutorial</span></a>.</p>
+<p>See <a class="reference internal" href="seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-func docutils literal notranslate"><span class="pre">axes_style()</span></code></a> to get the parameter values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>style</strong><span class="classifier">dict, None, or one of {darkgrid, whitegrid, dark, white, ticks}</span></dt><dd><p>A dictionary of parameters or the name of a preconfigured set.</p>
+<dt><strong>style</strong><span class="classifier">dict, or one of {darkgrid, whitegrid, dark, white, ticks}</span></dt><dd><p>A dictionary of parameters or the name of a preconfigured style.</p>
 </dd>
 <dt><strong>rc</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameter mappings to override the values in the preset seaborn
 style dictionaries. This only updates parameters that are
@@ -135,24 +140,20 @@ considered part of the style definition.</p>
 </dl>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="seaborn.axes_style.html#seaborn.axes_style" title="seaborn.axes_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes_style</span></code></a></dt><dd><p>return a dict of parameters or use in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement to temporarily set the style.</p>
-</dd>
-<dt><a class="reference internal" href="seaborn.set_context.html#seaborn.set_context" title="seaborn.set_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_context</span></code></a></dt><dd><p>set parameters to scale plot elements</p>
-</dd>
-<dt><a class="reference internal" href="seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_palette</span></code></a></dt><dd><p>set the default color palette for figures</p>
-</dd>
-</dl>
-</div>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<p>Call the function with the name of a seaborn style to set the default
+for all plots:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;xtick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;ytick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<img alt="../_images/set_style_1_0.png" src="../_images/set_style_1_0.png" />
+<p>You can also selectively override seaborn’s default parameter values:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;grid.color&quot;</span><span class="p">:</span> <span class="s2">&quot;.6&quot;</span><span class="p">,</span> <span class="s2">&quot;grid.linestyle&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
+<img alt="../_images/set_style_3_0.png" src="../_images/set_style_3_0.png" />
 </dd></dl>
 
 </div>
@@ -172,7 +173,7 @@ considered part of the style definition.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

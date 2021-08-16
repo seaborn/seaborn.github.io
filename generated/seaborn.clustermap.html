@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.clustermap &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.clustermap &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -130,11 +131,11 @@
 pivot to create a rectangular dataframe.</p>
 </dd>
 <dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Linkage method to use for calculating clusters. See
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.5.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> documentation for more
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> documentation for more
 information.</p>
 </dd>
 <dt><strong>metric</strong><span class="classifier">str, optional</span></dt><dd><p>Distance metric to use for the data. See
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" title="(in SciPy v1.5.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist()</span></code></a> documentation for more options.
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist()</span></code></a> documentation for more options.
 To use different metrics (or methods) for rows and columns, you may
 construct each linkage matrix yourself and provide them as
 <code class="docutils literal notranslate"><span class="pre">{row,col}_linkage</span></code>.</p>
@@ -156,13 +157,13 @@ add a label to the colorbar.</p>
 </dd>
 <dt><strong>{row,col}_cluster</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, cluster the {rows, columns}.</p>
 </dd>
-<dt><strong>{row,col}_linkage</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, optional</span></dt><dd><p>Precomputed linkage matrix for the rows or columns. See
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.5.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> for specific formats.</p>
+<dt><strong>{row,col}_linkage</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, optional</span></dt><dd><p>Precomputed linkage matrix for the rows or columns. See
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> for specific formats.</p>
 </dd>
 <dt><strong>{row,col}_colors</strong><span class="classifier">list-like or pandas DataFrame/Series, optional</span></dt><dd><p>List of colors to label for either the rows or columns. Useful to evaluate
 whether samples within a group are clustered together. Can use nested lists or
 DataFrame for multiple color levels of labeling. If given as a
-<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, labels for the colors are
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, labels for the colors are
 extracted from the DataFrames column names or from the name of the Series.
 DataFrame/Series colors are also matched to the data by their index, ensuring
 colors are drawn in the correct order.</p>
@@ -177,7 +178,7 @@ a pair is given, they correspond to (row, col) ratios.</p>
 <dt><strong>cbar_pos</strong><span class="classifier">tuple of (left, bottom, width, height), optional</span></dt><dd><p>Position of the colorbar axes in the figure. Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will
 disable the colorbar.</p>
 </dd>
-<dt><strong>tree_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameters for the <a class="reference external" href="https://matplotlib.org/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a>
+<dt><strong>tree_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameters for the <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a>
 that is used to plot the lines of the dendrogram tree.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>.</p>
@@ -214,7 +215,7 @@ want to save the figure object without clipping the dendrograms.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-1.png" src="../_images/seaborn-clustermap-1.png" />
+<img alt="../_images/seaborn-clustermap-1.png" class="plot-directive" src="../_images/seaborn-clustermap-1.png" />
 </div>
 <p>Change the size and layout of the figure:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
@@ -225,7 +226,7 @@ want to save the figure object without clipping the dendrograms.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-2.png" src="../_images/seaborn-clustermap-2.png" />
+<img alt="../_images/seaborn-clustermap-2.png" class="plot-directive" src="../_images/seaborn-clustermap-2.png" />
 </div>
 <p>Add colored labels to identify observations:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lut</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s2">&quot;rbg&quot;</span><span class="p">))</span>
@@ -234,42 +235,42 @@ want to save the figure object without clipping the dendrograms.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-3.png" src="../_images/seaborn-clustermap-3.png" />
+<img alt="../_images/seaborn-clustermap-3.png" class="plot-directive" src="../_images/seaborn-clustermap-3.png" />
 </div>
 <p>Use a different colormap and adjust the limits of the color range:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;mako&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-4.png" src="../_images/seaborn-clustermap-4.png" />
+<img alt="../_images/seaborn-clustermap-4.png" class="plot-directive" src="../_images/seaborn-clustermap-4.png" />
 </div>
 <p>Use a different similarity metric:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;correlation&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-5.png" src="../_images/seaborn-clustermap-5.png" />
+<img alt="../_images/seaborn-clustermap-5.png" class="plot-directive" src="../_images/seaborn-clustermap-5.png" />
 </div>
 <p>Use a different clustering method:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-6.png" src="../_images/seaborn-clustermap-6.png" />
+<img alt="../_images/seaborn-clustermap-6.png" class="plot-directive" src="../_images/seaborn-clustermap-6.png" />
 </div>
 <p>Standardize the data within the columns:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">standard_scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-7.png" src="../_images/seaborn-clustermap-7.png" />
+<img alt="../_images/seaborn-clustermap-7.png" class="plot-directive" src="../_images/seaborn-clustermap-7.png" />
 </div>
 <p>Normalize the data within the rows:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">z_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;vlag&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-clustermap-8.png" src="../_images/seaborn-clustermap-8.png" />
+<img alt="../_images/seaborn-clustermap-8.png" class="plot-directive" src="../_images/seaborn-clustermap-8.png" />
 </div>
 </dd></dl>
 
@@ -290,7 +291,7 @@ want to save the figure object without clipping the dendrograms.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

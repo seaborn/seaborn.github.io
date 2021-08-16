@@ -139,7 +139,7 @@ With some datasets, you may want to understand changes in one variable as a func
     df = pd.DataFrame(dict(time=np.arange(500),
                            value=np.random.randn(500).cumsum()))
     g = sns.relplot(x="time", y="value", kind="line", data=df)
-    g.fig.autofmt_xdate()
+    g.figure.autofmt_xdate()
 
 
 
@@ -354,7 +354,7 @@ Line plots are often used to visualize data associated with real dates and times
     df = pd.DataFrame(dict(time=pd.date_range("2017-1-1", periods=500),
                            value=np.random.randn(500).cumsum()))
     g = sns.relplot(x="time", y="value", kind="line", data=df)
-    g.fig.autofmt_xdate()
+    g.figure.autofmt_xdate()
 
 
 

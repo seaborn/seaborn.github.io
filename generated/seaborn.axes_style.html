@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.axes_style &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.axes_style &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -120,15 +121,19 @@
 <dl class="py function">
 <dt id="seaborn.axes_style">
 <code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">axes_style</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">style</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rc</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.axes_style" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a parameter dict for the aesthetic style of the plots.</p>
-<p>This affects things like the color of the axes, whether a grid is
-enabled by default, and other aesthetic elements.</p>
-<p>This function returns an object that can be used in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement
-to temporarily change the style parameters.</p>
+<dd><p>Get the parameters that control the general style of the plots.</p>
+<p>The style parameters control properties like the color of the background and
+whether a grid is enabled by default. This is accomplished using the
+<a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html#matplotlib-rcparams" title="(in Matplotlib v3.4.3)"><span class="xref std std-ref">matplotlib rcParams system</span></a>.</p>
+<p>The options are illustrated in the
+<a class="reference internal" href="../tutorial/aesthetics.html"><span class="doc">aesthetics tutorial</span></a>.</p>
+<p>This function can also be used as a context manager to temporarily
+alter the global defaults. See <a class="reference internal" href="seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_theme()</span></code></a> or <a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_style()</span></code></a>
+to modify the global defaults for all plots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>style</strong><span class="classifier">dict, None, or one of {darkgrid, whitegrid, dark, white, ticks}</span></dt><dd><p>A dictionary of parameters or the name of a preconfigured set.</p>
+<dt><strong>style</strong><span class="classifier">None, dict, or one of {darkgrid, whitegrid, dark, white, ticks}</span></dt><dd><p>A dictionary of parameters or the name of a preconfigured style.</p>
 </dd>
 <dt><strong>rc</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameter mappings to override the values in the preset seaborn
 style dictionaries. This only updates parameters that are
@@ -137,30 +142,96 @@ considered part of the style definition.</p>
 </dl>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><a class="reference internal" href="seaborn.set_style.html#seaborn.set_style" title="seaborn.set_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_style</span></code></a></dt><dd><p>set the matplotlib parameters for a seaborn theme</p>
-</dd>
-<dt><a class="reference internal" href="seaborn.plotting_context.html#seaborn.plotting_context" title="seaborn.plotting_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting_context</span></code></a></dt><dd><p>return a parameter dict to to scale plot elements</p>
-</dd>
-<dt><a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_palette</span></code></a></dt><dd><p>define the color palette for a plot</p>
-</dd>
-</dl>
-</div>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">st</span> <span class="o">=</span> <span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<p>Calling with no arguments will return the current defaults for the style
+parameters:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;xtick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;ytick.major.size&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="s1">&#39;line&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#b0b0b0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grid.linestyle&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">CapStyle</span><span class="o">.</span><span class="n">projecting</span><span class="p">:</span> <span class="s1">&#39;projecting&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s1">&#39;patch.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;patch.force_edgecolor&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;image.cmap&#39;</span><span class="p">:</span> <span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;font.sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Bitstream Vera Sans&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Computer Modern Sans Serif&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Lucida Grande&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Verdana&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Geneva&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Lucid&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Avant Garde&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;xtick.bottom&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.left&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.right&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.left&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.bottom&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.right&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.top&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>               
+<p>Calling with the name of a predefined style will show those parameter
+values:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.direction&#39;</span><span class="p">:</span> <span class="s1">&#39;out&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;grid.linestyle&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;.15&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;font.sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;DejaVu Sans&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Liberation Sans&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Bitstream Vera Sans&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;sans-serif&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;lines.solid_capstyle&#39;</span><span class="p">:</span> <span class="s1">&#39;round&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;patch.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;patch.force_edgecolor&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;image.cmap&#39;</span><span class="p">:</span> <span class="s1">&#39;rocket&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.top&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.right&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#EAEAF2&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.left&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.bottom&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.right&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;axes.spines.top&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+ <span class="s1">&#39;xtick.bottom&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="s1">&#39;ytick.left&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Use the function as a context manager to temporarily change the style of
+your plots:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<img alt="../_images/axes_style_5_0.png" src="../_images/axes_style_5_0.png" />
 </dd></dl>
 
 </div>
@@ -180,7 +251,7 @@ considered part of the style definition.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

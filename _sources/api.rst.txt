@@ -91,8 +91,6 @@ Facet grids
     :nosignatures:
 
     FacetGrid
-    FacetGrid.map
-    FacetGrid.map_dataframe
 
 Pair grids
 ~~~~~~~~~~
@@ -103,11 +101,6 @@ Pair grids
 
     pairplot
     PairGrid
-    PairGrid.map
-    PairGrid.map_diag
-    PairGrid.map_offdiag
-    PairGrid.map_lower
-    PairGrid.map_upper
 
 Joint grids
 ~~~~~~~~~~~
@@ -118,9 +111,6 @@ Joint grids
 
     jointplot
     JointGrid
-    JointGrid.plot
-    JointGrid.plot_joint
-    JointGrid.plot_marginals
 
 .. _style_api:
 
@@ -184,10 +174,11 @@ Utility functions
     :toctree: generated/
     :nosignatures:
 
+    despine
+    move_legend
+    saturate
+    desaturate
+    set_hls_values
     load_dataset
     get_dataset_names
     get_data_home
-    despine
-    desaturate
-    saturate
-    set_hls_values

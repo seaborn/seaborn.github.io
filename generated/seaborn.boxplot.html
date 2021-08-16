@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.boxplot &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.boxplot &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -157,7 +158,7 @@ inferred from the data objects.</p>
 </dd>
 <dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
 inferred based on the type of the input variables, but it can be used
-to resolve ambiguitiy when both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numeric or when
+to resolve ambiguity when both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numeric or when
 plotting wide-form data.</p>
 </dd>
 <dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
@@ -188,7 +189,7 @@ outliers.</p>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.boxplot.html#matplotlib.axes.Axes.boxplot" title="(in Matplotlib v3.3.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.boxplot()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.boxplot.html#matplotlib.axes.Axes.boxplot" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.boxplot()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -221,14 +222,14 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-1.png" src="../_images/seaborn-boxplot-1.png" />
+<img alt="../_images/seaborn-boxplot-1.png" class="plot-directive" src="../_images/seaborn-boxplot-1.png" />
 </div>
 <p>Draw a vertical boxplot grouped by a categorical variable:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-2.png" src="../_images/seaborn-boxplot-2.png" />
+<img alt="../_images/seaborn-boxplot-2.png" class="plot-directive" src="../_images/seaborn-boxplot-2.png" />
 </div>
 <p>Draw a boxplot with nested grouping by two categorical variables:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span>
@@ -236,7 +237,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-3.png" src="../_images/seaborn-boxplot-3.png" />
+<img alt="../_images/seaborn-boxplot-3.png" class="plot-directive" src="../_images/seaborn-boxplot-3.png" />
 </div>
 <p>Draw a boxplot with nested grouping when some bins are empty:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
@@ -244,7 +245,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-4.png" src="../_images/seaborn-boxplot-4.png" />
+<img alt="../_images/seaborn-boxplot-4.png" class="plot-directive" src="../_images/seaborn-boxplot-4.png" />
 </div>
 <p>Control box order by passing an explicit order:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
@@ -252,7 +253,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-5.png" src="../_images/seaborn-boxplot-5.png" />
+<img alt="../_images/seaborn-boxplot-5.png" class="plot-directive" src="../_images/seaborn-boxplot-5.png" />
 </div>
 <p>Draw a boxplot for each numeric variable in a DataFrame:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
@@ -260,7 +261,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-6.png" src="../_images/seaborn-boxplot-6.png" />
+<img alt="../_images/seaborn-boxplot-6.png" class="plot-directive" src="../_images/seaborn-boxplot-6.png" />
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">hue</span></code> without changing box position or width:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;weekend&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span> <span class="s2">&quot;Sun&quot;</span><span class="p">])</span>
@@ -269,7 +270,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-7.png" src="../_images/seaborn-boxplot-7.png" />
+<img alt="../_images/seaborn-boxplot-7.png" class="plot-directive" src="../_images/seaborn-boxplot-7.png" />
 </div>
 <p>Use <a class="reference internal" href="seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">swarmplot()</span></code></a> to show the datapoints on top of the boxes:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
@@ -277,7 +278,7 @@ outliers.</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-8.png" src="../_images/seaborn-boxplot-8.png" />
+<img alt="../_images/seaborn-boxplot-8.png" class="plot-directive" src="../_images/seaborn-boxplot-8.png" />
 </div>
 <p>Use <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> to combine a <a class="reference internal" href="#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a> and a
 <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. This allows grouping within additional categorical
@@ -290,7 +291,7 @@ directly, as it ensures synchronization of variable order across facets:</p>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/seaborn-boxplot-9.png" src="../_images/seaborn-boxplot-9.png" />
+<img alt="../_images/seaborn-boxplot-9.png" class="plot-directive" src="../_images/seaborn-boxplot-9.png" />
 </div>
 </dd></dl>
 
@@ -311,7 +312,7 @@ directly, as it ensures synchronization of variable order across facets:</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

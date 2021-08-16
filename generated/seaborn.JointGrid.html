@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.JointGrid &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.JointGrid &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -17,7 +18,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.JointGrid.plot" href="seaborn.JointGrid.plot.html" />
+    <link rel="next" title="seaborn.JointGrid.__init__" href="seaborn.JointGrid.__init__.html" />
     <link rel="prev" title="seaborn.jointplot" href="seaborn.jointplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -132,7 +133,7 @@ Use this class directly when you need more flexibility.</p>
 <dd class="field-odd"><dl>
 <dt><strong>x, y</strong><span class="classifier">vectors or keys in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Variables that specify positions on the x and y axes.</p>
 </dd>
-<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
 assigned to named variables or a wide-form dataset that will be internally
 reshaped.</p>
 </dd>
@@ -152,14 +153,14 @@ reshaped.</p>
 Note: unlike in <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> or <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>, the axes-level
 functions must support <code class="docutils literal notranslate"><span class="pre">hue</span></code> to use it in <a class="reference internal" href="#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
 String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
 imply categorical mapping, while a colormap object implies numeric mapping.</p>
 </dd>
 <dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
 or an object that will map from data units into a [0, 1] interval. Usage
 implies numeric mapping.</p>
 </dd>
@@ -208,7 +209,7 @@ implies numeric mapping.</p>
 </pre></div>
 </div>
 <img alt="../_images/JointGrid_9_0.png" src="../_images/JointGrid_9_0.png" />
-<p>You can then plot by accessing the <code class="docutils literal notranslate"><span class="pre">ax_joint</span></code>, <code class="docutils literal notranslate"><span class="pre">ax_marg_x</span></code>, and <code class="docutils literal notranslate"><span class="pre">ax_marg_y</span></code> attributes, which are <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects:</p>
+<p>You can then plot by accessing the <code class="docutils literal notranslate"><span class="pre">ax_joint</span></code>, <code class="docutils literal notranslate"><span class="pre">ax_marg_x</span></code>, and <code class="docutils literal notranslate"><span class="pre">ax_marg_y</span></code> attributes, which are <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">()</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">],</span> <span class="n">penguins</span><span class="p">[</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="p">)</span>
@@ -229,21 +230,29 @@ implies numeric mapping.</p>
 </pre></div>
 </div>
 <img alt="../_images/JointGrid_15_0.png" src="../_images/JointGrid_15_0.png" />
+<p>Horizontal and/or vertical reference lines can be added to the joint
+and/or marginal axes using :meth:<code class="docutils literal notranslate"><span class="pre">JointGrid.refline</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">refline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/JointGrid_17_0.png" src="../_images/JointGrid_17_0.png" />
 <p>The figure will always be square (unless you resize it at the matplotlib layer), but its overall size and layout are configurable. The size is controlled by the <code class="docutils literal notranslate"><span class="pre">height</span></code> parameter. The relative ratio between the joint and marginal axes is controlled by <code class="docutils literal notranslate"><span class="pre">ratio</span></code>, and the amount of space between the plots is controlled by <code class="docutils literal notranslate"><span class="pre">space</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">space</span><span class="o">=.</span><span class="mi">05</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/JointGrid_17_0.png" src="../_images/JointGrid_17_0.png" />
+<img alt="../_images/JointGrid_19_0.png" src="../_images/JointGrid_19_0.png" />
 <p>By default, the ticks on the density axis of the marginal plots are turned off, but this is configurable:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">marginal_ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/JointGrid_19_0.png" src="../_images/JointGrid_19_0.png" />
+<img alt="../_images/JointGrid_21_0.png" src="../_images/JointGrid_21_0.png" />
 <p>Limits on the two data axes (which are shared across plots) can also be defined when setting up the figure:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/JointGrid_21_0.png" src="../_images/JointGrid_21_0.png" />
+<img alt="../_images/JointGrid_23_0.png" src="../_images/JointGrid_23_0.png" />
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -253,7 +262,7 @@ implies numeric mapping.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.JointGrid.__init__" title="seaborn.JointGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, *[, x, y, data, height, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.JointGrid.__init__.html#seaborn.JointGrid.__init__" title="seaborn.JointGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, *[, x, y, data, height, …])</p></td>
 <td><p>Set up the grid of subplots and store data internally for easy plotting.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.JointGrid.plot.html#seaborn.JointGrid.plot" title="seaborn.JointGrid.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(self, joint_func, marginal_func, **kwargs)</p></td>
@@ -265,11 +274,32 @@ implies numeric mapping.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.JointGrid.plot_marginals.html#seaborn.JointGrid.plot_marginals" title="seaborn.JointGrid.plot_marginals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_marginals</span></code></a>(self, func, **kwargs)</p></td>
 <td><p>Draw univariate plots on each marginal axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(self, *args, **kwargs)</p></td>
-<td><p>Save the figure using a “tight” bounding box by default.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.JointGrid.refline.html#seaborn.JointGrid.refline" title="seaborn.JointGrid.refline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refline</span></code></a>(self, *[, x, y, joint, marginal, …])</p></td>
+<td><p>Add a reference line(s) to joint and/or marginal axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis_labels</span></code>(self[, xlabel, ylabel])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.JointGrid.savefig.html#seaborn.JointGrid.savefig" title="seaborn.JointGrid.savefig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></a>(self, *args, **kwargs)</p></td>
+<td><p>Save an image of the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.JointGrid.set.html#seaborn.JointGrid.set" title="seaborn.JointGrid.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(self, **kwargs)</p></td>
+<td><p>Set attributes on each subplot Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.JointGrid.set_axis_labels.html#seaborn.JointGrid.set_axis_labels" title="seaborn.JointGrid.set_axis_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis_labels</span></code></a>(self[, xlabel, ylabel])</p></td>
 <td><p>Set axis labels on the bivariate axes.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fig</span></code></p></td>
+<td><p>DEPRECATED: prefer the <code class="docutils literal notranslate"><span class="pre">figure</span></code> property.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></p></td>
+<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
 </tr>
 </tbody>
 </table>
@@ -292,7 +322,7 @@ implies numeric mapping.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

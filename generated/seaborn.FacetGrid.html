@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.FacetGrid &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.FacetGrid &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -17,7 +18,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.FacetGrid.map" href="seaborn.FacetGrid.map.html" />
+    <link rel="next" title="seaborn.FacetGrid.__init__" href="seaborn.FacetGrid.__init__.html" />
     <link rel="prev" title="seaborn.clustermap" href="seaborn.clustermap.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -201,8 +202,8 @@ share{x, y} is True).</p>
 methods.</p>
 </dd>
 <dt><strong>gridspec_kws</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of keyword arguments passed to
-<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a>
-(via <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="(in Matplotlib v3.3.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.subplots()</span></code></a>).
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a>
+(via <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subplots" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subplots()</span></code></a>).
 Ignored if <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
@@ -255,49 +256,45 @@ initializes the grid, but doesn’t plot anything on it:</p>
 </pre></div>
 </div>
 <img alt="../_images/FacetGrid_7_0.png" src="../_images/FacetGrid_7_0.png" />
-<p>One difference between the two methods is that <a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map_dataframe()</span></code></a> does not add axis labels. There is a dedicated method to do that:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<p>Notice how the bins have different widths in each facet. A separate plot is drawn on each facet, so if the plotting function derives any parameters from the data, they may not be shared across facets. You can pass additional keyword arguments to synchronize them. But when possible, using a figure-level function like <a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> will take care of this bookkeeping for you:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">binrange</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
 </pre></div>
 </div>
 <img alt="../_images/FacetGrid_9_0.png" src="../_images/FacetGrid_9_0.png" />
-<p>Notice how the bins have different widths in each facet. A separate plot is drawn on each facet, so if the plotting function derives any parameters from the data, they may not be shared across facets. You can pass additional keyword arguments to synchronize them. But when possible, using a figure-level function like <a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> will take care of this bookkeeping for you:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="../_images/FacetGrid_11_0.png" src="../_images/FacetGrid_11_0.png" />
 <p>The <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> constructor accepts a <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter. Setting this will condition the data on another variable and make multiple plots in different colors. Where possible, label information is tracked so that a single legend can be drawn:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_11_0.png" src="../_images/FacetGrid_11_0.png" />
+<p>When <code class="docutils literal notranslate"><span class="pre">hue</span></code> is set on the <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>, however, a separate plot is drawn for each level of the variable. If the plotting function understands <code class="docutils literal notranslate"><span class="pre">hue</span></code>, it is better to let it handle that logic. But it is important to ensure that each facet will use the same hue mapping. In the sample <code class="docutils literal notranslate"><span class="pre">tips</span></code> data, the <code class="docutils literal notranslate"><span class="pre">sex</span></code> column has a categorical datatype, which ensures this. Otherwise, you may want to use the <code class="docutils literal notranslate"><span class="pre">hue_order</span></code> or similar parameter:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../_images/FacetGrid_13_0.png" src="../_images/FacetGrid_13_0.png" />
-<p>When <code class="docutils literal notranslate"><span class="pre">hue</span></code> is set on the <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>, however, a separate plot is drawn for each level of the variable. If the plotting function understands <code class="docutils literal notranslate"><span class="pre">hue</span></code>, it is better to let it handle that logic. It is important, however, to ensure that each facet will use the same hue mapping. In the sample <code class="docutils literal notranslate"><span class="pre">tips</span></code> data, the <code class="docutils literal notranslate"><span class="pre">sex</span></code> column has a categorical datatype, which ensures this:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../_images/FacetGrid_15_0.png" src="../_images/FacetGrid_15_0.png" />
 <p>The size and shape of the plot is specified at the level of each subplot using the <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">aspect</span></code> parameters:</p>
-<p>Change the height and aspect ratio of each facet:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">65</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/FacetGrid_18_0.png" src="../_images/FacetGrid_18_0.png" />
+<img alt="../_images/FacetGrid_15_0.png" src="../_images/FacetGrid_15_0.png" />
 <p>If the variable assigned to <code class="docutils literal notranslate"><span class="pre">col</span></code> has many levels, it is possible to “wrap” it so that it spans multiple rows:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/FacetGrid_20_0.png" src="../_images/FacetGrid_20_0.png" />
+<img alt="../_images/FacetGrid_17_0.png" src="../_images/FacetGrid_17_0.png" />
+<p>To add horizontal or vertical reference lines on every facet, use <a class="reference internal" href="seaborn.FacetGrid.refline.html#seaborn.FacetGrid.refline" title="seaborn.FacetGrid.refline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.refline()</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">refline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_19_0.png" src="../_images/FacetGrid_19_0.png" />
 <p>You can pass custom functions to plot with, or to annotate each facet.
 Your custom function must use the matplotlib state-machine interface to
 plot on the “current” axes, and it should catch additional keyword
@@ -310,27 +307,25 @@ arguments:</p>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">annotate</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/FacetGrid_22_0.png" src="../_images/FacetGrid_22_0.png" />
+<img alt="../_images/FacetGrid_21_0.png" src="../_images/FacetGrid_21_0.png" />
 <p>The <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object has some other useful parameters and methods for tweaking the plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill ($)&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip ($)&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="n">col_template</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{col_name}</span><span class="s2"> patrons&quot;</span><span class="p">,</span> <span class="n">row_template</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{row_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="n">g</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">g</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;facet_plot.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/FacetGrid_24_0.png" src="../_images/FacetGrid_24_0.png" />
+<img alt="../_images/FacetGrid_23_0.png" src="../_images/FacetGrid_23_0.png" />
 <p>You also have access to the underlying matplotlib objects for additional tweaking:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">despine</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">row_val</span><span class="p">,</span> <span class="n">col_val</span><span class="p">),</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">row_val</span> <span class="o">==</span> <span class="s2">&quot;Lunch&quot;</span> <span class="ow">and</span> <span class="n">col_val</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;.95&quot;</span><span class="p">)</span>
@@ -338,7 +333,7 @@ arguments:</p>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/FacetGrid_26_0.png" src="../_images/FacetGrid_26_0.png" />
+<img alt="../_images/FacetGrid_25_0.png" src="../_images/FacetGrid_25_0.png" />
 </dd></dl>
 
 <p class="rubric">Methods</p>
@@ -348,19 +343,19 @@ arguments:</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.FacetGrid.__init__" title="seaborn.FacetGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, data, *[, row, col, hue, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.__init__.html#seaborn.FacetGrid.__init__" title="seaborn.FacetGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, data, *[, row, col, hue, …])</p></td>
 <td><p>Initialize the matplotlib figure and FacetGrid object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code>(self[, legend_data, title, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.add_legend.html#seaborn.FacetGrid.add_legend" title="seaborn.FacetGrid.add_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code></a>(self[, legend_data, title, …])</p></td>
 <td><p>Draw a legend, maybe placing it outside axes and resizing the figure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">despine</span></code>(self, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.despine.html#seaborn.FacetGrid.despine" title="seaborn.FacetGrid.despine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">despine</span></code></a>(self, **kwargs)</p></td>
 <td><p>Remove axis spines from the facets.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_axis</span></code>(self, row_i, col_j[, modify_state])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.facet_axis.html#seaborn.FacetGrid.facet_axis" title="seaborn.FacetGrid.facet_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_axis</span></code></a>(self, row_i, col_j[, modify_state])</p></td>
 <td><p>Make the axis identified by these indices active and return it.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_data</span></code>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.facet_data.html#seaborn.FacetGrid.facet_data" title="seaborn.FacetGrid.facet_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_data</span></code></a>(self)</p></td>
 <td><p>Generator for name indices and data subsets for each facet.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map</span></code></a>(self, func, *args, **kwargs)</p></td>
@@ -369,31 +364,34 @@ arguments:</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_dataframe</span></code></a>(self, func, *args, **kwargs)</p></td>
 <td><p>Like <code class="docutils literal notranslate"><span class="pre">.map</span></code> but passes args as strings and inserts data in kwargs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(self, *args, **kwargs)</p></td>
-<td><p>Save the figure.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.refline.html#seaborn.FacetGrid.refline" title="seaborn.FacetGrid.refline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refline</span></code></a>(self, *[, x, y, color, linestyle])</p></td>
+<td><p>Add a reference line(s) to each facet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code>(self, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.savefig.html#seaborn.FacetGrid.savefig" title="seaborn.FacetGrid.savefig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></a>(self, *args, **kwargs)</p></td>
+<td><p>Save an image of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set.html#seaborn.FacetGrid.set" title="seaborn.FacetGrid.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(self, **kwargs)</p></td>
 <td><p>Set attributes on each subplot Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis_labels</span></code>(self[, x_var, y_var, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_axis_labels.html#seaborn.FacetGrid.set_axis_labels" title="seaborn.FacetGrid.set_axis_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis_labels</span></code></a>(self[, x_var, y_var, …])</p></td>
 <td><p>Set axis labels on the left column and bottom row of the grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_titles</span></code>(self[, template, row_template, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_titles.html#seaborn.FacetGrid.set_titles" title="seaborn.FacetGrid.set_titles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_titles</span></code></a>(self[, template, row_template, …])</p></td>
 <td><p>Draw titles either above each facet or on the grid margins.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xlabels</span></code>(self[, label, clear_inner])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_xlabels.html#seaborn.FacetGrid.set_xlabels" title="seaborn.FacetGrid.set_xlabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xlabels</span></code></a>(self[, label, clear_inner])</p></td>
 <td><p>Label the x axis on the bottom row of the grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xticklabels</span></code>(self[, labels, step])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_xticklabels.html#seaborn.FacetGrid.set_xticklabels" title="seaborn.FacetGrid.set_xticklabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xticklabels</span></code></a>(self[, labels, step])</p></td>
 <td><p>Set x axis tick labels of the grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ylabels</span></code>(self[, label, clear_inner])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_ylabels.html#seaborn.FacetGrid.set_ylabels" title="seaborn.FacetGrid.set_ylabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ylabels</span></code></a>(self[, label, clear_inner])</p></td>
 <td><p>Label the y axis on the left column of the grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_yticklabels</span></code>(self[, labels])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_yticklabels.html#seaborn.FacetGrid.set_yticklabels" title="seaborn.FacetGrid.set_yticklabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_yticklabels</span></code></a>(self[, labels])</p></td>
 <td><p>Set y axis tick labels on the left column of the grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(self, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.tight_layout.html#seaborn.FacetGrid.tight_layout" title="seaborn.FacetGrid.tight_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code></a>(self, *args, **kwargs)</p></td>
 <td><p>Call fig.tight_layout within rect that exclude the legend.</p></td>
 </tr>
 </tbody>
@@ -406,19 +404,22 @@ arguments:</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ax</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> when no faceting variables are assigned.</p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> when no faceting variables are assigned.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code></p></td>
-<td><p>An array of the <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects in the grid.</p></td>
+<td><p>An array of the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects in the grid.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes_dict</span></code></p></td>
-<td><p>A mapping of facet names to corresponding <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>.</p></td>
+<td><p>A mapping of facet names to corresponding <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fig</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> with the plot.</p></td>
+<td><p>DEPRECATED: prefer the <code class="docutils literal notranslate"><span class="pre">figure</span></code> property.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></p></td>
+<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
 </tr>
 </tbody>
 </table>
@@ -441,7 +442,7 @@ arguments:</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>

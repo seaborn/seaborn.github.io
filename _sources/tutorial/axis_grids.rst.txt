@@ -138,20 +138,20 @@ Once you've drawn a plot using :meth:`FacetGrid.map` (which can be called multip
     g.map(sns.scatterplot, "total_bill", "tip", color="#334488")
     g.set_axis_labels("Total bill (US Dollars)", "Tip")
     g.set(xticks=[10, 30, 50], yticks=[2, 6, 10])
-    g.fig.subplots_adjust(wspace=.02, hspace=.02)
+    g.figure.subplots_adjust(wspace=.02, hspace=.02)
 
 
 
 .. image:: axis_grids_files/axis_grids_20_0.png
 
 
-For even more customization, you can  work directly with the underling matplotlib ``Figure`` and ``Axes`` objects, which are stored as member attributes at ``fig`` and ``axes`` (a two-dimensional array), respectively. When making a figure without row or column faceting, you can also use the ``ax`` attribute to directly access the single axes.
+For even more customization, you can  work directly with the underling matplotlib ``Figure`` and ``Axes`` objects, which are stored as member attributes at ``figure`` and ``axes_dict``, respectively. When making a figure without row or column faceting, you can also use the ``ax`` attribute to directly access the single axes.
 
 .. code:: ipython3
 
     g = sns.FacetGrid(tips, col="smoker", margin_titles=True, height=4)
     g.map(plt.scatter, "total_bill", "tip", color="#338844", edgecolor="white", s=50, lw=1)
-    for ax in g.axes.flat:
+    for ax in g.axes_dict.values():
         ax.axline((0, 0), slope=.2, c=".2", ls="--", zorder=0)
     g.set(xlim=(0, 60), ylim=(0, 14))
 

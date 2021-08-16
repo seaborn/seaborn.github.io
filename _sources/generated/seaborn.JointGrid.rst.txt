@@ -17,16 +17,26 @@ seaborn.JointGrid
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: ./
    
       ~JointGrid.__init__
       ~JointGrid.plot
       ~JointGrid.plot_joint
       ~JointGrid.plot_marginals
+      ~JointGrid.refline
       ~JointGrid.savefig
+      ~JointGrid.set
       ~JointGrid.set_axis_labels
    
    
 
    
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~JointGrid.fig
+      ~JointGrid.figure
    
    

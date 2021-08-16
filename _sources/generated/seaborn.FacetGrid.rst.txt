@@ -17,6 +17,7 @@ seaborn.FacetGrid
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: ./
    
       ~FacetGrid.__init__
       ~FacetGrid.add_legend
@@ -25,6 +26,7 @@ seaborn.FacetGrid
       ~FacetGrid.facet_data
       ~FacetGrid.map
       ~FacetGrid.map_dataframe
+      ~FacetGrid.refline
       ~FacetGrid.savefig
       ~FacetGrid.set
       ~FacetGrid.set_axis_labels
@@ -47,6 +49,7 @@ seaborn.FacetGrid
       ~FacetGrid.axes
       ~FacetGrid.axes_dict
       ~FacetGrid.fig
+      ~FacetGrid.figure
       ~FacetGrid.legend
    
    

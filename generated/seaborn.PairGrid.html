@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>seaborn.PairGrid &#8212; seaborn 0.11.1 documentation</title>
+    <title>seaborn.PairGrid &#8212; seaborn 0.11.2 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css?v=0.11.1" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.1" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -17,7 +18,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.PairGrid.map" href="seaborn.PairGrid.map.html" />
+    <link rel="next" title="seaborn.PairGrid.__init__" href="seaborn.PairGrid.__init__.html" />
     <link rel="prev" title="seaborn.pairplot" href="seaborn.pairplot.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -41,7 +42,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
            </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -284,10 +285,10 @@ grid, making this a “corner” plot.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.PairGrid.__init__" title="seaborn.PairGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, data, *[, hue, hue_order, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.PairGrid.__init__.html#seaborn.PairGrid.__init__" title="seaborn.PairGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self, data, *[, hue, hue_order, …])</p></td>
 <td><p>Initialize the plot figure and PairGrid object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code>(self[, legend_data, title, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.PairGrid.add_legend.html#seaborn.PairGrid.add_legend" title="seaborn.PairGrid.add_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code></a>(self[, legend_data, title, …])</p></td>
 <td><p>Draw a legend, maybe placing it outside axes and resizing the figure.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.PairGrid.map.html#seaborn.PairGrid.map" title="seaborn.PairGrid.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map</span></code></a>(self, func, **kwargs)</p></td>
@@ -305,13 +306,13 @@ grid, making this a “corner” plot.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.PairGrid.map_upper.html#seaborn.PairGrid.map_upper" title="seaborn.PairGrid.map_upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_upper</span></code></a>(self, func, **kwargs)</p></td>
 <td><p>Plot with a bivariate function on the upper diagonal subplots.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(self, *args, **kwargs)</p></td>
-<td><p>Save the figure.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.PairGrid.savefig.html#seaborn.PairGrid.savefig" title="seaborn.PairGrid.savefig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></a>(self, *args, **kwargs)</p></td>
+<td><p>Save an image of the plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code>(self, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.PairGrid.set.html#seaborn.PairGrid.set" title="seaborn.PairGrid.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(self, **kwargs)</p></td>
 <td><p>Set attributes on each subplot Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(self, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.PairGrid.tight_layout.html#seaborn.PairGrid.tight_layout" title="seaborn.PairGrid.tight_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code></a>(self, *args, **kwargs)</p></td>
 <td><p>Call fig.tight_layout within rect that exclude the legend.</p></td>
 </tr>
 </tbody>
@@ -323,8 +324,14 @@ grid, making this a “corner” plot.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fig</span></code></p></td>
+<td><p>DEPRECATED: prefer the <code class="docutils literal notranslate"><span class="pre">figure</span></code> property.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></p></td>
+<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
 </tr>
 </tbody>
 </table>
@@ -347,7 +354,7 @@ grid, making this a “corner” plot.</p>
       
     </p>
     <p>
-    &#169; Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
