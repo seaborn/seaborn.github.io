@@ -132,12 +132,12 @@
      Overplotting resolution: the Move
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semantic-mapping-the-scale">
+     Semantic mapping: the Scale
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-and-customization">
-   Configuring and customization
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defining-subplot-structure">
@@ -222,7 +222,8 @@ There is an immense amount of wisdom in the grammar of graphics and in
 its particular implementation as ggplot2. But I think that, as
 languages, R and Python are just too different for idioms from one to
 feel natural when translated literally into the other. So while I have
-taken much inspiration from ggplot, I’ve also made plenty of choices
+taken much inspiration from ggplot (along with vegalite, and other
+declarative visualization libraries), I’ve also made plenty of choices
 differently, for better or for worse.</p>
 </section>
 <hr class="docutils" />
@@ -265,7 +266,7 @@ For that you need to add some layers:</p>
 <p>Each layer can also have its own data:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.6&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.6&quot;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size != 2&quot;</span><span class="p">))</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size == 2&quot;</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
@@ -347,15 +348,16 @@ altering visual properties:</p>
 customization. There will be guidelines for how to define your own
 objects to plug into the broader system:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PeakAnnotation</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Mark</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">_plot_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">kws</span><span class="p">):</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-            <span class="s2">&quot;The peak&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]],</span>
-            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
-            <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
-            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">),</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_generator</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">orient</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">keys</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">split_generator</span><span class="p">():</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="s2">&quot;The peak&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]],</span>
+                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
+                <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">),</span>
 
-        <span class="p">)</span>
+            <span class="p">)</span>
 
 <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span>
@@ -429,7 +431,10 @@ levels when dodging and for fine-tuning the adjustment.</p>
 a list:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]),</span> <span class="n">so</span><span class="o">.</span><span class="n">Jitter</span><span class="p">(</span><span class="mf">.5</span><span class="p">)])</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span>
+        <span class="n">move</span><span class="o">=</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]),</span> <span class="n">so</span><span class="o">.</span><span class="n">Jitter</span><span class="p">(</span><span class="mf">.5</span><span class="p">)]</span>
+    <span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -438,90 +443,109 @@ a list:</p>
 affords more flexibility, greatly expanding the space of graphics that
 can be created.</p>
 </section>
-</section>
 <hr class="docutils" />
-<section id="configuring-and-customization">
-<h2>Configuring and customization<a class="headerlink" href="#configuring-and-customization" title="Permalink to this headline">¶</a></h2>
-<p>All of the existing customization (and more) is available, but in
-dedicated methods rather than one long list of keyword arguments:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;planets&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;distance &lt; 1000000&quot;</span><span class="p">)</span>
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">map_color</span><span class="p">(</span><span class="s2">&quot;flare&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2010</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">scale_numeric</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">pointsize</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<section id="semantic-mapping-the-scale">
+<h3>Semantic mapping: the Scale<a class="headerlink" href="#semantic-mapping-the-scale" title="Permalink to this headline">¶</a></h3>
+<p>The declarative interface allows users to represent dataset variables
+with visual properites such as position, color or size. A complete plot
+can be made without doing anything more defining the mappings: users
+need not be concerned with converting their data into units that
+matplotlib understands. But what if one wants to alter the mapping that
+seaborn chooses? This is accomplished through the concept of a
+<code class="docutils literal notranslate"><span class="pre">Scale</span></code>.</p>
+<p>The notion of scaling will probably not be unfamiliar; as in matplotlib,
+seaborn allows one to apply a mathematical transformation, such as
+<code class="docutils literal notranslate"><span class="pre">log</span></code>, to the coordinate variables:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;planets&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;distance &lt; 1000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_49_0.png"><img alt="_images/index_49_0.png" src="_images/index_49_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The interface is declarative; methods can be called in any order:</p>
+<p>But the <code class="docutils literal notranslate"><span class="pre">Scale</span></code> concept is much more general in seaborn: a scale can
+be provided for any mappable property. For example, it is how you
+specify the palette used for color variables:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">pointsize</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">scale_numeric</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">map_color</span><span class="p">(</span><span class="s2">&quot;flare&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2010</span><span class="p">))</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;rocket&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_51_0.png"><img alt="_images/index_51_0.png" src="_images/index_51_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>When an axis has a nonlinear scale, any statistical transformations or
-adjustments take place in the appropriate space:</p>
+<p>While there are a number of short-hand “magic” arguments you can provide
+for each scale, it is also possible to be more explicit by passing a
+<code class="docutils literal notranslate"><span class="pre">Scale</span></code> object. There are several distinct <code class="docutils literal notranslate"><span class="pre">Scale</span></code> classes,
+corresponding to the fundamental scale types (nominal, ordinal,
+continuous, etc.). Each class exposes a number of relevant parameters
+that control the details of the mapping:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale_numeric</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">at</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">]),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="s2">&quot;rocket&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_53_0.png"><img alt="_images/index_53_0.png" src="_images/index_53_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The object tries to do inference and use smart defaults for mapping and
-scaling:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
+<p>There are several different kinds of scales, including scales
+appropriate for categorical data:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Nominal</span><span class="p">([</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Radial Velocity&quot;</span><span class="p">,</span> <span class="s2">&quot;Transit&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_55_0.png"><img alt="_images/index_55_0.png" src="_images/index_55_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>But also allows explicit control:</p>
+<p>It’s also possible to disable scaling for a variable so that the literal
+values in the dataset are passed directly through to matplotlib:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale_categorical</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale_categorical</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_57_0.png"><img alt="_images/index_57_0.png" src="_images/index_57_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>As well as passing through literal values for the visual properties:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#569721&quot;</span><span class="p">,</span> <span class="s2">&quot;C3&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">scale_identity</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">pointsize</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
-<span class="p">)</span>
+<p>Scaling interacts with the <code class="docutils literal notranslate"><span class="pre">Stat</span></code> and <code class="docutils literal notranslate"><span class="pre">Move</span></code> transformations. When
+an axis has a nonlinear scale, any statistical transformations or
+adjustments take place in the appropriate space:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_59_0.png"><img alt="_images/index_59_0.png" src="_images/index_59_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Layers can be generically passed an <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter that controls
-the axis of statistical transformation and how the mark is drawn:</p>
+<p>This is also true of the <code class="docutils literal notranslate"><span class="pre">Move</span></code> transformations:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale_numeric</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span>
+        <span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;multiple&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_61_0.png"><img alt="_images/index_61_0.png" src="_images/index_61_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 </section>
+</section>
 <hr class="docutils" />
 <section id="defining-subplot-structure">
 <h2>Defining subplot structure<a class="headerlink" href="#defining-subplot-structure" title="Permalink to this headline">¶</a></h2>
-<p>Faceting is built into the interface implicitly by assigning a faceting
-variable:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_64_0.png"><img alt="_images/index_64_0.png" src="_images/index_64_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Or by explicit declaration:</p>
+<p>Seaborn’s faceting functionality (drawing subsets of the data on
+distinct subplots) is built into the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object and works
+interchangably with any <code class="docutils literal notranslate"><span class="pre">Mark</span></code>/<code class="docutils literal notranslate"><span class="pre">Stat</span></code>/<code class="docutils literal notranslate"><span class="pre">Move</span></code>/<code class="docutils literal notranslate"><span class="pre">Scale</span></code> spec:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Lunch&quot;</span><span class="p">])</span>
@@ -529,18 +553,19 @@ variable:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_66_0.png"><img alt="_images/index_66_0.png" src="_images/index_66_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_64_0.png"><img alt="_images/index_64_0.png" src="_images/index_64_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>Unlike the existing <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code> it is simple to <em>not</em> facet a layer,
 so that a plot is simply replicated across each column (or row):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.75&quot;</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_68_0.png"><img alt="_images/index_68_0.png" src="_images/index_68_0.png" style="width: 571.1999999999999px; height: 244.79999999999998px;" /></a>
+<a class="reference internal image-reference" href="_images/index_66_0.png"><img alt="_images/index_66_0.png" src="_images/index_66_0.png" style="width: 571.1999999999999px; height: 244.79999999999998px;" /></a>
 <p>The <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object <em>also</em> subsumes the <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code> functionality:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
@@ -549,7 +574,7 @@ so that a plot is simply replicated across each column (or row):</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_70_0.png"><img alt="_images/index_70_0.png" src="_images/index_70_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_68_0.png"><img alt="_images/index_68_0.png" src="_images/index_68_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>Pairing and faceting can be combined in the same plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
@@ -559,35 +584,30 @@ so that a plot is simply replicated across each column (or row):</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_72_0.png"><img alt="_images/index_72_0.png" src="_images/index_72_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_70_0.png"><img alt="_images/index_70_0.png" src="_images/index_70_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>Or the <code class="docutils literal notranslate"><span class="pre">Plot.pair</span></code> functionality can be used to define unique pairings
 between variables:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
     <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">],</span> <span class="n">cartesian</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_74_0.png"><img alt="_images/index_74_0.png" src="_images/index_74_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_72_0.png"><img alt="_images/index_72_0.png" src="_images/index_72_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>It’s additionally possible to “pair” with a single variable, for
 univariate plots like histograms.</p>
 <p>Both faceted and paired plots with subplots along a single dimension can
 be “wrapped”, and this works both columwise and rowwise:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Histogram</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Mark</span><span class="p">):</span>  <span class="c1"># TODO replace once we implement</span>
-    <span class="k">def</span> <span class="nf">_plot_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">kws</span><span class="p">):</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
-
-<span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
     <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Histogram</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_76_0.png"><img alt="_images/index_76_0.png" src="_images/index_76_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_74_0.png"><img alt="_images/index_74_0.png" src="_images/index_74_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>Importantly, there’s no distinction between “axes-level” and
 “figure-level” here. Any kind of plot can be faceted or paired by adding
 a method call to the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> definition, without changing anything else
@@ -607,28 +627,28 @@ showing it:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_81_0.png"><img alt="_images/index_81_0.png" src="_images/index_81_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_79_0.png"><img alt="_images/index_79_0.png" src="_images/index_79_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>By default, the methods on <code class="docutils literal notranslate"><span class="pre">Plot</span></code> do <em>not</em> mutate the object they are
 called on. This means that you can define a common base specification
 and then iterate on different versions of it.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">map_color</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">&quot;crest&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;crest&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">())</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_84_0.png"><img alt="_images/index_84_0.png" src="_images/index_84_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_82_0.png"><img alt="_images/index_82_0.png" src="_images/index_82_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_85_0.png"><img alt="_images/index_85_0.png" src="_images/index_85_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_83_0.png"><img alt="_images/index_83_0.png" src="_images/index_83_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_86_0.png"><img alt="_images/index_86_0.png" src="_images/index_86_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_84_0.png"><img alt="_images/index_84_0.png" src="_images/index_84_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">p</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
@@ -636,7 +656,7 @@ and then iterate on different versions of it.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_87_0.png"><img alt="_images/index_87_0.png" src="_images/index_87_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_85_0.png"><img alt="_images/index_85_0.png" src="_images/index_85_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>It’s also possible to hook into the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> system by calling
 <code class="docutils literal notranslate"><span class="pre">Plot.show</span></code>. (As you might in a terminal interface, or to use a GUI).
 Notice how this looks lower-res: that’s because <code class="docutils literal notranslate"><span class="pre">Plot</span></code> is generating
@@ -649,7 +669,7 @@ Notice how this looks lower-res: that’s because <code class="docutils literal 
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/index_89_0.png" src="_images/index_89_0.png" />
+<img alt="_images/index_87_0.png" src="_images/index_87_0.png" />
 </section>
 <hr class="docutils" />
 <section id="matplotlib-integration">
@@ -667,7 +687,7 @@ parameter. The <code class="docutils literal notranslate"><span class="pre">Plot
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_91_0.png"><img alt="_images/index_91_0.png" src="_images/index_91_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_89_0.png"><img alt="_images/index_89_0.png" src="_images/index_89_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>But a limitation has been that the “figure-level” functions, which can
 produce multiple subplots, cannot be directed towards an existing
 figure. That is no longer the case; <code class="docutils literal notranslate"><span class="pre">Plot.on()</span></code> also accepts a
@@ -681,7 +701,7 @@ figure. That is no longer the case; <code class="docutils literal notranslate"><
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_93_0.png"><img alt="_images/index_93_0.png" src="_images/index_93_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_91_0.png"><img alt="_images/index_91_0.png" src="_images/index_91_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
 <p>Providing an existing figure is perhaps only marginally useful. While it
 will ease the integration of seaborn with GUI frameworks, seaborn is
 still using up the whole figure canvas. But with the introduction of the
@@ -704,7 +724,7 @@ small-multiples plot <em>within</em> a larger set of subplots:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/index_95_0.png"><img alt="_images/index_95_0.png" src="_images/index_95_0.png" style="width: 652.8px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="_images/index_93_0.png"><img alt="_images/index_93_0.png" src="_images/index_93_0.png" style="width: 652.8px; height: 326.4px;" /></a>
 </section>
 </section>
 
