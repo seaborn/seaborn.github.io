@@ -14,8 +14,6 @@
    .. autosummary::
    
       ~Area.__init__
-      ~Area.plot
-      ~Area.resolve_features
    
    
 
@@ -26,8 +24,12 @@
    .. autosummary::
    
       ~Area.alpha
+      ~Area.baseline
       ~Area.color
-      ~Area.features
-      ~Area.grouping_vars
+      ~Area.edgealpha
+      ~Area.edgecolor
+      ~Area.edgestyle
+      ~Area.edgewidth
+      ~Area.fill
    
    

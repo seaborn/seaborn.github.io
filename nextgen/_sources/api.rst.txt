@@ -2,10 +2,10 @@
 
 .. currentmodule:: seaborn.objects
 
-API
-===
+API Reference
+=============
 
-.. note::
+.. warning::
 
     This is a provisional API that is under active development, incomplete, and subject to change before release.
 
@@ -38,6 +38,7 @@ Marks
     Bar
     Dot
     Line
+    Ribbon
     Scatter
 
 Stats
@@ -71,5 +72,6 @@ Scales
     :toctree: api/
     :nosignatures:
 
-    Continuous
     Nominal
+    Continuous
+    Temporal

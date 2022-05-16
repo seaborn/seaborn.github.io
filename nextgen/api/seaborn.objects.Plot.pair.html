@@ -72,9 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../api.html">
-  Nextgen API
+  API Reference
  </a>
 </li>
 
@@ -181,6 +187,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Ribbon.html">
+   seaborn.objects.Ribbon
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Scatter.html">
    seaborn.objects.Scatter
   </a>
@@ -227,13 +238,18 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Nominal.html">
-   seaborn.objects.Nominal
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
   </a>
  </li>
 </ul>
@@ -264,7 +280,7 @@
 <h1>seaborn.objects.Plot.pair<a class="headerlink" href="#seaborn-objects-plot-pair" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="seaborn.objects.Plot.pair">
-<code class="sig-prename descclassname"><span class="pre">Plot.</span></code><code class="sig-name descname"><span class="pre">pair</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Hashable</span><span class="p"><span class="pre">]</span></span> <span class="p"><span class="pre">|</span></span> <span class="pre">Index</span><span class="p"><span class="pre">[</span></span><span class="pre">Hashable</span><span class="p"><span class="pre">]</span></span> <span class="p"><span class="pre">|</span></span> <span class="pre">None</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Hashable</span><span class="p"><span class="pre">]</span></span> <span class="p"><span class="pre">|</span></span> <span class="pre">Index</span><span class="p"><span class="pre">[</span></span><span class="pre">Hashable</span><span class="p"><span class="pre">]</span></span> <span class="p"><span class="pre">|</span></span> <span class="pre">None</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span> <span class="p"><span class="pre">|</span></span> <span class="pre">None</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cartesian</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><span class="pre">Plot</span></a><a class="headerlink" href="#seaborn.objects.Plot.pair" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Plot.</span></code><code class="sig-name descname"><span class="pre">pair</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.pair" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produce subplots with distinct <code class="docutils literal notranslate"><span class="pre">x</span></code> and/or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -274,7 +290,7 @@
 <dt><strong>wrap</strong><span class="classifier">int</span></dt><dd><p>Maximum height/width of the grid, with additional subplots “wrapped”
 on the other dimension. Requires that only one of <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> are set here.</p>
 </dd>
-<dt><strong>cartesian</strong><span class="classifier">bool</span></dt><dd><p>When True, define a two-dimensional grid using the Cartesian product of <code class="docutils literal notranslate"><span class="pre">x</span></code>
+<dt><strong>cross</strong><span class="classifier">bool</span></dt><dd><p>When True, define a two-dimensional grid using the Cartesian product of <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Otherwise, define a one-dimensional grid by pairing <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>
 entries in by position.</p>
 </dd>

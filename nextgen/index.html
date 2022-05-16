@@ -34,7 +34,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API" href="api.html" />
+    <link rel="next" title="Demonstration of next-generation seaborn interface" href="demo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -72,8 +72,14 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="api.html">
-  API
+  API Reference
  </a>
 </li>
 
@@ -101,67 +107,13 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background-and-goals">
-   Background and goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-basic-interface">
-   The basic interface
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#core-components">
-   Core components
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visual-representation-the-mark">
-     Visual representation: the Mark
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-transformation-the-stat">
-     Data transformation: the Stat
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overplotting-resolution-the-move">
-     Overplotting resolution: the Move
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#semantic-mapping-the-scale">
-     Semantic mapping: the Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#defining-subplot-structure">
-   Defining subplot structure
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iterating-and-displaying">
-   Iterating and displaying
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matplotlib-integration">
-   Matplotlib integration
-  </a>
- </li>
-</ul>
-
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
 </nav>
             </div>
             
@@ -185,598 +137,88 @@
                 
   <section id="next-generation-seaborn-interface">
 <h1>Next-generation seaborn interface<a class="headerlink" href="#next-generation-seaborn-interface" title="Permalink to this headline">¶</a></h1>
-<p>Over the past 8 months, I have been developing an entirely new interface
-for making plots with seaborn. This page demonstrates some of its
-functionality.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is very much a work in progress. It is almost certain that code patterns demonstrated here will change before an official release.</p>
-<p>I do plan to issue a series of alpha/beta releases so that people can play around with it and give feedback, but it’s not at that point yet.</p>
+<p>Over the past year, I have been developing an entirely new interface for
+making plots with seaborn. The new interface is designed to be
+declarative, compositional and extensible. If successful, it will both
+greatly expand the space of plots that can be created with seaborn while
+making the experience of doing so simpler and more delightful.</p>
+<p>To make that concrete, here is how you make a <a class="reference external" href="http://seaborn.pydata.org/introduction.html#our-first-seaborn-plot">hello world
+example</a>
+with the new interface:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">seaborn.objects</span> <span class="k">as</span> <span class="nn">so</span>
+<span class="p">(</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span>
+        <span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
 </div>
+<a class="reference internal image-reference" href="_images/index_1_0.png"><img alt="_images/index_1_0.png" src="_images/index_1_0.png" style="width: 632.8249999999999px; height: 313.22499999999997px;" /></a>
+<section id="installing-the-alpha">
+<h2>Installing the alpha<a class="headerlink" href="#installing-the-alpha" title="Permalink to this headline">¶</a></h2>
+<p>If you’re interested, please install the alpha and kick the tires.
+Expect some rough edges and some instability! But feedback will be very
+helpful in pushing this towards a more stable broad release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v0</span><span class="mf">.12.0</span><span class="n">a0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>The documentation is still a work in progress, but there’s a reasonably
+thorough demo of the main parts, and some basic API documentation for
+the existing classes.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demonstration of next-generation seaborn interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+</div>
+</section>
 <section id="background-and-goals">
 <h2>Background and goals<a class="headerlink" href="#background-and-goals" title="Permalink to this headline">¶</a></h2>
 <p>This work grew out of long-running efforts to refactor the seaborn
 internals so that its functions could rely on common code-paths. At a
-certain point, I decided that I was developing an API that would also be
-interesting for external users too.</p>
+certain point, I realized that I was developing an API that might also
+be interesting for external users.</p>
 <p>Of course, “write a new interface” quickly turned into “rethink every
 aspect of the library.” The current interface has some <a class="reference external" href="https://michaelwaskom.medium.com/three-common-seaborn-difficulties-10fdd0cc2a8b">pain
 points</a>
 that arise from early constraints and path dependence. By starting
 fresh, these can be avoided.</p>
-<p>More broadly, seaborn was originally conceived as a toolbox of
-domain-specific statistical graphics to be used alongside matplotlib. As
-the library (and data science) grew, it became more common to reach for
-— or even learn — seaborn first. But one inevitably desires some
-customization that is not offered within the (already much-too-long)
-list of parameters in seaborn’s functions. Currently, this necessitates
-direct use of matplotlib.</p>
+<p>Originally, seaborn existed as a toolbox of domain-specific statistical
+graphics to be used alongside matplotlib. As the library grew, it became
+more common to reach for — or even learn — seaborn first. But one
+inevitably desires some customization that is not offered within the
+(already much-too-long) list of parameters in seaborn’s functions.
+Currently, this necessitates direct use of matplotlib.</p>
 <p>I’ve always thought that, if you’re comfortable with both libraries,
 this setup offers a powerful blend of convenience and flexibility. But
 it can be hard to know which library will let you accomplish some
 specific task. And, as seaborn has become more powerful, one has to
 write increasing amounts of matpotlib code to recreate what it is doing.</p>
-<p>So the goal is to expose seaborn’s core features — integration with
-pandas, automatic mapping between data and graphics, statistical
-transformations — within an interface that is more compositional,
-extensible, and comprehensive.</p>
+<p>So the new interface is designed to provide a more comprehensive
+experience, such that all of the steps involved in the creation of a
+reasonably-customized plot can be accomplished in the same way. And the
+compositional nature of the objects provides much more flexibility than
+currently exists in seaborn with a similar level of abstraction that
+lets you focus on <em>what</em> you want to show rather than <em>how</em> to show it.</p>
 <p>One will note that the result looks a bit (a lot?) like ggplot. That’s
 not unintentional, but the goal is also <em>not</em> to “port ggplot2 to
 Python”. (If that’s what you’re looking for, check out the very nice
 <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> package).
 There is an immense amount of wisdom in the grammar of graphics and in
-its particular implementation as ggplot2. But I think that, as
-languages, R and Python are just too different for idioms from one to
-feel natural when translated literally into the other. So while I have
-taken much inspiration from ggplot (along with vegalite, and other
-declarative visualization libraries), I’ve also made plenty of choices
-differently, for better or for worse.</p>
-</section>
-<hr class="docutils" />
-<section id="the-basic-interface">
-<h2>The basic interface<a class="headerlink" href="#the-basic-interface" title="Permalink to this headline">¶</a></h2>
-<p>OK enough preamble. What does this look like? The new interface exists
-as a set of classes that can be acessed through a single namespace
-import:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn.objects</span> <span class="k">as</span> <span class="nn">so</span>
-</pre></div>
-</div>
-<p>This is a clean namespace, and I’m leaning towards recommending
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">seaborn.objects</span> <span class="pre">import</span> <span class="pre">*</span></code> for interactive usecases. But let’s
-not go so far just yet.</p>
-<p>Let’s also import the main namespace so we can load our trusty example
-datasets.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span>
-<span class="n">seaborn</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>The main object is <code class="docutils literal notranslate"><span class="pre">seaborn.objects.Plot</span></code>. You instantiate it by
-passing data and some assignments from columns in the data to roles in
-the plot:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
-<span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_8_0.png"><img alt="_images/index_8_0.png" src="_images/index_8_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>But instantiating the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object doesn’t actually plot anything.
-For that you need to add some layers:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_10_0.png"><img alt="_images/index_10_0.png" src="_images/index_10_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Variables can be defined globally, or for a specific layer:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_12_0.png"><img alt="_images/index_12_0.png" src="_images/index_12_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Each layer can also have its own data:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.6&quot;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size != 2&quot;</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size == 2&quot;</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_14_0.png"><img alt="_images/index_14_0.png" src="_images/index_14_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>As in the existing interface, variables can be keys to the <code class="docutils literal notranslate"><span class="pre">data</span></code>
-object or vectors of various kinds:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_16_0.png"><img alt="_images/index_16_0.png" src="_images/index_16_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The interface also supports semantic mappings between data and plot
-variables. But the specification of those mappings uses more explicit
-parameter names:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_18_0.png"><img alt="_images/index_18_0.png" src="_images/index_18_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>It also offers a wider range of mappable features:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_20_0.png"><img alt="_images/index_20_0.png" src="_images/index_20_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-</section>
-<hr class="docutils" />
-<section id="core-components">
-<h2>Core components<a class="headerlink" href="#core-components" title="Permalink to this headline">¶</a></h2>
-<section id="visual-representation-the-mark">
-<h3>Visual representation: the Mark<a class="headerlink" href="#visual-representation-the-mark" title="Permalink to this headline">¶</a></h3>
-<p>Each layer needs a <code class="docutils literal notranslate"><span class="pre">Mark</span></code> object, which defines how to draw the plot.
-There will be marks corresponding to existing seaborn functions and ones
-offering new functionality. But not many have been implemented yet:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fmri</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;fmri&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;region == &#39;parietal&#39;&quot;</span><span class="p">)</span>
-<span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_23_0.png"><img alt="_images/index_23_0.png" src="_images/index_23_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p><code class="docutils literal notranslate"><span class="pre">Mark</span></code> objects will expose an API to set features directly, rather
-than mapping them:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#698&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_25_0.png"><img alt="_images/index_25_0.png" src="_images/index_25_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-</section>
-<section id="data-transformation-the-stat">
-<h3>Data transformation: the Stat<a class="headerlink" href="#data-transformation-the-stat" title="Permalink to this headline">¶</a></h3>
-<p>Built-in statistical transformations are one of seaborn’s key features.
-But currently, they are tied up with the different visual
-representations. E.g., you can aggregate data in <code class="docutils literal notranslate"><span class="pre">lineplot</span></code>, but not
-in <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code>.</p>
-<p>In the new interface, these concerns are separated. Each layer can
-accept a <code class="docutils literal notranslate"><span class="pre">Stat</span></code> object that applies a data transformation:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_27_0.png"><img alt="_images/index_27_0.png" src="_images/index_27_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The <code class="docutils literal notranslate"><span class="pre">Stat</span></code> is computed on subsets of data defined by the semantic
-mappings:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_29_0.png"><img alt="_images/index_29_0.png" src="_images/index_29_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Each mark also accepts a <code class="docutils literal notranslate"><span class="pre">group</span></code> mapping that creates subsets without
-altering visual properties:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_31_0.png"><img alt="_images/index_31_0.png" src="_images/index_31_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The <code class="docutils literal notranslate"><span class="pre">Mark</span></code> and <code class="docutils literal notranslate"><span class="pre">Stat</span></code> objects allow for more compositionality and
-customization. There will be guidelines for how to define your own
-objects to plug into the broader system:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PeakAnnotation</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Mark</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_generator</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">orient</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">keys</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">split_generator</span><span class="p">():</span>
-            <span class="n">ix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-                <span class="s2">&quot;The peak&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]],</span>
-                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
-                <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
-                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">),</span>
-
-            <span class="p">)</span>
-
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">PeakAnnotation</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_33_0.png"><img alt="_images/index_33_0.png" src="_images/index_33_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>The new interface understands not just <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, but also range
-specifiers; some <code class="docutils literal notranslate"><span class="pre">Stat</span></code> objects will output ranges, and some <code class="docutils literal notranslate"><span class="pre">Mark</span></code>
-objects will accept them. (This means that it will finally be possible
-to pass pre-defined error-bars into seaborn):</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">fmri</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;timepoint&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">signal</span>
-    <span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_35_0.png"><img alt="_images/index_35_0.png" src="_images/index_35_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-</section>
-<hr class="docutils" />
-<section id="overplotting-resolution-the-move">
-<h3>Overplotting resolution: the Move<a class="headerlink" href="#overplotting-resolution-the-move" title="Permalink to this headline">¶</a></h3>
-<p>Existing seaborn functions have parameters that allow adjustments for
-overplotting, such as <code class="docutils literal notranslate"><span class="pre">dodge=</span></code> in several categorical functions,
-<code class="docutils literal notranslate"><span class="pre">jitter=</span></code> in several functions based on scatterplots, and the
-<code class="docutils literal notranslate"><span class="pre">multiple=</span></code> paramter in distribution functions. In the new interface,
-those adjustments are abstracted away from the particular visual
-representation into the concept of a <code class="docutils literal notranslate"><span class="pre">Move</span></code>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_37_0.png"><img alt="_images/index_37_0.png" src="_images/index_37_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Separating out the positional adjustment makes it possible to add
-additional flexibility without overwhelming the signature of a single
-function. For example, there will be more options for handling missing
-levels when dodging and for fine-tuning the adjustment.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">.1</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_39_0.png"><img alt="_images/index_39_0.png" src="_images/index_39_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">move</span></code> will resolve all overlapping semantic mappings:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_41_0.png"><img alt="_images/index_41_0.png" src="_images/index_41_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>But you can specify a subset:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]))</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_43_0.png"><img alt="_images/index_43_0.png" src="_images/index_43_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>It’s also possible to stack multiple moves or kinds of moves by passing
-a list:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span>
-        <span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span>
-        <span class="n">move</span><span class="o">=</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]),</span> <span class="n">so</span><span class="o">.</span><span class="n">Jitter</span><span class="p">(</span><span class="mf">.5</span><span class="p">)]</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_45_0.png"><img alt="_images/index_45_0.png" src="_images/index_45_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Separating the <code class="docutils literal notranslate"><span class="pre">Stat</span></code> and <code class="docutils literal notranslate"><span class="pre">Move</span></code> from the visual representation
-affords more flexibility, greatly expanding the space of graphics that
-can be created.</p>
-</section>
-<hr class="docutils" />
-<section id="semantic-mapping-the-scale">
-<h3>Semantic mapping: the Scale<a class="headerlink" href="#semantic-mapping-the-scale" title="Permalink to this headline">¶</a></h3>
-<p>The declarative interface allows users to represent dataset variables
-with visual properites such as position, color or size. A complete plot
-can be made without doing anything more defining the mappings: users
-need not be concerned with converting their data into units that
-matplotlib understands. But what if one wants to alter the mapping that
-seaborn chooses? This is accomplished through the concept of a
-<code class="docutils literal notranslate"><span class="pre">Scale</span></code>.</p>
-<p>The notion of scaling will probably not be unfamiliar; as in matplotlib,
-seaborn allows one to apply a mathematical transformation, such as
-<code class="docutils literal notranslate"><span class="pre">log</span></code>, to the coordinate variables:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;planets&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;distance &lt; 1000&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_49_0.png"><img alt="_images/index_49_0.png" src="_images/index_49_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>But the <code class="docutils literal notranslate"><span class="pre">Scale</span></code> concept is much more general in seaborn: a scale can
-be provided for any mappable property. For example, it is how you
-specify the palette used for color variables:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;rocket&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_51_0.png"><img alt="_images/index_51_0.png" src="_images/index_51_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>While there are a number of short-hand “magic” arguments you can provide
-for each scale, it is also possible to be more explicit by passing a
-<code class="docutils literal notranslate"><span class="pre">Scale</span></code> object. There are several distinct <code class="docutils literal notranslate"><span class="pre">Scale</span></code> classes,
-corresponding to the fundamental scale types (nominal, ordinal,
-continuous, etc.). Each class exposes a number of relevant parameters
-that control the details of the mapping:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">at</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">]),</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="s2">&quot;rocket&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">),</span>
-    <span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_53_0.png"><img alt="_images/index_53_0.png" src="_images/index_53_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>There are several different kinds of scales, including scales
-appropriate for categorical data:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span>
-        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Nominal</span><span class="p">([</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Radial Velocity&quot;</span><span class="p">,</span> <span class="s2">&quot;Transit&quot;</span><span class="p">])</span>
-    <span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_55_0.png"><img alt="_images/index_55_0.png" src="_images/index_55_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>It’s also possible to disable scaling for a variable so that the literal
-values in the dataset are passed directly through to matplotlib:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_57_0.png"><img alt="_images/index_57_0.png" src="_images/index_57_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Scaling interacts with the <code class="docutils literal notranslate"><span class="pre">Stat</span></code> and <code class="docutils literal notranslate"><span class="pre">Move</span></code> transformations. When
-an axis has a nonlinear scale, any statistical transformations or
-adjustments take place in the appropriate space:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_59_0.png"><img alt="_images/index_59_0.png" src="_images/index_59_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>This is also true of the <code class="docutils literal notranslate"><span class="pre">Move</span></code> transformations:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span>
-        <span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span>
-        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">planets</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;multiple&quot;</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_61_0.png"><img alt="_images/index_61_0.png" src="_images/index_61_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-</section>
-</section>
-<hr class="docutils" />
-<section id="defining-subplot-structure">
-<h2>Defining subplot structure<a class="headerlink" href="#defining-subplot-structure" title="Permalink to this headline">¶</a></h2>
-<p>Seaborn’s faceting functionality (drawing subsets of the data on
-distinct subplots) is built into the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object and works
-interchangably with any <code class="docutils literal notranslate"><span class="pre">Mark</span></code>/<code class="docutils literal notranslate"><span class="pre">Stat</span></code>/<code class="docutils literal notranslate"><span class="pre">Move</span></code>/<code class="docutils literal notranslate"><span class="pre">Scale</span></code> spec:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Lunch&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_64_0.png"><img alt="_images/index_64_0.png" src="_images/index_64_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Unlike the existing <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code> it is simple to <em>not</em> facet a layer,
-so that a plot is simply replicated across each column (or row):</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.75&quot;</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_66_0.png"><img alt="_images/index_66_0.png" src="_images/index_66_0.png" style="width: 571.1999999999999px; height: 244.79999999999998px;" /></a>
-<p>The <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object <em>also</em> subsumes the <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code> functionality:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_68_0.png"><img alt="_images/index_68_0.png" src="_images/index_68_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Pairing and faceting can be combined in the same plot:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_70_0.png"><img alt="_images/index_70_0.png" src="_images/index_70_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Or the <code class="docutils literal notranslate"><span class="pre">Plot.pair</span></code> functionality can be used to define unique pairings
-between variables:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">],</span> <span class="n">cartesian</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_72_0.png"><img alt="_images/index_72_0.png" src="_images/index_72_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>It’s additionally possible to “pair” with a single variable, for
-univariate plots like histograms.</p>
-<p>Both faceted and paired plots with subplots along a single dimension can
-be “wrapped”, and this works both columwise and rowwise:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_74_0.png"><img alt="_images/index_74_0.png" src="_images/index_74_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Importantly, there’s no distinction between “axes-level” and
-“figure-level” here. Any kind of plot can be faceted or paired by adding
-a method call to the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> definition, without changing anything else
-about how you are creating the figure.</p>
-</section>
-<hr class="docutils" />
-<section id="iterating-and-displaying">
-<h2>Iterating and displaying<a class="headerlink" href="#iterating-and-displaying" title="Permalink to this headline">¶</a></h2>
-<p>It is possible (and in fact the deafult behavior) to be completely
-pyplot-free, and all the drawing is done by directly hooking into
-Jupyter’s rich display system. Unlike in normal usage of the inline
-backend, writing code in a cell to define a plot is indendent from
-showing it:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_79_0.png"><img alt="_images/index_79_0.png" src="_images/index_79_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>By default, the methods on <code class="docutils literal notranslate"><span class="pre">Plot</span></code> do <em>not</em> mutate the object they are
-called on. This means that you can define a common base specification
-and then iterate on different versions of it.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;crest&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_82_0.png"><img alt="_images/index_82_0.png" src="_images/index_82_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_83_0.png"><img alt="_images/index_83_0.png" src="_images/index_83_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_84_0.png"><img alt="_images/index_84_0.png" src="_images/index_84_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">p</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_85_0.png"><img alt="_images/index_85_0.png" src="_images/index_85_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>It’s also possible to hook into the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> system by calling
-<code class="docutils literal notranslate"><span class="pre">Plot.show</span></code>. (As you might in a terminal interface, or to use a GUI).
-Notice how this looks lower-res: that’s because <code class="docutils literal notranslate"><span class="pre">Plot</span></code> is generating
-“high-DPI” figures internally!</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">p</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">),</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<img alt="_images/index_87_0.png" src="_images/index_87_0.png" />
-</section>
-<hr class="docutils" />
-<section id="matplotlib-integration">
-<h2>Matplotlib integration<a class="headerlink" href="#matplotlib-integration" title="Permalink to this headline">¶</a></h2>
-<p>It’s always been a design aim in seaborn to allow complicated seaborn
-plots to coexist within the context of a larger matplotlib figure. This
-is acheived within the “axes-level” functions, which accept an <code class="docutils literal notranslate"><span class="pre">ax=</span></code>
-parameter. The <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object <em>will</em> provide a similar functionality:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_89_0.png"><img alt="_images/index_89_0.png" src="_images/index_89_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>But a limitation has been that the “figure-level” functions, which can
-produce multiple subplots, cannot be directed towards an existing
-figure. That is no longer the case; <code class="docutils literal notranslate"><span class="pre">Plot.on()</span></code> also accepts a
-<code class="docutils literal notranslate"><span class="pre">Figure</span></code> (created either with or without <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>) object:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_91_0.png"><img alt="_images/index_91_0.png" src="_images/index_91_0.png" style="width: 489.59999999999997px; height: 326.4px;" /></a>
-<p>Providing an existing figure is perhaps only marginally useful. While it
-will ease the integration of seaborn with GUI frameworks, seaborn is
-still using up the whole figure canvas. But with the introduction of the
-<code class="docutils literal notranslate"><span class="pre">SubFigure</span></code> concept in matplotlib 3.4, it becomes possible to place a
-small-multiples plot <em>within</em> a larger set of subplots:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">sf1</span><span class="p">,</span> <span class="n">sf2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">sf1</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="p">)</span>
-<span class="p">(</span>
-    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">sf2</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/index_93_0.png"><img alt="_images/index_93_0.png" src="_images/index_93_0.png" style="width: 652.8px; height: 326.4px;" /></a>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#plot-interface">Plot interface</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.html">seaborn.objects.Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.add.html">seaborn.objects.Plot.add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.scale.html">seaborn.objects.Plot.scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.facet.html">seaborn.objects.Plot.facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.pair.html">seaborn.objects.Plot.pair</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.configure.html">seaborn.objects.Plot.configure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.on.html">seaborn.objects.Plot.on</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.plot.html">seaborn.objects.Plot.plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.save.html">seaborn.objects.Plot.save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Plot.show.html">seaborn.objects.Plot.show</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#marks">Marks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Area.html">seaborn.objects.Area</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Bar.html">seaborn.objects.Bar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Dot.html">seaborn.objects.Dot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Line.html">seaborn.objects.Line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Scatter.html">seaborn.objects.Scatter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#stats">Stats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Agg.html">seaborn.objects.Agg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Hist.html">seaborn.objects.Hist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.PolyFit.html">seaborn.objects.PolyFit</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#moves">Moves</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Dodge.html">seaborn.objects.Dodge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Jitter.html">seaborn.objects.Jitter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Shift.html">seaborn.objects.Shift</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Stack.html">seaborn.objects.Stack</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#scales">Scales</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Continuous.html">seaborn.objects.Continuous</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/seaborn.objects.Nominal.html">seaborn.objects.Nominal</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+its particular implementation as ggplot2. But, as languages, R and
+Python are just too different for idioms from one to feel natural when
+translated literally into the other. So while I have taken much
+inspiration from ggplot (along with vega-lite, d3, and other great
+libraries), I’ve also made plenty of choices differently, for better or
+for worse.</p>
 </section>
 </section>
 

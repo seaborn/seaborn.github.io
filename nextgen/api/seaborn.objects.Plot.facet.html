@@ -72,9 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../api.html">
-  Nextgen API
+  API Reference
  </a>
 </li>
 
@@ -181,6 +187,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Ribbon.html">
+   seaborn.objects.Ribbon
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Scatter.html">
    seaborn.objects.Scatter
   </a>
@@ -227,13 +238,18 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Nominal.html">
-   seaborn.objects.Nominal
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
   </a>
  </li>
 </ul>
@@ -264,7 +280,7 @@
 <h1>seaborn.objects.Plot.facet<a class="headerlink" href="#seaborn-objects-plot-facet" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="seaborn.objects.Plot.facet">
-<code class="sig-prename descclassname"><span class="pre">Plot.</span></code><code class="sig-name descname"><span class="pre">facet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderSpec</span> <span class="p"><span class="pre">|</span></span> <span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">OrderSpec</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span> <span class="p"><span class="pre">|</span></span> <span class="pre">None</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><span class="pre">Plot</span></a><a class="headerlink" href="#seaborn.objects.Plot.facet" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Plot.</span></code><code class="sig-name descname"><span class="pre">facet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.facet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produce subplots with conditional subsets of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

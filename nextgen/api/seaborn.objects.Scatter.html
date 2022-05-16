@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.objects.Agg" href="seaborn.objects.Agg.html" />
-    <link rel="prev" title="seaborn.objects.Line" href="seaborn.objects.Line.html" />
+    <link rel="prev" title="seaborn.objects.Ribbon" href="seaborn.objects.Ribbon.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -72,9 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../api.html">
-  Nextgen API
+  API Reference
  </a>
 </li>
 
@@ -180,6 +186,11 @@
    seaborn.objects.Line
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Ribbon.html">
+   seaborn.objects.Ribbon
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    seaborn.objects.Scatter
@@ -227,13 +238,18 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Nominal.html">
-   seaborn.objects.Nominal
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
   </a>
  </li>
 </ul>
@@ -264,11 +280,11 @@
 <h1>seaborn.objects.Scatter<a class="headerlink" href="#seaborn-objects-scatter" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="seaborn.objects.Scatter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></code><code class="sig-name descname"><span class="pre">Scatter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">artist_kws:</span> <span class="pre">dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">color:</span> <span class="pre">MappableColor</span> <span class="pre">=</span> <span class="pre">&lt;'C0'&gt;</span></em>, <em class="sig-param"><span class="pre">alpha:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;1&gt;</span></em>, <em class="sig-param"><span class="pre">fill:</span> <span class="pre">MappableBool</span> <span class="pre">=</span> <span class="pre">&lt;True&gt;</span></em>, <em class="sig-param"><span class="pre">fillcolor:</span> <span class="pre">MappableColor</span> <span class="pre">=</span> <span class="pre">&lt;depend:color&gt;</span></em>, <em class="sig-param"><span class="pre">fillalpha:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;0.2&gt;</span></em>, <em class="sig-param"><span class="pre">marker:</span> <span class="pre">MappableString</span> <span class="pre">=</span> <span class="pre">&lt;rc:scatter.marker&gt;</span></em>, <em class="sig-param"><span class="pre">pointsize:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;3&gt;</span></em>, <em class="sig-param"><span class="pre">linewidth:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;0.75&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Scatter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></code><code class="sig-name descname"><span class="pre">Scatter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">artist_kws=&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">marker=&lt;rc:scatter.marker&gt;</span></em>, <em class="sig-param"><span class="pre">stroke=&lt;0.75&gt;</span></em>, <em class="sig-param"><span class="pre">pointsize=&lt;3&gt;</span></em>, <em class="sig-param"><span class="pre">color=&lt;'C0'&gt;</span></em>, <em class="sig-param"><span class="pre">alpha=&lt;1&gt;</span></em>, <em class="sig-param"><span class="pre">fill=&lt;True&gt;</span></em>, <em class="sig-param"><span class="pre">fillcolor=&lt;depend:color&gt;</span></em>, <em class="sig-param"><span class="pre">fillalpha=&lt;0.2&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Scatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>A point mark defined by strokes with optional fills.</p>
 <dl class="py method">
 <dt id="seaborn.objects.Scatter.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">artist_kws:</span> <span class="pre">dict</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">color:</span> <span class="pre">MappableColor</span> <span class="pre">=</span> <span class="pre">&lt;'C0'&gt;</span></em>, <em class="sig-param"><span class="pre">alpha:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;1&gt;</span></em>, <em class="sig-param"><span class="pre">fill:</span> <span class="pre">MappableBool</span> <span class="pre">=</span> <span class="pre">&lt;True&gt;</span></em>, <em class="sig-param"><span class="pre">fillcolor:</span> <span class="pre">MappableColor</span> <span class="pre">=</span> <span class="pre">&lt;depend:color&gt;</span></em>, <em class="sig-param"><span class="pre">fillalpha:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;0.2&gt;</span></em>, <em class="sig-param"><span class="pre">marker:</span> <span class="pre">MappableString</span> <span class="pre">=</span> <span class="pre">&lt;rc:scatter.marker&gt;</span></em>, <em class="sig-param"><span class="pre">pointsize:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;3&gt;</span></em>, <em class="sig-param"><span class="pre">linewidth:</span> <span class="pre">MappableFloat</span> <span class="pre">=</span> <span class="pre">&lt;0.75&gt;</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#seaborn.objects.Scatter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">artist_kws=&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">marker=&lt;rc:scatter.marker&gt;</span></em>, <em class="sig-param"><span class="pre">stroke=&lt;0.75&gt;</span></em>, <em class="sig-param"><span class="pre">pointsize=&lt;3&gt;</span></em>, <em class="sig-param"><span class="pre">color=&lt;'C0'&gt;</span></em>, <em class="sig-param"><span class="pre">alpha=&lt;1&gt;</span></em>, <em class="sig-param"><span class="pre">fill=&lt;True&gt;</span></em>, <em class="sig-param"><span class="pre">fillcolor=&lt;depend:color&gt;</span></em>, <em class="sig-param"><span class="pre">fillalpha=&lt;0.2&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Scatter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -279,14 +295,8 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Scatter.__init__" title="seaborn.objects.Scatter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([artist_kws, color, alpha, fill, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Scatter.__init__" title="seaborn.objects.Scatter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([artist_kws, marker, stroke, …])</p></td>
 <td><p>Initialize self.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code>(split_gen, scales, orient)</p></td>
-<td><p>Main interface for creating a plot.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resolve_features</span></code>(data, scales)</p></td>
-<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -303,28 +313,22 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">color</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">features</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fillalpha</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fillalpha</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fillcolor</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fillcolor</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">marker</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grouping_vars</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointsize</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">linewidth</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">marker</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointsize</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stroke</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

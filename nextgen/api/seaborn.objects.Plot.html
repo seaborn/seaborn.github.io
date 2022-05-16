@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.objects.Plot.add" href="seaborn.objects.Plot.add.html" />
-    <link rel="prev" title="Nextgen API" href="../api.html" />
+    <link rel="prev" title="API Reference" href="../api.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -72,9 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../api.html">
-  Nextgen API
+  API Reference
  </a>
 </li>
 
@@ -181,6 +187,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Ribbon.html">
+   seaborn.objects.Ribbon
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Scatter.html">
    seaborn.objects.Scatter
   </a>
@@ -227,13 +238,18 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Nominal.html">
-   seaborn.objects.Nominal
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
   </a>
  </li>
 </ul>
@@ -264,11 +280,37 @@
 <h1>seaborn.objects.Plot<a class="headerlink" href="#seaborn-objects-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="seaborn.objects.Plot">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></code><code class="sig-name descname"><span class="pre">Plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">DataSource</span> <span class="p"><span class="pre">|</span></span> <span class="pre">VariableSpec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">DataSource</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Declarative specification of a statistical graphic.</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></code><code class="sig-name descname"><span class="pre">Plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillcolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillalpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgealpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interface for declaratively specifying statistical graphics.</p>
+<p>Plots are constructed by initializing this class and adding one or more
+layers, comprising a <code class="docutils literal notranslate"><span class="pre">Mark</span></code> and optional <code class="docutils literal notranslate"><span class="pre">Stat</span></code> or <code class="docutils literal notranslate"><span class="pre">Move</span></code>.  Additionally,
+faceting variables or variable pairings may be defined to divide the space
+into multiple subplots. The mappings from data values to visual properties
+can be parametrized using scales, although the plot will try to infer good
+defaults when scales are not explicitly defined.</p>
+<p>The constructor accepts a data source (a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or
+dictionary with columnar values) and variable assignments. Variables can be
+passed as keys to the data source or directly as data vectors.  If multiple
+data-containing objects are provided, they will be index-aligned.</p>
+<p>The data source and variables defined in the constructor will be used for
+all layers in the plot, unless overridden or disabled when adding a layer.</p>
+<dl class="simple">
+<dt>The following variables can be defined in the constructor:</dt><dd><p>x, y, color, alpha, fill, marker, pointsize, stroke, linewidth, linestyle,
+fillcolor, fillalpha, edgewidth, edgestyle, edgecolor, edgealpha,
+xmin, xmax, ymin, ymax, group</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables can be passed as positional arguments or
+using keywords. Whether the first positional argument is interpreted as a
+data source or <code class="docutils literal notranslate"><span class="pre">x</span></code> variable depends on its type.</p>
+<p>The methods of this class return a copy of the instance; use chaining to
+build up a plot through multiple calls. Methods can be called in any order.</p>
+<p>Most methods only add information to the plot spec; no actual processing
+happens until the plot is shown or saved. It is also possible to compile
+the plot without rendering it to access the lower-level representation.</p>
 <dl class="py method">
 <dt id="seaborn.objects.Plot.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">DataSource</span> <span class="p"><span class="pre">|</span></span> <span class="pre">VariableSpec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">DataSource</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">VariableSpec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -279,14 +321,14 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Plot.__init__" title="seaborn.objects.Plot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args[, data, x, y])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Plot.__init__" title="seaborn.objects.Plot.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args[, data])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.objects.Plot.add.html#seaborn.objects.Plot.add" title="seaborn.objects.Plot.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(mark[, stat, move, orient, data])</p></td>
 <td><p>Define a layer of the visualization.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.objects.Plot.configure.html#seaborn.objects.Plot.configure" title="seaborn.objects.Plot.configure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">configure</span></code></a>([figsize, sharex, sharey])</p></td>
-<td><p>Set figure parameters.</p></td>
+<td><p>Control the figure size and layout.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.objects.Plot.facet.html#seaborn.objects.Plot.facet" title="seaborn.objects.Plot.facet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet</span></code></a>([col, row, order, wrap])</p></td>
 <td><p>Produce subplots with conditional subsets of the data.</p></td>
@@ -294,11 +336,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">on</span></code></a>(target)</p></td>
 <td><p>Draw the plot into an existing Matplotlib object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="seaborn.objects.Plot.pair.html#seaborn.objects.Plot.pair" title="seaborn.objects.Plot.pair"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pair</span></code></a>([x, y, wrap, cartesian])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.objects.Plot.pair.html#seaborn.objects.Plot.pair" title="seaborn.objects.Plot.pair"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pair</span></code></a>([x, y, wrap, cross])</p></td>
 <td><p>Produce subplots with distinct <code class="docutils literal notranslate"><span class="pre">x</span></code> and/or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="seaborn.objects.Plot.plot.html#seaborn.objects.Plot.plot" title="seaborn.objects.Plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>([pyplot])</p></td>
-<td><p>Render the plot and return the <code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code> engine.</p></td>
+<td><p>Compile the plot and return the <code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code> engine.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="seaborn.objects.Plot.save.html#seaborn.objects.Plot.save" title="seaborn.objects.Plot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(fname, **kwargs)</p></td>
 <td><p>Render the plot and write it to a buffer or file on disk.</p></td>

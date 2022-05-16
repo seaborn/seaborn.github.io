@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>API &#8212; seaborn nextgen documentation</title>
+    <title>API Reference &#8212; seaborn nextgen documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="seaborn.objects.Plot" href="api/seaborn.objects.Plot.html" />
-    <link rel="prev" title="Next-generation seaborn interface" href="index.html" />
+    <link rel="prev" title="Demonstration of next-generation seaborn interface" href="demo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -72,9 +72,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="demo.html">
+  Demonstration of next-generation seaborn interface
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  API
+  API Reference
  </a>
 </li>
 
@@ -181,6 +187,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Ribbon.html">
+   seaborn.objects.Ribbon
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Scatter.html">
    seaborn.objects.Scatter
   </a>
@@ -227,13 +238,18 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="api/seaborn.objects.Nominal.html">
-   seaborn.objects.Nominal
+  <a class="reference internal" href="api/seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
   </a>
  </li>
 </ul>
@@ -260,10 +276,10 @@
               
               <div>
                 
-  <section id="api">
-<span id="nextgen-api"></span><h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+  <section id="api-reference">
+<span id="nextgen-api"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>This is a provisional API that is under active development, incomplete, and subject to change before release.</p>
 </div>
 <section id="plot-interface">
@@ -275,7 +291,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot</span></code></a></p></td>
-<td><p>Declarative specification of a statistical graphic.</p></td>
+<td><p>An interface for declaratively specifying statistical graphics.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.add.html#seaborn.objects.Plot.add" title="seaborn.objects.Plot.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.add</span></code></a></p></td>
 <td><p>Define a layer of the visualization.</p></td>
@@ -290,13 +306,13 @@
 <td><p>Produce subplots with distinct <code class="docutils literal notranslate"><span class="pre">x</span></code> and/or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.configure.html#seaborn.objects.Plot.configure" title="seaborn.objects.Plot.configure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.configure</span></code></a></p></td>
-<td><p>Set figure parameters.</p></td>
+<td><p>Control the figure size and layout.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.on</span></code></a></p></td>
 <td><p>Draw the plot into an existing Matplotlib object.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.plot.html#seaborn.objects.Plot.plot" title="seaborn.objects.Plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.plot</span></code></a></p></td>
-<td><p>Render the plot and return the <code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code> engine.</p></td>
+<td><p>Compile the plot and return the <code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code> engine.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.save.html#seaborn.objects.Plot.save" title="seaborn.objects.Plot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.save</span></code></a></p></td>
 <td><p>Render the plot and write it to a buffer or file on disk.</p></td>
@@ -327,7 +343,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Line.html#seaborn.objects.Line" title="seaborn.objects.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a></p></td>
 <td><p>A mark connecting data points with sorting along the orientation axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Ribbon.html#seaborn.objects.Ribbon" title="seaborn.objects.Ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ribbon</span></code></a></p></td>
+<td><p>An interval mark that fills between minimum and maximum values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
 <td><p>A point mark defined by strokes with optional fills.</p></td>
 </tr>
 </tbody>
@@ -384,11 +403,14 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Continuous.html#seaborn.objects.Continuous" title="seaborn.objects.Continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Continuous</span></code></a></p></td>
-<td><p>A numeric scale on arbitrary floating point values.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Nominal.html#seaborn.objects.Nominal" title="seaborn.objects.Nominal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nominal</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Nominal.html#seaborn.objects.Nominal" title="seaborn.objects.Nominal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nominal</span></code></a></p></td>
 <td><p>A categorical scale without relative importance / magnitude.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Continuous.html#seaborn.objects.Continuous" title="seaborn.objects.Continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Continuous</span></code></a></p></td>
+<td><p>A numeric scale supporting norms and functional transforms.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Temporal.html#seaborn.objects.Temporal" title="seaborn.objects.Temporal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Temporal</span></code></a></p></td>
+<td><p>A scale for date/time data.</p></td>
 </tr>
 </tbody>
 </table>

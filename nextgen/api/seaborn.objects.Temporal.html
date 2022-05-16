@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.Plot.on &#8212; seaborn nextgen documentation</title>
+    <title>seaborn.objects.Temporal &#8212; seaborn nextgen documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -34,8 +34,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.objects.Plot.plot" href="seaborn.objects.Plot.plot.html" />
-    <link rel="prev" title="seaborn.objects.Plot.configure" href="seaborn.objects.Plot.configure.html" />
+    <link rel="prev" title="seaborn.objects.Continuous" href="seaborn.objects.Continuous.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +112,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
+    <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Plot.html">
    seaborn.objects.Plot
@@ -144,8 +143,8 @@
    seaborn.objects.Plot.configure
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.on.html">
    seaborn.objects.Plot.on
   </a>
  </li>
@@ -236,7 +235,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Nominal.html">
    seaborn.objects.Nominal
@@ -247,8 +246,8 @@
    seaborn.objects.Continuous
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Temporal.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    seaborn.objects.Temporal
   </a>
  </li>
@@ -276,23 +275,57 @@
               
               <div>
                 
-  <section id="seaborn-objects-plot-on">
-<h1>seaborn.objects.Plot.on<a class="headerlink" href="#seaborn-objects-plot-on" title="Permalink to this headline">¶</a></h1>
+  <section id="seaborn-objects-temporal">
+<h1>seaborn.objects.Temporal<a class="headerlink" href="#seaborn-objects-temporal" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="seaborn.objects.Temporal">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></code><code class="sig-name descname"><span class="pre">Temporal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Temporal" title="Permalink to this definition">¶</a></dt>
+<dd><p>A scale for date/time data.</p>
 <dl class="py method">
-<dt id="seaborn.objects.Plot.on">
-<code class="sig-prename descclassname"><span class="pre">Plot.</span></code><code class="sig-name descname"><span class="pre">on</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.on" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw the plot into an existing Matplotlib object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>target</strong><span class="classifier">Axes, SubFigure, or Figure</span></dt><dd><p>Matplotlib object to use. Passing <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> will add
-artists without otherwise modifying the figure. Otherwise, subplots will be
-created within the space of the given <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> or
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.SubFigure" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.SubFigure</span></code></a>.</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<dt id="seaborn.objects.Temporal.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Temporal.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Temporal.__init__" title="seaborn.objects.Temporal.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([values, norm])</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">format</span></code>([formater, concise])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup</span></code>(data, prop[, axis])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick</span></code>([locator, upto])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </section>
