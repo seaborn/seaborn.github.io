@@ -139,10 +139,10 @@
 <h1>Next-generation seaborn interface<a class="headerlink" href="#next-generation-seaborn-interface" title="Permalink to this headline">¶</a></h1>
 <p>Over the past year, I have been developing an entirely new interface for
 making plots with seaborn. The new interface is designed to be
-declarative, compositional and extensible. If successful, it will both
+declarative, compositional and extensible. If successful, it will
 greatly expand the space of plots that can be created with seaborn while
-making the experience of doing so simpler and more delightful.</p>
-<p>To make that concrete, here is how you make a <a class="reference external" href="http://seaborn.pydata.org/introduction.html#our-first-seaborn-plot">hello world
+making the experience of using it simpler and more delightful.</p>
+<p>To make that concrete, here is a <a class="reference external" href="http://seaborn.pydata.org/introduction.html#our-first-seaborn-plot">hello world
 example</a>
 with the new interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -162,11 +162,12 @@ with the new interface:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_1_0.png"><img alt="_images/index_1_0.png" src="_images/index_1_0.png" style="width: 632.8249999999999px; height: 313.22499999999997px;" /></a>
-<section id="installing-the-alpha">
-<h2>Installing the alpha<a class="headerlink" href="#installing-the-alpha" title="Permalink to this headline">¶</a></h2>
-<p>If you’re interested, please install the alpha and kick the tires.
-Expect some rough edges and some instability! But feedback will be very
-helpful in pushing this towards a more stable broad release:</p>
+<section id="testing-the-alpha-release">
+<h2>Testing the alpha release<a class="headerlink" href="#testing-the-alpha-release" title="Permalink to this headline">¶</a></h2>
+<p>If you’re interested, please install the alpha and kick the tires. It is
+very far from complete, so expect some rough edges and instability! But
+feedback will be very helpful in pushing this towards a more stable
+broad release:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v0</span><span class="mf">.12.0</span><span class="n">a0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
@@ -196,17 +197,15 @@ graphics to be used alongside matplotlib. As the library grew, it became
 more common to reach for — or even learn — seaborn first. But one
 inevitably desires some customization that is not offered within the
 (already much-too-long) list of parameters in seaborn’s functions.
-Currently, this necessitates direct use of matplotlib.</p>
-<p>I’ve always thought that, if you’re comfortable with both libraries,
-this setup offers a powerful blend of convenience and flexibility. But
-it can be hard to know which library will let you accomplish some
-specific task. And, as seaborn has become more powerful, one has to
-write increasing amounts of matpotlib code to recreate what it is doing.</p>
+Currently, this necessitates direct use of matplotlib. I’ve always
+thought that, if you’re comfortable with both libraries, this setup
+offers a powerful blend of convenience and flexibility. But it can be
+hard to know which library will let you accomplish some specific task.</p>
 <p>So the new interface is designed to provide a more comprehensive
 experience, such that all of the steps involved in the creation of a
 reasonably-customized plot can be accomplished in the same way. And the
 compositional nature of the objects provides much more flexibility than
-currently exists in seaborn with a similar level of abstraction that
+currently exists in seaborn with a similar level of abstraction: this
 lets you focus on <em>what</em> you want to show rather than <em>how</em> to show it.</p>
 <p>One will note that the result looks a bit (a lot?) like ggplot. That’s
 not unintentional, but the goal is also <em>not</em> to “port ggplot2 to
