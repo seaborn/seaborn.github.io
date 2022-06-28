@@ -1,7 +1,7 @@
 Demonstration of next-generation seaborn interface
 ==================================================
 
-.. note::
+.. warning::
 
     This API is **experimental** and **unstable**. Please try it out and provide feedback, but expect it to change without warning prior to an official release.
 
@@ -483,8 +483,8 @@ that control the details of the mapping:
         so.Plot(planets, x="mass", y="distance", color="orbital_period")
         .scale(
             x="log",
-            y=so.Continuous(transform="log").tick(at=[3, 10, 30, 100, 300]),
-            color=so.Continuous("rocket", transform="log"),
+            y=so.Continuous(trans="log").tick(at=[3, 10, 30, 100, 300]),
+            color=so.Continuous("rocket", trans="log"),
         )
         .add(so.Scatter())
     )

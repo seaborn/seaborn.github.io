@@ -1,17 +1,22 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Next-generation seaborn interface &#8212; seaborn nextgen documentation</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -19,50 +24,54 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/blank.css" type="text/css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Demonstration of next-generation seaborn interface" href="demo.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
+  
 
-<a class="navbar-brand" href="#">
-  <img src="_static/logo.svg" class="logo" alt="logo">
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
 </a>
-
-
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -73,13 +82,13 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="demo.html">
-  Demonstration of next-generation seaborn interface
+  Demonstration
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="api.html">
-  API Reference
+  API Overview
  </a>
 </li>
 
@@ -92,6 +101,14 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
       </ul>
       </div>
@@ -102,41 +119,31 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
+
+<div class="sidebar-primary col-12 col-md-1 col-xl-2 bd-sidebar no-sidebar"></div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-md-block col-md-2 bd-toc">
+  
     
-  </div>
-</nav>
-            </div>
-            
-          
+  
+</div>
 
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-            
-          </div>
-          
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-8">
               
-              <div>
+              <article class="bd-article" role="main">
                 
   <section id="next-generation-seaborn-interface">
-<h1>Next-generation seaborn interface<a class="headerlink" href="#next-generation-seaborn-interface" title="Permalink to this headline">¶</a></h1>
+<h1>Next-generation seaborn interface<a class="headerlink" href="#next-generation-seaborn-interface" title="Permalink to this heading">#</a></h1>
 <p>Over the past year, I have been developing an entirely new interface for
 making plots with seaborn. The new interface is designed to be
 declarative, compositional and extensible. If successful, it will
@@ -162,27 +169,31 @@ with the new interface:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/index_1_0.png"><img alt="_images/index_1_0.png" src="_images/index_1_0.png" style="width: 632.8249999999999px; height: 313.22499999999997px;" /></a>
-<section id="testing-the-alpha-release">
-<h2>Testing the alpha release<a class="headerlink" href="#testing-the-alpha-release" title="Permalink to this headline">¶</a></h2>
-<p>If you’re interested, please install the alpha and kick the tires. It is
-very far from complete, so expect some rough edges and instability! But
-feedback will be very helpful in pushing this towards a more stable
-broad release:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v0</span><span class="mf">.12.0</span><span class="n">a0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<section id="testing-the-pre-release">
+<h2>Testing the pre-release<a class="headerlink" href="#testing-the-pre-release" title="Permalink to this heading">#</a></h2>
+<p>If you’re interested, please install the pre-release and kick the tires.
+It is still a work in progress, so expect some rough edges and
+instability! But feedback will be very helpful in pushing this towards a
+more stable broad release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">pre</span> <span class="n">seaborn</span>
 </pre></div>
 </div>
-<p>The documentation is still a work in progress, but there’s a reasonably
-thorough demo of the main parts, and some basic API documentation for
-the existing classes.</p>
+</section>
+<section id="preview-components">
+<h2>Preview components<a class="headerlink" href="#preview-components" title="Permalink to this heading">#</a></h2>
+<p>The formal documentation is still a work-in-progress, so this preview
+serves as an introduction and reference for testing. There’s a
+reasonably thorough demo of the main components and some basic API
+documentation for the existing classes:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="demo.html">Demonstration of next-generation seaborn interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demonstration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Overview</a></li>
 </ul>
 </div>
 </section>
 <section id="background-and-goals">
-<h2>Background and goals<a class="headerlink" href="#background-and-goals" title="Permalink to this headline">¶</a></h2>
+<h2>Background and goals<a class="headerlink" href="#background-and-goals" title="Permalink to this heading">#</a></h2>
 <p>This work grew out of long-running efforts to refactor the seaborn
 internals so that its functions could rely on common code-paths. At a
 certain point, I realized that I was developing an API that might also
@@ -208,46 +219,50 @@ compositional nature of the objects provides much more flexibility than
 currently exists in seaborn with a similar level of abstraction: this
 lets you focus on <em>what</em> you want to show rather than <em>how</em> to show it.</p>
 <p>One will note that the result looks a bit (a lot?) like ggplot. That’s
-not unintentional, but the goal is also <em>not</em> to “port ggplot2 to
-Python”. (If that’s what you’re looking for, check out the very nice
-<a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> package).
-There is an immense amount of wisdom in the grammar of graphics and in
-its particular implementation as ggplot2. But, as languages, R and
-Python are just too different for idioms from one to feel natural when
-translated literally into the other. So while I have taken much
-inspiration from ggplot (along with vega-lite, d3, and other great
-libraries), I’ve also made plenty of choices differently, for better or
-for worse.</p>
+not unintentional: while the original seaborn interface was never
+explicitly intended to implement a grammar of graphics, the redesign is.
+But the goal is also <em>not</em> to “port ggplot2 to Python”. (If that’s what
+you’re looking for, check out the very nice
+<a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> package). I do
+think that ggplot2 gets a lot right, especially its approach to
+layering. But, as languages, R and Python are just too different for
+idioms from one to feel natural when translated literally into the
+other. So while I have taken much inspiration from ggplot (along with
+vega-lite, d3, and other great libraries), I’ve also made plenty of
+choices differently, for better or for worse.</p>
 </section>
 </section>
 
 
-              </div>
+              </article>
               
+
               
-          </main>
+          </div>
           
-
       </div>
     </div>
+
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright 2022, Michael Waskom.<br>
 </p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
-</p>
-    </div>
-    
   </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+</p>
+  </div>
+  
+</div>
 </footer>
   </body>
 </html>

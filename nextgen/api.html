@@ -1,17 +1,22 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>API Reference &#8212; seaborn nextgen documentation</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -19,51 +24,55 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/blank.css" type="text/css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="seaborn.objects.Plot" href="api/seaborn.objects.Plot.html" />
     <link rel="prev" title="Demonstration of next-generation seaborn interface" href="demo.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
+  
 
-<a class="navbar-brand" href="index.html">
-  <img src="_static/logo.svg" class="logo" alt="logo">
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
 </a>
-
-
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -74,13 +83,13 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="demo.html">
-  Demonstration of next-generation seaborn interface
+  Demo
  </a>
 </li>
 
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  API Reference
+  API
  </a>
 </li>
 
@@ -93,6 +102,14 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
       </ul>
       </div>
@@ -103,12 +120,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -187,6 +205,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Lines.html">
+   seaborn.objects.Lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Path.html">
+   seaborn.objects.Path
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Paths.html">
+   seaborn.objects.Paths
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Ribbon.html">
    seaborn.objects.Ribbon
   </a>
@@ -226,6 +259,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Norm.html">
+   seaborn.objects.Norm
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Shift.html">
    seaborn.objects.Shift
   </a>
@@ -256,39 +294,37 @@
 
   </div>
 </nav>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-            
-          </div>
-          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
   <section id="api-reference">
-<span id="nextgen-api"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<span id="nextgen-api"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is a provisional API that is under active development, incomplete, and subject to change before release.</p>
 </div>
 <section id="plot-interface">
-<h2>Plot interface<a class="headerlink" href="#plot-interface" title="Permalink to this headline">¶</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Plot interface<a class="headerlink" href="#plot-interface" title="Permalink to this heading">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot</span></code></a></p></td>
 <td><p>An interface for declaratively specifying statistical graphics.</p></td>
@@ -324,12 +360,8 @@
 </table>
 </section>
 <section id="marks">
-<h2>Marks<a class="headerlink" href="#marks" title="Permalink to this headline">¶</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Marks<a class="headerlink" href="#marks" title="Permalink to this heading">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Area.html#seaborn.objects.Area" title="seaborn.objects.Area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Area</span></code></a></p></td>
 <td><p>An interval mark that fills between baseline and data values.</p></td>
@@ -343,22 +375,27 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Line.html#seaborn.objects.Line" title="seaborn.objects.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a></p></td>
 <td><p>A mark connecting data points with sorting along the orientation axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Ribbon.html#seaborn.objects.Ribbon" title="seaborn.objects.Ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ribbon</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Lines.html#seaborn.objects.Lines" title="seaborn.objects.Lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lines</span></code></a></p></td>
+<td><p>A faster but less-flexible mark for drawing many lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Path.html#seaborn.objects.Path" title="seaborn.objects.Path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a></p></td>
+<td><p>A mark connecting data points in the order they appear.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Paths.html#seaborn.objects.Paths" title="seaborn.objects.Paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Paths</span></code></a></p></td>
+<td><p>A faster but less-flexible mark for drawing many paths.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Ribbon.html#seaborn.objects.Ribbon" title="seaborn.objects.Ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ribbon</span></code></a></p></td>
 <td><p>An interval mark that fills between minimum and maximum values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
 <td><p>A point mark defined by strokes with optional fills.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="stats">
-<h2>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Stats<a class="headerlink" href="#stats" title="Permalink to this heading">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Agg.html#seaborn.objects.Agg" title="seaborn.objects.Agg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Agg</span></code></a></p></td>
 <td><p>Aggregate data along the value axis using given method.</p></td>
@@ -373,12 +410,8 @@
 </table>
 </section>
 <section id="moves">
-<h2>Moves<a class="headerlink" href="#moves" title="Permalink to this headline">¶</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Moves<a class="headerlink" href="#moves" title="Permalink to this heading">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Dodge.html#seaborn.objects.Dodge" title="seaborn.objects.Dodge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dodge</span></code></a></p></td>
 <td><p>Displacement and narrowing of overlapping marks along orientation axis.</p></td>
@@ -386,22 +419,21 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Jitter.html#seaborn.objects.Jitter" title="seaborn.objects.Jitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Jitter</span></code></a></p></td>
 <td><p>Random displacement of marks along either or both axes to reduce overplotting.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Shift.html#seaborn.objects.Shift" title="seaborn.objects.Shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Shift</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Norm.html#seaborn.objects.Norm" title="seaborn.objects.Norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Norm</span></code></a></p></td>
+<td><p>Divisive scaling on the value axis after aggregating within groups.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Shift.html#seaborn.objects.Shift" title="seaborn.objects.Shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Shift</span></code></a></p></td>
 <td><p>Displacement of all marks with the same magnitude / direction.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Stack.html#seaborn.objects.Stack" title="seaborn.objects.Stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stack</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Stack.html#seaborn.objects.Stack" title="seaborn.objects.Stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stack</span></code></a></p></td>
 <td><p>Displacement of overlapping bar or area marks along the value axis.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="scales">
-<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this heading">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Nominal.html#seaborn.objects.Nominal" title="seaborn.objects.Nominal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nominal</span></code></a></p></td>
 <td><p>A categorical scale without relative importance / magnitude.</p></td>
@@ -418,32 +450,35 @@
 </section>
 
 
-              </div>
+              </article>
               
-              
-          </main>
-          
 
+              
+          </div>
+          
       </div>
     </div>
+
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright 2022, Michael Waskom.<br>
 </p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br>
-</p>
-    </div>
-    
   </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+</p>
+  </div>
+  
+</div>
 </footer>
   </body>
 </html>
