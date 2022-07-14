@@ -547,7 +547,7 @@ adjustments take place in the appropriate space:
 
 .. code:: ipython3
 
-    so.Plot(planets, x="distance").add(so.Bar(), so.Hist()).scale(x="log")
+    so.Plot(planets, x="distance").add(so.Bars(), so.Hist()).scale(x="log")
 
 
 
@@ -567,7 +567,7 @@ This is also true of the ``Move`` transformations:
             planets, x="distance",
             color=(planets["number"] > 1).rename("multiple")
         )
-        .add(so.Bar(), so.Hist(), so.Dodge())
+        .add(so.Bars(), so.Hist(), so.Dodge())
         .scale(x="log", color=so.Nominal())
     )
 
@@ -718,6 +718,34 @@ about how you are creating the figure.
 
 --------------
 
+Customization
+-------------
+
+While this API is still developing, it will be possible to customize
+various aspects of the plot through the seaborn interface, without
+dropping down to matplotlib:
+
+.. code:: ipython3
+
+    (
+        so.Plot(tips, "day", "total_bill", color="sex")
+        .add(so.Bar(), so.Agg(), so.Dodge())
+        .scale(y=so.Continuous().label(like="${x:.0f}"))
+        .label(x=str.capitalize, y="Total bill", color=None)
+        .limit(y=(0, 28))
+    )
+
+
+
+
+.. image:: demo_files/demo_76_0.png
+   :width: 606.05px
+   :height: 378.25px
+
+
+
+--------------
+
 Iterating and displaying
 ------------------------
 
@@ -738,7 +766,7 @@ showing it:
 
 
 
-.. image:: demo_files/demo_78_0.png
+.. image:: demo_files/demo_80_0.png
    :width: 509.15px
    :height: 378.25px
 
@@ -762,7 +790,7 @@ and then iterate on different versions of it.
 
 
 
-.. image:: demo_files/demo_81_0.png
+.. image:: demo_files/demo_83_0.png
    :width: 587.35px
    :height: 378.25px
 
@@ -775,7 +803,7 @@ and then iterate on different versions of it.
 
 
 
-.. image:: demo_files/demo_82_0.png
+.. image:: demo_files/demo_84_0.png
    :width: 587.35px
    :height: 378.25px
 
@@ -788,7 +816,7 @@ and then iterate on different versions of it.
 
 
 
-.. image:: demo_files/demo_83_0.png
+.. image:: demo_files/demo_85_0.png
    :width: 587.35px
    :height: 378.25px
 
@@ -805,7 +833,7 @@ and then iterate on different versions of it.
 
 
 
-.. image:: demo_files/demo_84_0.png
+.. image:: demo_files/demo_86_0.png
    :width: 587.35px
    :height: 378.25px
 
@@ -827,7 +855,7 @@ Notice how this looks lower-res: that’s because ``Plot`` is generating
 
 
 
-.. image:: demo_files/demo_86_0.png
+.. image:: demo_files/demo_88_0.png
 
 
 --------------
@@ -853,7 +881,7 @@ parameter. The ``Plot`` object *will* provide a similar functionality:
 
 
 
-.. image:: demo_files/demo_88_0.png
+.. image:: demo_files/demo_90_0.png
    :width: 498.95px
    :height: 335.75px
 
@@ -877,7 +905,7 @@ figure. That is no longer the case; ``Plot.on()`` also accepts a
 
 
 
-.. image:: demo_files/demo_90_0.png
+.. image:: demo_files/demo_92_0.png
    :width: 498.95px
    :height: 335.75px
 
@@ -910,7 +938,7 @@ small-multiples plot *within* a larger set of subplots:
 
 
 
-.. image:: demo_files/demo_92_0.png
+.. image:: demo_files/demo_94_0.png
    :width: 729.3px
    :height: 335.75px
 
