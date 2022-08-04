@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.Nominal &#8212; seaborn nextgen documentation</title>
+    <title>seaborn.objects.Est &#8212; seaborn nextgen documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -36,8 +36,8 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.objects.Continuous" href="seaborn.objects.Continuous.html" />
-    <link rel="prev" title="seaborn.objects.Stack" href="seaborn.objects.Stack.html" />
+    <link rel="next" title="seaborn.objects.Hist" href="seaborn.objects.Hist.html" />
+    <link rel="prev" title="seaborn.objects.Agg" href="seaborn.objects.Agg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -287,14 +287,14 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Est.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    seaborn.objects.Est
   </a>
  </li>
@@ -336,9 +336,9 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
    seaborn.objects.Nominal
   </a>
  </li>
@@ -412,38 +412,57 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
           
           <article class="bd-article" role="main">
             
-  <section id="seaborn-objects-nominal">
-<h1>seaborn.objects.Nominal<a class="headerlink" href="#seaborn-objects-nominal" title="Permalink to this heading">#</a></h1>
+  <section id="seaborn-objects-est">
+<h1>seaborn.objects.Est<a class="headerlink" href="#seaborn-objects-est" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="seaborn.objects.Nominal">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Nominal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Nominal" title="Permalink to this definition">#</a></dt>
-<dd><p>A categorical scale without relative importance / magnitude.</p>
+<dt class="sig sig-object py" id="seaborn.objects.Est">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Est</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('ci',</span> <span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Est" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate a point estimate and error bar interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>func</strong><span class="classifier">str or callable</span></dt><dd><p>Name of a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> method or a vector -&gt; scalar function.</p>
+</dd>
+<dt><strong>errorbar</strong><span class="classifier">str, (str, float) tuple, or callable</span></dt><dd><p>Name of errorbar method (one of “ci”, “pi”, “se” or “sd”), or a tuple
+with a method name ane a level parameter, or a function that maps from a
+vector to a (min, max) interval.</p>
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int</span></dt><dd><p>Number of bootstrap samples to draw for “ci” errorbars.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed for the PRNG used to draw bootstrap samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="seaborn.objects.Nominal.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Nominal.__init__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="seaborn.objects.Est.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('ci',</span> <span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Est.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Nominal.__init__" title="seaborn.objects.Nominal.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([values, order])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Est.__init__" title="seaborn.objects.Est.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([func, errorbar, n_boot, seed])</p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code>([formatter])</p></td>
-<td><p>Configure the selection of labels for the scale's axis or legend.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick</span></code>([locator])</p></td>
-<td><p>Configure the selection of ticks for the scale's axis or legend.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">errorbar</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">group_by_orient</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_boot</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

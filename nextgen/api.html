@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>API Reference &#8212; seaborn nextgen documentation</title>
-<script>
-  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
-  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
-</script>
-
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=442817e10c381332fd29" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=442817e10c381332fd29" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
 
-
+  
   <link rel="stylesheet"
     href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -25,9 +25,9 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=442817e10c381332fd29">
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -38,13 +38,25 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="seaborn.objects.Plot" href="api/seaborn.objects.Plot.html" />
     <link rel="prev" title="Demonstration of next-generation seaborn interface" href="demo.html" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
   
   
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
-    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <!-- checkbox to toggle primary sidebar -->
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  <!-- Checkboxes to toggle the secondary sidebar -->
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+
+  
+  <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
@@ -53,6 +65,8 @@
 
 
 <a class="navbar-brand logo" href="index.html">
+  
+  
   
   
   
@@ -98,42 +112,11 @@
         
 <!-- A button that will trigger a search field to be displayed on click. -->
 
-<script>
-var toggleSearchField = () => {
-  // Class to make the search field appear and expand the clickable div behind it
-  // Note that `.show` will only have an effect on pages that aren't `search.html`
-  let button = document.getElementById("bd-search-button");
-  button.classList.toggle('show');
-
-  // We'll grab the elements we need to modify for the search field
-  let form = document.querySelector("form.bd-search");
-  let input = form.querySelector("input");
-
-  // Change the symbol to `meta key` if we are a Mac
-  var isMac = window.navigator.platform.toUpperCase().indexOf('MAC')>=0;
-  if (isMac) {
-    let kbd = form.querySelector("kbd.kbd-shortcut__modifier");
-    kbd.innerText = "⌘";
-  };
-
-  // Select the search input field, and focus the page on it
-  input.focus();
-  input.select();
-  input.scrollIntoView({block: "center"});
-};
-
-// Add an event listener for this function for Ctrl/Cmd + K
-window.addEventListener("keydown", (event) => {
-if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
-  event.preventDefault();
-  toggleSearchField();
-}}, true);
-</script>
 
 <!-- An overlay that will expand in the background and cause the search to disappear when clicked -->
-<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" onclick="toggleSearchField()" title="Toggle search field">
+<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" title="Search">
   <i class="fas fa-search"></i>
-</button><div class="search-button__overlay" onclick="toggleSearchField()"></div>
+</button><div class="search-button__overlay"></div>
 <div class="search-button__search-container">
   
 <form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -142,7 +125,6 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
 </div>
-
       </div>
       
       <div class="navbar-end-item">
@@ -159,21 +141,31 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
       </div>
       
     </div>
+
   </div>
+
 </div>
-    </nav>
-    
 
-    <div class="bd-container container-xl">
-      <div class="bd-container__inner row">
-          
+<script>
+// Adds the `shown` class to the parent so that we can trigger overflow
+// behavior that depends on whether we're expanded
+$('#navbar-collapsible').on('show.bs.collapse', function () {
+  $(".bd-header").addClass("shown");
+});
+$('#navbar-collapsible').on('hide.bs.collapse', function () {
+  $(".bd-header").removeClass("shown");
+});
+</script>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
 
 
 
-
-
-
-<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+<div class="bd-sidebar-primary bd-sidebar">
   <div class="sidebar-start-items"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="nav bd-sidenav">
@@ -237,6 +229,11 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
    seaborn.objects.Plot.show
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Plot.theme.html">
+   seaborn.objects.Plot.theme
+  </a>
+ </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -257,6 +254,11 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
  <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Dot.html">
    seaborn.objects.Dot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Interval.html">
+   seaborn.objects.Interval
   </a>
  </li>
  <li class="toctree-l1">
@@ -294,6 +296,11 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
  <li class="toctree-l1">
   <a class="reference internal" href="api/seaborn.objects.Agg.html">
    seaborn.objects.Agg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="api/seaborn.objects.Est.html">
+   seaborn.objects.Est
   </a>
  </li>
  <li class="toctree-l1">
@@ -360,19 +367,17 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 </div>
 
 
-          
+      
 
-
-
-<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+<div class="bd-sidebar-secondary bd-toc">
     
     <div class="toc-item">
       
-<div class="tocsection onthispage mt-5 pt-1 pb-3">
+<div class="tocsection onthispage">
     <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
+<nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plot-interface">
@@ -416,11 +421,28 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 
 
 
+      
+      <div class="bd-content col">
+
+          <div class="bd-header-article">
+              <div class="bd-header-article__inner">
+    <div class="bd-header-article__start">
+        
+        <label class="sidebar-toggle primary-toggle" for="__primary">
+            <span class="fas fa-outdent"></span>
+        </label>
+        
+    </div>
+
+    <div class="bd-header-article__end">
+        
+    </div>
+</div>
+          </div>
+
           
-          <div class="bd-content col">
-              
-              <article class="bd-article" role="main">
-                
+          <article class="bd-article" role="main">
+            
   <section id="api-reference">
 <span id="nextgen-api"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">#</a></h1>
 <div class="admonition warning">
@@ -453,19 +475,22 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 <td><p>Control the range of visible data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.label.html#seaborn.objects.Plot.label" title="seaborn.objects.Plot.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.label</span></code></a></p></td>
-<td><p>Control the labels used for variables in the plot.</p></td>
+<td><p>Add or modify labels for axes, legends, and subplots.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.on</span></code></a></p></td>
 <td><p>Draw the plot into an existing Matplotlib object.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.plot.html#seaborn.objects.Plot.plot" title="seaborn.objects.Plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.plot</span></code></a></p></td>
-<td><p>Compile the plot and return the <code class="xref py py-class docutils literal notranslate"><span class="pre">Plotter</span></code> engine.</p></td>
+<td><p>Compile the plot spec and return the Plotter object.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.save.html#seaborn.objects.Plot.save" title="seaborn.objects.Plot.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.save</span></code></a></p></td>
-<td><p>Render the plot and write it to a buffer or file on disk.</p></td>
+<td><p>Compile the plot and write it to a buffer or file on disk.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.show.html#seaborn.objects.Plot.show" title="seaborn.objects.Plot.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.show</span></code></a></p></td>
-<td><p>Render and display the plot.</p></td>
+<td><p>Compile and display the plot by hooking into pyplot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Plot.theme.html#seaborn.objects.Plot.theme" title="seaborn.objects.Plot.theme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot.theme</span></code></a></p></td>
+<td><p>Control the default appearance of elements in the plot.</p></td>
 </tr>
 </tbody>
 </table>
@@ -486,22 +511,25 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 <tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Dot.html#seaborn.objects.Dot" title="seaborn.objects.Dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dot</span></code></a></p></td>
 <td><p>A point mark defined by shape with optional edges.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Line.html#seaborn.objects.Line" title="seaborn.objects.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Interval.html#seaborn.objects.Interval" title="seaborn.objects.Interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Interval</span></code></a></p></td>
+<td><p>An oriented line mark drawn between min/max values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Line.html#seaborn.objects.Line" title="seaborn.objects.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a></p></td>
 <td><p>A mark connecting data points with sorting along the orientation axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Lines.html#seaborn.objects.Lines" title="seaborn.objects.Lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lines</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Lines.html#seaborn.objects.Lines" title="seaborn.objects.Lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lines</span></code></a></p></td>
 <td><p>A faster but less-flexible mark for drawing many lines.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Path.html#seaborn.objects.Path" title="seaborn.objects.Path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Path.html#seaborn.objects.Path" title="seaborn.objects.Path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Path</span></code></a></p></td>
 <td><p>A mark connecting data points in the order they appear.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Paths.html#seaborn.objects.Paths" title="seaborn.objects.Paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Paths</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Paths.html#seaborn.objects.Paths" title="seaborn.objects.Paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Paths</span></code></a></p></td>
 <td><p>A faster but less-flexible mark for drawing many paths.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Ribbon.html#seaborn.objects.Ribbon" title="seaborn.objects.Ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ribbon</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Ribbon.html#seaborn.objects.Ribbon" title="seaborn.objects.Ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ribbon</span></code></a></p></td>
 <td><p>An interval mark that fills between minimum and maximum values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Scatter.html#seaborn.objects.Scatter" title="seaborn.objects.Scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scatter</span></code></a></p></td>
 <td><p>A point mark defined by strokes with optional fills.</p></td>
 </tr>
 </tbody>
@@ -514,10 +542,13 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 <tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Agg.html#seaborn.objects.Agg" title="seaborn.objects.Agg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Agg</span></code></a></p></td>
 <td><p>Aggregate data along the value axis using given method.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Hist.html#seaborn.objects.Hist" title="seaborn.objects.Hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hist</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.Est.html#seaborn.objects.Est" title="seaborn.objects.Est"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Est</span></code></a></p></td>
+<td><p>Calculate a point estimate and error bar interval.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.Hist.html#seaborn.objects.Hist" title="seaborn.objects.Hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hist</span></code></a></p></td>
 <td><p>Bin observations, count them, and optionally normalize or cumulate.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/seaborn.objects.PolyFit.html#seaborn.objects.PolyFit" title="seaborn.objects.PolyFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyFit</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/seaborn.objects.PolyFit.html#seaborn.objects.PolyFit" title="seaborn.objects.PolyFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyFit</span></code></a></p></td>
 <td><p>Fit a polynomial of the given order and resample data onto predicted curve.</p></td>
 </tr>
 </tbody>
@@ -564,21 +595,21 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 </section>
 
 
-              </article>
-              
+          </article>
+          
 
-              
-          </div>
           
       </div>
+      
     </div>
+  </div>
 
   
-  
+    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=442817e10c381332fd29"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88"></script>
 
-<footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer"><div class="bd-footer__inner container">
   
   <div class="footer-item">
     
@@ -599,6 +630,6 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
   </div>
   
 </div>
-</footer>
+  </footer>
   </body>
 </html>

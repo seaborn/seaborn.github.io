@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.Nominal &#8212; seaborn nextgen documentation</title>
+    <title>seaborn.objects.Interval &#8212; seaborn nextgen documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -36,8 +36,8 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.objects.Continuous" href="seaborn.objects.Continuous.html" />
-    <link rel="prev" title="seaborn.objects.Stack" href="seaborn.objects.Stack.html" />
+    <link rel="next" title="seaborn.objects.Line" href="seaborn.objects.Line.html" />
+    <link rel="prev" title="seaborn.objects.Dot" href="seaborn.objects.Dot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -230,7 +230,7 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Area.html">
    seaborn.objects.Area
@@ -251,8 +251,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
    seaborn.objects.Dot
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Interval.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    seaborn.objects.Interval
   </a>
  </li>
@@ -336,9 +336,9 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
    seaborn.objects.Nominal
   </a>
  </li>
@@ -412,38 +412,38 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
           
           <article class="bd-article" role="main">
             
-  <section id="seaborn-objects-nominal">
-<h1>seaborn.objects.Nominal<a class="headerlink" href="#seaborn-objects-nominal" title="Permalink to this heading">#</a></h1>
+  <section id="seaborn-objects-interval">
+<h1>seaborn.objects.Interval<a class="headerlink" href="#seaborn-objects-interval" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="seaborn.objects.Nominal">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Nominal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Nominal" title="Permalink to this definition">#</a></dt>
-<dd><p>A categorical scale without relative importance / magnitude.</p>
+<dt class="sig sig-object py" id="seaborn.objects.Interval">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">artist_kws=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=&lt;'C0'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha=&lt;1&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth=&lt;rc:lines.linewidth&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle=&lt;rc:lines.linestyle&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Interval" title="Permalink to this definition">#</a></dt>
+<dd><p>An oriented line mark drawn between min/max values.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="seaborn.objects.Nominal.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Nominal.__init__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="seaborn.objects.Interval.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">artist_kws=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=&lt;'C0'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha=&lt;1&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth=&lt;rc:lines.linewidth&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle=&lt;rc:lines.linestyle&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Interval.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Nominal.__init__" title="seaborn.objects.Nominal.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([values, order])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#seaborn.objects.Interval.__init__" title="seaborn.objects.Interval.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([artist_kws, color, alpha, ...])</p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code>([formatter])</p></td>
-<td><p>Configure the selection of labels for the scale's axis or legend.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick</span></code>([locator])</p></td>
-<td><p>Configure the selection of ticks for the scale's axis or legend.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">alpha</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">color</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">linestyle</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">linewidth</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

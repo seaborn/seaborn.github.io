@@ -24,8 +24,8 @@ datasets.
 
 .. code:: ipython3
 
-    import seaborn
-    seaborn.set_theme()
+    from seaborn import load_dataset
+    tips = load_dataset("tips")
 
 The main object is ``seaborn.objects.Plot``. You instantiate it by
 passing data and some assignments from columns in the data to roles in
@@ -33,7 +33,6 @@ the plot:
 
 .. code:: ipython3
 
-    tips = seaborn.load_dataset("tips")
     so.Plot(tips, x="total_bill", y="tip")
 
 
@@ -163,7 +162,7 @@ offering new functionality. But not many have been implemented yet:
 
 .. code:: ipython3
 
-    fmri = seaborn.load_dataset("fmri").query("region == 'parietal'")
+    fmri = load_dataset("fmri").query("region == 'parietal'")
     so.Plot(fmri, x="timepoint", y="signal").add(so.Line())
 
 
@@ -308,7 +307,7 @@ Overplotting resolution: the Move
 Existing seaborn functions have parameters that allow adjustments for
 overplotting, such as ``dodge=`` in several categorical functions,
 ``jitter=`` in several functions based on scatterplots, and the
-``multiple=`` paramter in distribution functions. In the new interface,
+``multiple=`` parameter in distribution functions. In the new interface,
 those adjustments are abstracted away from the particular visual
 representation into the concept of a ``Move``:
 
@@ -430,7 +429,7 @@ seaborn allows one to apply a mathematical transformation, such as
 
 .. code:: ipython3
 
-    planets = seaborn.load_dataset("planets").query("distance < 1000")
+    planets = load_dataset("planets").query("distance < 1000")
 
 .. code:: ipython3
 
@@ -721,9 +720,9 @@ about how you are creating the figure.
 Customization
 -------------
 
-While this API is still developing, it will be possible to customize
-various aspects of the plot through the seaborn interface, without
-dropping down to matplotlib:
+This API is less developed than other aspects of the new interface, but
+it will be possible to customize various aspects of the plot through the
+seaborn interface, without dropping down to matplotlib:
 
 .. code:: ipython3
 
@@ -882,8 +881,8 @@ parameter. The ``Plot`` object *will* provide a similar functionality:
 
 
 .. image:: demo_files/demo_90_0.png
-   :width: 498.95px
-   :height: 335.75px
+   :width: 531.675px
+   :height: 400.775px
 
 
 
@@ -906,8 +905,8 @@ figure. That is no longer the case; ``Plot.on()`` also accepts a
 
 
 .. image:: demo_files/demo_92_0.png
-   :width: 498.95px
-   :height: 335.75px
+   :width: 531.675px
+   :height: 400.775px
 
 
 

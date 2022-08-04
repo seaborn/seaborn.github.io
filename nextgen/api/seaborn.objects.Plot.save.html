@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>seaborn.objects.Plot.save &#8212; seaborn nextgen documentation</title>
-<script>
-  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
-  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
-</script>
-
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=442817e10c381332fd29" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=442817e10c381332fd29" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
 
-
+  
   <link rel="stylesheet"
     href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -25,9 +25,9 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=442817e10c381332fd29">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -38,13 +38,25 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.objects.Plot.show" href="seaborn.objects.Plot.show.html" />
     <link rel="prev" title="seaborn.objects.Plot.plot" href="seaborn.objects.Plot.plot.html" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
   
   
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
-    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <!-- checkbox to toggle primary sidebar -->
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  <!-- Checkboxes to toggle the secondary sidebar -->
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+
+  
+  <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
@@ -53,6 +65,8 @@
 
 
 <a class="navbar-brand logo" href="../index.html">
+  
+  
   
   
   
@@ -98,42 +112,11 @@
         
 <!-- A button that will trigger a search field to be displayed on click. -->
 
-<script>
-var toggleSearchField = () => {
-  // Class to make the search field appear and expand the clickable div behind it
-  // Note that `.show` will only have an effect on pages that aren't `search.html`
-  let button = document.getElementById("bd-search-button");
-  button.classList.toggle('show');
-
-  // We'll grab the elements we need to modify for the search field
-  let form = document.querySelector("form.bd-search");
-  let input = form.querySelector("input");
-
-  // Change the symbol to `meta key` if we are a Mac
-  var isMac = window.navigator.platform.toUpperCase().indexOf('MAC')>=0;
-  if (isMac) {
-    let kbd = form.querySelector("kbd.kbd-shortcut__modifier");
-    kbd.innerText = "⌘";
-  };
-
-  // Select the search input field, and focus the page on it
-  input.focus();
-  input.select();
-  input.scrollIntoView({block: "center"});
-};
-
-// Add an event listener for this function for Ctrl/Cmd + K
-window.addEventListener("keydown", (event) => {
-if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
-  event.preventDefault();
-  toggleSearchField();
-}}, true);
-</script>
 
 <!-- An overlay that will expand in the background and cause the search to disappear when clicked -->
-<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" onclick="toggleSearchField()" title="Toggle search field">
+<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" title="Search">
   <i class="fas fa-search"></i>
-</button><div class="search-button__overlay" onclick="toggleSearchField()"></div>
+</button><div class="search-button__overlay"></div>
 <div class="search-button__search-container">
   
 <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -142,7 +125,6 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
 </div>
-
       </div>
       
       <div class="navbar-end-item">
@@ -159,21 +141,31 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
       </div>
       
     </div>
+
   </div>
+
 </div>
-    </nav>
-    
 
-    <div class="bd-container container-xl">
-      <div class="bd-container__inner row">
-          
+<script>
+// Adds the `shown` class to the parent so that we can trigger overflow
+// behavior that depends on whether we're expanded
+$('#navbar-collapsible').on('show.bs.collapse', function () {
+  $(".bd-header").addClass("shown");
+});
+$('#navbar-collapsible').on('hide.bs.collapse', function () {
+  $(".bd-header").removeClass("shown");
+});
+</script>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
 
 
 
-
-
-
-<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+<div class="bd-sidebar-primary bd-sidebar">
   <div class="sidebar-start-items"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
@@ -260,6 +252,11 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Interval.html">
+   seaborn.objects.Interval
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Line.html">
    seaborn.objects.Line
   </a>
@@ -294,6 +291,11 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Est.html">
+   seaborn.objects.Est
   </a>
  </li>
  <li class="toctree-l1">
@@ -360,16 +362,14 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 </div>
 
 
-          
+      
 
-
-
-<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+<div class="bd-sidebar-secondary bd-toc">
     
     <div class="toc-item">
       
 
-<nav id="bd-toc-nav">
+<nav id="bd-toc-nav" class="page-toc">
     
 </nav>
     </div>
@@ -386,23 +386,46 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 
 
 
+      
+      <div class="bd-content col">
+
+          <div class="bd-header-article">
+              <div class="bd-header-article__inner">
+    <div class="bd-header-article__start">
+        
+        <label class="sidebar-toggle primary-toggle" for="__primary">
+            <span class="fas fa-outdent"></span>
+        </label>
+        
+    </div>
+
+    <div class="bd-header-article__end">
+        
+        <label class="sidebar-toggle secondary-toggle" for="__secondary">
+            <span class="fas fa-outdent"></span>
+        </label>
+        
+    </div>
+</div>
+          </div>
+
           
-          <div class="bd-content col">
-              
-              <article class="bd-article" role="main">
-                
+          <article class="bd-article" role="main">
+            
   <section id="seaborn-objects-plot-save">
 <h1>seaborn.objects.Plot.save<a class="headerlink" href="#seaborn-objects-plot-save" title="Permalink to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="seaborn.objects.Plot.save">
-<span class="sig-prename descclassname"><span class="pre">Plot.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.save" title="Permalink to this definition">#</a></dt>
-<dd><p>Render the plot and write it to a buffer or file on disk.</p>
-<dl class="field-list">
+<span class="sig-prename descclassname"><span class="pre">Plot.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.save" title="Permalink to this definition">#</a></dt>
+<dd><p>Compile the plot and write it to a buffer or file on disk.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>fname</strong><span class="classifier">str, path, or buffer</span></dt><dd><p>Location on disk to save the figure, or a buffer to write into.</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loc</strong><span class="classifier">str, path, or buffer</span></dt><dd><p>Location on disk to save the figure, or a buffer to write into.</p>
 </dd>
-<dt><strong>Other keyword arguments are passed to</strong><span class="classifier">meth:<code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.savefig</span></code>.</span></dt><dd></dd>
+<dt><strong>kwargs</strong></dt><dd><p>Other keyword arguments are passed through to
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.savefig" title="(in Matplotlib v3.5.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.savefig()</span></code></a>.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -411,21 +434,21 @@ if ((event.ctrlKey || event.metaKey) && event.code == "KeyK") {
 </section>
 
 
-              </article>
-              
+          </article>
+          
 
-              
-          </div>
           
       </div>
+      
     </div>
+  </div>
 
   
-  
+    
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=442817e10c381332fd29"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88"></script>
 
-<footer class="bd-footer"><div class="bd-footer__inner container">
+  <footer class="bd-footer"><div class="bd-footer__inner container">
   
   <div class="footer-item">
     
@@ -446,6 +469,6 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
   </div>
   
 </div>
-</footer>
+  </footer>
   </body>
 </html>
