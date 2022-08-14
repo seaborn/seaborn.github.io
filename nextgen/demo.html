@@ -13,8 +13,8 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
 
   
   <link rel="stylesheet"
@@ -27,13 +27,14 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88">
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'demo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Reference" href="api.html" />
@@ -45,19 +46,32 @@
   
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-  <!-- checkbox to toggle primary sidebar -->
+  
   <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
   <label class="overlay overlay-primary" for="__primary"></label>
 
-  <!-- Checkboxes to toggle the secondary sidebar -->
+  
   <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
   <label class="overlay overlay-secondary" for="__secondary"></label>
 
   
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
 
   
-  <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
-
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
   <div id="navbar-start">
     
     
@@ -79,12 +93,8 @@
     
   </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars"></span>
-  </button>
-
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+  <div class="col-lg-9 navbar-header-items">
     <div id="navbar-center" class="mr-auto">
       
       <div class="navbar-center-item">
@@ -107,28 +117,15 @@
     </div>
 
     <div id="navbar-end">
-      
-      <div class="navbar-end-item">
+      <div class="navbar-end-item navbar-end__search-button-container">
         
-<!-- A button that will trigger a search field to be displayed on click. -->
-
-
-<!-- An overlay that will expand in the background and cause the search to disappear when clicked -->
-<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" title="Search">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
   <i class="fas fa-search"></i>
-</button><div class="search-button__overlay"></div>
-<div class="search-button__search-container">
-  
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-</div>
+</button>
       </div>
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
     <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
     <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
     <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
@@ -141,36 +138,87 @@
       </div>
       
     </div>
-
   </div>
 
-</div>
 
-<script>
-// Adds the `shown` class to the parent so that we can trigger overflow
-// behavior that depends on whether we're expanded
-$('#navbar-collapsible').on('show.bs.collapse', function () {
-  $(".bd-header").addClass("shown");
-});
-$('#navbar-collapsible').on('hide.bs.collapse', function () {
-  $(".bd-header").removeClass("shown");
-});
-</script>
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
   </nav>
   
 
   <div class="bd-container container-xl">
     <div class="bd-container__inner row">
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Demonstration
+ </a>
+</li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API Overview
+ </a>
+</li>
 
+</ul>
+      </div>
+      
+      </div>
+    
 
-<div class="bd-sidebar-primary bd-sidebar">
-  <div class="sidebar-start-items">
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
 <div class="tocsection onthispage">
     <i class="fas fa-list"></i> On this page
 </div>
-
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
@@ -189,8 +237,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-transformation-the-stat">
-     Data transformation: the Stat
+    <a class="reference internal nav-link" href="#data-transformations-the-stat">
+     Data transformations: the Stat
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -228,22 +276,28 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
 </ul>
 
 </nav>
+    </div>
   </div>
-  <div class="sidebar-end-items">
-  </div>
-</div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
 
       
-
-<div class="bd-sidebar-secondary bd-toc">
-    
-    <div class="toc-item">
       
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
 <div class="tocsection onthispage">
     <i class="fas fa-list"></i> On this page
 </div>
-
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
@@ -262,8 +316,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-transformation-the-stat">
-     Data transformation: the Stat
+    <a class="reference internal nav-link" href="#data-transformations-the-stat">
+     Data transformations: the Stat
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -301,39 +355,29 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
 </ul>
 
 </nav>
-    </div>
-    
-    <div class="toc-item">
-      
-    </div>
-    
-    <div class="toc-item">
-      
-    </div>
-    
 </div>
 
+<div class="toc-item">
+  
+</div>
 
+<div class="toc-item">
+  
+</div>
 
+        </div>
+      
+      
+
+      
       
       <div class="bd-content col">
-
+          
           <div class="bd-header-article">
-              <div class="bd-header-article__inner">
-    <div class="bd-header-article__start">
-        
-        <label class="sidebar-toggle primary-toggle" for="__primary">
-            <span class="fas fa-outdent"></span>
-        </label>
-        
-    </div>
-
-    <div class="bd-header-article__end">
-        
-    </div>
-</div>
+              
           </div>
 
+          
           
           <article class="bd-article" role="main">
             
@@ -368,20 +412,20 @@ the plot:</p>
 <a class="reference internal image-reference" href="_images/demo_7_0.png"><img alt="_images/demo_7_0.png" src="_images/demo_7_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>But instantiating the <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object doesn’t actually plot anything.
 For that you need to add some layers:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_9_0.png"><img alt="_images/demo_9_0.png" src="_images/demo_9_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>Variables can be defined globally, or for a specific layer:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_11_0.png"><img alt="_images/demo_11_0.png" src="_images/demo_11_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>Each layer can also have its own data:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.6&quot;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size != 2&quot;</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size == 2&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.6&quot;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size != 2&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;size == 2&quot;</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -390,7 +434,7 @@ For that you need to add some layers:</p>
 object or vectors of various kinds:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -398,14 +442,14 @@ object or vectors of various kinds:</p>
 <p>The interface also supports semantic mappings between data and plot
 variables. But the specification of those mappings uses more explicit
 parameter names:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_17_0.png"><img alt="_images/demo_17_0.png" src="_images/demo_17_0.png" style="width: 600.9499999999999px; height: 378.25px;" /></a>
 <p>It also offers a wider range of mappable features:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -431,8 +475,8 @@ than mapping them:</p>
 </div>
 <a class="reference internal image-reference" href="_images/demo_24_0.png"><img alt="_images/demo_24_0.png" src="_images/demo_24_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 </section>
-<section id="data-transformation-the-stat">
-<h3>Data transformation: the Stat<a class="headerlink" href="#data-transformation-the-stat" title="Permalink to this heading">#</a></h3>
+<section id="data-transformations-the-stat">
+<h3>Data transformations: the Stat<a class="headerlink" href="#data-transformations-the-stat" title="Permalink to this heading">#</a></h3>
 <p>Built-in statistical transformations are one of seaborn’s key features.
 But currently, they are tied up with the different visual
 representations. E.g., you can aggregate data in <code class="docutils literal notranslate"><span class="pre">lineplot</span></code>, but not
@@ -443,7 +487,7 @@ accept a <code class="docutils literal notranslate"><span class="pre">Stat</span
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_26_0.png"><img alt="_images/demo_26_0.png" src="_images/demo_26_0.png" style="width: 509.15px; height: 378.25px;" /></a>
-<p>The <code class="docutils literal notranslate"><span class="pre">Stat</span></code> is computed on subsets of data defined by the semantic
+<p>A <code class="docutils literal notranslate"><span class="pre">Stat</span></code> is computed on subsets of data defined by the semantic
 mappings:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
 </pre></div>
@@ -462,7 +506,7 @@ altering visual properties:</p>
 customization. There will be guidelines for how to define your own
 objects to plug into the broader system:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PeakAnnotation</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Mark</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_generator</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">orient</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_generator</span><span class="p">,</span> <span class="n">scales</span><span class="p">,</span> <span class="n">orient</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">keys</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">split_generator</span><span class="p">():</span>
             <span class="n">ix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
@@ -480,6 +524,7 @@ objects to plug into the broader system:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="_images/demo_32_0.png"><img alt="_images/demo_32_0.png" src="_images/demo_32_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>The new interface understands not just <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, but also range
 specifiers; some <code class="docutils literal notranslate"><span class="pre">Stat</span></code> objects will output ranges, and some <code class="docutils literal notranslate"><span class="pre">Mark</span></code>
 objects will accept them. (This means that it will finally be possible
@@ -491,7 +536,7 @@ to pass pre-defined error-bars into seaborn):</p>
     <span class="o">.</span><span class="n">describe</span><span class="p">()</span>
     <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Ribbon</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Band</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -502,13 +547,13 @@ to pass pre-defined error-bars into seaborn):</p>
 <h3>Overplotting resolution: the Move<a class="headerlink" href="#overplotting-resolution-the-move" title="Permalink to this heading">#</a></h3>
 <p>Existing seaborn functions have parameters that allow adjustments for
 overplotting, such as <code class="docutils literal notranslate"><span class="pre">dodge=</span></code> in several categorical functions,
-<code class="docutils literal notranslate"><span class="pre">jitter=</span></code> in several functions based on scatterplots, and the
+<code class="docutils literal notranslate"><span class="pre">jitter=</span></code> in several functions based on scatter plots, and the
 <code class="docutils literal notranslate"><span class="pre">multiple=</span></code> parameter in distribution functions. In the new interface,
 those adjustments are abstracted away from the particular visual
 representation into the concept of a <code class="docutils literal notranslate"><span class="pre">Move</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -519,7 +564,7 @@ function. For example, there will be more options for handling missing
 levels when dodging and for fine-tuning the adjustment.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">.1</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">.1</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -527,7 +572,7 @@ levels when dodging and for fine-tuning the adjustment.</p>
 <p>By default, the <code class="docutils literal notranslate"><span class="pre">move</span></code> will resolve all overlapping semantic mappings:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -535,19 +580,15 @@ levels when dodging and for fine-tuning the adjustment.</p>
 <p>But you can specify a subset:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">move</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_42_0.png"><img alt="_images/demo_42_0.png" src="_images/demo_42_0.png" style="width: 600.9499999999999px; height: 378.25px;" /></a>
-<p>It’s also possible to stack multiple moves or kinds of moves by passing
-a list:</p>
+<p>It’s also possible to stack multiple moves or kinds of moves:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span>
-        <span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span>
-        <span class="n">move</span><span class="o">=</span><span class="p">[</span><span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]),</span> <span class="n">so</span><span class="o">.</span><span class="n">Jitter</span><span class="p">(</span><span class="mf">.5</span><span class="p">)]</span>
-    <span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Dodge</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]),</span> <span class="n">so</span><span class="o">.</span><span class="n">Jitter</span><span class="p">(</span><span class="mf">.5</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -575,7 +616,7 @@ seaborn allows one to apply a mathematical transformation, such as
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -586,7 +627,7 @@ specify the palette used for color variables:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;rocket&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -604,7 +645,7 @@ that control the details of the mapping:</p>
         <span class="n">y</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">at</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">]),</span>
         <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">(</span><span class="s2">&quot;rocket&quot;</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">),</span>
     <span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -617,7 +658,7 @@ appropriate for categorical data:</p>
         <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
         <span class="n">color</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Nominal</span><span class="p">([</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Radial Velocity&quot;</span><span class="p">,</span> <span class="s2">&quot;Transit&quot;</span><span class="p">])</span>
     <span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -627,7 +668,7 @@ values in the dataset are passed directly through to matplotlib:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">planets</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;orbital_period&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="s2">&quot;mass&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -662,7 +703,7 @@ interchangably with any <code class="docutils literal notranslate"><span class="
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Lunch&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -672,9 +713,9 @@ so that a plot is simply replicated across each column (or row):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.75&quot;</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;.75&quot;</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -715,7 +756,7 @@ be “wrapped”, and this works both columwise and rowwise:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
     <span class="o">.</span><span class="n">pair</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">share</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
@@ -749,7 +790,7 @@ seaborn interface, without dropping down to matplotlib:</p>
 <p>It is possible (and in fact the deafult behavior) to be completely
 pyplot-free, and all the drawing is done by directly hooking into
 Jupyter’s rich display system. Unlike in normal usage of the inline
-backend, writing code in a cell to define a plot is indendent from
+backend, writing code in a cell to define a plot is independent from
 showing it:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
 </pre></div>
@@ -809,29 +850,29 @@ plots to coexist within the context of a larger matplotlib figure. This
 is acheived within the “axes-level” functions, which accept an <code class="docutils literal notranslate"><span class="pre">ax=</span></code>
 parameter. The <code class="docutils literal notranslate"><span class="pre">Plot</span></code> object <em>will</em> provide a similar functionality:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/demo_90_0.png"><img alt="_images/demo_90_0.png" src="_images/demo_90_0.png" style="width: 531.675px; height: 400.775px;" /></a>
+<a class="reference internal image-reference" href="_images/demo_90_0.png"><img alt="_images/demo_90_0.png" src="_images/demo_90_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>But a limitation has been that the “figure-level” functions, which can
 produce multiple subplots, cannot be directed towards an existing
 figure. That is no longer the case; <code class="docutils literal notranslate"><span class="pre">Plot.on()</span></code> also accepts a
 <code class="docutils literal notranslate"><span class="pre">Figure</span></code> (created either with or without <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>) object:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/demo_92_0.png"><img alt="_images/demo_92_0.png" src="_images/demo_92_0.png" style="width: 531.675px; height: 400.775px;" /></a>
+<a class="reference internal image-reference" href="_images/demo_92_0.png"><img alt="_images/demo_92_0.png" src="_images/demo_92_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 <p>Providing an existing figure is perhaps only marginally useful. While it
 will ease the integration of seaborn with GUI frameworks, seaborn is
 still using up the whole figure canvas. But with the introduction of the
@@ -841,20 +882,24 @@ small-multiples plot <em>within</em> a larger set of subplots:</p>
 <span class="n">sf1</span><span class="p">,</span> <span class="n">sf2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(),</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">sf1</span><span class="p">)</span>
     <span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="p">)</span>
 <span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Scatter</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
     <span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">sf2</span><span class="p">)</span>
     <span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/demo_94_0.png"><img alt="_images/demo_94_0.png" src="_images/demo_94_0.png" style="width: 729.3px; height: 335.75px;" /></a>
+<p>Note that there may be some rough edges around this concept in the first
+couple releases, especially relating to the legend positioning.</p>
 </section>
 </section>
 
@@ -862,6 +907,7 @@ small-multiples plot <em>within</em> a larger set of subplots:</p>
           </article>
           
 
+          
           
       </div>
       
@@ -871,7 +917,7 @@ small-multiples plot <em>within</em> a larger set of subplots:</p>
   
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
 
   <footer class="bd-footer"><div class="bd-footer__inner container">
   
@@ -888,7 +934,7 @@ small-multiples plot <em>within</em> a larger set of subplots:</p>
   <div class="footer-item">
     
 <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
 
   </div>

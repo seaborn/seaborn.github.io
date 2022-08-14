@@ -49,7 +49,7 @@ For that you need to add some layers:
 
 .. code:: ipython3
 
-    so.Plot(tips, x="total_bill", y="tip").add(so.Scatter())
+    so.Plot(tips, x="total_bill", y="tip").add(so.Dots())
 
 
 
@@ -64,7 +64,7 @@ Variables can be defined globally, or for a specific layer:
 
 .. code:: ipython3
 
-    so.Plot(tips).add(so.Scatter(), x="total_bill", y="tip")
+    so.Plot(tips).add(so.Dots(), x="total_bill", y="tip")
 
 
 
@@ -81,8 +81,8 @@ Each layer can also have its own data:
 
     (
         so.Plot(tips, x="total_bill", y="tip")
-        .add(so.Scatter(color=".6"), data=tips.query("size != 2"))
-        .add(so.Scatter(), data=tips.query("size == 2"))
+        .add(so.Dots(color=".6"), data=tips.query("size != 2"))
+        .add(so.Dots(), data=tips.query("size == 2"))
     )
 
 
@@ -101,7 +101,7 @@ object or vectors of various kinds:
 
     (
         so.Plot(tips.to_dict(), x="total_bill")
-        .add(so.Scatter(), y=tips["tip"].to_numpy())
+        .add(so.Dots(), y=tips["tip"].to_numpy())
     )
 
 
@@ -119,7 +119,7 @@ parameter names:
 
 .. code:: ipython3
 
-    so.Plot(tips, x="total_bill", y="tip", color="time").add(so.Scatter())
+    so.Plot(tips, x="total_bill", y="tip", color="time").add(so.Dots())
 
 
 
@@ -136,7 +136,7 @@ It also offers a wider range of mappable features:
 
     (
         so.Plot(tips, x="total_bill", y="tip", color="day", fill="time")
-        .add(so.Scatter(fillalpha=.8))
+        .add(so.Dots(fillalpha=.8))
     )
 
 
@@ -190,8 +190,8 @@ than mapping them:
 
 
 
-Data transformation: the Stat
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Data transformations: the Stat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Built-in statistical transformations are one of seaborn’s key features.
 But currently, they are tied up with the different visual
@@ -214,7 +214,7 @@ accept a ``Stat`` object that applies a data transformation:
 
 
 
-The ``Stat`` is computed on subsets of data defined by the semantic
+A ``Stat`` is computed on subsets of data defined by the semantic
 mappings:
 
 .. code:: ipython3
@@ -256,7 +256,7 @@ objects to plug into the broader system:
 .. code:: ipython3
 
     class PeakAnnotation(so.Mark):
-        def plot(self, split_generator, scales, orient):
+        def _plot(self, split_generator, scales, orient):
             for keys, data, ax in split_generator():
                 ix = data["y"].idxmax()
                 ax.annotate(
@@ -273,6 +273,15 @@ objects to plug into the broader system:
         .add(PeakAnnotation(), so.Agg())
     )
 
+
+
+
+.. image:: demo_files/demo_32_0.png
+   :width: 509.15px
+   :height: 378.25px
+
+
+
 The new interface understands not just ``x`` and ``y``, but also range
 specifiers; some ``Stat`` objects will output ranges, and some ``Mark``
 objects will accept them. (This means that it will finally be possible
@@ -287,7 +296,7 @@ to pass pre-defined error-bars into seaborn):
         .describe()
         .pipe(so.Plot, x="timepoint")
         .add(so.Line(), y="mean")
-        .add(so.Ribbon(alpha=.2), ymin="min", ymax="max")
+        .add(so.Band(alpha=.2), ymin="min", ymax="max")
     )
 
 
@@ -306,7 +315,7 @@ Overplotting resolution: the Move
 
 Existing seaborn functions have parameters that allow adjustments for
 overplotting, such as ``dodge=`` in several categorical functions,
-``jitter=`` in several functions based on scatterplots, and the
+``jitter=`` in several functions based on scatter plots, and the
 ``multiple=`` parameter in distribution functions. In the new interface,
 those adjustments are abstracted away from the particular visual
 representation into the concept of a ``Move``:
@@ -315,7 +324,7 @@ representation into the concept of a ``Move``:
 
     (
         so.Plot(tips, "day", "total_bill", color="time")
-        .add(so.Bar(), so.Agg(), move=so.Dodge())
+        .add(so.Dot(), so.Dodge())
     )
 
 
@@ -336,7 +345,7 @@ levels when dodging and for fine-tuning the adjustment.
 
     (
         so.Plot(tips, "day", "total_bill", color="time")
-        .add(so.Bar(), so.Agg(), move=so.Dodge(empty="fill", gap=.1))
+        .add(so.Bar(), so.Agg(), so.Dodge(empty="fill", gap=.1))
     )
 
 
@@ -354,7 +363,7 @@ By default, the ``move`` will resolve all overlapping semantic mappings:
 
     (
         so.Plot(tips, "day", "total_bill", color="time", alpha="sex")
-        .add(so.Bar(), so.Agg(), move=so.Dodge())
+        .add(so.Bar(), so.Agg(), so.Dodge())
     )
 
 
@@ -372,7 +381,7 @@ But you can specify a subset:
 
     (
         so.Plot(tips, "day", "total_bill", color="time", alpha="smoker")
-        .add(so.Dot(), move=so.Dodge(by=["color"]))
+        .add(so.Dot(), so.Dodge(by=["color"]))
     )
 
 
@@ -384,17 +393,13 @@ But you can specify a subset:
 
 
 
-It’s also possible to stack multiple moves or kinds of moves by passing
-a list:
+It’s also possible to stack multiple moves or kinds of moves:
 
 .. code:: ipython3
 
     (
         so.Plot(tips, "day", "total_bill", color="time", alpha="smoker")
-        .add(
-            so.Dot(),
-            move=[so.Dodge(by=["color"]), so.Jitter(.5)]
-        )
+        .add(so.Dot(), so.Dodge(by=["color"]), so.Jitter(.5))
     )
 
 
@@ -436,7 +441,7 @@ seaborn allows one to apply a mathematical transformation, such as
     (
         so.Plot(planets, x="mass", y="distance")
         .scale(x="log", y="log")
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -457,7 +462,7 @@ specify the palette used for color variables:
     (
         so.Plot(planets, x="mass", y="distance", color="orbital_period")
         .scale(x="log", y="log", color="rocket")
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -485,7 +490,7 @@ that control the details of the mapping:
             y=so.Continuous(trans="log").tick(at=[3, 10, 30, 100, 300]),
             color=so.Continuous("rocket", trans="log"),
         )
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -508,7 +513,7 @@ appropriate for categorical data:
             y="log",
             color=so.Nominal(["b", "g"], order=["Radial Velocity", "Transit"])
         )
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -528,7 +533,7 @@ values in the dataset are passed directly through to matplotlib:
     (
         so.Plot(planets, x="distance", y="orbital_period", pointsize="mass")
         .scale(x="log", y="log", pointsize=None)
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -593,7 +598,7 @@ interchangably with any ``Mark``/``Stat``/``Move``/``Scale`` spec:
     (
         so.Plot(tips, x="total_bill", y="tip")
         .facet("time", order=["Dinner", "Lunch"])
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
@@ -613,9 +618,9 @@ so that a plot is simply replicated across each column (or row):
     (
         so.Plot(tips, x="total_bill", y="tip")
         .facet(col="day")
-        .add(so.Scatter(color=".75"), col=None)
-        .add(so.Scatter(), color="day")
-        .configure(figsize=(7, 3))
+        .add(so.Dots(color=".75"), col=None)
+        .add(so.Dots(), color="day")
+        .layout(size=(7, 3))
     )
 
 
@@ -697,7 +702,7 @@ be “wrapped”, and this works both columwise and rowwise:
     (
         so.Plot(tips)
         .pair(x=tips.columns, wrap=3)
-        .configure(sharey=False)
+        .share(y=False)
         .add(so.Bar(), so.Hist())
     )
 
@@ -751,7 +756,7 @@ Iterating and displaying
 It is possible (and in fact the deafult behavior) to be completely
 pyplot-free, and all the drawing is done by directly hooking into
 Jupyter’s rich display system. Unlike in normal usage of the inline
-backend, writing code in a cell to define a plot is indendent from
+backend, writing code in a cell to define a plot is independent from
 showing it:
 
 .. code:: ipython3
@@ -870,19 +875,19 @@ parameter. The ``Plot`` object *will* provide a similar functionality:
 .. code:: ipython3
 
     import matplotlib as mpl
-    _, ax = mpl.figure.Figure(constrained_layout=True).subplots(1, 2)
+    _, ax = mpl.figure.Figure().subplots(1, 2)
     (
         so.Plot(tips, x="total_bill", y="tip")
         .on(ax)
-        .add(so.Scatter())
+        .add(so.Dots())
     )
 
 
 
 
 .. image:: demo_files/demo_90_0.png
-   :width: 531.675px
-   :height: 400.775px
+   :width: 509.15px
+   :height: 378.25px
 
 
 
@@ -893,11 +898,11 @@ figure. That is no longer the case; ``Plot.on()`` also accepts a
 
 .. code:: ipython3
 
-    f = mpl.figure.Figure(constrained_layout=True)
+    f = mpl.figure.Figure()
     (
         so.Plot(tips, x="total_bill", y="tip")
         .on(f)
-        .add(so.Scatter())
+        .add(so.Dots())
         .facet("time")
     )
 
@@ -905,8 +910,8 @@ figure. That is no longer the case; ``Plot.on()`` also accepts a
 
 
 .. image:: demo_files/demo_92_0.png
-   :width: 531.675px
-   :height: 400.775px
+   :width: 509.15px
+   :height: 378.25px
 
 
 
@@ -922,14 +927,16 @@ small-multiples plot *within* a larger set of subplots:
     sf1, sf2 = f.subfigures(1, 2)
     (
         so.Plot(tips, x="total_bill", y="tip", color="day")
-        .add(so.Scatter())
+        .layout(algo=None)
+        .add(so.Dots(), legend=None)
         .on(sf1)
         .plot()
     )
     (
         so.Plot(tips, x="total_bill", y="tip", color="day")
+        .layout(algo=None)
         .facet("day", wrap=2)
-        .add(so.Scatter())
+        .add(so.Dots())
         .on(sf2)
         .plot()
     )
@@ -943,3 +950,5 @@ small-multiples plot *within* a larger set of subplots:
 
 
 
+Note that there may be some rough edges around this concept in the first
+couple releases, especially relating to the legend positioning.

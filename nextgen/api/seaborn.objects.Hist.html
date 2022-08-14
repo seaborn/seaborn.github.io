@@ -13,8 +13,8 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5edac7761448714c8b88" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
 
   
   <link rel="stylesheet"
@@ -27,13 +27,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/seaborn.objects.Hist';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.objects.PolyFit" href="seaborn.objects.PolyFit.html" />
@@ -45,19 +46,32 @@
   
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-  <!-- checkbox to toggle primary sidebar -->
+  
   <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
   <label class="overlay overlay-primary" for="__primary"></label>
 
-  <!-- Checkboxes to toggle the secondary sidebar -->
+  
   <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
   <label class="overlay overlay-secondary" for="__secondary"></label>
 
   
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
 
   
-  <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
-
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
   <div id="navbar-start">
     
     
@@ -79,12 +93,8 @@
     
   </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars"></span>
-  </button>
-
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+  <div class="col-lg-9 navbar-header-items">
     <div id="navbar-center" class="mr-auto">
       
       <div class="navbar-center-item">
@@ -107,28 +117,15 @@
     </div>
 
     <div id="navbar-end">
-      
-      <div class="navbar-end-item">
+      <div class="navbar-end-item navbar-end__search-button-container">
         
-<!-- A button that will trigger a search field to be displayed on click. -->
-
-
-<!-- An overlay that will expand in the background and cause the search to disappear when clicked -->
-<button class="btn btn-sm navbar-btn search-button" id="bd-search-button" title="Search">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
   <i class="fas fa-search"></i>
-</button><div class="search-button__overlay"></div>
-<div class="search-button__search-container">
-  
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-</div>
+</button>
       </div>
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
     <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
     <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
     <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
@@ -141,33 +138,85 @@
       </div>
       
     </div>
-
   </div>
 
-</div>
 
-<script>
-// Adds the `shown` class to the parent so that we can trigger overflow
-// behavior that depends on whether we're expanded
-$('#navbar-collapsible').on('show.bs.collapse', function () {
-  $(".bd-header").addClass("shown");
-});
-$('#navbar-collapsible').on('hide.bs.collapse', function () {
-  $(".bd-header").removeClass("shown");
-});
-</script>
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
   </nav>
   
 
   <div class="bd-container container-xl">
     <div class="bd-container__inner row">
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demo.html">
+  Demonstration
+ </a>
+</li>
 
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API Overview
+ </a>
+</li>
 
+</ul>
+      </div>
+      
+      </div>
+    
 
-<div class="bd-sidebar-primary bd-sidebar">
-  <div class="sidebar-start-items"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
     <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Plot.html">
@@ -180,28 +229,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Plot.scale.html">
-   seaborn.objects.Plot.scale
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Plot.facet.html">
    seaborn.objects.Plot.facet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Plot.pair.html">
-   seaborn.objects.Plot.pair
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Plot.configure.html">
-   seaborn.objects.Plot.configure
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Plot.limit.html">
-   seaborn.objects.Plot.limit
   </a>
  </li>
  <li class="toctree-l1">
@@ -210,8 +239,23 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.layout.html">
+   seaborn.objects.Plot.layout
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.limit.html">
+   seaborn.objects.Plot.limit
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Plot.on.html">
    seaborn.objects.Plot.on
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.pair.html">
+   seaborn.objects.Plot.pair
   </a>
  </li>
  <li class="toctree-l1">
@@ -225,8 +269,23 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.scale.html">
+   seaborn.objects.Plot.scale
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.share.html">
+   seaborn.objects.Plot.share
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Plot.show.html">
    seaborn.objects.Plot.show
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Plot.theme.html">
+   seaborn.objects.Plot.theme
   </a>
  </li>
 </ul>
@@ -234,6 +293,11 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Area.html">
    seaborn.objects.Area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Band.html">
+   seaborn.objects.Band
   </a>
  </li>
  <li class="toctree-l1">
@@ -252,8 +316,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Interval.html">
-   seaborn.objects.Interval
+  <a class="reference internal" href="seaborn.objects.Dots.html">
+   seaborn.objects.Dots
   </a>
  </li>
  <li class="toctree-l1">
@@ -277,13 +341,8 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Ribbon.html">
-   seaborn.objects.Ribbon
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="seaborn.objects.Scatter.html">
-   seaborn.objects.Scatter
+  <a class="reference internal" href="seaborn.objects.Range.html">
+   seaborn.objects.Range
   </a>
  </li>
 </ul>
@@ -356,59 +415,44 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
 
   </div>
 </nav>
+    </div>
   </div>
-  <div class="sidebar-end-items">
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
   </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
 </div>
 
-
-      
-
-<div class="bd-sidebar-secondary bd-toc">
-    
-    <div class="toc-item">
-      
-
-<nav id="bd-toc-nav" class="page-toc">
-    
-</nav>
-    </div>
-    
-    <div class="toc-item">
-      
-    </div>
-    
-    <div class="toc-item">
-      
-    </div>
-    
+<div class="toc-item">
+  
 </div>
 
+        </div>
+      
+      
 
-
+      
       
       <div class="bd-content col">
-
+          
           <div class="bd-header-article">
-              <div class="bd-header-article__inner">
-    <div class="bd-header-article__start">
-        
-        <label class="sidebar-toggle primary-toggle" for="__primary">
-            <span class="fas fa-outdent"></span>
-        </label>
-        
-    </div>
-
-    <div class="bd-header-article__end">
-        
-        <label class="sidebar-toggle secondary-toggle" for="__secondary">
-            <span class="fas fa-outdent"></span>
-        </label>
-        
-    </div>
-</div>
+              
           </div>
 
+          
           
           <article class="bd-article" role="main">
             
@@ -472,6 +516,7 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
           
 
           
+          
       </div>
       
     </div>
@@ -480,7 +525,7 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=5edac7761448714c8b88"></script>
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
 
   <footer class="bd-footer"><div class="bd-footer__inner container">
   
@@ -497,7 +542,7 @@ $('#navbar-collapsible').on('hide.bs.collapse', function () {
   <div class="footer-item">
     
 <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
 
   </div>
