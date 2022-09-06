@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _regression_marginals:
+
+
+Linear regression with marginal distributions
+=============================================
+
+
+
+.. image:: _images/regression_marginals.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`jointplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: regression_marginals.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

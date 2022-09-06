@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _radial_facets:
+
+
+FacetGrid with custom projection
+================================
+
+
+
+
+.. image:: _images/radial_facets.png
+
+**seaborn components used:** :func:`set_theme`, :class:`FacetGrid`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: radial_facets.py
+    :lines: 8-
+
+.. raw:: html
+
+    </div>
+

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.barplot &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.countplot" href="seaborn.countplot.html" />
+    <link rel="prev" title="seaborn.pointplot" href="seaborn.pointplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.barplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-barplot">
+<h1>seaborn.barplot<a class="headerlink" href="#seaborn-barplot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.barplot">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">barplot</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">x=None</em>, <em class="sig-param">y=None</em>, <em class="sig-param">hue=None</em>, <em class="sig-param">data=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">estimator=&lt;function mean at 0x7ff320f315e0&gt;</em>, <em class="sig-param">ci=95</em>, <em class="sig-param">n_boot=1000</em>, <em class="sig-param">units=None</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">orient=None</em>, <em class="sig-param">color=None</em>, <em class="sig-param">palette=None</em>, <em class="sig-param">saturation=0.75</em>, <em class="sig-param">errcolor='.26'</em>, <em class="sig-param">errwidth=None</em>, <em class="sig-param">capsize=None</em>, <em class="sig-param">dodge=True</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.barplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show point estimates and confidence intervals as rectangular bars.</p>
+<p>A bar plot represents an estimate of central tendency for a numeric
+variable with the height of each rectangle and provides some indication of
+the uncertainty around that estimate using error bars. Bar plots include 0
+in the quantitative axis range, and they are a good choice when 0 is a
+meaningful value for the quantitative variable, and you want to make
+comparisons against it.</p>
+<p>For datasets where 0 is not a meaningful value, a point plot will allow you
+to focus on differences between levels of one or more categorical
+variables.</p>
+<p>It is also important to keep in mind that a bar plot shows only the mean
+(or other estimator) value, but in many cases it may be more informative to
+show the distribution of values at each level of the categorical variables.
+In that case, other approaches such as a box or violin plot may be more
+appropriate.</p>
+<p>Input data can be passed in a variety of formats, including:</p>
+<ul class="simple">
+<li><p>Vectors of data represented as lists, numpy arrays, or pandas Series
+objects passed directly to the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameters.</p></li>
+<li><p>A “long-form” DataFrame, in which case the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+variables will determine how the data are plotted.</p></li>
+<li><p>A “wide-form” DataFrame, such that each numeric column will be plotted.</p></li>
+<li><p>An array or list of vectors.</p></li>
+</ul>
+<p>In most cases, it is possible to use numpy or Python objects, but pandas
+objects are preferable because the associated names will be used to
+annotate the axes. Additionally, you can use Categorical types for the
+grouping variables to control the order of plot elements.</p>
+<p>This function always treats one of the variables as categorical and
+draws data at ordinal positions (0, 1, … n) on the relevant axis, even
+when the data has a numeric or date type.</p>
+<p>See the <a class="reference internal" href="../tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y, hue</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</span></dt><dd><p>Inputs for plotting long-form data. See examples for interpretation.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame, array, or list of arrays, optional</span></dt><dd><p>Dataset for plotting. If <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are absent, this is
+interpreted as wide-form. Otherwise it is expected to be long-form.</p>
+</dd>
+<dt><strong>order, hue_order</strong><span class="classifier">lists of strings, optional</span></dt><dd><p>Order to plot the categorical levels in, otherwise the levels are
+inferred from the data objects.</p>
+</dd>
+<dt><strong>estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Statistical function to estimate within each categorical bin.</p>
+</dd>
+<dt><strong>ci</strong><span class="classifier">float or “sd” or None, optional</span></dt><dd><p>Size of confidence intervals to draw around estimated values.  If
+“sd”, skip bootstrapping and draw the standard deviation of the
+observations. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no bootstrapping will be performed, and
+error bars will not be drawn.</p>
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int, optional</span></dt><dd><p>Number of bootstrap iterations to use when computing confidence
+intervals.</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</span></dt><dd><p>Identifier of sampling units, which will be used to perform a
+multilevel bootstrap and account for repeated measures design.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int, numpy.random.Generator, or numpy.random.RandomState, optional</span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
+<dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
+inferred based on the type of the input variables, but it can be used
+to resolve ambiguity when both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numeric or when
+plotting wide-form data.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color for all of the elements, or seed for a gradient palette.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
+dictionary mapping hue levels to matplotlib colors.</p>
+</dd>
+<dt><strong>saturation</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion of the original saturation to draw colors at. Large patches
+often look better with slightly desaturated colors, but set this to
+<code class="docutils literal notranslate"><span class="pre">1</span></code> if you want the plot colors to perfectly match the input color
+spec.</p>
+</dd>
+<dt><strong>errcolor</strong><span class="classifier">matplotlib color</span></dt><dd><p>Color for the lines that represent the confidence interval.</p>
+</dd>
+<dt><strong>errwidth</strong><span class="classifier">float, optional</span></dt><dd><p>Thickness of error bar lines (and caps).</p>
+</dd>
+<dt><strong>capsize</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the “caps” on error bars.</p>
+</dd>
+<dt><strong>dodge</strong><span class="classifier">bool, optional</span></dt><dd><p>When hue nesting is used, whether elements should be shifted along the
+categorical axis.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed through to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Returns the Axes object with the plot drawn onto it.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">countplot</span></code></a></dt><dd><p>Show the counts of observations in each categorical bin.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointplot</span></code></a></dt><dd><p>Show point estimates and confidence intervals using scatterplot glyphs.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catplot</span></code></a></dt><dd><p>Combine a categorical plot with a <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Draw a set of vertical bar plots grouped by a categorical variable:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-1.png" class="plot-directive" src="../_images/seaborn-barplot-1.png" />
+</div>
+<p>Draw a set of vertical bars with nested grouping by a two variables:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-2.png" class="plot-directive" src="../_images/seaborn-barplot-2.png" />
+</div>
+<p>Draw a set of horizontal bars:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-3.png" class="plot-directive" src="../_images/seaborn-barplot-3.png" />
+</div>
+<p>Control bar order by passing an explicit order:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Lunch&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-4.png" class="plot-directive" src="../_images/seaborn-barplot-4.png" />
+</div>
+<p>Use median as the estimate of central tendency:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">median</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">median</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-5.png" class="plot-directive" src="../_images/seaborn-barplot-5.png" />
+</div>
+<p>Show the standard error of the mean with the error bars:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-6.png" class="plot-directive" src="../_images/seaborn-barplot-6.png" />
+</div>
+<p>Show standard deviation of observations instead of a confidence interval:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-7.png" class="plot-directive" src="../_images/seaborn-barplot-7.png" />
+</div>
+<p>Add “caps” to the error bars:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=.</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-8.png" class="plot-directive" src="../_images/seaborn-barplot-8.png" />
+</div>
+<p>Use a different color palette for the bars:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Blues_d&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-9.png" class="plot-directive" src="../_images/seaborn-barplot-9.png" />
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">hue</span></code> without changing bar position or width:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;weekend&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Sat&quot;</span><span class="p">,</span> <span class="s2">&quot;Sun&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;weekend&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">dodge</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-10.png" class="plot-directive" src="../_images/seaborn-barplot-10.png" />
+</div>
+<p>Plot all bars in a single color:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">color</span><span class="o">=</span><span class="s2">&quot;salmon&quot;</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-111.png" class="plot-directive" src="../_images/seaborn-barplot-111.png" />
+</div>
+<p>Use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar.html#matplotlib.axes.Axes.bar" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar()</span></code></a> parameters to control the style.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="gp">... </span>                 <span class="n">errcolor</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-12.png" class="plot-directive" src="../_images/seaborn-barplot-12.png" />
+</div>
+<p>Use <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> to combine a <a class="reference internal" href="#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a> and a <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.
+This allows grouping within additional categorical variables. Using
+<a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> is safer than using <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> directly, as it
+ensures synchronization of variable order across facets:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">7</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-barplot-13.png" class="plot-directive" src="../_images/seaborn-barplot-13.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

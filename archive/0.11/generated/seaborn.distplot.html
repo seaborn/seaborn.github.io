@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.distplot &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.catplot" href="seaborn.catplot.html" />
+    <link rel="prev" title="seaborn.rugplot" href="seaborn.rugplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.distplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-distplot">
+<h1>seaborn.distplot<a class="headerlink" href="#seaborn-distplot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.distplot">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">distplot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hist</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">kde</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rug</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hist_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">kde_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rug_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fit_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vertical</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">norm_hist</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">axlabel</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.distplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: Flexibly plot a univariate distribution of observations.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function is deprecated and will be removed in a future version.
+Please adapt your code to use one of two new functions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, a figure-level function with a similar flexibility
+over the kind of plot to draw</p></li>
+<li><p><a class="reference internal" href="seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, an axes-level function for plotting histograms,
+including with kernel density smoothing</p></li>
+</ul>
+</div>
+<p>This function combines the matplotlib <code class="docutils literal notranslate"><span class="pre">hist</span></code> function (with automatic
+calculation of a good default bin size) with the seaborn <a class="reference internal" href="seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>
+and <a class="reference internal" href="seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a> functions. It can also fit <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>
+distributions and plot the estimated PDF over the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">Series, 1d-array, or list.</span></dt><dd><p>Observed data. If this is a Series object with a <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute,
+the name will be used to label the data axis.</p>
+</dd>
+<dt><strong>bins</strong><span class="classifier">argument for matplotlib hist(), or None, optional</span></dt><dd><p>Specification of hist bins. If unspecified, as reference rule is used
+that tries to find a useful default.</p>
+</dd>
+<dt><strong>hist</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to plot a (normed) histogram.</p>
+</dd>
+<dt><strong>kde</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to plot a gaussian kernel density estimate.</p>
+</dd>
+<dt><strong>rug</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to draw a rugplot on the support axis.</p>
+</dd>
+<dt><strong>fit</strong><span class="classifier">random variable object, optional</span></dt><dd><p>An object with <code class="docutils literal notranslate"><span class="pre">fit</span></code> method, returning a tuple that can be passed to a
+<code class="docutils literal notranslate"><span class="pre">pdf</span></code> method a positional arguments following a grid of values to
+evaluate the pdf on.</p>
+</dd>
+<dt><strong>hist_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.hist.html#matplotlib.axes.Axes.hist" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.hist()</span></code></a>.</p>
+</dd>
+<dt><strong>kde_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments for <a class="reference internal" href="seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>.</p>
+</dd>
+<dt><strong>rug_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments for <a class="reference internal" href="seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a>.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Color to plot everything but the fitted curve in.</p>
+</dd>
+<dt><strong>vertical</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, observed values are on y-axis.</p>
+</dd>
+<dt><strong>norm_hist</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, the histogram height shows a density rather than a count.
+This is implied if a KDE or fitted density is plotted.</p>
+</dd>
+<dt><strong>axlabel</strong><span class="classifier">string, False, or None, optional</span></dt><dd><p>Name for the support axis label. If None, will try to get it
+from a.name if False, do not set a label.</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">string, optional</span></dt><dd><p>Legend label for the relevant component of the plot.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib axis, optional</span></dt><dd><p>If provided, plot on this axis.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Returns the Axes object with the plot for further tweaking.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kdeplot</span></code></a></dt><dd><p>Show a univariate or bivariate distribution with a kernel density estimate.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rugplot</span></code></a></dt><dd><p>Draw small vertical lines to show each observation in a distribution.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Show a default plot with a kernel density estimate and histogram with bin
+size determined automatically with a reference rule:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">();</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-1.png" class="plot-directive" src="../_images/seaborn-distplot-1.png" />
+</div>
+<p>Use Pandas objects to get an informative axis label:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x variable&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-2.png" class="plot-directive" src="../_images/seaborn-distplot-2.png" />
+</div>
+<p>Plot the distribution with a kernel density estimate and rug plot:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-3.png" class="plot-directive" src="../_images/seaborn-distplot-3.png" />
+</div>
+<p>Plot the distribution with a histogram and maximum likelihood gaussian
+distribution fit:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-4.png" class="plot-directive" src="../_images/seaborn-distplot-4.png" />
+</div>
+<p>Plot the distribution on the vertical axis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-5.png" class="plot-directive" src="../_images/seaborn-distplot-5.png" />
+</div>
+<p>Change the color of all the plot elements:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">set_color_codes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-6.png" class="plot-directive" src="../_images/seaborn-distplot-6.png" />
+</div>
+<p>Pass specific parameters to the underlying plot functions:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rug_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">},</span>
+<span class="gp">... </span>                  <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;lw&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;KDE&quot;</span><span class="p">},</span>
+<span class="gp">... </span>                  <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;histtype&quot;</span><span class="p">:</span> <span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-distplot-7.png" class="plot-directive" src="../_images/seaborn-distplot-7.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

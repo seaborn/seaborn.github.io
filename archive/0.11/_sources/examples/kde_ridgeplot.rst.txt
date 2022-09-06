@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _kde_ridgeplot:
+
+
+Overlapping densities ('ridge plot')
+====================================
+
+
+
+
+.. image:: _images/kde_ridgeplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`cubehelix_palette`, :class:`FacetGrid`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: kde_ridgeplot.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

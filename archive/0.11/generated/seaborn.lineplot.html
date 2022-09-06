@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.lineplot &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.displot" href="seaborn.displot.html" />
+    <link rel="prev" title="seaborn.scatterplot" href="seaborn.scatterplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.lineplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-lineplot">
+<h1>seaborn.lineplot<a class="headerlink" href="#seaborn-lineplot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.lineplot">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">lineplot</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">style</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_norm</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sizes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size_norm</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dashes</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">markers</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">style_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">estimator</span><span class="o">=</span><span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">ci</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">n_boot</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sort</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">err_style</span><span class="o">=</span><span class="default_value">'band'</span></em>, <em class="sig-param"><span class="n">err_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.lineplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a line plot with possibility of several semantic groupings.</p>
+<p>The relationship between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> can be shown for different subsets
+of the data using the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, and <code class="docutils literal notranslate"><span class="pre">style</span></code> parameters. These
+parameters control what visual semantics are used to identify the different
+subsets. It is possible to show up to three dimensions independently by
+using all three semantic types, but this style of plot can be hard to
+interpret and is often ineffective. Using redundant semantics (i.e. both
+<code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> for the same variable) can be helpful for making
+graphics more accessible.</p>
+<p>See the <a class="reference internal" href="../tutorial/relational.html#relational-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<p>The default treatment of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> (and to a lesser extent, <code class="docutils literal notranslate"><span class="pre">size</span></code>)
+semantic, if present, depends on whether the variable is inferred to
+represent “numeric” or “categorical” data. In particular, numeric variables
+are represented with a sequential colormap by default, and the legend
+entries show regular “ticks” with values that may or may not exist in the
+data. This behavior can be controlled through various parameters, as
+described and illustrated below.</p>
+<p>By default, the plot aggregates over multiple <code class="docutils literal notranslate"><span class="pre">y</span></code> values at each value of
+<code class="docutils literal notranslate"><span class="pre">x</span></code> and shows an estimate of the central tendency and a confidence
+interval for that estimate.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y</strong><span class="classifier">vectors or keys in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Variables that specify positions on the x and y axes.</p>
+</dd>
+<dt><strong>hue</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Grouping variable that will produce lines with different colors.
+Can be either categorical or numeric, although color mapping will
+behave differently in latter case.</p>
+</dd>
+<dt><strong>size</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Grouping variable that will produce lines with different widths.
+Can be either categorical or numeric, although size mapping will
+behave differently in latter case.</p>
+</dd>
+<dt><strong>style</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Grouping variable that will produce lines with different dashes
+and/or markers. Can have a numeric dtype but will always be treated
+as categorical.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+assigned to named variables or a wide-form dataset that will be internally
+reshaped.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
+imply categorical mapping, while a colormap object implies numeric mapping.</p>
+</dd>
+<dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
+<code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
+</dd>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+or an object that will map from data units into a [0, 1] interval. Usage
+implies numeric mapping.</p>
+</dd>
+<dt><strong>sizes</strong><span class="classifier">list, dict, or tuple</span></dt><dd><p>An object that determines how sizes are chosen when <code class="docutils literal notranslate"><span class="pre">size</span></code> is used.
+It can always be a list of size values or a dict mapping levels of the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable to sizes. When <code class="docutils literal notranslate"><span class="pre">size</span></code>  is numeric, it can also be
+a tuple specifying the minimum and maximum size to use such that other
+values are normalized within this range.</p>
+</dd>
+<dt><strong>size_order</strong><span class="classifier">list</span></dt><dd><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">size</span></code> variable levels,
+otherwise they are determined from the data. Not relevant when the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
+</dd>
+<dt><strong>size_norm</strong><span class="classifier">tuple or Normalize object</span></dt><dd><p>Normalization in data units for scaling plot objects when the
+<code class="docutils literal notranslate"><span class="pre">size</span></code> variable is numeric.</p>
+</dd>
+<dt><strong>dashes</strong><span class="classifier">boolean, list, or dictionary</span></dt><dd><p>Object determining how to draw the lines for different levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable. Setting to <code class="docutils literal notranslate"><span class="pre">True</span></code> will use default dash codes, or
+you can pass a list of dash codes or a dictionary mapping levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable to dash codes. Setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> will use solid
+lines for all subsets. Dashes are specified as in matplotlib: a tuple
+of <code class="docutils literal notranslate"><span class="pre">(segment,</span> <span class="pre">gap)</span></code> lengths, or an empty string to draw a solid line.</p>
+</dd>
+<dt><strong>markers</strong><span class="classifier">boolean, list, or dictionary</span></dt><dd><p>Object determining how to draw the markers for different levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable. Setting to <code class="docutils literal notranslate"><span class="pre">True</span></code> will use default markers, or
+you can pass a list of markers or a dictionary mapping levels of the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable to markers. Setting to <code class="docutils literal notranslate"><span class="pre">False</span></code> will draw
+marker-less lines.  Markers are specified as in matplotlib.</p>
+</dd>
+<dt><strong>style_order</strong><span class="classifier">list</span></dt><dd><p>Specified order for appearance of the <code class="docutils literal notranslate"><span class="pre">style</span></code> variable levels
+otherwise they are determined from the data. Not relevant when the
+<code class="docutils literal notranslate"><span class="pre">style</span></code> variable is numeric.</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Grouping variable identifying sampling units. When used, a separate
+line will be drawn for each unit with appropriate semantics, but no
+legend entry will be added. Useful for showing distribution of
+experimental replicates when exact identities are not needed.</p>
+</dd>
+<dt><strong>estimator</strong><span class="classifier">name of pandas method or callable or None</span></dt><dd><p>Method for aggregating across multiple observations of the <code class="docutils literal notranslate"><span class="pre">y</span></code>
+variable at the same <code class="docutils literal notranslate"><span class="pre">x</span></code> level. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all observations will
+be drawn.</p>
+</dd>
+<dt><strong>ci</strong><span class="classifier">int or “sd” or None</span></dt><dd><p>Size of the confidence interval to draw when aggregating with an
+estimator. “sd” means to draw the standard deviation of the data.
+Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will skip bootstrapping.</p>
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int</span></dt><dd><p>Number of bootstraps to use for computing the confidence interval.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int, numpy.random.Generator, or numpy.random.RandomState</span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
+<dt><strong>sort</strong><span class="classifier">boolean</span></dt><dd><p>If True, the data will be sorted by the x and y variables, otherwise
+lines will connect points in the order they appear in the dataset.</p>
+</dd>
+<dt><strong>err_style</strong><span class="classifier">“band” or “bars”</span></dt><dd><p>Whether to draw the confidence intervals with translucent error bands
+or discrete error bars.</p>
+</dd>
+<dt><strong>err_kws</strong><span class="classifier">dict of keyword arguments</span></dt><dd><p>Additional paramters to control the aesthetics of the error bars. The
+kwargs are passed either to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.errorbar()</span></code></a>, depending on <code class="docutils literal notranslate"><span class="pre">err_style</span></code>.</p>
+</dd>
+<dt><strong>legend</strong><span class="classifier">“auto”, “brief”, “full”, or False</span></dt><dd><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
+variables will be represented with a sample of evenly spaced values.
+If “full”, every group will get an entry in the legend. If “auto”,
+choose between brief or full representation based on number of levels.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, no legend data is added and no legend is drawn.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
+internally.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed down to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatterplot</span></code></a></dt><dd><p>Plot data using points.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pointplot</span></code></a></dt><dd><p>Plot point estimates and CIs using markers and lines.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">flights</span></code> dataset has 10 years of monthly airline passenger data:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;flights&quot;</span><span class="p">)</span>
+<span class="n">flights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1949</td>
+      <td>Jan</td>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1949</td>
+      <td>Feb</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1949</td>
+      <td>Mar</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1949</td>
+      <td>Apr</td>
+      <td>129</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1949</td>
+      <td>May</td>
+      <td>121</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>To draw a line plot using long-form data, assign the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">may_flights</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;month == &#39;May&#39;&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">may_flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_3_0.png" src="../_images/lineplot_3_0.png" />
+<p>Pivot the dataframe to a wide-form representation:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
+<span class="n">flights_wide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>month</th>
+      <th>Jan</th>
+      <th>Feb</th>
+      <th>Mar</th>
+      <th>Apr</th>
+      <th>May</th>
+      <th>Jun</th>
+      <th>Jul</th>
+      <th>Aug</th>
+      <th>Sep</th>
+      <th>Oct</th>
+      <th>Nov</th>
+      <th>Dec</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1949</th>
+      <td>112</td>
+      <td>118</td>
+      <td>132</td>
+      <td>129</td>
+      <td>121</td>
+      <td>135</td>
+      <td>148</td>
+      <td>148</td>
+      <td>136</td>
+      <td>119</td>
+      <td>104</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>1950</th>
+      <td>115</td>
+      <td>126</td>
+      <td>141</td>
+      <td>135</td>
+      <td>125</td>
+      <td>149</td>
+      <td>170</td>
+      <td>170</td>
+      <td>158</td>
+      <td>133</td>
+      <td>114</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1951</th>
+      <td>145</td>
+      <td>150</td>
+      <td>178</td>
+      <td>163</td>
+      <td>172</td>
+      <td>178</td>
+      <td>199</td>
+      <td>199</td>
+      <td>184</td>
+      <td>162</td>
+      <td>146</td>
+      <td>166</td>
+    </tr>
+    <tr>
+      <th>1952</th>
+      <td>171</td>
+      <td>180</td>
+      <td>193</td>
+      <td>181</td>
+      <td>183</td>
+      <td>218</td>
+      <td>230</td>
+      <td>242</td>
+      <td>209</td>
+      <td>191</td>
+      <td>172</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>1953</th>
+      <td>196</td>
+      <td>196</td>
+      <td>236</td>
+      <td>235</td>
+      <td>229</td>
+      <td>243</td>
+      <td>264</td>
+      <td>272</td>
+      <td>237</td>
+      <td>211</td>
+      <td>180</td>
+      <td>201</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>To plot a single vector, pass it to <code class="docutils literal notranslate"><span class="pre">data</span></code>. If the vector is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, it will be plotted against its index:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="p">[</span><span class="s2">&quot;May&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_7_0.png" src="../_images/lineplot_7_0.png" />
+<p>Passing the entire wide-form dataset to <code class="docutils literal notranslate"><span class="pre">data</span></code> plots a separate line for each column:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_9_0.png" src="../_images/lineplot_9_0.png" />
+<p>Passing the entire dataset in long-form mode will aggregate over repeated values (each year) to show the mean and 95% confidence interval:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_11_0.png" src="../_images/lineplot_11_0.png" />
+<p>Assign a grouping semantic (<code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>, or <code class="docutils literal notranslate"><span class="pre">style</span></code>) to plot separate lines</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_13_0.png" src="../_images/lineplot_13_0.png" />
+<p>The same column can be assigned to multiple semantic variables, which can increase the accessibility of the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_15_0.png" src="../_images/lineplot_15_0.png" />
+<p>Each semantic variable can also represent a different column. For that, we’ll need a more complex dataset:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fmri</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;fmri&quot;</span><span class="p">)</span>
+<span class="n">fmri</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>timepoint</th>
+      <th>event</th>
+      <th>region</th>
+      <th>signal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>s13</td>
+      <td>18</td>
+      <td>stim</td>
+      <td>parietal</td>
+      <td>-0.017552</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>s5</td>
+      <td>14</td>
+      <td>stim</td>
+      <td>parietal</td>
+      <td>-0.080883</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>s12</td>
+      <td>18</td>
+      <td>stim</td>
+      <td>parietal</td>
+      <td>-0.081033</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>s11</td>
+      <td>18</td>
+      <td>stim</td>
+      <td>parietal</td>
+      <td>-0.046134</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>s10</td>
+      <td>18</td>
+      <td>stim</td>
+      <td>parietal</td>
+      <td>-0.037970</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Repeated observations are aggregated even when semantic grouping is used:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_19_0.png" src="../_images/lineplot_19_0.png" />
+<p>Assign both <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">style</span></code> to represent two different grouping variables:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_21_0.png" src="../_images/lineplot_21_0.png" />
+<p>When assigning a <code class="docutils literal notranslate"><span class="pre">style</span></code> variable, markers can be used instead of (or along with) dashes to distinguish the groups:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span>
+    <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_23_0.png" src="../_images/lineplot_23_0.png" />
+<p>Show error bars instead of error bands and plot the 68% confidence interval (standard error):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">err_style</span><span class="o">=</span><span class="s2">&quot;bars&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_25_0.png" src="../_images/lineplot_25_0.png" />
+<p>Assigning the <code class="docutils literal notranslate"><span class="pre">units</span></code> variable will plot multiple lines without applying a semantic mapping:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;region == &#39;frontal&#39;&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_27_0.png" src="../_images/lineplot_27_0.png" />
+<p>Load another dataset with a numeric grouping variable:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dots</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;dots&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;align == &#39;dots&#39;&quot;</span><span class="p">)</span>
+<span class="n">dots</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>align</th>
+      <th>choice</th>
+      <th>time</th>
+      <th>coherence</th>
+      <th>firing_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>dots</td>
+      <td>T1</td>
+      <td>-80</td>
+      <td>0.0</td>
+      <td>33.189967</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>dots</td>
+      <td>T1</td>
+      <td>-80</td>
+      <td>3.2</td>
+      <td>31.691726</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dots</td>
+      <td>T1</td>
+      <td>-80</td>
+      <td>6.4</td>
+      <td>34.279840</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>dots</td>
+      <td>T1</td>
+      <td>-80</td>
+      <td>12.8</td>
+      <td>32.631874</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>dots</td>
+      <td>T1</td>
+      <td>-80</td>
+      <td>25.6</td>
+      <td>35.060487</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Assigning a numeric variable to <code class="docutils literal notranslate"><span class="pre">hue</span></code> maps it differently, using a different default palette and a quantitative color mapping:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_31_0.png" src="../_images/lineplot_31_0.png" />
+<p>Control the color mapping by setting the <code class="docutils literal notranslate"><span class="pre">palette</span></code> and passing a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;coherence &gt; 0&quot;</span><span class="p">),</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+     <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;flare&quot;</span><span class="p">,</span> <span class="n">hue_norm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_33_0.png" src="../_images/lineplot_33_0.png" />
+<p>Or pass specific colors, either as a Python list or dictionary:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;mako_r&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">palette</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_35_0.png" src="../_images/lineplot_35_0.png" />
+<p>Assign the <code class="docutils literal notranslate"><span class="pre">size</span></code> semantic to map the width of the lines with a numeric variable:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_37_0.png" src="../_images/lineplot_37_0.png" />
+<p>Pass a a tuple, <code class="docutils literal notranslate"><span class="pre">sizes=(smallest,</span> <span class="pre">largest)</span></code>, to control the range of linewidths used to map the <code class="docutils literal notranslate"><span class="pre">size</span></code> semantic:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+    <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_39_0.png" src="../_images/lineplot_39_0.png" />
+<p>By default, the observations are sorted by <code class="docutils literal notranslate"><span class="pre">x</span></code>. Disable this to plot a line with the order that observations appear in the dataset:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_41_0.png" src="../_images/lineplot_41_0.png" />
+<p>Use <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> to combine <a class="reference internal" href="#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. This allows grouping within additional categorical variables. Using <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> is safer than using <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> directly, as it ensures synchronization of the semantic mappings across facets:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">fmri</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timepoint&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;signal&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;event&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/lineplot_43_0.png" src="../_images/lineplot_43_0.png" />
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

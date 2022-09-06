@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _horizontal_boxplot:
+
+
+Horizontal boxplot with observations
+====================================
+
+
+
+.. image:: _images/horizontal_boxplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`boxplot`, :func:`stripplot`, :func:`despine`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: horizontal_boxplot.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

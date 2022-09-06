@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _many_facets:
+
+
+Plotting on a large number of facets
+====================================
+
+
+
+
+.. image:: _images/many_facets.png
+
+**seaborn components used:** :func:`set_theme`, :class:`FacetGrid`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: many_facets.py
+    :lines: 8-
+
+.. raw:: html
+
+    </div>
+

@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _multiple_bivariate_kde:
+
+
+Multiple bivariate KDE plots
+============================
+
+
+
+.. image:: _images/multiple_bivariate_kde.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`kdeplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: multiple_bivariate_kde.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

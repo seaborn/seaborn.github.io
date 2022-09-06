@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.clustermap &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.FacetGrid" href="seaborn.FacetGrid.html" />
+    <link rel="prev" title="seaborn.heatmap" href="seaborn.heatmap.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.clustermap</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-clustermap">
+<h1>seaborn.clustermap<a class="headerlink" href="#seaborn-clustermap" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.clustermap">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">clustermap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">pivot_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'average'</span></em>, <em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">'euclidean'</span></em>, <em class="sig-param"><span class="n">z_score</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standard_scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">(10, 10)</span></em>, <em class="sig-param"><span class="n">cbar_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">row_cluster</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">col_cluster</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">row_linkage</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">col_linkage</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">row_colors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">col_colors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dendrogram_ratio</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">colors_ratio</span><span class="o">=</span><span class="default_value">0.03</span></em>, <em class="sig-param"><span class="n">cbar_pos</span><span class="o">=</span><span class="default_value">(0.02, 0.8, 0.05, 0.18)</span></em>, <em class="sig-param"><span class="n">tree_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.clustermap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a matrix dataset as a hierarchically-clustered heatmap.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier">2D array-like</span></dt><dd><p>Rectangular data for clustering. Cannot contain NAs.</p>
+</dd>
+<dt><strong>pivot_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">data</span></code> is a tidy dataframe, can provide keyword arguments for
+pivot to create a rectangular dataframe.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">str, optional</span></dt><dd><p>Linkage method to use for calculating clusters. See
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> documentation for more
+information.</p>
+</dd>
+<dt><strong>metric</strong><span class="classifier">str, optional</span></dt><dd><p>Distance metric to use for the data. See
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist()</span></code></a> documentation for more options.
+To use different metrics (or methods) for rows and columns, you may
+construct each linkage matrix yourself and provide them as
+<code class="docutils literal notranslate"><span class="pre">{row,col}_linkage</span></code>.</p>
+</dd>
+<dt><strong>z_score</strong><span class="classifier">int or None, optional</span></dt><dd><p>Either 0 (rows) or 1 (columns). Whether or not to calculate z-scores
+for the rows or the columns. Z scores are: z = (x - mean)/std, so
+values in each row (column) will get the mean of the row (column)
+subtracted, then divided by the standard deviation of the row (column).
+This ensures that each row (column) has mean of 0 and variance of 1.</p>
+</dd>
+<dt><strong>standard_scale</strong><span class="classifier">int or None, optional</span></dt><dd><p>Either 0 (rows) or 1 (columns). Whether or not to standardize that
+dimension, meaning for each row or column, subtract the minimum and
+divide each by its maximum.</p>
+</dd>
+<dt><strong>figsize</strong><span class="classifier">tuple of (width, height), optional</span></dt><dd><p>Overall size of the figure.</p>
+</dd>
+<dt><strong>cbar_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">cbar_kws</span></code> in <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>, e.g. to
+add a label to the colorbar.</p>
+</dd>
+<dt><strong>{row,col}_cluster</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, cluster the {rows, columns}.</p>
+</dd>
+<dt><strong>{row,col}_linkage</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, optional</span></dt><dd><p>Precomputed linkage matrix for the rows or columns. See
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.7.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a> for specific formats.</p>
+</dd>
+<dt><strong>{row,col}_colors</strong><span class="classifier">list-like or pandas DataFrame/Series, optional</span></dt><dd><p>List of colors to label for either the rows or columns. Useful to evaluate
+whether samples within a group are clustered together. Can use nested lists or
+DataFrame for multiple color levels of labeling. If given as a
+<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, labels for the colors are
+extracted from the DataFrames column names or from the name of the Series.
+DataFrame/Series colors are also matched to the data by their index, ensuring
+colors are drawn in the correct order.</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">bool array or DataFrame, optional</span></dt><dd><p>If passed, data will not be shown in cells where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is True.
+Cells with missing values are automatically masked. Only used for
+visualizing, not for calculating.</p>
+</dd>
+<dt><strong>{dendrogram,colors}_ratio</strong><span class="classifier">float, or pair of floats, optional</span></dt><dd><p>Proportion of the figure size devoted to the two marginal elements. If
+a pair is given, they correspond to (row, col) ratios.</p>
+</dd>
+<dt><strong>cbar_pos</strong><span class="classifier">tuple of (left, bottom, width, height), optional</span></dt><dd><p>Position of the colorbar axes in the figure. Setting to <code class="docutils literal notranslate"><span class="pre">None</span></code> will
+disable the colorbar.</p>
+</dd>
+<dt><strong>tree_kws</strong><span class="classifier">dict, optional</span></dt><dd><p>Parameters for the <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a>
+that is used to plot the lines of the dendrogram tree.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to <a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterGrid</span></code></dt><dd><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterGrid</span></code> instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">heatmap</span></code></a></dt><dd><p>Plot rectangular data as a color-encoded matrix.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The returned object has a <code class="docutils literal notranslate"><span class="pre">savefig</span></code> method that should be used if you
+want to save the figure object without clipping the dendrograms.</p>
+<p>To access the reordered row indices, use:
+<code class="docutils literal notranslate"><span class="pre">clustergrid.dendrogram_row.reordered_ind</span></code></p>
+<p>Column indices, use:
+<code class="docutils literal notranslate"><span class="pre">clustergrid.dendrogram_col.reordered_ind</span></code></p>
+<p class="rubric">Examples</p>
+<p>Plot a clustered heatmap:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">species</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-1.png" class="plot-directive" src="../_images/seaborn-clustermap-1.png" />
+</div>
+<p>Change the size and layout of the figure:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
+<span class="gp">... </span>                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+<span class="gp">... </span>                   <span class="n">row_cluster</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>                   <span class="n">dendrogram_ratio</span><span class="o">=</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">),</span>
+<span class="gp">... </span>                   <span class="n">cbar_pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">03</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-2.png" class="plot-directive" src="../_images/seaborn-clustermap-2.png" />
+</div>
+<p>Add colored labels to identify observations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lut</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="s2">&quot;rbg&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">row_colors</span> <span class="o">=</span> <span class="n">species</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lut</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">row_colors</span><span class="o">=</span><span class="n">row_colors</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-3.png" class="plot-directive" src="../_images/seaborn-clustermap-3.png" />
+</div>
+<p>Use a different colormap and adjust the limits of the color range:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;mako&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-4.png" class="plot-directive" src="../_images/seaborn-clustermap-4.png" />
+</div>
+<p>Use a different similarity metric:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;correlation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-5.png" class="plot-directive" src="../_images/seaborn-clustermap-5.png" />
+</div>
+<p>Use a different clustering method:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-6.png" class="plot-directive" src="../_images/seaborn-clustermap-6.png" />
+</div>
+<p>Standardize the data within the columns:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">standard_scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-7.png" class="plot-directive" src="../_images/seaborn-clustermap-7.png" />
+</div>
+<p>Normalize the data within the rows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">z_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;vlag&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-clustermap-8.png" class="plot-directive" src="../_images/seaborn-clustermap-8.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

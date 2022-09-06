@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _layered_bivariate_plot:
+
+
+Bivariate plot with multiple elements
+=====================================
+
+
+
+
+.. image:: _images/layered_bivariate_plot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`scatterplot`, :func:`histplot`, :func:`kdeplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: layered_bivariate_plot.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

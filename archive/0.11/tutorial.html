@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User guide and tutorial &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview of seaborn plotting functions" href="tutorial/function_overview.html" />
+    <link rel="prev" title="Violinplot from a wide-form dataset" href="examples/wide_form_violinplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><span><img src="_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="examples/index.html">Gallery</a></li>
+                <li><a href="#">Tutorial</a></li>
+                <li><a href="api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">User guide and tutorial</a><ul>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="user-guide-and-tutorial">
+<span id="tutorial"></span><h1>User guide and tutorial<a class="headerlink" href="#user-guide-and-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="container-fluid">
+  <div class="row"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">API overview</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="col-md-4">
+          <a href=./tutorial/function_overview.html>
+            <img src="_images/function_overview_8_0.png" class="img-responsive center-block">
+          </a>
+        </div>
+        <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/function_overview.html">Overview of seaborn plotting functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/function_overview.html#similar-functions-for-similar-tasks">Similar functions for similar tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/function_overview.html#figure-level-vs-axes-level-functions">Figure-level vs. axes-level functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/function_overview.html#combining-multiple-views-on-the-data">Combining multiple views on the data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="col-md-4">
+    <a href=./tutorial/data_structure.html>
+      <img src="_images/data_structure_19_0.png" class="img-responsive center-block">
+    </a>
+  </div>
+  <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/data_structure.html">Data structures accepted by seaborn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/data_structure.html#long-form-vs-wide-form-data">Long-form vs. wide-form data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/data_structure.html#options-for-visualizing-long-form-data">Options for visualizing long-form data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/data_structure.html#options-for-visualizing-wide-form-data">Options for visualizing wide-form data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Plotting functions</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <a href=./tutorial/relational.html>
+              <img src="_images/relational_51_0.png" class="img-responsive center-block">
+            </a>
+          </div>
+          <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/relational.html">Visualizing statistical relationships</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/relational.html#relating-variables-with-scatter-plots">Relating variables with scatter plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/relational.html#emphasizing-continuity-with-line-plots">Emphasizing continuity with line plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/relational.html#showing-multiple-relationships-with-facets">Showing multiple relationships with facets</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href=./tutorial/distributions.html>
+      <img src="_images/distributions_66_0.png" class="img-responsive center-block">
+    </a>
+  </div>
+  <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/distributions.html">Visualizing distributions of data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#plotting-univariate-histograms">Plotting univariate histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#kernel-density-estimation">Kernel density estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#empirical-cumulative-distributions">Empirical cumulative distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#visualizing-bivariate-distributions">Visualizing bivariate distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/distributions.html#distribution-visualization-in-other-settings">Distribution visualization in other settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href=./tutorial/categorical.html>
+      <img src="_images/categorical_36_0.png" class="img-responsive center-block">
+    </a>
+  </div>
+  <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/categorical.html">Plotting with categorical data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#categorical-scatterplots">Categorical scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#distributions-of-observations-within-categories">Distributions of observations within categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#statistical-estimation-within-categories">Statistical estimation within categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#plotting-wide-form-data">Plotting “wide-form” data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/categorical.html#showing-multiple-relationships-with-facets">Showing multiple relationships with facets</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href=./tutorial/regression.html>
+      <img src="_images/regression_37_0.png" class="img-responsive center-block">
+    </a>
+  </div>
+  <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/regression.html">Visualizing regression models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#functions-to-draw-linear-regression-models">Functions to draw linear regression models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#fitting-different-kinds-of-models">Fitting different kinds of models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#conditioning-on-other-variables">Conditioning on other variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#controlling-the-size-and-shape-of-the-plot">Controlling the size and shape of the plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/regression.html#plotting-a-regression-in-other-contexts">Plotting a regression in other contexts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Multi-plot grids</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <a href=./tutorial/axis_grids.html>
+              <img src="_images/axis_grids_46_0.png" class="img-responsive center-block">
+            </a>
+          </div>
+          <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/axis_grids.html">Building structured multi-plot grids</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#conditional-small-multiples">Conditional small multiples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#using-custom-functions">Using custom functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/axis_grids.html#plotting-pairwise-data-relationships">Plotting pairwise data relationships</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Plot aesthetics</h3>
+    </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <a href=tutorial/aesthetics.html>
+          <img src="_images/aesthetics_24_0.png" class="img-responsive center-block">
+        </a>
+      </div>
+      <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/aesthetics.html">Controlling figure aesthetics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#seaborn-figure-styles">Seaborn figure styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#removing-axes-spines">Removing axes spines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#temporarily-setting-figure-style">Temporarily setting figure style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#overriding-elements-of-the-seaborn-styles">Overriding elements of the seaborn styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/aesthetics.html#scaling-plot-elements">Scaling plot elements</a></li>
+</ul>
+</li>
+</ul>
+</div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href=tutorial/color_palettes.html>
+      <img src="_images/color_palettes_22_0.png" class="img-responsive center-block">
+    </a>
+  </div>
+  <div class="col-md-8"><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/color_palettes.html">Choosing color palettes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#general-principles-for-using-color-in-plots">General principles for using color in plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#tools-for-choosing-color-palettes">Tools for choosing color palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#qualitative-color-palettes">Qualitative color palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#sequential-color-palettes">Sequential color palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/color_palettes.html#diverging-color-palettes">Diverging color palettes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

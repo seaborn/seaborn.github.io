@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _pointplot_anova:
+
+
+Plotting a three-way ANOVA
+==========================
+
+
+
+.. image:: _images/pointplot_anova.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`catplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: pointplot_anova.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

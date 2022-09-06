@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.lmplot &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.regplot" href="seaborn.regplot.html" />
+    <link rel="prev" title="seaborn.countplot" href="seaborn.countplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.lmplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-lmplot">
+<h1>seaborn.lmplot<a class="headerlink" href="#seaborn-lmplot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.lmplot">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">lmplot</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">col</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">row</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">col_wrap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">aspect</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">markers</span><span class="o">=</span><span class="default_value">'o'</span></em>, <em class="sig-param"><span class="n">sharex</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sharey</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">col_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">row_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">legend_out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_estimator</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_bins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">x_ci</span><span class="o">=</span><span class="default_value">'ci'</span></em>, <em class="sig-param"><span class="n">scatter</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">fit_reg</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ci</span><span class="o">=</span><span class="default_value">95</span></em>, <em class="sig-param"><span class="n">n_boot</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">logistic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lowess</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">robust</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logx</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">x_partial</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y_partial</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">truncate</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">x_jitter</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y_jitter</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scatter_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">line_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">facet_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.lmplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot data and regression model fits across a FacetGrid.</p>
+<p>This function combines <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. It is
+intended as a convenient interface to fit regression models across
+conditional subsets of a dataset.</p>
+<p>When thinking about how to assign variables to different facets, a general
+rule is that it makes sense to use <code class="docutils literal notranslate"><span class="pre">hue</span></code> for the most important
+comparison, followed by <code class="docutils literal notranslate"><span class="pre">col</span></code> and <code class="docutils literal notranslate"><span class="pre">row</span></code>. However, always think about
+your particular dataset and the goals of the visualization you are
+creating.</p>
+<p>There are a number of mutually exclusive options for estimating the
+regression model. See the <a class="reference internal" href="../tutorial/regression.html#regression-tutorial"><span class="std std-ref">tutorial</span></a> for more
+information.</p>
+<p>The parameters to this function span most of the options in
+<a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>, although there may be occasional cases where you will
+want to use that class and <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> directly.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y</strong><span class="classifier">strings, optional</span></dt><dd><p>Input variables; these should be column names in <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (“long-form”) dataframe where each column is a variable and each
+row is an observation.</p>
+</dd>
+<dt><strong>hue, col, row</strong><span class="classifier">strings</span></dt><dd><p>Variables that define subsets of the data, which will be drawn on
+separate facets in the grid. See the <code class="docutils literal notranslate"><span class="pre">*_order</span></code> parameters to control
+the order of levels of this variable.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
+dictionary mapping hue levels to matplotlib colors.</p>
+</dd>
+<dt><strong>col_wrap</strong><span class="classifier">int</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
+span multiple rows. Incompatible with a <code class="docutils literal notranslate"><span class="pre">row</span></code> facet.</p>
+</dd>
+<dt><strong>height</strong><span class="classifier">scalar</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
+</dd>
+<dt><strong>aspect</strong><span class="classifier">scalar</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
+of each facet in inches.</p>
+</dd>
+<dt><strong>markers</strong><span class="classifier">matplotlib marker code or list of marker codes, optional</span></dt><dd><p>Markers for the scatterplot. If a list, each marker in the list will be
+used for each level of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable.</p>
+</dd>
+<dt><strong>share{x,y}</strong><span class="classifier">bool, ‘col’, or ‘row’ optional</span></dt><dd><p>If true, the facets will share y axes across columns and/or x axes
+across rows.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.0: </span>Pass using the <code class="docutils literal notranslate"><span class="pre">facet_kws</span></code> dictionary.</p>
+</div>
+</dd>
+<dt><strong>{hue,col,row}_order</strong><span class="classifier">lists, optional</span></dt><dd><p>Order for the levels of the faceting variables. By default, this will
+be the order that the levels appear in <code class="docutils literal notranslate"><span class="pre">data</span></code> or, if the variables
+are pandas categoricals, the category order.</p>
+</dd>
+<dt><strong>legend</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> and there is a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable, add a legend.</p>
+</dd>
+<dt><strong>legend_out</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
+drawn outside the plot on the center right.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.0: </span>Pass using the <code class="docutils literal notranslate"><span class="pre">facet_kws</span></code> dictionary.</p>
+</div>
+</dd>
+<dt><strong>x_estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Apply this function to each unique value of <code class="docutils literal notranslate"><span class="pre">x</span></code> and plot the
+resulting estimate. This is useful when <code class="docutils literal notranslate"><span class="pre">x</span></code> is a discrete variable.
+If <code class="docutils literal notranslate"><span class="pre">x_ci</span></code> is given, this estimate will be bootstrapped and a
+confidence interval will be drawn.</p>
+</dd>
+<dt><strong>x_bins</strong><span class="classifier">int or vector, optional</span></dt><dd><p>Bin the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable into discrete bins and then estimate the central
+tendency and a confidence interval. This binning only influences how
+the scatterplot is drawn; the regression is still fit to the original
+data.  This parameter is interpreted either as the number of
+evenly-sized (not necessary spaced) bins or the positions of the bin
+centers. When this parameter is used, it implies that the default of
+<code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> is <code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code>.</p>
+</dd>
+<dt><strong>x_ci</strong><span class="classifier">“ci”, “sd”, int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval used when plotting a central tendency
+for discrete values of <code class="docutils literal notranslate"><span class="pre">x</span></code>. If <code class="docutils literal notranslate"><span class="pre">&quot;ci&quot;</span></code>, defer to the value of the
+<code class="docutils literal notranslate"><span class="pre">ci</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>, skip bootstrapping and show the
+standard deviation of the observations in each bin.</p>
+</dd>
+<dt><strong>scatter</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, draw a scatterplot with the underlying observations (or
+the <code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> values).</p>
+</dd>
+<dt><strong>fit_reg</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate and plot a regression model relating the <code class="docutils literal notranslate"><span class="pre">x</span></code>
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p>
+</dd>
+<dt><strong>ci</strong><span class="classifier">int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval for the regression estimate. This will
+be drawn using translucent bands around the regression line. The
+confidence interval is estimated using a bootstrap; for large
+datasets, it may be advisable to avoid that computation by setting
+this parameter to None.</p>
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int, optional</span></dt><dd><p>Number of bootstrap resamples used to estimate the <code class="docutils literal notranslate"><span class="pre">ci</span></code>. The default
+value attempts to balance time and stability; you may want to increase
+this value for “final” versions of plots.</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">variable name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>If the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> observations are nested within sampling units,
+those can be specified here. This will be taken into account when
+computing the confidence intervals by performing a multilevel bootstrap
+that resamples both units and observations (within unit). This does not
+otherwise influence how the regression is estimated or drawn.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int, numpy.random.Generator, or numpy.random.RandomState, optional</span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
+<dt><strong>order</strong><span class="classifier">int, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">order</span></code> is greater than 1, use <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to estimate a
+polynomial regression.</p>
+</dd>
+<dt><strong>logistic</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, assume that <code class="docutils literal notranslate"><span class="pre">y</span></code> is a binary variable and use
+<code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a logistic regression model. Note that this
+is substantially more computationally intensive than linear regression,
+so you may wish to decrease the number of bootstrap resamples
+(<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set <code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
+</dd>
+<dt><strong>lowess</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a nonparametric lowess
+model (locally weighted linear regression). Note that confidence
+intervals cannot currently be drawn for this kind of model.</p>
+</dd>
+<dt><strong>robust</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a robust regression. This
+will de-weight outliers. Note that this is substantially more
+computationally intensive than standard linear regression, so you may
+wish to decrease the number of bootstrap resamples (<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set
+<code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate a linear regression of the form y ~ log(x), but
+plot the scatterplot and regression model in the input space. Note that
+<code class="docutils literal notranslate"><span class="pre">x</span></code> must be positive for this to work.</p>
+</dd>
+<dt><strong>{x,y}_partial</strong><span class="classifier">strings in <code class="docutils literal notranslate"><span class="pre">data</span></code> or matrices</span></dt><dd><p>Confounding variables to regress out of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables
+before plotting.</p>
+</dd>
+<dt><strong>truncate</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the regression line is bounded by the data limits. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, it extends to the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis limits.</p>
+</dd>
+<dt><strong>{x,y}_jitter</strong><span class="classifier">floats, optional</span></dt><dd><p>Add uniform random noise of this size to either the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code>
+variables. The noise is added to a copy of the data after fitting the
+regression, and only influences the look of the scatterplot. This can
+be helpful when plotting variables that take discrete values.</p>
+</dd>
+<dt><strong>{scatter,line}_kws</strong><span class="classifier">dictionaries</span></dt><dd><p>Additional keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> and
+<code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
+</dd>
+<dt><strong>facet_kws</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of keyword arguments for <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">regplot</span></code></a></dt><dd><p>Plot data and a conditional model fit.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></dt><dd><p>Subplot grid for plotting conditional relationships.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lmplot()</span></code></a> functions are closely related, but
+the former is an axes-level function while the latter is a figure-level
+function that combines <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+<p class="rubric">Examples</p>
+<p>These examples focus on basic regression model plots to exhibit the
+various faceting options; see the <a class="reference internal" href="seaborn.regplot.html#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> docs for demonstrations
+of the other options for plotting the data and models. There are also
+other examples for how to manipulate plot using the returned object on
+the <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> docs.</p>
+<p>Plot a simple linear relationship between two variables:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-1.png" class="plot-directive" src="../_images/seaborn-lmplot-1.png" />
+</div>
+<p>Condition on a third variable and plot the levels in different colors:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-2.png" class="plot-directive" src="../_images/seaborn-lmplot-2.png" />
+</div>
+<p>Use different markers as well as colors so the plot will reproduce to
+black-and-white more easily:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-3.png" class="plot-directive" src="../_images/seaborn-lmplot-3.png" />
+</div>
+<p>Use a different color palette:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-4.png" class="plot-directive" src="../_images/seaborn-lmplot-4.png" />
+</div>
+<p>Map <code class="docutils literal notranslate"><span class="pre">hue</span></code> levels to colors with a dictionary:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">palette</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">Yes</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">No</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-5.png" class="plot-directive" src="../_images/seaborn-lmplot-5.png" />
+</div>
+<p>Plot the levels of the third variable across different columns:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-6.png" class="plot-directive" src="../_images/seaborn-lmplot-6.png" />
+</div>
+<p>Change the height and aspect ratio of the facets:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=.</span><span class="mi">4</span><span class="p">,</span> <span class="n">x_jitter</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-7.png" class="plot-directive" src="../_images/seaborn-lmplot-7.png" />
+</div>
+<p>Wrap the levels of the column variable into multiple rows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-8.png" class="plot-directive" src="../_images/seaborn-lmplot-8.png" />
+</div>
+<p>Condition on two variables to make a full grid:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-9.png" class="plot-directive" src="../_images/seaborn-lmplot-9.png" />
+</div>
+<p>Use methods on the returned <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> instance to further tweak
+the plot:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="gp">... </span>               <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill (US Dollars)&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip&quot;</span><span class="p">)</span>
+<span class="gp">... </span>      <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<span class="gp">... </span>           <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="gp">... </span>      <span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=.</span><span class="mi">02</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/seaborn-lmplot-10.png" class="plot-directive" src="../_images/seaborn-lmplot-10.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

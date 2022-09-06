@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _jitter_stripplot:
+
+
+Conditional means with observations
+===================================
+
+
+
+.. image:: _images/jitter_stripplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`despine`, :func:`stripplot`, :func:`pointplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: jitter_stripplot.py
+    :lines: 6-
+
+.. raw:: html
+
+    </div>
+

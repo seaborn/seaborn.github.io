@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>seaborn.kdeplot &#8212; seaborn 0.11.2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.ecdfplot" href="seaborn.ecdfplot.html" />
+    <link rel="prev" title="seaborn.histplot" href="seaborn.histplot.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
+           </a>
+        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../examples/index.html">Gallery</a></li>
+                <li><a href="../tutorial.html">Tutorial</a></li>
+                <li><a href="../api.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">seaborn.kdeplot</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  </div>
+<div class=col-md-9 content><div class="section" id="seaborn-kdeplot">
+<h1>seaborn.kdeplot<a class="headerlink" href="#seaborn-kdeplot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.kdeplot">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">kdeplot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shade</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vertical</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">kernel</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bw</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gridsize</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">cut</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cumulative</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">shade_lowest</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cbar</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">cbar_ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cbar_kws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weights</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hue_norm</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">multiple</span><span class="o">=</span><span class="default_value">'layer'</span></em>, <em class="sig-param"><span class="n">common_norm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">common_grid</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">levels</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">thresh</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">bw_method</span><span class="o">=</span><span class="default_value">'scott'</span></em>, <em class="sig-param"><span class="n">bw_adjust</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">log_scale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fill</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data2</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">warn_singular</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.kdeplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot univariate or bivariate distributions using kernel density estimation.</p>
+<p>A kernel density estimate (KDE) plot is a method for visualizing the
+distribution of observations in a dataset, analagous to a histogram. KDE
+represents the data using a continuous probability density curve in one or
+more dimensions.</p>
+<p>The approach is explained further in the <a class="reference internal" href="../tutorial/distributions.html#tutorial-kde"><span class="std std-ref">user guide</span></a>.</p>
+<p>Relative to a histogram, KDE can produce a plot that is less cluttered and
+more interpretable, especially when drawing multiple distributions. But it
+has the potential to introduce distortions if the underlying distribution is
+bounded or not smooth. Like a histogram, the quality of the representation
+also depends on the selection of good smoothing parameters.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y</strong><span class="classifier">vectors or keys in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Variables that specify positions on the x and y axes.</p>
+</dd>
+<dt><strong>shade</strong><span class="classifier">bool</span></dt><dd><p>Alias for <code class="docutils literal notranslate"><span class="pre">fill</span></code>. Using <code class="docutils literal notranslate"><span class="pre">fill</span></code> is recommended.</p>
+</dd>
+<dt><strong>vertical</strong><span class="classifier">bool</span></dt><dd><p>Orientation parameter.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.11.0: </span>specify orientation by assigning the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p>
+</div>
+</dd>
+<dt><strong>kernel</strong><span class="classifier">str</span></dt><dd><p>Function that defines the kernel.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.11.0: </span>support for non-Gaussian kernels has been removed.</p>
+</div>
+</dd>
+<dt><strong>bw</strong><span class="classifier">str, number, or callable</span></dt><dd><p>Smoothing parameter.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.11.0: </span>see <code class="docutils literal notranslate"><span class="pre">bw_method</span></code> and <code class="docutils literal notranslate"><span class="pre">bw_adjust</span></code>.</p>
+</div>
+</dd>
+<dt><strong>gridsize</strong><span class="classifier">int</span></dt><dd><p>Number of points on each dimension of the evaluation grid.</p>
+</dd>
+<dt><strong>cut</strong><span class="classifier">number, optional</span></dt><dd><p>Factor, multiplied by the smoothing bandwidth, that determines how
+far the evaluation grid extends past the extreme datapoints. When
+set to 0, truncate the curve at the data limits.</p>
+</dd>
+<dt><strong>clip</strong><span class="classifier">pair of numbers or None, or a pair of such pairs</span></dt><dd><p>Do not evaluate the density outside of these limits.</p>
+</dd>
+<dt><strong>legend</strong><span class="classifier">bool</span></dt><dd><p>If False, suppress the legend for semantic variables.</p>
+</dd>
+<dt><strong>cumulative</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, estimate a cumulative distribution function.</p>
+</dd>
+<dt><strong>shade_lowest</strong><span class="classifier">bool</span></dt><dd><p>If False, the area below the lowest contour will be transparent</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.11.0: </span>see <code class="docutils literal notranslate"><span class="pre">thresh</span></code>.</p>
+</div>
+</dd>
+<dt><strong>cbar</strong><span class="classifier">bool</span></dt><dd><p>If True, add a colorbar to annotate the color mapping in a bivariate plot.
+Note: Does not currently support plots with a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable well.</p>
+</dd>
+<dt><strong>cbar_ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the colorbar.</p>
+</dd>
+<dt><strong>cbar_kws</strong><span class="classifier">dict</span></dt><dd><p>Additional parameters passed to <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
+internally.</p>
+</dd>
+<dt><strong>weights</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>If provided, weight the kernel density estimation using these values.</p>
+</dd>
+<dt><strong>hue</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Semantic variable that is mapped to determine the color of plot elements.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
+imply categorical mapping, while a colormap object implies numeric mapping.</p>
+</dd>
+<dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
+<code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
+</dd>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+or an object that will map from data units into a [0, 1] interval. Usage
+implies numeric mapping.</p>
+</dd>
+<dt><strong>multiple</strong><span class="classifier">{{“layer”, “stack”, “fill”}}</span></dt><dd><p>Method for drawing multiple elements when semantic mapping creates subsets.
+Only relevant with univariate data.</p>
+</dd>
+<dt><strong>common_norm</strong><span class="classifier">bool</span></dt><dd><p>If True, scale each conditional density by the number of observations
+such that the total area under all densities sums to 1. Otherwise,
+normalize each density independently.</p>
+</dd>
+<dt><strong>common_grid</strong><span class="classifier">bool</span></dt><dd><p>If True, use the same evaluation grid for each kernel density estimate.
+Only relevant with univariate data.</p>
+</dd>
+<dt><strong>levels</strong><span class="classifier">int or vector</span></dt><dd><p>Number of contour levels or values to draw contours at. A vector argument
+must have increasing values in [0, 1]. Levels correspond to iso-proportions
+of the density: e.g., 20% of the probability mass will lie below the
+contour drawn for 0.2. Only relevant with bivariate data.</p>
+</dd>
+<dt><strong>thresh</strong><span class="classifier">number in [0, 1]</span></dt><dd><p>Lowest iso-proportion level at which to draw a contour line. Ignored when
+<code class="docutils literal notranslate"><span class="pre">levels</span></code> is a vector. Only relevant with bivariate data.</p>
+</dd>
+<dt><strong>bw_method</strong><span class="classifier">string, scalar, or callable, optional</span></dt><dd><p>Method for determining the smoothing bandwidth to use; passed to
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.stats.gaussian_kde.html#scipy.stats.gaussian_kde" title="(in SciPy v1.7.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.stats.gaussian_kde</span></code></a>.</p>
+</dd>
+<dt><strong>bw_adjust</strong><span class="classifier">number, optional</span></dt><dd><p>Factor that multiplicatively scales the value chosen using
+<code class="docutils literal notranslate"><span class="pre">bw_method</span></code>. Increasing will make the curve smoother. See Notes.</p>
+</dd>
+<dt><strong>log_scale</strong><span class="classifier">bool or number, or pair of bools or numbers</span></dt><dd><p>Set axis scale(s) to log. A single value sets the data axis for univariate
+distributions and both axes for bivariate distributions. A pair of values
+sets each axis independently. Numeric values are interpreted as the desired
+base (default 10). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, defer to the existing Axes scale.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/colors_api.html#module-matplotlib.colors" title="(in Matplotlib v3.4.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib</span> <span class="pre">color</span></code></a></span></dt><dd><p>Single color specification for when hue mapping is not used. Otherwise, the
+plot will try to hook into the matplotlib property cycle.</p>
+</dd>
+<dt><strong>fill</strong><span class="classifier">bool or None</span></dt><dd><p>If True, fill in the area under univariate density curves or between
+bivariate contours. If None, the default depends on <code class="docutils literal notranslate"><span class="pre">multiple</span></code>.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+assigned to named variables or a wide-form dataset that will be internally
+reshaped.</p>
+</dd>
+<dt><strong>warn_singular</strong><span class="classifier">bool</span></dt><dd><p>If True, issue a warning when trying to estimate the density of data
+with zero variance.</p>
+</dd>
+<dt><strong>kwargs</strong></dt><dd><p>Other keyword arguments are passed to one of the following matplotlib
+functions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> (univariate, <code class="docutils literal notranslate"><span class="pre">fill=False</span></code>),</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a> (univariate, <code class="docutils literal notranslate"><span class="pre">fill=True</span></code>),</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.contour.html#matplotlib.axes.Axes.contour" title="(in Matplotlib v3.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.contour()</span></code></a> (bivariate, <code class="docutils literal notranslate"><span class="pre">fill=False</span></code>),</p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.contourf()</span></code> (bivariate, <code class="docutils literal notranslate"><span class="pre">fill=True</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displot</span></code></a></dt><dd><p>Figure-level interface to distribution plot functions.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">histplot</span></code></a></dt><dd><p>Plot a histogram of binned counts with optional normalization or smoothing.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ecdfplot</span></code></a></dt><dd><p>Plot empirical cumulative distribution functions.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt><dd><p>Draw a bivariate plot with univariate marginal distributions.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code></a></dt><dd><p>Draw an enhanced boxplot using kernel density estimation.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The <em>bandwidth</em>, or standard deviation of the smoothing kernel, is an
+important parameter. Misspecification of the bandwidth can produce a
+distorted representation of the data. Much like the choice of bin width in a
+histogram, an over-smoothed curve can erase true features of a
+distribution, while an under-smoothed curve can create false features out of
+random variability. The rule-of-thumb that sets the default bandwidth works
+best when the true distribution is smooth, unimodal, and roughly bell-shaped.
+It is always a good idea to check the default behavior by using <code class="docutils literal notranslate"><span class="pre">bw_adjust</span></code>
+to increase or decrease the amount of smoothing.</p>
+<p>Because the smoothing algorithm uses a Gaussian kernel, the estimated density
+curve can extend to values that do not make sense for a particular dataset.
+For example, the curve may be drawn over negative values when smoothing data
+that are naturally positive. The <code class="docutils literal notranslate"><span class="pre">cut</span></code> and <code class="docutils literal notranslate"><span class="pre">clip</span></code> parameters can be used
+to control the extent of the curve, but datasets that have many observations
+close to a natural boundary may be better served by a different visualization
+method.</p>
+<p>Similar considerations apply when a dataset is naturally discrete or “spiky”
+(containing many repeated observations of the same value). Kernel density
+estimation will always produce a smooth curve, which would be misleading
+in these situations.</p>
+<p>The units on the density axis are a common source of confusion. While kernel
+density estimation produces a probability distribution, the height of the curve
+at each point gives a density, not a probability. A probability can be obtained
+only by integrating the density across a range. The curve is normalized so
+that the integral over all possible values is 1, meaning that the scale of
+the density axis depends on the data values.</p>
+<p class="rubric">Examples</p>
+<p>Plot a univariate distribution along the x axis:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_1_0.png" src="../_images/kdeplot_1_0.png" />
+<p>Flip the plot by assigning the data variable to the y axis:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_3_0.png" src="../_images/kdeplot_3_0.png" />
+<p>Plot distributions for each column of a wide-form dataset:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_5_0.png" src="../_images/kdeplot_5_0.png" />
+<p>Use less smoothing:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=.</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_7_0.png" src="../_images/kdeplot_7_0.png" />
+<p>Use more smoothing, but don’t smooth past the extreme data points:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_9_0.png" src="../_images/kdeplot_9_0.png" />
+<p>Plot conditional distributions with hue mapping of a second variable:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_11_0.png" src="../_images/kdeplot_11_0.png" />
+<p>“Stack” the conditional distributions:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;stack&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_13_0.png" src="../_images/kdeplot_13_0.png" />
+<p>Normalize the stacked distribution at each value in the grid:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;fill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_15_0.png" src="../_images/kdeplot_15_0.png" />
+<p>Estimate the cumulative distribution function(s), normalizing each
+subset:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">common_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_17_0.png" src="../_images/kdeplot_17_0.png" />
+<p>Estimate distribution from aggregated data, using weights:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips_agg</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">total_bill</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips_agg</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_19_0.png" src="../_images/kdeplot_19_0.png" />
+<p>Map the data variable with log scaling:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;diamonds&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_21_0.png" src="../_images/kdeplot_21_0.png" />
+<p>Use numeric hue mapping:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_23_0.png" src="../_images/kdeplot_23_0.png" />
+<p>Modify the appearance of the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
+   <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+   <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;crest&quot;</span><span class="p">,</span>
+   <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_25_0.png" src="../_images/kdeplot_25_0.png" />
+<p>Plot a bivariate distribution:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geyser</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;geyser&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">geyser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;waiting&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;duration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_27_0.png" src="../_images/kdeplot_27_0.png" />
+<p>Map a third variable with a hue semantic to show conditional
+distributions:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">geyser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;waiting&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_29_0.png" src="../_images/kdeplot_29_0.png" />
+<p>Show filled contours:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">geyser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;waiting&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_31_0.png" src="../_images/kdeplot_31_0.png" />
+<p>Show fewer contour levels, covering less of the distribution:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">geyser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;waiting&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_33_0.png" src="../_images/kdeplot_33_0.png" />
+<p>Fill the axes extent with a smooth distribution, using a different
+colormap:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">geyser</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;waiting&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;mako&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/kdeplot_35_0.png" src="../_images/kdeplot_35_0.png" />
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

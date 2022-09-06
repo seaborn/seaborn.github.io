@@ -1,0 +1,27 @@
+
+
+.. currentmodule:: seaborn
+
+.. _hexbin_marginals:
+
+
+Hexbin plot with marginal distributions
+=======================================
+
+
+
+.. image:: _images/hexbin_marginals.png
+
+**seaborn components used:** :func:`set_theme`, :func:`jointplot`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: hexbin_marginals.py
+    :lines: 7-
+
+.. raw:: html
+
+    </div>
+

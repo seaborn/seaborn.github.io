@@ -1,0 +1,28 @@
+
+
+.. currentmodule:: seaborn
+
+.. _grouped_boxplot:
+
+
+Grouped boxplots
+================
+
+
+
+
+.. image:: _images/grouped_boxplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`boxplot`, :func:`despine`
+
+.. raw:: html
+
+    <div class="col-md-9">
+
+.. literalinclude:: grouped_boxplot.py
+    :lines: 8-
+
+.. raw:: html
+
+    </div>
+
