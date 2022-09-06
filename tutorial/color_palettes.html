@@ -1,162 +1,573 @@
+
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Choosing color palettes &#8212; seaborn 0.11.2 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Choosing color palettes &#8212; seaborn 0.12.0 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/color_palettes';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API reference" href="../api.html" />
     <link rel="prev" title="Controlling figure aesthetics" href="aesthetics.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-  </head><body>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
-           </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
-      </div>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../examples/index.html">Gallery</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
-                <li><a href="../api.html">API</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Choosing color palettes</a><ul>
-<li><a class="reference internal" href="#general-principles-for-using-color-in-plots">General principles for using color in plots</a><ul>
-<li><a class="reference internal" href="#components-of-color">Components of color</a></li>
-<li><a class="reference internal" href="#vary-hue-to-distinguish-categories">Vary hue to distinguish categories</a></li>
-<li><a class="reference internal" href="#vary-luminance-to-represent-numbers">Vary luminance to represent numbers</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tools-for-choosing-color-palettes">Tools for choosing color palettes</a></li>
-<li><a class="reference internal" href="#qualitative-color-palettes">Qualitative color palettes</a><ul>
-<li><a class="reference internal" href="#using-circular-color-systems">Using circular color systems</a></li>
-<li><a class="reference internal" href="#using-categorical-color-brewer-palettes">Using categorical Color Brewer palettes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sequential-color-palettes">Sequential color palettes</a><ul>
-<li><a class="reference internal" href="#perceptually-uniform-palettes">Perceptually uniform palettes</a></li>
-<li><a class="reference internal" href="#discrete-vs-continuous-mapping">Discrete vs. continuous mapping</a></li>
-<li><a class="reference internal" href="#sequential-cubehelix-palettes">Sequential “cubehelix” palettes</a></li>
-<li><a class="reference internal" href="#custom-sequential-palettes">Custom sequential palettes</a></li>
-<li><a class="reference internal" href="#sequential-color-brewer-palettes">Sequential Color Brewer palettes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#diverging-color-palettes">Diverging color palettes</a><ul>
-<li><a class="reference internal" href="#perceptually-uniform-divering-palettes">Perceptually uniform divering palettes</a></li>
-<li><a class="reference internal" href="#custom-diverging-palettes">Custom diverging palettes</a></li>
-<li><a class="reference internal" href="#other-diverging-palettes">Other diverging palettes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-            
-            
-            
-          </ul>
-
-          
-            
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-          
-        </div>
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="body col-md-12 content" role="main">
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
       
-  <div class="section" id="choosing-color-palettes">
-<span id="palette-tutorial"></span><h1>Choosing color palettes<a class="headerlink" href="#choosing-color-palettes" title="Permalink to this headline">¶</a></h1>
-<div class=col-md-9><p>Seaborn makes it easy to use colors that are well-suited to the characteristics of your data and your visualization goals. This chapter discusses both the general principles that should guide your choices and the tools in seaborn that help you quickly find the best solution for a given application.</p>
-<div class="section" id="general-principles-for-using-color-in-plots">
-<h2>General principles for using color in plots<a class="headerlink" href="#general-principles-for-using-color-in-plots" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="components-of-color">
-<h3>Components of color<a class="headerlink" href="#components-of-color" title="Permalink to this headline">¶</a></h3>
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   An introduction to seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_overview.html">
+   Overview of seaborn plotting functions
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_structure.html">
+   Data structures accepted by seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="objects_interface.html">
+   The seaborn.objects interface
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="properties.html">
+   Properties of Mark objects
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="relational.html">
+   Visualizing statistical relationships
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="distributions.html">
+   Visualizing distributions of data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="categorical.html">
+   Visualizing categorical data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="error_bars.html">
+   Statistical estimation and error bars
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Estimating regression fits
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="axis_grids.html">
+   Building structured multi-plot grids
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="aesthetics.html">
+   Controlling figure aesthetics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Choosing color palettes
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-principles-for-using-color-in-plots">
+   General principles for using color in plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#components-of-color">
+     Components of color
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vary-hue-to-distinguish-categories">
+     Vary hue to distinguish categories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vary-luminance-to-represent-numbers">
+     Vary luminance to represent numbers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tools-for-choosing-color-palettes">
+   Tools for choosing color palettes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qualitative-color-palettes">
+   Qualitative color palettes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-circular-color-systems">
+     Using circular color systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-categorical-color-brewer-palettes">
+     Using categorical Color Brewer palettes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequential-color-palettes">
+   Sequential color palettes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perceptually-uniform-palettes">
+     Perceptually uniform palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-vs-continuous-mapping">
+     Discrete vs. continuous mapping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequential-cubehelix-palettes">
+     Sequential “cubehelix” palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-sequential-palettes">
+     Custom sequential palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequential-color-brewer-palettes">
+     Sequential Color Brewer palettes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diverging-color-palettes">
+   Diverging color palettes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#perceptually-uniform-diverging-palettes">
+     Perceptually uniform diverging palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-diverging-palettes">
+     Custom diverging palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-diverging-palettes">
+     Other diverging palettes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="choosing-color-palettes">
+<span id="palette-tutorial"></span><h1>Choosing color palettes<a class="headerlink" href="#choosing-color-palettes" title="Permalink to this heading">#</a></h1>
+<p>Seaborn makes it easy to use colors that are well-suited to the characteristics of your data and your visualization goals. This chapter discusses both the general principles that should guide your choices and the tools in seaborn that help you quickly find the best solution for a given application.</p>
+<section id="general-principles-for-using-color-in-plots">
+<h2>General principles for using color in plots<a class="headerlink" href="#general-principles-for-using-color-in-plots" title="Permalink to this heading">#</a></h2>
+<section id="components-of-color">
+<h3>Components of color<a class="headerlink" href="#components-of-color" title="Permalink to this heading">#</a></h3>
 <p>Because of the way our eyes work, a particular color can be defined using three components. We usually program colors in a computer by specifying their RGB values, which set the intensity of the red, green, and blue channels in a display. But for analyzing the perceptual attributes of a color, it’s better to think in terms of <em>hue</em>, <em>saturation</em>, and <em>luminance</em> channels.</p>
 <p>Hue is the component that distinguishes “different colors” in a non-technical sense. It’s property of color that leads to first-order names like “red” and “blue”:</p>
 <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#e77c8d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#c69255;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#98a255;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#56ad74;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#5aa9a2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5ea5c5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a291e1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#e274cf;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Saturation (or chroma) is the <em>colorfulness</em>. Two colors with different hues will look more distinct when they have more saturation:</p>
 <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#8c8c8c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#828996;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#79869f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#6f83a9;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#6581b3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5b7ebd;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#527bc6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#4878d0;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>And lightness corresponds to how much light is emitted (or reflected, for printed colors), ranging from black to white:</p>
-<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#1a1a1a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#27344d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#345082;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#416ab6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#618ad5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#91acdf;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#c2d0e9;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f2f2f2;stroke-width:2;stroke:rgb(255,255,255)"/></svg></div>
-<div class="section" id="vary-hue-to-distinguish-categories">
-<h3>Vary hue to distinguish categories<a class="headerlink" href="#vary-hue-to-distinguish-categories" title="Permalink to this headline">¶</a></h3>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#1a1a1a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#27344d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#345082;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#416ab6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#618ad5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#91acdf;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#c2d0e9;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f2f2f2;stroke-width:2;stroke:rgb(255,255,255)"/></svg></section>
+<section id="vary-hue-to-distinguish-categories">
+<h3>Vary hue to distinguish categories<a class="headerlink" href="#vary-hue-to-distinguish-categories" title="Permalink to this heading">#</a></h3>
 <p>When you want to represent multiple categories in a plot, you typically should vary the color of the elements. Consider this simple example: in which of these two plots is it easier to count the number of triangular points?</p>
 <img alt="../_images/color_palettes_9_0.png" src="../_images/color_palettes_9_0.png" />
 <p>In the plot on the right, the orange triangles “pop out”, making it easy to distinguish them from the circles. This pop-out effect happens because our visual system prioritizes color differences.</p>
@@ -165,22 +576,22 @@
 <p>Most people would be able to quickly ascertain that there are five distinct categories in the plot on the left and, if asked to characterize the “blue” points, would be able to do so.</p>
 <p>With the plot on the right, where the points are all blue but vary in their luminance and saturation, it’s harder to say how many unique categories are present. And how would we talk about a particular category? “The fairly-but-not-too-blue points?” What’s more, the gray dots seem to fade into the background, de-emphasizing them relative to the more intense blue dots. If the categories are equally important, this is a poor representation.</p>
 <p>So as a general rule, use hue variation to represent categories. With that said, here are few notes of caution. If you have more than a handful of colors in your plot, it can become difficult to keep in mind what each one means, unless there are pre-existing associations between the categories and the colors used to represent them. This makes your plot harder to interpret: rather than focusing on the data, a viewer will have to continually refer to the legend to make sense of what is shown. So you should strive not to make plots that are too complex. And be mindful that not everyone sees colors the same way. Varying both shape (or some other attribute) and color can help people with anomalous color vision understand your plots, and it can keep them (somewhat) interpretable if they are printed to black-and-white.</p>
-</div>
-<div class="section" id="vary-luminance-to-represent-numbers">
-<h3>Vary luminance to represent numbers<a class="headerlink" href="#vary-luminance-to-represent-numbers" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vary-luminance-to-represent-numbers">
+<h3>Vary luminance to represent numbers<a class="headerlink" href="#vary-luminance-to-represent-numbers" title="Permalink to this heading">#</a></h3>
 <p>On the other hand, hue variations are not well suited to representing numeric data. Consider this example, where we need colors to represent the counts in a bivariate histogram. On the left, we use a circular colormap, where gradual changes in the number of observation within each bin correspond to gradual changes in hue. On the right, we use a palette that uses brighter colors to represent bins with larger counts:</p>
 <img alt="../_images/color_palettes_14_0.png" src="../_images/color_palettes_14_0.png" />
-<p>With the hue-based palette, it’s quite difficult to ascertain the shape of the bivariate distribution. In contrast, the luminance palette makes it much more clear that there are two prominant peaks.</p>
-<p>Varying luminance helps you see structure in data, and changes in luminance are more intuitively processed as changes in importance. But the plot on the right does not use a grayscale colormap. Its colorfulness makes it more interesting, and the subtle hue variation increases the perceptual distance between two values. As a result, small differencess slightly easier to resolve.</p>
+<p>With the hue-based palette, it’s quite difficult to ascertain the shape of the bivariate distribution. In contrast, the luminance palette makes it much more clear that there are two prominent peaks.</p>
+<p>Varying luminance helps you see structure in data, and changes in luminance are more intuitively processed as changes in importance. But the plot on the right does not use a grayscale colormap. Its colorfulness makes it more interesting, and the subtle hue variation increases the perceptual distance between two values. As a result, small differences slightly easier to resolve.</p>
 <p>These examples show that color palette choices are about more than aesthetics: the colors you choose can reveal patterns in your data if used effectively or hide them if used poorly. There is not one optimal palette, but there are palettes that are better or worse for particular datasets and visualization approaches.</p>
 <p>And aesthetics do matter: the more that people want to look at your figures, the greater the chance that they will learn something from them. This is true even when you are making plots for yourself. During exploratory data analysis, you may generate many similar figures. Varying the color palettes will add a sense of novelty, which keeps you engaged and prepared to notice interesting features of your data.</p>
 <p>So how can you choose color palettes that both represent your data well and look attractive?</p>
-</div>
-</div>
-<div class="section" id="tools-for-choosing-color-palettes">
-<h2>Tools for choosing color palettes<a class="headerlink" href="#tools-for-choosing-color-palettes" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="tools-for-choosing-color-palettes">
+<h2>Tools for choosing color palettes<a class="headerlink" href="#tools-for-choosing-color-palettes" title="Permalink to this heading">#</a></h2>
 <p>The most important function for working with color palettes is, aptly, <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. This function provides an interface to most of the possible ways that one can generate color palettes in seaborn. And it’s used internally by any function that has a <code class="docutils literal notranslate"><span class="pre">palette</span></code> argument.</p>
-<p>The primary argument to <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> is usually a string: either the a name of a specific palette or the name of a family and additional arguments to select a specific member. In the latter case, <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> will delegate to more specific function, such as <a class="reference internal" href="../generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">cubehelix_palette()</span></code></a>. It’s also possible to pass a list of colors specified any way that matplotlib accepts (an RGB tuple, a hex code, or a name in the X11 table). The return value is an object that wraps a list of RGB tuples with a few useful methods, such as conversion to hex codes and a rich HTML representation.</p>
+<p>The primary argument to <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> is usually a string: either the name of a specific palette or the name of a family and additional arguments to select a specific member. In the latter case, <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> will delegate to more specific function, such as <a class="reference internal" href="../generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">cubehelix_palette()</span></code></a>. It’s also possible to pass a list of colors specified any way that matplotlib accepts (an RGB tuple, a hex code, or a name in the X11 table). The return value is an object that wraps a list of RGB tuples with a few useful methods, such as conversion to hex codes and a rich HTML representation.</p>
 <p>Calling <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> with no arguments will return the current default color palette that matplotlib (and most seaborn functions) will use if colors are not otherwise specified. This default palette can be set with the corresponding <a class="reference internal" href="../generated/seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_palette()</span></code></a> function, which calls <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> internally and accepts the same arguments.</p>
 <p>To motivate the different options that <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> provides, it will be useful to introduce a classification scheme for color palettes. Broadly, palettes fall into one of three categories:</p>
 <ul class="simple">
@@ -188,9 +599,9 @@
 <li><p>sequential palettes, good for representing numeric data</p></li>
 <li><p>diverging palettes, good for representing numeric data with a categorical boundary</p></li>
 </ul>
-</div>
-<div class="section" id="qualitative-color-palettes">
-<span id="qualitative-palettes"></span><h2>Qualitative color palettes<a class="headerlink" href="#qualitative-color-palettes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qualitative-color-palettes">
+<span id="qualitative-palettes"></span><h2>Qualitative color palettes<a class="headerlink" href="#qualitative-color-palettes" title="Permalink to this heading">#</a></h2>
 <p>Qualitative palettes are well-suited to representing categorical data because most of their variation is in the hue component. The default color palette in seaborn is a qualitative palette with ten distinct hues:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()</span>
 </pre></div>
@@ -200,10 +611,9 @@
 </pre></div>
 </div>
 <svg  width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#1f77b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ff7f0e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#2ca02c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#d62728;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#9467bd;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#8c564b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#e377c2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#7f7f7f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#bcbd22;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#17becf;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Seaborn in fact has six variations of matplotlib’s palette, called <code class="docutils literal notranslate"><span class="pre">deep</span></code>, <code class="docutils literal notranslate"><span class="pre">muted</span></code>, <code class="docutils literal notranslate"><span class="pre">pastel</span></code>, <code class="docutils literal notranslate"><span class="pre">bright</span></code>, <code class="docutils literal notranslate"><span class="pre">dark</span></code>, and <code class="docutils literal notranslate"><span class="pre">colorblind</span></code>. These span a range of average luminance and saturation values:</p>
-<img alt="../_images/color_palettes_22_0.png" src="../_images/color_palettes_22_0.png" />
-<p>Many people find the moderated hues of the default <code class="docutils literal notranslate"><span class="pre">&quot;deep&quot;</span></code> palette to be aesthetically pleasing, but they are also less distinct. As a result, they may be more difficult to discriminate in some contexts, which is something to keep in mind when making publication graphics. <a class="reference external" href="https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486">This comparison</a> can be helpful for estimating how the the seaborn color palettes perform when simulating different forms of colorblindess.</p>
-<div class="section" id="using-circular-color-systems">
-<h3>Using circular color systems<a class="headerlink" href="#using-circular-color-systems" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/color_palettes_22_0.svg" src="../_images/color_palettes_22_0.svg" /><p>Many people find the moderated hues of the default <code class="docutils literal notranslate"><span class="pre">&quot;deep&quot;</span></code> palette to be aesthetically pleasing, but they are also less distinct. As a result, they may be more difficult to discriminate in some contexts, which is something to keep in mind when making publication graphics. <a class="reference external" href="https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486">This comparison</a> can be helpful for estimating how the seaborn color palettes perform when simulating different forms of colorblindess.</p>
+<section id="using-circular-color-systems">
+<h3>Using circular color systems<a class="headerlink" href="#using-circular-color-systems" title="Permalink to this heading">#</a></h3>
 <p>When you have an arbitrary number of categories, the easiest approach to finding unique hues is to draw evenly-spaced colors in a circular color space (one where the hue changes while keeping the brightness and saturation constant). This is what most seaborn functions default to when they need to use more colors than are currently set in the default color cycle.</p>
 <p>The most common way to do this uses the <code class="docutils literal notranslate"><span class="pre">hls</span></code> color space, which is a simple transformation of RGB values. We saw this color palette before as a counterexample for how to plot a histogram:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;hls&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
@@ -214,9 +624,9 @@
 </pre></div>
 </div>
 <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f77189;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ce9032;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#97a431;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#32b166;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#36ada4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#39a7d0;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a48cf4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f561dd;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>When seaborn needs a categorical palette with more colors than are available in the current default, it will use this approach.</p>
-</div>
-<div class="section" id="using-categorical-color-brewer-palettes">
-<h3>Using categorical Color Brewer palettes<a class="headerlink" href="#using-categorical-color-brewer-palettes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="using-categorical-color-brewer-palettes">
+<h3>Using categorical Color Brewer palettes<a class="headerlink" href="#using-categorical-color-brewer-palettes" title="Permalink to this heading">#</a></h3>
 <p>Another source of visually pleasing categorical palettes comes from the <a class="reference external" href="https://colorbrewer2.org/">Color Brewer</a> tool (which also has sequential and diverging palettes, as we’ll see below).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
 </pre></div>
@@ -225,13 +635,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Paired&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<svg  width="660" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#a6cee3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#1f78b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#b2df8a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#33a02c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#fb9a99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#e31a1c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#fdbf6f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#ff7f00;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#cab2d6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#6a3d9a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="550" y="0" width="55" height="55" style="fill:#ffff99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="605" y="0" width="55" height="55" style="fill:#b15928;stroke-width:2;stroke:rgb(255,255,255)"/></svg></div>
-</div>
-<div class="section" id="sequential-color-palettes">
-<span id="sequential-palettes"></span><h2>Sequential color palettes<a class="headerlink" href="#sequential-color-palettes" title="Permalink to this headline">¶</a></h2>
+<svg  width="660" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#a6cee3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#1f78b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#b2df8a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#33a02c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#fb9a99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#e31a1c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#fdbf6f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#ff7f00;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#cab2d6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#6a3d9a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="550" y="0" width="55" height="55" style="fill:#ffff99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="605" y="0" width="55" height="55" style="fill:#b15928;stroke-width:2;stroke:rgb(255,255,255)"/></svg></section>
+</section>
+<section id="sequential-color-palettes">
+<span id="sequential-palettes"></span><h2>Sequential color palettes<a class="headerlink" href="#sequential-color-palettes" title="Permalink to this heading">#</a></h2>
 <p>The second major class of color palettes is called “sequential”. This kind of mapping is appropriate when data range from relatively low or uninteresting values to relatively high or interesting values (or vice versa). As we saw above, the primary dimension of variation in a sequential palette is luminance. Some seaborn functions will default to a sequential palette when you are mapping numeric data. (For historical reasons, both categorical and numeric mappings are specified with the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter in functions like <a class="reference internal" href="../generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> or <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, even though numeric mappings use color palettes with relatively little hue variation).</p>
-<div class="section" id="perceptually-uniform-palettes">
-<h3>Perceptually uniform palettes<a class="headerlink" href="#perceptually-uniform-palettes" title="Permalink to this headline">¶</a></h3>
+<section id="perceptually-uniform-palettes">
+<h3>Perceptually uniform palettes<a class="headerlink" href="#perceptually-uniform-palettes" title="Permalink to this heading">#</a></h3>
 <p>Because they are intended to represent numeric values, the best sequential palettes will be <em>perceptually uniform</em>, meaning that the relative discriminability of two colors is proportional to the difference between the corresponding data values. Seaborn includes four perceptually uniform sequential colormaps: <code class="docutils literal notranslate"><span class="pre">&quot;rocket&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;mako&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;flare&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;crest&quot;</span></code>. The first two have a very wide luminance range and are well suited for applications such as heatmaps, where colors fill the space they are plotted into:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;rocket&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -257,17 +667,17 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;rocket_r&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="rocket_r color map" title="rocket_r"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB9UlEQVR4nO3VQXIbIRAFUMj9j+gT5AipMp2FNMBIyEn99Xsb46ZpZkaL3//8/qrWWms1nn/GXLfxva1Hq209z4zvbb3qNdff9/7rfL3v18uMOftW+5/19kzX+blf5/v+NXfU53k/3PF419VTx3N17N3rtdev57ndt99Rq+dtbt33x4f6sff6LC/rWp9rnbvW2089Wmujz/Wq9+dirR/7fb7eXn/U+qyN6sd61eP/xyfoa39+lj73q/p87UfPNft6tN5Grbmj9a2+9czX7sdarc+y9bQ2ep/1VTuc6/ee9jy7fe5j72itVV/rn3qr1a1n+3m2Z6/1nLd5tfU8z/VD7XZHrdm1z13n7nPfe2qbdZqx31dbz3nWPuN8bj3Pa+9zXXWb91Z72b/NeL2j6rj+OK8+9J7u+HTuQ2+99P5qABAQIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABD5C9Rx55FE/f1gAAAAAElFTkSuQmCC"></div>
-<div class="section" id="discrete-vs-continuous-mapping">
-<h3>Discrete vs. continuous mapping<a class="headerlink" href="#discrete-vs-continuous-mapping" title="Permalink to this headline">¶</a></h3>
+<img alt="rocket_r color map" title="rocket_r"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB9UlEQVR4nO3VQXIbIRAFUMj9j+gT5AipMp2FNMBIyEn99Xsb46ZpZkaL3//8/qrWWms1nn/GXLfxva1Hq209z4zvbb3qNdff9/7rfL3v18uMOftW+5/19kzX+blf5/v+NXfU53k/3PF419VTx3N17N3rtdev57ndt99Rq+dtbt33x4f6sff6LC/rWp9rnbvW2089Wmujz/Wq9+dirR/7fb7eXn/U+qyN6sd61eP/xyfoa39+lj73q/p87UfPNft6tN5Grbmj9a2+9czX7sdarc+y9bQ2ep/1VTuc6/ee9jy7fe5j72itVV/rn3qr1a1n+3m2Z6/1nLd5tfU8z/VD7XZHrdm1z13n7nPfe2qbdZqx31dbz3nWPuN8bj3Pa+9zXXWb91Z72b/NeL2j6rj+OK8+9J7u+HTuQ2+99P5qABAQIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABD5C9Rx55FE/f1gAAAAAElFTkSuQmCC"></section>
+<section id="discrete-vs-continuous-mapping">
+<h3>Discrete vs. continuous mapping<a class="headerlink" href="#discrete-vs-continuous-mapping" title="Permalink to this heading">#</a></h3>
 <p>One thing to be aware of is that seaborn can generate discrete values from sequential colormaps and, when doing so, it will not use the most extreme values. Compare the discrete version of <code class="docutils literal notranslate"><span class="pre">&quot;rocket&quot;</span></code> against the continuous version shown above:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;rocket&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#35193e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#701f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#ad1759;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e13342;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#f37651;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#f6b48f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Interally, seaborn uses the discrete version for categorical data and the continuous version when in numeric mapping mode. Discrete sequential colormaps can be well-suited for visualizing categorical data with an intrinsic ordering, especially if there is some hue variation.</p>
-</div>
-<div class="section" id="sequential-cubehelix-palettes">
-<span id="cubehelix-palettes"></span><h3>Sequential “cubehelix” palettes<a class="headerlink" href="#sequential-cubehelix-palettes" title="Permalink to this headline">¶</a></h3>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#35193e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#701f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#ad1759;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e13342;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#f37651;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#f6b48f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Internally, seaborn uses the discrete version for categorical data and the continuous version when in numeric mapping mode. Discrete sequential colormaps can be well-suited for visualizing categorical data with an intrinsic ordering, especially if there is some hue variation.</p>
+</section>
+<section id="sequential-cubehelix-palettes">
+<span id="cubehelix-palettes"></span><h3>Sequential “cubehelix” palettes<a class="headerlink" href="#sequential-cubehelix-palettes" title="Permalink to this heading">#</a></h3>
 <p>The perceptually uniform colormaps are difficult to programmatically generate, because they are not based on the RGB color space. The <a class="reference external" href="https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/">cubehelix</a> system offers an RGB-based compromise: it generates sequential palettes with a linear increase or decrease in brightness and some continuous variation in hue. While not perfectly perceptually uniform, the resulting colormaps have many good properties. Importantly, many aspects of the design process are parameterizable.</p>
 <p>Matplotlib has the default cubehelix version built into it:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;cubehelix&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -278,15 +688,15 @@
 </pre></div>
 </div>
 <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABxElEQVR4nO3VQXbbMAwFQLT3v1lXPUivAHahqCFpKnH/embjmAJJQM8v/8ef379GVVX19VFVNca4/1jXPmrGtH7XLGs9zjX9cO78/ammqmpMz9+9+y7be/h4sJVea8c51++ffc5bp339sD6dt6+NPs80truvOV9r7n3/V3voc+r9s5+1bpz6P870cMdhpn3tuzuWc/vcZ7/b58Pd/c388zl9nPOhtta1/b71jPNM6/5zD11fzz3P97T+b61Ov83zO+4xatTa6PUv5PWMU21v723et840lufz2nxmL+/osL/2mc41+292Pnc+Zz/j7mc9t1/fRT312W/02cvc+ww9/eq+uuPq87V27fN6/rMAICBAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABIPIXdvLG+cgzw6cAAAAASUVORK5CYII="><p>Other arguments to <a class="reference internal" href="../generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">cubehelix_palette()</span></code></a> control how the palette looks. The two main things you’ll change are the <code class="docutils literal notranslate"><span class="pre">start</span></code> (a value between 0 and 3) and <code class="docutils literal notranslate"><span class="pre">rot</span></code>, or number of rotations (an arbitrary value, but usually between -1 and 1)</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-.</span><span class="mi">5</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-</span><span class="mf">.5</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABzklEQVR4nO3VwZEjIRAEQPb8t+qcWAfODnofK2mAaeki6p350qBmaBCK+vr777vGGGOOGk/1+DjrGptVr/Ea+/g656zdah7z5vJdVd2eu/c9x2rt6ZjzrFn7Pufta+1zP9fue3qdRfXn9t/a2c9/996+z+V59mfU1q5nPO/9v61d1/qw/239+aFmjs15xs+HmnvN74f+PMe21rVG18NWu+xpq5/3/Y+qY499zfXeo6cxtr3X8gP1790vUx3nNj7MP+e+ejrHzkvSrj3b+ddvcp7neQ9ne8l+a+dRW/eaRw/tnvZL0vR5zWv3tO39XOOqOf9bZz91/bFHzdsF3/qsbu2tz7X22v869vF9x3ddn+3YeFd7P+M/AwACAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiP0tPtPpjWEnLAAAAAElFTkSuQmCC"><p>The more you rotate, the more hue variation you will see:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-.</span><span class="mi">75</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-</span><span class="mf">.75</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB3ElEQVR4nO3VQXbcIBAFwE7uf6fcIsschc5iohEgxvH766qVBzXQkpD/j99/fnVVVVfXZfTr7+5xj1W/f1/X53ljru0+r1fP+Z9q1z3uecvcuvpcx+aa6/rV3Vd773uMabwfe9/jz97v3l41571f97bvvc657mm7paV22eNYu/d5z1nX6OX63N++17H21Huvv+9nsfb0Xnc8a/f17h6+ru3xYfx9vs+1r4HvrTuvV5963+Yuc/7tdY9PPfyndt7sXbL00MeetsN1rK3DM7oe/mPscEi6u7ZPq2r08Vk9DuJ7/rPP6q7+zqGr7bnNB3H+33L64Lqrxph+fvhgrn7mFzKt1/uL2j6GPr30Mdb9vlv7upmPtb0d2h5b7VT/qN3XrfuZ/CwACAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiPwFwKyP+cAd3K8AAAAASUVORK5CYII="><p>You can control both how dark and light the endpoints are and their order:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=.</span><span class="mi">95</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mf">.95</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABvElEQVR4nO3VO5bjMAwEQAL3v/NuMNYI+tmejqsS61EQAdJB11rr35pqrVX189jjuWqt3mpq/+nxvl6vu55rXj2q63evbXmtN/uda6vG+ti795q9399qf6+ixwxVn3s83dtYP/eph+/m3uc9Lmtzj5v7Psw+7rD6vH79bp9lzNz1uPe+Nu6tb87x0G+e4/Y/+TDDu+e7c971e5ptzvBtv29r6/XH3r3vu3N822Ptz32ZrT/ucei97mboxznP3/XpnLP2Mtvaa5/27XWc4/3sfegxa7b3T/PUus5x991hfZy1113fPt3L/p/06Z7/UrvVb3fYs3bcbY/72vcY51yj97jvWfOzBgABAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECACR/0RJBDTPiFuMAAAAAElFTkSuQmCC"><p>The <a class="reference internal" href="../generated/seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> accepts a string code, starting with <code class="docutils literal notranslate"><span class="pre">&quot;ch:&quot;</span></code>, for generating an arbitrary cubehelix palette. You can passs the names of parameters in the string:</p>
@@ -297,9 +707,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;ch:s=-.2,r=.6&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB2klEQVR4nO3VS3IbMQwFQCb3v1RukXUOQnjhjESCVFL11t0bWxhwiPlI78ef379qjDFGzfGo+i6N2WpP/fk7xqinZ62tvbee3jvb5zbPc7yf9/m/5l6rtedZ//TWXj96l3m2Y3Xuc/TM97G9ftn7Ovt679fWGqOPOfdavc7XN/r7cXse9/PWdc79/O89LvXXo2u187aNmtXHHFXjuOfrvNv62tfXh3nqfD3f96qtn//o6b3H/Rh9/X3O+WnO57Gv9Xau5/j99T6vabY5b3u/X9n/z3lfXx97+3drLj2z97YXvF/n0z/Hvd5n6ntUfapfaqPafHWtv+Ycl96q1377NZ1z7vdtvs53nWH5Mnzfi9uc83qdc5y/8XP93V/2rWv9XP9zAEBAgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkDkC3KRpvgh9YcxAAAAAElFTkSuQmCC"></div>
-<div class="section" id="custom-sequential-palettes">
-<h3>Custom sequential palettes<a class="headerlink" href="#custom-sequential-palettes" title="Permalink to this headline">¶</a></h3>
+<img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB2klEQVR4nO3VS3IbMQwFQCb3v1RukXUOQnjhjESCVFL11t0bWxhwiPlI78ef379qjDFGzfGo+i6N2WpP/fk7xqinZ62tvbee3jvb5zbPc7yf9/m/5l6rtedZ//TWXj96l3m2Y3Xuc/TM97G9ftn7Ovt679fWGqOPOfdavc7XN/r7cXse9/PWdc79/O89LvXXo2u187aNmtXHHFXjuOfrvNv62tfXh3nqfD3f96qtn//o6b3H/Rh9/X3O+WnO57Gv9Xau5/j99T6vabY5b3u/X9n/z3lfXx97+3drLj2z97YXvF/n0z/Hvd5n6ntUfapfaqPafHWtv+Ycl96q1377NZ1z7vdtvs53nWH5Mnzfi9uc83qdc5y/8XP93V/2rWv9XP9zAEBAgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkDkC3KRpvgh9YcxAAAAAElFTkSuQmCC"></section>
+<section id="custom-sequential-palettes">
+<h3>Custom sequential palettes<a class="headerlink" href="#custom-sequential-palettes" title="Permalink to this heading">#</a></h3>
 <p>For a simpler interface to custom sequential palettes, you can use <a class="reference internal" href="../generated/seaborn.light_palette.html#seaborn.light_palette" title="seaborn.light_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">light_palette()</span></code></a> or <a class="reference internal" href="../generated/seaborn.dark_palette.html#seaborn.dark_palette" title="seaborn.dark_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">dark_palette()</span></code></a>, which are both seeded with a single color and produce a palette that ramps either from light or dark desaturated values to that color:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="s2">&quot;seagreen&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -315,9 +725,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;dark:salmon_r&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABtElEQVR4nO3VQXbDIAwFQLVH7gl67m7ook4AGxrnr2dWiRNbEob3P36+v1pVVWutqqpaVR0fq9Xx4bj2+N6Ga49vf7/3+1q/td/3fG7/b7U2PW+qcerjVm9DH/33ocYw6zzLtcZYZd/bdeY2DDvOOvZxq7dpveY1rFrP3KpdezvVWPc2r+ll5mldW9bbuF+m+dbvfFWjNnXHzu/s5WeNu72dZnu5l4dehu10ay+ve7s+77x3+3Ov7/d8zs41hm1z3cur87s5Q7t9tpz5nz10rrvqbZx9VWN7ft88Q8t9tnlPu3e57O3lGeozbs/v5l2+09u85r1m722+Nv73swAgIEAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEg8gvBBnrlggssIwAAAABJRU5ErkJggg=="></div>
-<div class="section" id="sequential-color-brewer-palettes">
-<h3>Sequential Color Brewer palettes<a class="headerlink" href="#sequential-color-brewer-palettes" title="Permalink to this headline">¶</a></h3>
+<img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABtElEQVR4nO3VQXbDIAwFQLVH7gl67m7ook4AGxrnr2dWiRNbEob3P36+v1pVVWutqqpaVR0fq9Xx4bj2+N6Ga49vf7/3+1q/td/3fG7/b7U2PW+qcerjVm9DH/33ocYw6zzLtcZYZd/bdeY2DDvOOvZxq7dpveY1rFrP3KpdezvVWPc2r+ll5mldW9bbuF+m+dbvfFWjNnXHzu/s5WeNu72dZnu5l4dehu10ay+ve7s+77x3+3Ov7/d8zs41hm1z3cur87s5Q7t9tpz5nz10rrvqbZx9VWN7ft88Q8t9tnlPu3e57O3lGeozbs/v5l2+09u85r1m722+Nv73swAgIEAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEg8gvBBnrlggssIwAAAABJRU5ErkJggg=="></section>
+<section id="sequential-color-brewer-palettes">
+<h3>Sequential Color Brewer palettes<a class="headerlink" href="#sequential-color-brewer-palettes" title="Permalink to this heading">#</a></h3>
 <p>The Color Brewer library also has some good options for sequential palettes. They include palettes with one primary hue:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -326,13 +736,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrBr&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="YlOrBr color map" title="YlOrBr"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABzUlEQVR4nO3VS47bMBAFQDr3v2aOEXUWluSWRDqTt64CBiM0ySb1gd+r6neNMcaobbzV/nfUqtX3OVXPuWO71Vu/S32fe+5xm7usH70mc0eNqtl+7bw1OWfN7unL+GxOf1Y1OWfVes5R6/d8rtvW12ftT6v9a+5/Xo/x7h+t67UaY5vc/9ae56U2W3frMRs/e9ze33bbo7bFuvneda4bo9q6T7tPj/errk/9WNdrZ4u2bmvrVrXVfvvZa3WGtl/1vffxWoxPr9sz+cncup3z67rtZ3P7Z9Nu73yll/FxndteyeOz2Kr92tTr+um1Pfr8e69vez/P+7qc/bP39froNT177z2ez6LG6zq+uO79nudcnG3//2sAQECAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQOQvRJbdArCutSMAAAAASUVORK5CYII="></div>
-</div>
-<div class="section" id="diverging-color-palettes">
-<span id="diverging-palettes"></span><h2>Diverging color palettes<a class="headerlink" href="#diverging-color-palettes" title="Permalink to this headline">¶</a></h2>
+<img alt="YlOrBr color map" title="YlOrBr"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABzUlEQVR4nO3VS47bMBAFQDr3v2aOEXUWluSWRDqTt64CBiM0ySb1gd+r6neNMcaobbzV/nfUqtX3OVXPuWO71Vu/S32fe+5xm7usH70mc0eNqtl+7bw1OWfN7unL+GxOf1Y1OWfVes5R6/d8rtvW12ftT6v9a+5/Xo/x7h+t67UaY5vc/9ae56U2W3frMRs/e9ze33bbo7bFuvneda4bo9q6T7tPj/errk/9WNdrZ4u2bmvrVrXVfvvZa3WGtl/1vffxWoxPr9sz+cncup3z67rtZ3P7Z9Nu73yll/FxndteyeOz2Kr92tTr+um1Pfr8e69vez/P+7qc/bP39froNT177z2ez6LG6zq+uO79nudcnG3//2sAQECAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQOQvRJbdArCutSMAAAAASUVORK5CYII="></section>
+</section>
+<section id="diverging-color-palettes">
+<span id="diverging-palettes"></span><h2>Diverging color palettes<a class="headerlink" href="#diverging-color-palettes" title="Permalink to this heading">#</a></h2>
 <p>The third class of color palettes is called “diverging”. These are used for data where both large low and high values are interesting and span a midpoint value (often 0) that should be demphasized. The rules for choosing good diverging palettes are similar to good sequential palettes, except now there should be two dominant hues in the colormap, one at (or near) each pole. It’s also important that the starting values are of similar brightness and saturation.</p>
-<div class="section" id="perceptually-uniform-divering-palettes">
-<h3>Perceptually uniform divering palettes<a class="headerlink" href="#perceptually-uniform-divering-palettes" title="Permalink to this headline">¶</a></h3>
+<section id="perceptually-uniform-diverging-palettes">
+<h3>Perceptually uniform diverging palettes<a class="headerlink" href="#perceptually-uniform-diverging-palettes" title="Permalink to this heading">#</a></h3>
 <p>Seaborn includes two perceptually uniform diverging palettes: <code class="docutils literal notranslate"><span class="pre">&quot;vlag&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;icefire&quot;</span></code>. They both use blue and red at their poles, which many intuitively processes as “cold” and “hot”:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;vlag&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -340,9 +750,9 @@
 <img alt="vlag color map" title="vlag"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB8ElEQVR4nO3VW27cMBAEQFI+Sk6XO+ZsYj6yEod6YJH+rgIM03wOuWt0//X7z2ittZ/e2vH7aG9Le8z29jT+7+db+97XH/v707qtv4733l/P65cznub2Ws/2fV2d/zzez7c65vS+1jRr6GffOb715Y2u5/WybtvW8XttvfWtjj+cvbztXLfW0x/P6Nvsv9+/r/stb7uuu51Raq5zbvco6/r1PbfZf/T1NvvO/jKnOrvGmJ1jzL/HaKO2932ZP8bexn6Mz/bY9zbGZ+4+znYdb6Vvju+t7XPvudfnjL2cMfbWPvWMpbayb6l3lLlzXan/Za/1vJf2cbeHO7VL/bczru/z1v5Sw/JGo7zzef+Hz+m6R5nzfKdvZ9Q3/vIdedvrbNc3fPgO1c+x1LbuUfd+Ou/6HVnv9PkXBYD/I0AAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEg8hcmDFGKLgWJNwAAAABJRU5ErkJggg=="><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;icefire&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="icefire color map" title="icefire"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACVklEQVR4nO3Vy3XjOBAF0AKg/CPqSDqAicIEZiEQgGTOYmp974ZPhY9s2ue88uefvyMi4uojIiJ63/nqI3qPlff896yP+Fj/rxwRcY1x3PG1d5x3x9e5+Dr3kEccP3Mcv9Nz7kfes/K4fufRS4yV93NcZW6eLyQiyjU/R0Tp4/05Iuq93keU+QPVPqLML6lXX7n0a+frmrMepc/L+rXz+IlY859j9s5j/MQ45mPMeb92XrNjfVyfed7Rv+b3s/fr+dx8Ye9z169z9/oYV/SV+7Fnv/DxsT5z9PVHGTF2HvMfK/p7/h5G3DnGnq9nRLmf48jxnGuUnUtZ63VOa0SUUtbeWvZ87XlYbx97S7Qj32famR/Otahr/7neHu5tse9rJXaO3+fax/wrH3v2+kMuEW2+81bu9zeO9RGtjD2/99TP+ZrVPat3rnHkEbXtO+5nWbM9L+39+Z3HkctaL3NWWznmZ54bWo0yLyitRmnzC1t7zGtWz/XXsf6KqK+9t732fJ177XP1OHfuPedf3xH1dcyP++b3zt8MAP4fBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBIAUBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBICUfwGdkTrvIk24DwAAAABJRU5ErkJggg=="></div>
-<div class="section" id="custom-diverging-palettes">
-<h3>Custom diverging palettes<a class="headerlink" href="#custom-diverging-palettes" title="Permalink to this headline">¶</a></h3>
+<img alt="icefire color map" title="icefire"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACVklEQVR4nO3Vy3XjOBAF0AKg/CPqSDqAicIEZiEQgGTOYmp974ZPhY9s2ue88uefvyMi4uojIiJ63/nqI3qPlff896yP+Fj/rxwRcY1x3PG1d5x3x9e5+Dr3kEccP3Mcv9Nz7kfes/K4fufRS4yV93NcZW6eLyQiyjU/R0Tp4/05Iuq93keU+QPVPqLML6lXX7n0a+frmrMepc/L+rXz+IlY859j9s5j/MQ45mPMeb92XrNjfVyfed7Rv+b3s/fr+dx8Ye9z169z9/oYV/SV+7Fnv/DxsT5z9PVHGTF2HvMfK/p7/h5G3DnGnq9nRLmf48jxnGuUnUtZ63VOa0SUUtbeWvZ87XlYbx97S7Qj32famR/Otahr/7neHu5tse9rJXaO3+fax/wrH3v2+kMuEW2+81bu9zeO9RGtjD2/99TP+ZrVPat3rnHkEbXtO+5nWbM9L+39+Z3HkctaL3NWWznmZ54bWo0yLyitRmnzC1t7zGtWz/XXsf6KqK+9t732fJ177XP1OHfuPedf3xH1dcyP++b3zt8MAP4fBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBIAUBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBICUfwGdkTrvIk24DwAAAABJRU5ErkJggg=="></section>
+<section id="custom-diverging-palettes">
+<h3>Custom diverging palettes<a class="headerlink" href="#custom-diverging-palettes" title="Permalink to this heading">#</a></h3>
 <p>You can also use the seaborn function <a class="reference internal" href="../generated/seaborn.diverging_palette.html#seaborn.diverging_palette" title="seaborn.diverging_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">diverging_palette()</span></code></a> to create a custom colormap for diverging data. This function makes diverging palettes using the <code class="docutils literal notranslate"><span class="pre">husl</span></code> color system. You pass it two hues (in degrees) and, optionally, the lightness and saturation values for the extremes. Using <code class="docutils literal notranslate"><span class="pre">husl</span></code> means that the extreme values, and the resulting ramps to the midpoint, while not perfectly perceptually uniform, will be well-balanced:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -356,9 +766,9 @@
 </pre></div>
 </div>
 <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABu0lEQVR4nO3VUZKaQABF0dcky82esrwsIjWQDzWCgjhv5vOcH7u0aZqWqjt+/f6zJEmW+fKxLJvxch3nYZwkS+b7eJkv117XOhrf1309d1m2a+/tYTnYc7Ien6z74h5P6x7e72Td9Rnl+Sw25zLP/38/PYu8cxafOOPvPIu8cRY778Xxu/eZua/f2Xfe0/njb5LkZz4unyOZxkiSjPU4yXQZZoxxH18+Mo2R69RMIxnXX6aR1fdjNX9/re29b98/rzXGyJSs5q6uy33O2R42c1bPsreHd/b81ee/7efH4XVnezv+z75y3eP5HD3r2VrfcW7rPd2eY7PG7fc8rHEbZ2c/I5myc0artQDg0wQEgIqAAFAREAAqAgJARUAAqAgIABUBAaAiIABUBASAioAAUBEQACoCAkBFQACoCAgAFQEBoCIgAFQEBICKgABQERAAKgICQEVAAKgICAAVAQGgIiAAVAQEgIqAAFAREAAqAgJARUAAqAgIABUBAaAiIABUBASAioAAUBEQACoCAkBFQACoCAgAFQEBoCIgAFQEBICKgABQERAAKgICQEVAAKgICAAVAQGgIiAAVP4Bi9tFKvZdo5QAAAAASUVORK5CYII="><p>It’s important to emphasize here that using red and green, while intuitive, <a class="reference external" href="https://en.wikipedia.org/wiki/Color_blindness">should be avoided</a>.</p>
-</div>
-<div class="section" id="other-diverging-palettes">
-<h3>Other diverging palettes<a class="headerlink" href="#other-diverging-palettes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="other-diverging-palettes">
+<h3>Other diverging palettes<a class="headerlink" href="#other-diverging-palettes" title="Permalink to this heading">#</a></h3>
 <p>There are a few other good diverging palettes built into matplotlib, including Color Brewer palettes:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -369,28 +779,46 @@
 </div>
 <img alt="coolwarm color map" title="coolwarm"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACAklEQVR4nO3VQXLbMAwFUJDH6hl66N4rMdmFLRFi5dbF+r1NOCAIKJnJ/Pbj568ZEdFai4iI1nv0vs653lI9IqK3dp5bbx/MeP7sW+2sv5l3zmotfUOLfplxfNPak9/nfdd5ce7+Y+8267XidT7qkb4nbucePb2nv/Ob2jmjp29qqf9yH7f3LdX32n7f23y/o83t3ep9/XpbT5oVqfeox0y752XGun+e+5v6Ze55nqu+9bbU85ybe8fl/jIj9UREtJlqc3xwXrXI9/P+XVz6I2LOtPt6f8yIub4t8rvb8/2Oc8bIM1ZvzBEx9n1b7U3vHGnP3ay/9Y4RM52P+hz7u9QT8Xxzdx7zsmOm+r4v75hj7Zhjxjz+Rrf3W++2Y699+m487t8962nG41XPsx5j9T5WfRznx4xxzP56vf+e/z5/rf9TAPhvAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlvwHsCVROVcP06wAAAABJRU5ErkJggg=="><p>As you can see, there are many options for using color in your visualizations. Seaborn tries both to use good defaults and to offer a lot of flexibility.</p>
 <p>This discussion is only the beginning, and there are a number of good resources for learning more about techniques for using color in visualizations. One great example is this <a class="reference external" href="https://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/">series of blog posts</a> from the NASA Earth Observatory. The matplotlib docs also have a <a class="reference external" href="https://matplotlib.org/users/colormaps.html">nice tutorial</a> that illustrates some of the perceptual properties of their colormaps.</p>
-</div></div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
+          </article>
+          
+
+          
+          
+      </div>
+      
     </div>
-      
   </div>
-</div>
-<footer class="footer">
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
   <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-        <br/>
-        
-      
-    </p>
-    <p>
-    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
-    </p>
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="./archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="./archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="./archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    </div>
   </div>
 </footer>
   </body>

@@ -1,9 +1,4 @@
-﻿.. raw:: html
-
-    </div>
-    <div class=col-md-9 content>
-
-seaborn.PairGrid
+﻿seaborn.PairGrid
 ================
 
 .. currentmodule:: seaborn
@@ -21,13 +16,16 @@ seaborn.PairGrid
    
       ~PairGrid.__init__
       ~PairGrid.add_legend
+      ~PairGrid.apply
       ~PairGrid.map
       ~PairGrid.map_diag
       ~PairGrid.map_lower
       ~PairGrid.map_offdiag
       ~PairGrid.map_upper
+      ~PairGrid.pipe
       ~PairGrid.savefig
       ~PairGrid.set
+      ~PairGrid.tick_params
       ~PairGrid.tight_layout
    
    

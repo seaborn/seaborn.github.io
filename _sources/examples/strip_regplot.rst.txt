@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _strip_regplot:
+
+
+Regression fit over a strip plot
+================================
+
+
+
+.. image:: _images/strip_regplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`catplot`, :func:`regplot`
+
+.. literalinclude:: strip_regplot.py
+    :lines: 7-
+

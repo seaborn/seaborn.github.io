@@ -12,16 +12,8 @@ Conditional means with observations
 
 .. image:: _images/jitter_stripplot.png
 
-**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`despine`, :func:`stripplot`, :func:`pointplot`
-
-.. raw:: html
-
-    <div class="col-md-9">
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`despine`, :func:`stripplot`, :func:`pointplot`, :func:`move_legend`
 
 .. literalinclude:: jitter_stripplot.py
     :lines: 6-
-
-.. raw:: html
-
-    </div>
 

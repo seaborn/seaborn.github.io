@@ -1,169 +1,446 @@
+
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installing and getting started &#8212; seaborn 0.11.2 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Installing and getting started &#8212; seaborn 0.12.0 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/style.css?v=0.11.2" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'installing';</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Example gallery" href="examples/index.html" />
-    <link rel="prev" title="What’s new in each version" href="whatsnew.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+    <link rel="prev" title="seaborn: statistical data visualization" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-  </head><body>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html"><span><img src="_static/logo-wide-lightbg.svg"></span>
-           </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
-      </div>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="examples/index.html">Gallery</a></li>
-                <li><a href="tutorial.html">Tutorial</a></li>
-                <li><a href="api.html">API</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">Site <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">Release notes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Example gallery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="archive.html">Archive</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Installing and getting started</a><ul>
-<li><a class="reference internal" href="#dependencies">Dependencies</a><ul>
-<li><a class="reference internal" href="#supported-python-versions">Supported Python versions</a></li>
-<li><a class="reference internal" href="#required-dependencies">Required dependencies</a></li>
-<li><a class="reference internal" href="#optional-dependencies">Optional dependencies</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
-<li><a class="reference internal" href="#debugging-install-issues">Debugging install issues</a></li>
-<li><a class="reference internal" href="#getting-help">Getting help</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-            
-            
-            
-          </ul>
-
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-          
-        </div>
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="body col-md-12 content" role="main">
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <img src="_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
       
-  <div class="section" id="installing-and-getting-started">
-<span id="installing"></span><h1>Installing and getting started<a class="headerlink" href="#installing-and-getting-started" title="Permalink to this headline">¶</a></h1>
-<div class="col-md-9"><p>Official releases of seaborn can be installed from <a class="reference external" href="https://pypi.org/project/seaborn/">PyPI</a>:</p>
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supported-python-versions">
+     Supported Python versions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mandatory-dependencies">
+     Mandatory dependencies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-dependencies">
+     Optional dependencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quickstart">
+   Quickstart
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debugging-install-issues">
+   Debugging install issues
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help">
+   Getting help
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="installing-and-getting-started">
+<span id="installing"></span><h1>Installing and getting started<a class="headerlink" href="#installing-and-getting-started" title="Permalink to this heading">#</a></h1>
+<p>Official releases of seaborn can be installed from <a class="reference external" href="https://pypi.org/project/seaborn/">PyPI</a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span>
 </pre></div>
 </div>
-<p>The library is also included as part of the <a class="reference external" href="https://repo.anaconda.com/">Anaconda</a> distribution:</p>
+<p>The basic invocation of <code class="docutils literal notranslate"><span class="pre">pip</span></code> will install seaborn and, if necessary, its mandatory dependencies.
+It is possible to include optional dependencies that give access to a few advanced features:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span><span class="p">[</span><span class="n">stats</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The library is also included as part of the <a class="reference external" href="https://repo.anaconda.com/">Anaconda</a> distribution,
+and it can be installed with <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">seaborn</span>
 </pre></div>
 </div>
-<div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="supported-python-versions">
-<h3>Supported Python versions<a class="headerlink" href="#supported-python-versions" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Python 3.6+</p></li>
-</ul>
+<p>As the main Anaconda repository can be slow to add new releaes, you may prefer using the
+<a class="reference external" href="https://conda-forge.org/">conda-forge</a> channel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">seaborn</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
 </div>
-<div class="section" id="required-dependencies">
-<h3>Required dependencies<a class="headerlink" href="#required-dependencies" title="Permalink to this headline">¶</a></h3>
-<p>If not already present, these libraries will be downloaded when you install seaborn.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
+<section id="supported-python-versions">
+<h3>Supported Python versions<a class="headerlink" href="#supported-python-versions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Python 3.7+</p></li>
+</ul>
+</section>
+<section id="mandatory-dependencies">
+<h3>Mandatory dependencies<a class="headerlink" href="#mandatory-dependencies" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://numpy.org/">numpy</a></p></li>
-<li><p><a class="reference external" href="https://www.scipy.org/">scipy</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
 </ul>
-</div>
-<div class="section" id="optional-dependencies">
-<h3>Optional dependencies<a class="headerlink" href="#optional-dependencies" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="optional-dependencies">
+<h3>Optional dependencies<a class="headerlink" href="#optional-dependencies" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.statsmodels.org/">statsmodels</a>, for advanced regression plots</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/fastcluster/">fastcluster</a>, for clustering large matrices</p></li>
+<li><p><a class="reference external" href="https://www.scipy.org/">scipy</a>, for clustering matrices and some advanced options</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/fastcluster/">fastcluster</a>, faster clustering of large matrices</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">#</a></h2>
 <p>Once you have seaborn installed, you’re ready to get started.
 To test it out, you could load and plot one of the example datasets:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -174,7 +451,7 @@ To test it out, you could load and plot one of the example datasets:</p>
 <p>If you’re working in a Jupyter notebook or an IPython terminal with
 <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">matplotlib mode</a>
 enabled, you should immediately see <a class="reference internal" href="examples/scatterplot_matrix.html#scatterplot-matrix"><span class="std std-ref">the plot</span></a>.
-Otherwise, you may need to explicitly call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a>:</p>
+Otherwise, you may need to explicitly call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.5.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -184,13 +461,17 @@ matplotlib functions is often useful. The tutorials and API documentation
 typically assume the following imports:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">seaborn.objects</span> <span class="k">as</span> <span class="nn">so</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="debugging-install-issues">
-<h2>Debugging install issues<a class="headerlink" href="#debugging-install-issues" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="debugging-install-issues">
+<h2>Debugging install issues<a class="headerlink" href="#debugging-install-issues" title="Permalink to this heading">#</a></h2>
 <p>The seaborn codebase is pure Python, and the library should generally install
 without issue. Occasionally, difficulties will arise because the dependencies
 include compiled code and link to system libraries. These difficulties
@@ -206,9 +487,9 @@ your system and that your <code class="docutils literal notranslate"><span class
 installation than where your interpreter lives. Resolving this issue
 will involve sorting out the paths on your system, but it can sometimes be
 avoided by invoking <code class="docutils literal notranslate"><span class="pre">pip</span></code> with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code>.</p>
-</div>
-<div class="section" id="getting-help">
-<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this heading">#</a></h2>
 <p>If you think you’ve encountered a bug in seaborn, please report it on the
 <a class="reference external" href="https://github.com/mwaskom/seaborn/issues">GitHub issue tracker</a>.
 To be useful, bug reports must include the following information:</p>
@@ -231,34 +512,51 @@ may be due to a problem in matplotlib rather than one in seaborn. It can save ti
 if you try to reproduce the issue in an example that uses only matplotlib,
 so that you can report it in the right place. But it is alright to skip this
 step if it’s not obvious how to do it.</p>
-<p>General support questions are more at home on either <a class="reference external" href="https://stackoverflow.com/questions/tagged/seaborn/">stackoverflow</a> or <a class="reference external" href="https://discourse.matplotlib.org/c/3rdparty/seaborn/21">discourse</a>, which have a larger
-audience of people who will see your post and may be able to offer
-assistance. StackOverflow is better for specific issues, while discourse is
-better for more open-ended discussion. Your chance of getting a quick answer
-will be higher if you include <a class="reference external" href="https://stackoverflow.com/help/minimal-reproducible-example">runnable code</a>, a precise
-statement of what you are hoping to achieve, and a clear explanation of the
-problems that you have encountered.</p>
-</div></div>
-</div>
+<p>General support questions are more at home on either <a class="reference external" href="https://stackoverflow.com/questions/tagged/seaborn/">stackoverflow</a>, where there is a
+larger audience of people who will see your post and may be able to offer
+assistance. Your chance of getting a quick answer will be higher if you include
+<a class="reference external" href="https://stackoverflow.com/help/minimal-reproducible-example">runnable code</a>,
+a precise statement of what you are hoping to achieve, and a clear explanation
+of the problems that you have encountered.</p>
+</section>
+</section>
 
 
+          </article>
+          
+
+          
+          
+      </div>
+      
     </div>
-      
   </div>
-</div>
-<footer class="footer">
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
   <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-        <br/>
-        
-      
-    </p>
-    <p>
-    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
-    </p>
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="./archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="./archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="./archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    </div>
   </div>
 </footer>
   </body>

@@ -5,10 +5,6 @@
 Choosing color palettes
 =======================
 
-.. raw:: html
-
-   <div class=col-md-9>
-
 Seaborn makes it easy to use colors that are well-suited to the characteristics of your data and your visualization goals. This chapter discusses both the general principles that should guide your choices and the tools in seaborn that help you quickly find the best solution for a given application.
 
 General principles for using color in plots
@@ -87,9 +83,9 @@ On the other hand, hue variations are not well suited to representing numeric da
 .. image:: color_palettes_files/color_palettes_14_0.png
 
 
-With the hue-based palette, it's quite difficult to ascertain the shape of the bivariate distribution. In contrast, the luminance palette makes it much more clear that there are two prominant peaks.
+With the hue-based palette, it's quite difficult to ascertain the shape of the bivariate distribution. In contrast, the luminance palette makes it much more clear that there are two prominent peaks.
 
-Varying luminance helps you see structure in data, and changes in luminance are more intuitively processed as changes in importance. But the plot on the right does not use a grayscale colormap. Its colorfulness makes it more interesting, and the subtle hue variation increases the perceptual distance between two values. As a result, small differencess slightly easier to resolve.
+Varying luminance helps you see structure in data, and changes in luminance are more intuitively processed as changes in importance. But the plot on the right does not use a grayscale colormap. Its colorfulness makes it more interesting, and the subtle hue variation increases the perceptual distance between two values. As a result, small differences slightly easier to resolve.
 
 These examples show that color palette choices are about more than aesthetics: the colors you choose can reveal patterns in your data if used effectively or hide them if used poorly. There is not one optimal palette, but there are palettes that are better or worse for particular datasets and visualization approaches.
 
@@ -102,7 +98,7 @@ Tools for choosing color palettes
 
 The most important function for working with color palettes is, aptly, :func:`color_palette`. This function provides an interface to most of the possible ways that one can generate color palettes in seaborn. And it's used internally by any function that has a ``palette`` argument.
 
-The primary argument to :func:`color_palette` is usually a string: either the a name of a specific palette or the name of a family and additional arguments to select a specific member. In the latter case, :func:`color_palette` will delegate to more specific function, such as :func:`cubehelix_palette`. It's also possible to pass a list of colors specified any way that matplotlib accepts (an RGB tuple, a hex code, or a name in the X11 table). The return value is an object that wraps a list of RGB tuples with a few useful methods, such as conversion to hex codes and a rich HTML representation.
+The primary argument to :func:`color_palette` is usually a string: either the name of a specific palette or the name of a family and additional arguments to select a specific member. In the latter case, :func:`color_palette` will delegate to more specific function, such as :func:`cubehelix_palette`. It's also possible to pass a list of colors specified any way that matplotlib accepts (an RGB tuple, a hex code, or a name in the X11 table). The return value is an object that wraps a list of RGB tuples with a few useful methods, such as conversion to hex codes and a rich HTML representation.
 
 Calling :func:`color_palette` with no arguments will return the current default color palette that matplotlib (and most seaborn functions) will use if colors are not otherwise specified. This default palette can be set with the corresponding :func:`set_palette` function, which calls :func:`color_palette` internally and accepts the same arguments.
 
@@ -151,10 +147,12 @@ Seaborn in fact has six variations of matplotlib's palette, called ``deep``, ``m
 
 
 
-.. image:: color_palettes_files/color_palettes_22_0.png
+
+.. image:: color_palettes_files/color_palettes_22_0.svg
 
 
-Many people find the moderated hues of the default ``"deep"`` palette to be aesthetically pleasing, but they are also less distinct. As a result, they may be more difficult to discriminate in some contexts, which is something to keep in mind when making publication graphics. `This comparison <https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486>`_ can be helpful for estimating how the the seaborn color palettes perform when simulating different forms of colorblindess.
+
+Many people find the moderated hues of the default ``"deep"`` palette to be aesthetically pleasing, but they are also less distinct. As a result, they may be more difficult to discriminate in some contexts, which is something to keep in mind when making publication graphics. `This comparison <https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486>`_ can be helpful for estimating how the seaborn color palettes perform when simulating different forms of colorblindess.
 
 Using circular color systems
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -353,7 +351,7 @@ One thing to be aware of is that seaborn can generate discrete values from seque
 
 
 
-Interally, seaborn uses the discrete version for categorical data and the continuous version when in numeric mapping mode. Discrete sequential colormaps can be well-suited for visualizing categorical data with an intrinsic ordering, especially if there is some hue variation.
+Internally, seaborn uses the discrete version for categorical data and the continuous version when in numeric mapping mode. Discrete sequential colormaps can be well-suited for visualizing categorical data with an intrinsic ordering, especially if there is some hue variation.
 
 .. _cubehelix_palettes:
 
@@ -568,8 +566,8 @@ Diverging color palettes
 
 The third class of color palettes is called "diverging". These are used for data where both large low and high values are interesting and span a midpoint value (often 0) that should be demphasized. The rules for choosing good diverging palettes are similar to good sequential palettes, except now there should be two dominant hues in the colormap, one at (or near) each pole. It's also important that the starting values are of similar brightness and saturation.
 
-Perceptually uniform divering palettes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Perceptually uniform diverging palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Seaborn includes two perceptually uniform diverging palettes: ``"vlag"`` and ``"icefire"``. They both use blue and red at their poles, which many intuitively processes as "cold" and "hot":
 
@@ -685,8 +683,3 @@ And the ``coolwarm`` palette, which has less contrast between the middle values 
 As you can see, there are many options for using color in your visualizations. Seaborn tries both to use good defaults and to offer a lot of flexibility.
 
 This discussion is only the beginning, and there are a number of good resources for learning more about techniques for using color in visualizations. One great example is this `series of blog posts <https://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/>`_ from the NASA Earth Observatory. The matplotlib docs also have a `nice tutorial <https://matplotlib.org/users/colormaps.html>`_ that illustrates some of the perceptual properties of their colormaps.
-
-.. raw:: html
-
-   </div>
-

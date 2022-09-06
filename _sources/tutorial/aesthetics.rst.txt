@@ -5,10 +5,6 @@
 Controlling figure aesthetics
 =============================
 
-.. raw:: html
-
-   <div class=col-md-9>
-
 
 Drawing attractive figures is important. When making figures for yourself, as you explore a dataset, it's nice to have plots that are pleasant to look at. Visualizations are also central to communicating quantitative insights to an audience, and in that setting it's even more necessary to have figures that catch the attention and draw a viewer in.
 
@@ -24,10 +20,10 @@ Let's define a simple function to plot some offset sine waves, which will help u
 
 .. code:: ipython3
 
-    def sinplot(flip=1):
+    def sinplot(n=10, flip=1):
         x = np.linspace(0, 14, 100)
-        for i in range(1, 7):
-            plt.plot(x, np.sin(x + i * .5) * (7 - i) * flip)
+        for i in range(1, n + 1):
+            plt.plot(x, np.sin(x + i * .5) * (n + 2 - i) * flip)
 
 This is what the plot looks like with matplotlib defaults:
 
@@ -165,19 +161,19 @@ Although it's easy to switch back and forth, you can also use the :func:`axes_st
     
     with sns.axes_style("darkgrid"):
         ax = f.add_subplot(gs[0, 0])
-        sinplot()
+        sinplot(6)
         
     with sns.axes_style("white"):
         ax = f.add_subplot(gs[0, 1])
-        sinplot()
+        sinplot(6)
     
     with sns.axes_style("ticks"):
         ax = f.add_subplot(gs[1, 0])
-        sinplot()
+        sinplot(6)
     
     with sns.axes_style("whitegrid"):
         ax = f.add_subplot(gs[1, 1])
-        sinplot()
+        sinplot(6)
         
     f.tight_layout()
 
@@ -273,8 +269,3 @@ You can also independently scale the size of the font elements when changing the
 Similarly, you can temporarily control the scale of figures nested under a ``with`` statement.
 
 Both the style and the context can be quickly configured with the :func:`set` function. This function also sets the default color palette, but that will be covered in more detail in the :ref:`next section <palette_tutorial>` of the tutorial.
-
-.. raw:: html
-
-   </div>
-

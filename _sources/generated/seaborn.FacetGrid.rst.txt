@@ -1,9 +1,4 @@
-﻿.. raw:: html
-
-    </div>
-    <div class=col-md-9 content>
-
-seaborn.FacetGrid
+﻿seaborn.FacetGrid
 =================
 
 .. currentmodule:: seaborn
@@ -21,11 +16,13 @@ seaborn.FacetGrid
    
       ~FacetGrid.__init__
       ~FacetGrid.add_legend
+      ~FacetGrid.apply
       ~FacetGrid.despine
       ~FacetGrid.facet_axis
       ~FacetGrid.facet_data
       ~FacetGrid.map
       ~FacetGrid.map_dataframe
+      ~FacetGrid.pipe
       ~FacetGrid.refline
       ~FacetGrid.savefig
       ~FacetGrid.set
@@ -35,6 +32,7 @@ seaborn.FacetGrid
       ~FacetGrid.set_xticklabels
       ~FacetGrid.set_ylabels
       ~FacetGrid.set_yticklabels
+      ~FacetGrid.tick_params
       ~FacetGrid.tight_layout
    
    

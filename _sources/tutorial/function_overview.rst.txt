@@ -5,10 +5,6 @@
 Overview of seaborn plotting functions
 ======================================
 
-.. raw:: html
-
-   <div class=col-md-9>
-
 Most of your interactions with seaborn will happen through a set of plotting functions. Later chapters in the tutorial will explore the specific features offered by each function. This chapter will introduce, at a high-level, the different kinds of functions that you will encounter.
 
 Similar functions for similar tasks
@@ -75,7 +71,7 @@ To draw a kernel density plot instead, using the same code as :func:`kdeplot`, s
 .. image:: function_overview_files/function_overview_12_0.png
 
 
-You'll notice that the figure-level plots look mostly like their axes-level counterparts, but there are a few differences. Notably, the legend is placed ouside the plot. They also have a slightly different shape (more on that shortly).
+You'll notice that the figure-level plots look mostly like their axes-level counterparts, but there are a few differences. Notably, the legend is placed outside the plot. They also have a slightly different shape (more on that shortly).
 
 The most useful feature offered by the figure-level functions is that they can easily create figures with multiple subplots. For example, instead of stacking the three distributions for each species of penguins in the same axes, we can "facet" them by plotting each distribution across the columns of the figure:
 
@@ -144,12 +140,14 @@ The figure-level functions return a :class:`FacetGrid` instance, which has a few
 
 While convenient, this does add a bit of extra complexity, as you need to remember that this method is not part of the matplotlib API and exists only when using a figure-level function.
 
+.. _figure_size_tutorial:
+
 Specifying figure sizes
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 To increase or decrease the size of a matplotlib plot, you set the width and height of the entire figure, either in the `global rcParams <https://matplotlib.org/tutorials/introductory/customizing.html>`_, while setting up the plot (e.g. with the ``figsize`` parameter of :func:`matplotlib.pyplot.subplots`), or by calling a method on the figure object (e.g. :meth:`matplotlib.Figure.set_size_inches`). When using an axes-level function in seaborn, the same rules apply: the size of the plot is determined by the size of the figure it is part of and the axes layout in that figure.
 
-When using a figure-level function, there are several key differences. First, the functions themselves have parameters to control the figure size (although these are actually parameters of the underlying :class:`FacetGrid` that manages the figure). Second, these parameters, ``height`` and ``aspect``, parameterize the size slightly differently than the ``width``, ``height`` parameterization in matplotlib (using the seaborn parameters, ``width = height * apsect``). Most importantly, the parameters correspond to the size of each *subplot*, rather than the size of the overall figure.
+When using a figure-level function, there are several key differences. First, the functions themselves have parameters to control the figure size (although these are actually parameters of the underlying :class:`FacetGrid` that manages the figure). Second, these parameters, ``height`` and ``aspect``, parameterize the size slightly differently than the ``width``, ``height`` parameterization in matplotlib (using the seaborn parameters, ``width = height * aspect``). Most importantly, the parameters correspond to the size of each *subplot*, rather than the size of the overall figure.
 
 To illustrate the difference between these approaches, here is the default output of :func:`matplotlib.pyplot.subplots` with one subplot:
 
@@ -213,44 +211,26 @@ Relative merits of figure-level functions
 
 Here is a summary of the pros and cons that we have discussed above:
 
+.. list-table::
+   :header-rows: 1
 
+   * - Advantages
+     - Drawbacks
+   * - Easy faceting by data variables
+     - Many parameters not in function signature
+   * - Legend outside of plot by default
+     - Cannot be part of a larger matplotlib figure
+   * - Easy figure-level customization
+     - Different API from matplotlib
+   * - Different figure size parameterization
+     - Different figure size parameterization
 
-
-.. raw:: html
-
-    
-    <table>
-        <tr>
-            <th>Advantages</th>
-            <th>Drawbacks</th>
-        </tr>
-        <tr>
-            <td>Easy faceting by data variables</td>
-            <td>Many parameters not in function signature</td>
-        </tr>
-        <tr>
-            <td>Legend outside of plot by default</td>
-            <td>Cannot be part of a larger matplotlib figure</td>
-        </tr>
-        <tr>
-            <td>Easy figure-level customization</td>
-            <td>Different API from matplotlib</td>
-        </tr>
-        <tr>
-            <td>Different figure size parameterization</td>
-            <td>Different figure size parameterization</td>
-        </tr>
-    </table>
-
-
-
-
-On balance, the figure-level functions add some additional complexity that can make things more confusing for beginners, but their distinct features give them additional power. The tutorial documentaion mostly uses the figure-level functions, because they produce slightly cleaner plots, and we generally recommend their use for most applications. The one situation where they are not a good choice is when you need to make a complex, standalone figure that composes multiple different plot kinds. At this point, it's recommended to set up the figure using matplotlib directly and to fill in the individual components using axes-level functions.
+On balance, the figure-level functions add some additional complexity that can make things more confusing for beginners, but their distinct features give them additional power. The tutorial documentation mostly uses the figure-level functions, because they produce slightly cleaner plots, and we generally recommend their use for most applications. The one situation where they are not a good choice is when you need to make a complex, standalone figure that composes multiple different plot kinds. At this point, it's recommended to set up the figure using matplotlib directly and to fill in the individual components using axes-level functions.
 
 Combining multiple views on the data
 ------------------------------------
 
-Two important plotting functions in seaborn don't fit cleanly into the classification scheme discussed above. These functions, :func:`jointplot` and :func:`pairplot`, employ multiple kinds of plots from different modules to represent mulitple aspects of a dataset in a single figure. Both plots are figure-level functions and create figures with multiple subplots by default. But they use different objects to manage the figure: :class:`JointGrid` and :class:`PairGrid`, respectively.
+Two important plotting functions in seaborn don't fit cleanly into the classification scheme discussed above. These functions, :func:`jointplot` and :func:`pairplot`, employ multiple kinds of plots from different modules to represent multiple aspects of a dataset in a single figure. Both plots are figure-level functions and create figures with multiple subplots by default. But they use different objects to manage the figure: :class:`JointGrid` and :class:`PairGrid`, respectively.
 
 :func:`jointplot` plots the relationship or joint distribution of two variables while adding marginal axes that show the univariate distribution of each one separately:
 
@@ -260,7 +240,7 @@ Two important plotting functions in seaborn don't fit cleanly into the classific
 
 
 
-.. image:: function_overview_files/function_overview_38_0.png
+.. image:: function_overview_files/function_overview_36_0.png
 
 
 :func:`pairplot` is similar — it combines joint and marginal views — but rather than focusing on a single relationship, it visualizes every pairwise combination of variables simultaneously:
@@ -271,7 +251,7 @@ Two important plotting functions in seaborn don't fit cleanly into the classific
 
 
 
-.. image:: function_overview_files/function_overview_40_0.png
+.. image:: function_overview_files/function_overview_38_0.png
 
 
 Behind the scenes, these functions are using axes-level functions that you have already met (:func:`scatterplot` and :func:`kdeplot`), and they also have a ``kind`` parameter that lets you quickly swap in a different representation:
@@ -282,6 +262,6 @@ Behind the scenes, these functions are using axes-level functions that you have 
 
 
 
-.. image:: function_overview_files/function_overview_42_0.png
+.. image:: function_overview_files/function_overview_40_0.png
 
 

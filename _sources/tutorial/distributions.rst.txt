@@ -5,15 +5,11 @@
 Visualizing distributions of data
 ==================================
 
-.. raw:: html
-
-   <div class=col-md-9>
-
 An early step in any effort to analyze or model data should be to understand how the variables are distributed. Techniques for distribution visualization can provide quick answers to many important questions. What range do the observations cover? What is their central tendency? Are they heavily skewed in one direction? Is there evidence for bimodality? Are there significant outliers? Do the answers to these questions vary across subsets defined by other variables?
 
 The :ref:`distributions module <distribution_api>` contains several functions designed to answer questions such as these. The axes-level functions are :func:`histplot`, :func:`kdeplot`, :func:`ecdfplot`, and :func:`rugplot`. They are grouped together within the figure-level :func:`displot`, :func:`jointplot`, and :func:`pairplot` functions.
 
-There are several different approaches to visualizing a distribution, and each has its relative advantages and drawbacks. It is important to understand theses factors so that you can choose the best approach for your particular aim.
+There are several different approaches to visualizing a distribution, and each has its relative advantages and drawbacks. It is important to understand these factors so that you can choose the best approach for your particular aim.
 
 .. _tutorial_hist:
 
@@ -280,7 +276,7 @@ Note how the stacked plot filled in the area between each curve by default. It i
 Kernel density estimation pitfalls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-KDE plots have many advantages. Important features of the data are easy to discern (central tendency, bimodality, skew), and they afford easy comparisons between subsets. But there are also situations where KDE poorly represents the underlying data. This is because the logic of KDE assumes that the underlying distribution is smooth and unbounded. One way this assumption can fail is when a varible reflects a quantity that is naturally bounded. If there are observations lying close to the bound (for example, small values of a variable that cannot be negative), the KDE curve may extend to unrealistic values:
+KDE plots have many advantages. Important features of the data are easy to discern (central tendency, bimodality, skew), and they afford easy comparisons between subsets. But there are also situations where KDE poorly represents the underlying data. This is because the logic of KDE assumes that the underlying distribution is smooth and unbounded. One way this assumption can fail is when a variable reflects a quantity that is naturally bounded. If there are observations lying close to the bound (for example, small values of a variable that cannot be negative), the KDE curve may extend to unrealistic values:
 
 .. code:: ipython3
 
@@ -291,7 +287,7 @@ KDE plots have many advantages. Important features of the data are easy to disce
 .. image:: distributions_files/distributions_45_0.png
 
 
-This can be partially avoided with the ``cut`` parameter, which specifies how far the curve should extend beyond the extreme datapoints. But this influences only where the curve is drawn; the density estimate will still smooth over the range where no data can exist, causing it to be artifically low at the extremes of the distribution:
+This can be partially avoided with the ``cut`` parameter, which specifies how far the curve should extend beyond the extreme datapoints. But this influences only where the curve is drawn; the density estimate will still smooth over the range where no data can exist, causing it to be artificially low at the extremes of the distribution:
 
 .. code:: ipython3
 
@@ -379,7 +375,7 @@ All of the examples so far have considered *univariate* distributions: distribut
 .. image:: distributions_files/distributions_60_0.png
 
 
-A bivariate histogram bins the data within rectangles that tile the plot and then shows the count of observations within each rectangle with the fill color (analagous to a :func:`heatmap`). Similarly, a bivariate KDE plot smoothes the (x, y) observations with a 2D Gaussian. The default representation then shows the *contours* of the 2D density:
+A bivariate histogram bins the data within rectangles that tile the plot and then shows the count of observations within each rectangle with the fill color (analogous to a :func:`heatmap`). Similarly, a bivariate KDE plot smoothes the (x, y) observations with a 2D Gaussian. The default representation then shows the *contours* of the 2D density:
 
 .. code:: ipython3
 
@@ -576,10 +572,28 @@ As with :func:`jointplot`/:class:`JointGrid`, using the underlying :class:`PairG
     g.map_diag(sns.histplot, kde=True)
 
 
+.. parsed-literal::
 
-.. image:: distributions_files/distributions_92_0.png
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
 
 
-.. raw:: html
 
-   </div>
+.. image:: distributions_files/distributions_92_1.png
+

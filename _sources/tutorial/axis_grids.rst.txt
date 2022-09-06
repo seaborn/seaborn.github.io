@@ -5,10 +5,6 @@
 Building structured multi-plot grids
 ====================================
 
-.. raw:: html
-
-   <div class=col-md-9>
-
 
 When exploring multi-dimensional data, a useful approach is to draw multiple instances of the same plot on different subsets of your dataset. This technique is sometimes called either "lattice" or "trellis" plotting, and it is related to the idea of `"small multiples" <https://en.wikipedia.org/wiki/Small_multiple>`_. It allows a viewer to quickly extract a large amount of information about a complex dataset. Matplotlib offers good support for making figures with multiple axes; seaborn builds on top of this to directly link the structure of the plot to the structure of your dataset.
 
@@ -122,7 +118,7 @@ If you have many levels of one variable, you can plot it along the columns but "
 
     attend = sns.load_dataset("attention").query("subject <= 12")
     g = sns.FacetGrid(attend, col="subject", col_wrap=4, height=2, ylim=(0, 10))
-    g.map(sns.pointplot, "solutions", "score", order=[1, 2, 3], color=".3", ci=None)
+    g.map(sns.pointplot, "solutions", "score", order=[1, 2, 3], color=".3", errorbar=None)
 
 
 
@@ -358,7 +354,3 @@ You can also control the aesthetics of the plot with keyword arguments, and it r
 
 .. image:: axis_grids_files/axis_grids_48_0.png
 
-
-.. raw:: html
-
-   </div>

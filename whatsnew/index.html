@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>What’s new in each version &#8212; seaborn 0.12.0 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'whatsnew/index';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.12.0 (September 2022)" href="v0.12.0.html" />
+    <link rel="prev" title="seaborn.get_data_home" href="../generated/seaborn.get_data_home.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.0.html">
+   v0.12.0 (September 2022)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.2.html">
+   v0.11.2 (August 2021)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.1.html">
+   v0.11.1 (December 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.0.html">
+   v0.11.0 (September 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.1.html">
+   v0.10.1 (April 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.0.html">
+   v0.10.0 (January 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.1.html">
+   v0.9.1 (January 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.0.html">
+   v0.9.0 (July 2018)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.1.html">
+   v0.8.1 (September 2017)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.0.html">
+   v0.8.0 (July 2017)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.1.html">
+   v0.7.1 (June 2016)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.0.html">
+   v0.7.0 (January 2016)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.6.0.html">
+   v0.6.0 (June 2015)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.1.html">
+   v0.5.1 (November 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.0.html">
+   v0.5.0 (November 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.4.0.html">
+   v0.4.0 (September 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.1.html">
+   v0.3.1 (April 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.0.html">
+   v0.3.0 (March 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.1.html">
+   v0.2.1 (December 2013)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.0.html">
+   v0.2.0 (December 2013)
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-12">
+   v0.12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-11">
+   v0.11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-10">
+   v0.10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-9">
+   v0.9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-8">
+   v0.8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-7">
+   v0.7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-6">
+   v0.6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-5">
+   v0.5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4">
+   v0.4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-3">
+   v0.3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2">
+   v0.2
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="what-s-new-in-each-version">
+<span id="whatsnew"></span><h1>What’s new in each version<a class="headerlink" href="#what-s-new-in-each-version" title="Permalink to this heading">#</a></h1>
+<section id="v0-12">
+<h2>v0.12<a class="headerlink" href="#v0-12" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.12.0.html">v0.12.0 (September 2022)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.12.0.html#introduction-of-the-objects-interface">Introduction of the objects interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.12.0.html#keyword-only-arguments">Keyword-only arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.12.0.html#modernization-of-categorical-scatterplots">Modernization of categorical scatterplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.12.0.html#more-flexible-errorbars">More flexible errorbars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.12.0.html#other-updates">Other updates</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-11">
+<h2>v0.11<a class="headerlink" href="#v0-11" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.11.2.html">v0.11.2 (August 2021)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.11.1.html">v0.11.1 (December 2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.11.0.html">v0.11.0 (September 2020)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.11.0.html#required-keyword-arguments">Required keyword arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.11.0.html#modernization-of-distribution-functions">Modernization of distribution functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.11.0.html#standardization-and-enhancements-of-data-ingest">Standardization and enhancements of data ingest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.11.0.html#other-changes">Other changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.11.0.html#color-palettes">Color palettes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-10">
+<h2>v0.10<a class="headerlink" href="#v0-10" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.10.1.html">v0.10.1 (April 2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.10.0.html">v0.10.0 (January 2020)</a></li>
+</ul>
+</div>
+</section>
+<section id="v0-9">
+<h2>v0.9<a class="headerlink" href="#v0-9" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.9.1.html">v0.9.1 (January 2020)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.1.html#new-features">New features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.1.html#bug-fixes-and-adaptations">Bug fixes and adaptations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="v0.9.0.html">v0.9.0 (July 2018)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.0.html#new-relational-plots">New relational plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.0.html#updates-to-themes-and-palettes">Updates to themes and palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.0.html#api-changes">API changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.0.html#documentation-improvements">Documentation improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.9.0.html#other-small-enhancements-and-bug-fixes">Other small enhancements and bug fixes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-8">
+<h2>v0.8<a class="headerlink" href="#v0-8" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.8.1.html">v0.8.1 (September 2017)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.8.0.html">v0.8.0 (July 2017)</a></li>
+</ul>
+</div>
+</section>
+<section id="v0-7">
+<h2>v0.7<a class="headerlink" href="#v0-7" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.7.1.html">v0.7.1 (June 2016)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.7.0.html">v0.7.0 (January 2016)</a></li>
+</ul>
+</div>
+</section>
+<section id="v0-6">
+<h2>v0.6<a class="headerlink" href="#v0-6" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.6.0.html">v0.6.0 (June 2015)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.6.0.html#changes-and-updates-to-categorical-plots">Changes and updates to categorical plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.6.0.html#new-plotting-functions">New plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.6.0.html#other-additions-and-changes">Other additions and changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.6.0.html#bug-fixes">Bug fixes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-5">
+<h2>v0.5<a class="headerlink" href="#v0-5" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.5.1.html">v0.5.1 (November 2014)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="v0.5.0.html">v0.5.0 (November 2014)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.5.0.html#plotting-functions">Plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.5.0.html#color-palettes">Color palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.5.0.html#bug-fixes">Bug fixes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-4">
+<h2>v0.4<a class="headerlink" href="#v0-4" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.4.0.html">v0.4.0 (September 2014)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.4.0.html#plotting-functions">Plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.4.0.html#style-and-color-palettes">Style and color palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.4.0.html#other-api-changes">Other API Changes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-3">
+<h2>v0.3<a class="headerlink" href="#v0-3" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.3.1.html">v0.3.1 (April 2014)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.3.1.html#plotting-functions">Plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.3.1.html#bug-fixes">Bug Fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="v0.3.0.html">v0.3.0 (March 2014)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.3.0.html#new-plotting-functions">New plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.3.0.html#api-changes">API changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.3.0.html#other-changes">Other changes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="v0-2">
+<h2>v0.2<a class="headerlink" href="#v0-2" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="v0.2.1.html">v0.2.1 (December 2013)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.2.1.html#bug-fixes">Bug fixes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="v0.2.0.html">v0.2.0 (December 2013)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="v0.2.0.html#api-changes">API changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.2.0.html#new-plotting-functions">New plotting functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.2.0.html#other-changes">Other changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v0.2.0.html#bug-fixes">Bug fixes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="./archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="./archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="./archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,148 +1,539 @@
+
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualizing distributions of data &#8212; seaborn 0.11.2 documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visualizing distributions of data &#8212; seaborn 0.12.0 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0.11.2" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/distributions';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Plotting with categorical data" href="categorical.html" />
+    <link rel="next" title="Visualizing categorical data" href="categorical.html" />
     <link rel="prev" title="Visualizing statistical relationships" href="relational.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
-<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
-<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-  </head><body>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo-wide-lightbg.svg"></span>
-           </a>
-        <span class="navbar-text navbar-version pull-left"><b>0.11.2</b></span>
-      </div>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="../examples/index.html">Gallery</a></li>
-                <li><a href="../tutorial.html">Tutorial</a></li>
-                <li><a href="../api.html">API</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="../index.html">Site <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">Release notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Example gallery</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API reference</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../archive.html">Archive</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Visualizing distributions of data</a><ul>
-<li><a class="reference internal" href="#plotting-univariate-histograms">Plotting univariate histograms</a><ul>
-<li><a class="reference internal" href="#choosing-the-bin-size">Choosing the bin size</a></li>
-<li><a class="reference internal" href="#conditioning-on-other-variables">Conditioning on other variables</a></li>
-<li><a class="reference internal" href="#normalized-histogram-statistics">Normalized histogram statistics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#kernel-density-estimation">Kernel density estimation</a><ul>
-<li><a class="reference internal" href="#choosing-the-smoothing-bandwidth">Choosing the smoothing bandwidth</a></li>
-<li><a class="reference internal" href="#id1">Conditioning on other variables</a></li>
-<li><a class="reference internal" href="#kernel-density-estimation-pitfalls">Kernel density estimation pitfalls</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#empirical-cumulative-distributions">Empirical cumulative distributions</a></li>
-<li><a class="reference internal" href="#visualizing-bivariate-distributions">Visualizing bivariate distributions</a></li>
-<li><a class="reference internal" href="#distribution-visualization-in-other-settings">Distribution visualization in other settings</a><ul>
-<li><a class="reference internal" href="#plotting-joint-and-marginal-distributions">Plotting joint and marginal distributions</a></li>
-<li><a class="reference internal" href="#plotting-many-distributions">Plotting many distributions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-            
-            
-            
-          </ul>
-
-          
-            
-<form class="navbar-form navbar-right" action="../search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form>
-          
-        </div>
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="body col-md-12 content" role="main">
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
       
-  <div class="section" id="visualizing-distributions-of-data">
-<span id="distribution-tutorial"></span><h1>Visualizing distributions of data<a class="headerlink" href="#visualizing-distributions-of-data" title="Permalink to this headline">¶</a></h1>
-<div class=col-md-9><p>An early step in any effort to analyze or model data should be to understand how the variables are distributed. Techniques for distribution visualization can provide quick answers to many important questions. What range do the observations cover? What is their central tendency? Are they heavily skewed in one direction? Is there evidence for bimodality? Are there significant outliers? Do the answers to these questions vary across subsets defined by other variables?</p>
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   An introduction to seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_overview.html">
+   Overview of seaborn plotting functions
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_structure.html">
+   Data structures accepted by seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="objects_interface.html">
+   The seaborn.objects interface
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="properties.html">
+   Properties of Mark objects
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="relational.html">
+   Visualizing statistical relationships
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Visualizing distributions of data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="categorical.html">
+   Visualizing categorical data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="error_bars.html">
+   Statistical estimation and error bars
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Estimating regression fits
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="axis_grids.html">
+   Building structured multi-plot grids
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="aesthetics.html">
+   Controlling figure aesthetics
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="color_palettes.html">
+   Choosing color palettes
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-univariate-histograms">
+   Plotting univariate histograms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-bin-size">
+     Choosing the bin size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditioning-on-other-variables">
+     Conditioning on other variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalized-histogram-statistics">
+     Normalized histogram statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernel-density-estimation">
+   Kernel density estimation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-smoothing-bandwidth">
+     Choosing the smoothing bandwidth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Conditioning on other variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kernel-density-estimation-pitfalls">
+     Kernel density estimation pitfalls
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#empirical-cumulative-distributions">
+   Empirical cumulative distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-bivariate-distributions">
+   Visualizing bivariate distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-visualization-in-other-settings">
+   Distribution visualization in other settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-joint-and-marginal-distributions">
+     Plotting joint and marginal distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-many-distributions">
+     Plotting many distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="visualizing-distributions-of-data">
+<span id="distribution-tutorial"></span><h1>Visualizing distributions of data<a class="headerlink" href="#visualizing-distributions-of-data" title="Permalink to this heading">#</a></h1>
+<p>An early step in any effort to analyze or model data should be to understand how the variables are distributed. Techniques for distribution visualization can provide quick answers to many important questions. What range do the observations cover? What is their central tendency? Are they heavily skewed in one direction? Is there evidence for bimodality? Are there significant outliers? Do the answers to these questions vary across subsets defined by other variables?</p>
 <p>The <a class="reference internal" href="../api.html#distribution-api"><span class="std std-ref">distributions module</span></a> contains several functions designed to answer questions such as these. The axes-level functions are <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ecdfplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.rugplot.html#seaborn.rugplot" title="seaborn.rugplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">rugplot()</span></code></a>. They are grouped together within the figure-level <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> functions.</p>
-<p>There are several different approaches to visualizing a distribution, and each has its relative advantages and drawbacks. It is important to understand theses factors so that you can choose the best approach for your particular aim.</p>
-<div class="section" id="plotting-univariate-histograms">
-<span id="tutorial-hist"></span><h2>Plotting univariate histograms<a class="headerlink" href="#plotting-univariate-histograms" title="Permalink to this headline">¶</a></h2>
+<p>There are several different approaches to visualizing a distribution, and each has its relative advantages and drawbacks. It is important to understand these factors so that you can choose the best approach for your particular aim.</p>
+<section id="plotting-univariate-histograms">
+<span id="tutorial-hist"></span><h2>Plotting univariate histograms<a class="headerlink" href="#plotting-univariate-histograms" title="Permalink to this heading">#</a></h2>
 <p>Perhaps the most common approach to visualizing a distribution is the <em>histogram</em>. This is the default approach in <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, which uses the same underlying code as <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>. A histogram is a bar plot where the axis representing the data variable is divided into a set of discrete bins and the count of observations falling within each bin is shown using the height of the corresponding bar:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">)</span>
@@ -150,8 +541,8 @@
 </div>
 <img alt="../_images/distributions_3_0.png" src="../_images/distributions_3_0.png" />
 <p>This plot immediately affords a few insights about the <code class="docutils literal notranslate"><span class="pre">flipper_length_mm</span></code> variable. For instance, we can see that the most common flipper length is about 195 mm, but the distribution appears bimodal, so this one number does not represent the data well.</p>
-<div class="section" id="choosing-the-bin-size">
-<h3>Choosing the bin size<a class="headerlink" href="#choosing-the-bin-size" title="Permalink to this headline">¶</a></h3>
+<section id="choosing-the-bin-size">
+<h3>Choosing the bin size<a class="headerlink" href="#choosing-the-bin-size" title="Permalink to this heading">#</a></h3>
 <p>The size of the bins is an important parameter, and using the wrong bin size can mislead by obscuring important features of the data or by creating apparent features out of random variability. By default, <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>/<a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> choose a default bin size based on the variance of the data and the number of observations. But you should not be over-reliant on such automatic approaches, because they depend on particular assumptions about the structure of your data. It is always advisable to check that your impressions of the distribution are consistent across different bin sizes. To choose the size directly, set the <code class="docutils literal notranslate"><span class="pre">binwidth</span></code> parameter:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -179,13 +570,13 @@
 </div>
 <img alt="../_images/distributions_13_0.png" src="../_images/distributions_13_0.png" />
 <p>It’s also possible to visualize the distribution of a categorical variable using the logic of a histogram. Discrete bins are automatically set for categorical variables, but it may also be helpful to “shrink” the bars slightly to emphasize the categorical nature of the axis:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">.8</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_15_0.png" src="../_images/distributions_15_0.png" />
-</div>
-<div class="section" id="conditioning-on-other-variables">
-<h3>Conditioning on other variables<a class="headerlink" href="#conditioning-on-other-variables" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="conditioning-on-other-variables">
+<h3>Conditioning on other variables<a class="headerlink" href="#conditioning-on-other-variables" title="Permalink to this heading">#</a></h3>
 <p>Once you understand the distribution of a variable, the next step is often to ask whether features of that distribution differ across other variables in the dataset. For example, what accounts for the bimodal distribution of flipper lengths that we saw above? <a class="reference internal" href="../generated/seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> provide support for conditional subsetting via the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic. Assigning a variable to <code class="docutils literal notranslate"><span class="pre">hue</span></code> will draw a separate histogram for each of its unique values and distinguish them by color:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </pre></div>
@@ -212,9 +603,9 @@
 </div>
 <img alt="../_images/distributions_25_0.png" src="../_images/distributions_25_0.png" />
 <p>None of these approaches are perfect, and  we will soon see some alternatives to a histogram that are better-suited to the task of comparison.</p>
-</div>
-<div class="section" id="normalized-histogram-statistics">
-<h3>Normalized histogram statistics<a class="headerlink" href="#normalized-histogram-statistics" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="normalized-histogram-statistics">
+<h3>Normalized histogram statistics<a class="headerlink" href="#normalized-histogram-statistics" title="Permalink to this heading">#</a></h3>
 <p>Before we do, another point to note is that, when the subsets have unequal numbers of observations, comparing their distributions in terms of counts may not be ideal. One solution is to <em>normalize</em> the counts using the <code class="docutils literal notranslate"><span class="pre">stat</span></code> parameter:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">)</span>
 </pre></div>
@@ -230,19 +621,19 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_31_0.png" src="../_images/distributions_31_0.png" />
-</div>
-</div>
-<div class="section" id="kernel-density-estimation">
-<span id="tutorial-kde"></span><h2>Kernel density estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="kernel-density-estimation">
+<span id="tutorial-kde"></span><h2>Kernel density estimation<a class="headerlink" href="#kernel-density-estimation" title="Permalink to this heading">#</a></h2>
 <p>A histogram aims to approximate the underlying probability density function that generated the data by binning and counting observations. Kernel density estimation (KDE) presents a different solution to the same problem. Rather than using discrete bins, a KDE plot smooths the observations with a Gaussian kernel, producing a continuous density estimate:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_33_0.png" src="../_images/distributions_33_0.png" />
-<div class="section" id="choosing-the-smoothing-bandwidth">
-<h3>Choosing the smoothing bandwidth<a class="headerlink" href="#choosing-the-smoothing-bandwidth" title="Permalink to this headline">¶</a></h3>
+<section id="choosing-the-smoothing-bandwidth">
+<h3>Choosing the smoothing bandwidth<a class="headerlink" href="#choosing-the-smoothing-bandwidth" title="Permalink to this heading">#</a></h3>
 <p>Much like with the bin size in the histogram, the ability of the KDE to accurately represent the data depends on the choice of smoothing bandwidth. An over-smoothed estimate might erase meaningful features, but an under-smoothed estimate can obscure the true shape within random noise. The easiest way to check the robustness of the estimate is to adjust the default bandwidth:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=.</span><span class="mi">25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">.25</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_35_0.png" src="../_images/distributions_35_0.png" />
@@ -251,9 +642,9 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_37_0.png" src="../_images/distributions_37_0.png" />
-</div>
-<div class="section" id="id1">
-<h3>Conditioning on other variables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id1">
+<h3>Conditioning on other variables<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>As with histograms, if you assign a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable, a separate density estimate will be computed for each level of that variable:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
@@ -269,15 +660,15 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_43_0.png" src="../_images/distributions_43_0.png" />
-</div>
-<div class="section" id="kernel-density-estimation-pitfalls">
-<h3>Kernel density estimation pitfalls<a class="headerlink" href="#kernel-density-estimation-pitfalls" title="Permalink to this headline">¶</a></h3>
-<p>KDE plots have many advantages. Important features of the data are easy to discern (central tendency, bimodality, skew), and they afford easy comparisons between subsets. But there are also situations where KDE poorly represents the underlying data. This is because the logic of KDE assumes that the underlying distribution is smooth and unbounded. One way this assumption can fail is when a varible reflects a quantity that is naturally bounded. If there are observations lying close to the bound (for example, small values of a variable that cannot be negative), the KDE curve may extend to unrealistic values:</p>
+</section>
+<section id="kernel-density-estimation-pitfalls">
+<h3>Kernel density estimation pitfalls<a class="headerlink" href="#kernel-density-estimation-pitfalls" title="Permalink to this heading">#</a></h3>
+<p>KDE plots have many advantages. Important features of the data are easy to discern (central tendency, bimodality, skew), and they afford easy comparisons between subsets. But there are also situations where KDE poorly represents the underlying data. This is because the logic of KDE assumes that the underlying distribution is smooth and unbounded. One way this assumption can fail is when a variable reflects a quantity that is naturally bounded. If there are observations lying close to the bound (for example, small values of a variable that cannot be negative), the KDE curve may extend to unrealistic values:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_45_0.png" src="../_images/distributions_45_0.png" />
-<p>This can be partially avoided with the <code class="docutils literal notranslate"><span class="pre">cut</span></code> parameter, which specifies how far the curve should extend beyond the extreme datapoints. But this influences only where the curve is drawn; the density estimate will still smooth over the range where no data can exist, causing it to be artifically low at the extremes of the distribution:</p>
+<p>This can be partially avoided with the <code class="docutils literal notranslate"><span class="pre">cut</span></code> parameter, which specifies how far the curve should extend beyond the extreme datapoints. But this influences only where the curve is drawn; the density estimate will still smooth over the range where no data can exist, causing it to be artificially low at the extremes of the distribution:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -298,10 +689,10 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_53_0.png" src="../_images/distributions_53_0.png" />
-</div>
-</div>
-<div class="section" id="empirical-cumulative-distributions">
-<span id="tutorial-ecdf"></span><h2>Empirical cumulative distributions<a class="headerlink" href="#empirical-cumulative-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="empirical-cumulative-distributions">
+<span id="tutorial-ecdf"></span><h2>Empirical cumulative distributions<a class="headerlink" href="#empirical-cumulative-distributions" title="Permalink to this heading">#</a></h2>
 <p>A third option for visualizing distributions computes the “empirical cumulative distribution function” (ECDF). This plot draws a monotonically-increasing curve through each datapoint such that the height of the curve reflects the proportion of observations with a smaller value:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;ecdf&quot;</span><span class="p">)</span>
 </pre></div>
@@ -313,15 +704,15 @@
 </div>
 <img alt="../_images/distributions_57_0.png" src="../_images/distributions_57_0.png" />
 <p>The major downside to the ECDF plot is that it represents the shape of the distribution less intuitively than a histogram or density curve. Consider how the bimodality of flipper lengths is immediately apparent in the histogram, but to see it in the ECDF plot, you must look for varying slopes. Nevertheless, with practice, you can learn to answer all of the important questions about a distribution by examining the ECDF, and doing so can be a powerful approach.</p>
-</div>
-<div class="section" id="visualizing-bivariate-distributions">
-<h2>Visualizing bivariate distributions<a class="headerlink" href="#visualizing-bivariate-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="visualizing-bivariate-distributions">
+<h2>Visualizing bivariate distributions<a class="headerlink" href="#visualizing-bivariate-distributions" title="Permalink to this heading">#</a></h2>
 <p>All of the examples so far have considered <em>univariate</em> distributions: distributions of a single variable, perhaps conditional on a second variable assigned to <code class="docutils literal notranslate"><span class="pre">hue</span></code>. Assigning a second variable to <code class="docutils literal notranslate"><span class="pre">y</span></code>, however, will plot a <em>bivariate</em> distribution:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_60_0.png" src="../_images/distributions_60_0.png" />
-<p>A bivariate histogram bins the data within rectangles that tile the plot and then shows the count of observations within each rectangle with the fill color (analagous to a <a class="reference internal" href="../generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>). Similarly, a bivariate KDE plot smoothes the (x, y) observations with a 2D Gaussian. The default representation then shows the <em>contours</em> of the 2D density:</p>
+<p>A bivariate histogram bins the data within rectangles that tile the plot and then shows the count of observations within each rectangle with the fill color (analogous to a <a class="reference internal" href="../generated/seaborn.heatmap.html#seaborn.heatmap" title="seaborn.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>). Similarly, a bivariate KDE plot smoothes the (x, y) observations with a 2D Gaussian. The default representation then shows the <em>contours</em> of the 2D density:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -337,22 +728,22 @@
 </div>
 <img alt="../_images/distributions_66_0.png" src="../_images/distributions_66_0.png" />
 <p>Just as with univariate plots, the choice of bin size or smoothing bandwidth will determine how well the plot represents the underlying bivariate distribution. The same parameters apply, but they can be tuned for each variable by passing a pair of values:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">.5</span><span class="p">))</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_68_0.png" src="../_images/distributions_68_0.png" />
 <p>To aid interpretation of the heatmap, add a colorbar to show the mapping between counts and color intensity:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">.5</span><span class="p">),</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_70_0.png" src="../_images/distributions_70_0.png" />
 <p>The meaning of the bivariate density contours is less straightforward. Because the density is not directly interpretable, the contours are drawn at <em>iso-proportions</em> of the density, meaning that each curve shows a level set such that some proportion <em>p</em> of the density lies below it. The <em>p</em> values are evenly spaced, with the lowest level contolled by the <code class="docutils literal notranslate"><span class="pre">thresh</span></code> parameter and the number controlled by <code class="docutils literal notranslate"><span class="pre">levels</span></code>:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_72_0.png" src="../_images/distributions_72_0.png" />
 <p>The <code class="docutils literal notranslate"><span class="pre">levels</span></code> parameter also accepts a list of values, for more control:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">.01</span><span class="p">,</span> <span class="mf">.05</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.8</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="../_images/distributions_74_0.png" src="../_images/distributions_74_0.png" />
@@ -366,12 +757,12 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_78_0.png" src="../_images/distributions_78_0.png" />
-</div>
-<div class="section" id="distribution-visualization-in-other-settings">
-<h2>Distribution visualization in other settings<a class="headerlink" href="#distribution-visualization-in-other-settings" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="distribution-visualization-in-other-settings">
+<h2>Distribution visualization in other settings<a class="headerlink" href="#distribution-visualization-in-other-settings" title="Permalink to this heading">#</a></h2>
 <p>Several other figure-level plotting functions in seaborn make use of the <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> and <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a> functions.</p>
-<div class="section" id="plotting-joint-and-marginal-distributions">
-<h3>Plotting joint and marginal distributions<a class="headerlink" href="#plotting-joint-and-marginal-distributions" title="Permalink to this headline">¶</a></h3>
+<section id="plotting-joint-and-marginal-distributions">
+<h3>Plotting joint and marginal distributions<a class="headerlink" href="#plotting-joint-and-marginal-distributions" title="Permalink to this heading">#</a></h3>
 <p>The first is <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a>, which augments a bivariate relatonal or distribution plot with the marginal distributions of the two variables. By default, <a class="reference internal" href="../generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> represents the bivariate distribution using <a class="reference internal" href="../generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> and the marginal distributions using <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
 </pre></div>
@@ -407,9 +798,9 @@
 </pre></div>
 </div>
 <img alt="../_images/distributions_88_0.png" src="../_images/distributions_88_0.png" />
-</div>
-<div class="section" id="plotting-many-distributions">
-<h3>Plotting many distributions<a class="headerlink" href="#plotting-many-distributions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="plotting-many-distributions">
+<h3>Plotting many distributions<a class="headerlink" href="#plotting-many-distributions" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> function offers a similar blend of joint and marginal distributions. Rather than focusing on a single relationship, however, <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> uses a “small-multiple” approach to visualize the univariate distribution of all variables in a dataset along with all of their pairwise relationships:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">penguins</span><span class="p">)</span>
 </pre></div>
@@ -422,29 +813,67 @@
 <span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/distributions_92_0.png" src="../_images/distributions_92_0.png" />
-</div></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">axisgrid</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">236</span><span class="p">:</span> <span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Legend</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">handles</span> <span class="k">for</span> <span class="n">QuadMesh</span> <span class="n">instances</span><span class="o">.</span>
+<span class="n">See</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">tutorials</span><span class="o">/</span><span class="n">intermediate</span><span class="o">/</span><span class="n">legend_guide</span><span class="o">.</span><span class="n">html</span><span class="c1">#implementing-a-custom-legend-handler</span>
+  <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+</pre></div>
 </div>
-</div>
+<img alt="../_images/distributions_92_1.png" src="../_images/distributions_92_1.png" />
+</section>
+</section>
+</section>
 
 
+          </article>
+          
+
+          
+          
+      </div>
+      
     </div>
-      
   </div>
-</div>
-<footer class="footer">
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
   <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-        <br/>
-        
-      
-    </p>
-    <p>
-    &#169; Copyright 2012-2021, <a href="https://mwaskom.github.io/">Michael Waskom</a>.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
-    </p>
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="./archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="./archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="./archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    </div>
   </div>
 </footer>
   </body>

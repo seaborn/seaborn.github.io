@@ -1,9 +1,4 @@
-﻿.. raw:: html
-
-    </div>
-    <div class=col-md-9 content>
-
-seaborn.JointGrid
+﻿seaborn.JointGrid
 =================
 
 .. currentmodule:: seaborn
@@ -20,6 +15,8 @@ seaborn.JointGrid
       :toctree: ./
    
       ~JointGrid.__init__
+      ~JointGrid.apply
+      ~JointGrid.pipe
       ~JointGrid.plot
       ~JointGrid.plot_joint
       ~JointGrid.plot_marginals

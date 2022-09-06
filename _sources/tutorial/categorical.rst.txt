@@ -2,13 +2,9 @@
 
 .. currentmodule:: seaborn
 
-Plotting with categorical data
-==============================
-
-.. raw:: html
-
-   <div class=col-md-9>
-   
+Visualizing categorical data
+============================
+  
 In the :ref:`relational plot tutorial <relational_tutorial>` we saw how to use different visual representations to show the relationship between multiple variables in a dataset. In the examples, we focused on cases where the main relationship was between two numerical variables. If one of the main variables is "categorical" (divided into discrete groups) it may be helpful to use a more specialized approach to visualization.
 
 In seaborn, there are several different ways to visualize a relationship involving categorical data. Similar to the relationship between :func:`relplot` and either :func:`scatterplot` or :func:`lineplot`, there are two ways to make these plots. There are a number of axes-level functions for plotting categorical data in different ways and a figure-level interface, :func:`catplot`, that gives unified higher-level access to them.
@@ -36,12 +32,6 @@ These families represent the data using different levels of granularity. When de
 
 In this tutorial, we'll mostly focus on the figure-level interface, :func:`catplot`. Remember that this function is a higher-level interface each of the functions above, so we'll reference them when we show each kind of plot, keeping the more verbose kind-specific API documentation at hand.
 
-.. code:: ipython3
-
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-    sns.set_theme(style="ticks", color_codes=True)
-
 Categorical scatterplots
 ------------------------
 
@@ -50,81 +40,81 @@ The default representation of the data in :func:`catplot` uses a scatterplot. Th
 .. code:: ipython3
 
     tips = sns.load_dataset("tips")
-    sns.catplot(x="day", y="total_bill", data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill")
 
 
 
-.. image:: categorical_files/categorical_4_0.png
+.. image:: categorical_files/categorical_3_0.png
 
 
 The ``jitter`` parameter controls the magnitude of jitter or disables it altogether:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", jitter=False, data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill", jitter=False)
 
 
 
-.. image:: categorical_files/categorical_6_0.png
+.. image:: categorical_files/categorical_5_0.png
 
 
 The second approach adjusts the points along the categorical axis using an algorithm that prevents them from overlapping. It can give a better representation of the distribution of observations, although it only works well for relatively small datasets. This kind of plot is sometimes called a "beeswarm" and is drawn in seaborn by :func:`swarmplot`, which is activated by setting ``kind="swarm"`` in :func:`catplot`:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", kind="swarm", data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill", kind="swarm")
 
 
 
-.. image:: categorical_files/categorical_8_0.png
+.. image:: categorical_files/categorical_7_0.png
 
 
 Similar to the relational plots, it's possible to add another dimension to a categorical plot by using a ``hue`` semantic. (The categorical plots do not currently support ``size`` or ``style`` semantics). Each different categorical plotting function handles the ``hue`` semantic differently. For the scatter plots, it is only necessary to change the color of the points:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="sex", kind="swarm", data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill", hue="sex", kind="swarm")
 
 
 
-.. image:: categorical_files/categorical_10_0.png
+.. image:: categorical_files/categorical_9_0.png
 
 
 Unlike with numerical data, it is not always obvious how to order the levels of the categorical variable along its axis. In general, the seaborn categorical plotting functions try to infer the order of categories from the data. If your data have a pandas ``Categorical`` datatype, then the default order of the categories can be set there. If the variable passed to the categorical axis looks numerical, the levels will be sorted. But the data are still treated as categorical and drawn at ordinal positions on the categorical axes (specifically, at 0, 1, ...) even when numbers are used to label them:
 
 .. code:: ipython3
 
-    sns.catplot(x="size", y="total_bill", data=tips)
+    sns.catplot(data=tips.query("size != 3"), x="size", y="total_bill")
 
 
 
-.. image:: categorical_files/categorical_12_0.png
+.. image:: categorical_files/categorical_11_0.png
 
 
 The other option for choosing a default ordering is to take the levels of the category as they appear in the dataset. The ordering can also be controlled on a plot-specific basis using the ``order`` parameter. This can be important when drawing multiple categorical plots in the same figure, which we'll see more of below:
 
 .. code:: ipython3
 
-    sns.catplot(x="smoker", y="tip", order=["No", "Yes"], data=tips)
+    sns.catplot(data=tips, x="smoker", y="tip", order=["No", "Yes"])
 
 
 
-.. image:: categorical_files/categorical_14_0.png
+.. image:: categorical_files/categorical_13_0.png
 
 
 We've referred to the idea of "categorical axis". In these examples, that's always corresponded to the horizontal axis. But it's often helpful to put the categorical variable on the vertical axis (particularly when the category names are relatively long or there are many categories). To do this, swap the assignment of variables to axes:
 
 .. code:: ipython3
 
-    sns.catplot(x="total_bill", y="day", hue="time", kind="swarm", data=tips)
+    sns.catplot(data=tips, x="total_bill", y="day", hue="time", kind="swarm")
 
 
 
-.. image:: categorical_files/categorical_16_0.png
+.. image:: categorical_files/categorical_15_0.png
 
 
-Distributions of observations within categories
------------------------------------------------
+Comparing distributions
+-----------------------
 
 As the size of the dataset grows, categorical scatter plots become limited in the information they can provide about the distribution of values within each category. When this happens, there are several approaches for summarizing the distributional information in ways that facilitate easy comparisons across the category levels.
 
@@ -135,22 +125,22 @@ The first is the familiar :func:`boxplot`. This kind of plot shows the three qua
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", kind="box", data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill", kind="box")
 
 
 
-.. image:: categorical_files/categorical_18_0.png
+.. image:: categorical_files/categorical_17_0.png
 
 
 When adding a ``hue`` semantic, the box for each level of the semantic variable is moved along the categorical axis so they don't overlap:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="smoker", kind="box", data=tips)
+    sns.catplot(data=tips, x="day", y="total_bill", hue="smoker", kind="box")
 
 
 
-.. image:: categorical_files/categorical_20_0.png
+.. image:: categorical_files/categorical_19_0.png
 
 
 This behavior is called "dodging" and is turned on by default because it is assumed that the semantic variable is nested within the main categorical variable. If that's not the case, you can disable the dodging:
@@ -158,12 +148,14 @@ This behavior is called "dodging" and is turned on by default because it is assu
 .. code:: ipython3
 
     tips["weekend"] = tips["day"].isin(["Sat", "Sun"])
-    sns.catplot(x="day", y="total_bill", hue="weekend",
-                kind="box", dodge=False, data=tips)
+    sns.catplot(
+        data=tips, x="day", y="total_bill", hue="weekend",
+        kind="box", dodge=False,
+    )
 
 
 
-.. image:: categorical_files/categorical_22_0.png
+.. image:: categorical_files/categorical_21_0.png
 
 
 A related function, :func:`boxenplot`, draws a plot that is similar to a box plot but optimized for showing more information about the shape of the distribution. It is best suited for larger datasets:
@@ -171,12 +163,21 @@ A related function, :func:`boxenplot`, draws a plot that is similar to a box plo
 .. code:: ipython3
 
     diamonds = sns.load_dataset("diamonds")
-    sns.catplot(x="color", y="price", kind="boxen",
-                data=diamonds.sort_values("color"))
+    sns.catplot(
+        data=diamonds.sort_values("color"),
+        x="color", y="price", kind="boxen",
+    )
+
+
+.. parsed-literal::
+
+    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for PatchCollection instances.
+    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
+      handles, labels = ax.get_legend_handles_labels()
 
 
 
-.. image:: categorical_files/categorical_24_0.png
+.. image:: categorical_files/categorical_23_1.png
 
 
 Violinplots
@@ -186,66 +187,71 @@ A different approach is a :func:`violinplot`, which combines a boxplot with the 
 
 .. code:: ipython3
 
-    sns.catplot(x="total_bill", y="day", hue="sex",
-                kind="violin", data=tips)
+    sns.catplot(
+        data=tips, x="total_bill", y="day", hue="sex", kind="violin",
+    )
 
 
 
-.. image:: categorical_files/categorical_26_0.png
+.. image:: categorical_files/categorical_25_0.png
 
 
 This approach uses the kernel density estimate to provide a richer description of the distribution of values. Additionally, the quartile and whisker values from the boxplot are shown inside the violin. The downside is that, because the violinplot uses a KDE, there are some other parameters that may need tweaking, adding some complexity relative to the straightforward boxplot:
 
 .. code:: ipython3
 
-    sns.catplot(x="total_bill", y="day", hue="sex",
-                kind="violin", bw=.15, cut=0,
-                data=tips)
+    sns.catplot(
+        data=tips, x="total_bill", y="day", hue="sex",
+        kind="violin", bw=.15, cut=0,
+    )
 
 
 
-.. image:: categorical_files/categorical_28_0.png
+.. image:: categorical_files/categorical_27_0.png
 
 
 It's also possible to "split" the violins when the hue parameter has only two levels, which can allow for a more efficient use of space:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="sex",
-                kind="violin", split=True, data=tips)
+    sns.catplot(
+        data=tips, x="day", y="total_bill", hue="sex",
+        kind="violin", split=True,
+    )
 
 
 
-.. image:: categorical_files/categorical_30_0.png
+.. image:: categorical_files/categorical_29_0.png
 
 
 Finally, there are several options for the plot that is drawn on the interior of the violins, including ways to show each individual observation instead of the summary boxplot values:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="sex",
-                kind="violin", inner="stick", split=True,
-                palette="pastel", data=tips)
+    sns.catplot(
+        data=tips, x="day", y="total_bill", hue="sex",
+        kind="violin", inner="stick", split=True, palette="pastel",
+    )
 
 
 
-.. image:: categorical_files/categorical_32_0.png
+.. image:: categorical_files/categorical_31_0.png
 
 
-It can also be useful to combine :func:`swarmplot` or :func:`striplot` with a box plot or violin plot to show each observation along with a summary of the distribution:
+It can also be useful to combine :func:`swarmplot` or :func:`stripplot` with a box plot or violin plot to show each observation along with a summary of the distribution:
 
 .. code:: ipython3
 
-    g = sns.catplot(x="day", y="total_bill", kind="violin", inner=None, data=tips)
-    sns.swarmplot(x="day", y="total_bill", color="k", size=3, data=tips, ax=g.ax)
+    g = sns.catplot(data=tips, x="day", y="total_bill", kind="violin", inner=None)
+    sns.swarmplot(data=tips, x="day", y="total_bill", color="k", size=3, ax=g.ax)
 
 
 
-.. image:: categorical_files/categorical_34_0.png
+.. image:: categorical_files/categorical_33_0.png
 
 
-Statistical estimation within categories
-----------------------------------------
+Estimating central tendency
+---------------------------
 
 For other applications, rather than showing the distribution within each category, you might want to show an estimate of the central tendency of the values. Seaborn has two main ways to show this information. Importantly, the basic API for these functions is identical to that for the ones discussed above.
 
@@ -257,35 +263,48 @@ A familiar style of plot that accomplishes this goal is a bar plot. In seaborn, 
 .. code:: ipython3
 
     titanic = sns.load_dataset("titanic")
-    sns.catplot(x="sex", y="survived", hue="class", kind="bar", data=titanic)
+    sns.catplot(data=titanic, x="sex", y="survived", hue="class", kind="bar")
 
 
 
-.. image:: categorical_files/categorical_36_0.png
+.. image:: categorical_files/categorical_35_0.png
+
+
+The default error bars show 95% confidence intervals, but (starting in
+v0.12), it is possible to select from a number of other representations:
+
+.. code:: ipython3
+
+    sns.catplot(data=titanic, x="age", y="deck", errorbar=("pi", 95), kind="bar")
+
+
+
+.. image:: categorical_files/categorical_37_0.png
 
 
 A special case for the bar plot is when you want to show the number of observations in each category rather than computing a statistic for a second variable. This is similar to a histogram over a categorical, rather than quantitative, variable. In seaborn, it's easy to do so with the :func:`countplot` function:
 
 .. code:: ipython3
 
-    sns.catplot(x="deck", kind="count", palette="ch:.25", data=titanic)
+    sns.catplot(data=titanic, x="deck", kind="count", palette="ch:.25")
 
 
 
-.. image:: categorical_files/categorical_38_0.png
+.. image:: categorical_files/categorical_39_0.png
 
 
 Both :func:`barplot` and :func:`countplot` can be invoked with all of the options discussed above, along with others that are demonstrated in the detailed documentation for each function:
 
 .. code:: ipython3
 
-    sns.catplot(y="deck", hue="class", kind="count",
-                palette="pastel", edgecolor=".6",
-                data=titanic)
+    sns.catplot(
+        data=titanic, y="deck", hue="class", kind="count",
+        palette="pastel", edgecolor=".6",
+    )
 
 
 
-.. image:: categorical_files/categorical_40_0.png
+.. image:: categorical_files/categorical_41_0.png
 
 
 Point plots
@@ -295,97 +314,63 @@ An alternative style for visualizing the same information is offered by the :fun
 
 .. code:: ipython3
 
-    sns.catplot(x="sex", y="survived", hue="class", kind="point", data=titanic)
+    sns.catplot(data=titanic, x="sex", y="survived", hue="class", kind="point")
 
 
 
-.. image:: categorical_files/categorical_42_0.png
+.. image:: categorical_files/categorical_43_0.png
 
 
 While the categorical functions lack the ``style`` semantic of the relational functions, it can still be a good idea to vary the marker and/or linestyle along with the hue to make figures that are maximally accessible and reproduce well in black and white:
 
 .. code:: ipython3
 
-    sns.catplot(x="class", y="survived", hue="sex",
-                palette={"male": "g", "female": "m"},
-                markers=["^", "o"], linestyles=["-", "--"],
-                kind="point", data=titanic)
+    sns.catplot(
+        data=titanic, x="class", y="survived", hue="sex",
+        palette={"male": "g", "female": "m"},
+        markers=["^", "o"], linestyles=["-", "--"],
+        kind="point"
+    )
 
 
 
-.. image:: categorical_files/categorical_44_0.png
+.. image:: categorical_files/categorical_45_0.png
 
 
-Plotting "wide-form" data
--------------------------
-
-While using "long-form" or "tidy" data is preferred, these functions can also by applied to "wide-form" data in a variety of formats, including pandas DataFrames or two-dimensional numpy arrays. These objects should be passed directly to the ``data`` parameter:
-
-.. code:: ipython3
-
-    iris = sns.load_dataset("iris")
-    sns.catplot(data=iris, orient="h", kind="box")
-
-
-
-.. image:: categorical_files/categorical_46_0.png
-
-
-Additionally, the axes-level functions accept vectors of Pandas or numpy objects rather than variables in a ``DataFrame``:
-
-.. code:: ipython3
-
-    sns.violinplot(x=iris.species, y=iris.sepal_length)
-
-
-
-.. image:: categorical_files/categorical_48_0.png
-
-
-To control the size and shape of plots made by the functions discussed above, you must set up the figure yourself using matplotlib commands:
-
-.. code:: ipython3
-
-    f, ax = plt.subplots(figsize=(7, 3))
-    sns.countplot(y="deck", data=titanic, color="c")
-
-
-
-.. image:: categorical_files/categorical_50_0.png
-
-
-This is the approach you should take when you need a categorical figure to happily coexist in a more complex figure with other kinds of plots.
-
-Showing multiple relationships with facets
-------------------------------------------
+Showing additional dimensions
+-----------------------------
 
 Just like :func:`relplot`, the fact that :func:`catplot` is built on a :class:`FacetGrid` means that it is easy to add faceting variables to visualize higher-dimensional relationships:
 
 .. code:: ipython3
 
-    sns.catplot(x="day", y="total_bill", hue="smoker",
-                col="time", aspect=.7,
-                kind="swarm", data=tips)
+    sns.catplot(
+        data=tips, x="day", y="total_bill", hue="smoker",
+        kind="swarm", col="time", aspect=.7,
+    )
 
 
 
-.. image:: categorical_files/categorical_52_0.png
+.. image:: categorical_files/categorical_47_0.png
 
 
 For further customization of the plot, you can use the methods on the :class:`FacetGrid` object that it returns:
 
 .. code:: ipython3
 
-    g = sns.catplot(x="fare", y="survived", row="class",
-                    kind="box", orient="h", height=1.5, aspect=4,
-                    data=titanic.query("fare > 0"))
-    g.set(xscale="log")
+    g = sns.catplot(
+        data=titanic,
+        x="fare", y="embark_town", row="class",
+        kind="box", orient="h",
+        sharex=False, margin_titles=True,
+        height=1.5, aspect=4,
+    )
+    g.set(xlabel="Fare", ylabel="")
+    g.set_titles(row_template="{row_name} class")
+    for ax in g.axes.flat:
+        ax.xaxis.set_major_formatter('${x:.0f}')
 
 
 
-.. image:: categorical_files/categorical_54_0.png
+.. image:: categorical_files/categorical_49_0.png
 
-
-.. raw:: html
-
-    </div>
