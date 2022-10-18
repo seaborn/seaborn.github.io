@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.husl_palette &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.husl_palette &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1158,65 +1200,67 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="seaborn.husl_palette">
 <span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">husl_palette</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.65</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.husl_palette" title="Permalink to this definition">#</a></dt>
-<dd><p>Get a set of evenly spaced colors in HUSL hue space.</p>
-<p>h, s, and l should be between 0 and 1</p>
-<dl class="field-list">
+<dd><p>Return hues with constant lightness and saturation in the HUSL system.</p>
+<p>The hues are evenly sampled along a circular path. The resulting palette will be
+appropriate for categorical or cyclical data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code> values should be between 0 and 1.</p>
+<p>This function is similar to <a class="reference internal" href="seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">hls_palette()</span></code></a>, but it uses a nonlinear color
+space that is more perceptually uniform.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>number of colors in the palette</p>
+<dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>Number of colors in the palette.</p>
 </dd>
-<dt><strong>h</strong><span class="classifier">float</span></dt><dd><p>first hue</p>
+<dt><strong>h</strong><span class="classifier">float</span></dt><dd><p>The value of the first hue.</p>
 </dd>
-<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>saturation</p>
+<dt><strong>l</strong><span class="classifier">float</span></dt><dd><p>The lightness value.</p>
 </dd>
-<dt><strong>l</strong><span class="classifier">float</span></dt><dd><p>lightness</p>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>The saturation intensity.</p>
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a matplotlib colormap object.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>list of RGB tuples or</strong><span class="classifier">class:<code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></span></dt><dd></dd>
+<dd class="field-even"><dl class="simple">
+<dt>palette</dt><dd><p>list of RGB tuples or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.ListedColormap.html#matplotlib.colors.ListedColormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.ListedColormap</span></code></a></p>
+</dd>
 </dl>
 </dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hls_palette</span></code></a></dt><dd><p>Make a palette using evently spaced circular hues in the HSL system.</p>
+<dt><a class="reference internal" href="seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hls_palette</span></code></a></dt><dd><p>Make a palette using evenly spaced hues in the HSL system.</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Create a palette of 10 colors with the default parameters:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<p>By default, return 6 colors with identical lightness and saturation and evenly-sampled hues:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-husl_palette-1.png" class="plot-directive" src="../_images/seaborn-husl_palette-1.png" />
-</figure>
-<p>Create a palette of 10 colors that begins at a different hue value:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">.5</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f77189;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#bb9832;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#50b131;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#36ada4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#3ba3ec;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#e866f4;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Increase the number of colors:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-husl_palette-2.png" class="plot-directive" src="../_images/seaborn-husl_palette-2.png" />
-</figure>
-<p>Create a palette of 10 colors that are darker than the default:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">.4</span><span class="p">))</span>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f77189;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ce9032;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#97a431;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#32b166;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#36ada4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#39a7d0;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a48cf4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f561dd;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Decrease the lightness:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mf">.4</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-husl_palette-3.png" class="plot-directive" src="../_images/seaborn-husl_palette-3.png" />
-</figure>
-<p>Create a palette of 10 colors that are less saturated than the default:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">.4</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#b41c46;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#715b1a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#2d6a1a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#1d6862;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#206290;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#9c23a6;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Decrease the saturation:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mf">.4</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-husl_palette-4.png" class="plot-directive" src="../_images/seaborn-husl_palette-4.png" />
-</figure>
-</dd></dl>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#cb8b94;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ac9a78;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#7ea677;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#7ca4a0;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#819fc1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#be8bc4;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Change the start-point for hue sampling:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#35ada1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#3ba4e4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#df6df4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#f77090;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#c09632;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5faf31;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Return a continuous colormap:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">husl_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="hsl color map" title="hsl"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACR0lEQVR4nO3VW3KjShAE0Gxhe16bvcuYDc/LFuJ+0EBLw0TY9X1OhIJ0NQIhZLL9/O/7kiTJvG7anOSabdbalq/Jnt+Obdvya9Jee/6T5Hc/3s+k/VqPcOlHnZJ5y5clc9tyctvm7T4nya2tr4/kbdsv8q/1cX66b8/L8L5l3H9cz/uPcTtZf2/e3j9+L/3uZX7Iyfr3lq/tuLvXlrz1+VuO/Nq3v9v6SpIfSV7bS7+Qr0m+9KN8SrLO2/LcZ89Jnnp+SpYtT2mZ9pw99xu9TEfO5S63fZ9xvZ3s2+7zMs6T9rh+d4ztBj/OH/c9csul73+2z+PnHNaXS+4/08n5lrNjPOakLeM1jdfxnu/w+O7b3X047lNbel6Oezr12bcl+dJ/7J+X5FPPL7fkpefnYTvmp56fhvm0zW7H+rQ85NuRp5P37bN35n12G44xzudh3vM+m5PpuuWlPz+zPivb+Ezt27vZmlubk7b9h4/7jLOP5Nt+jpZ/rG/nWJ8kJ+c7W5+zP/v7+vZLAoAPUSAAlCgQAEoUCAAlCgSAEgUCQIkCAaBEgQBQokAAKFEgAJQoEABKFAgAJQoEgBIFAkCJAgGgRIEAUKJAAChRIACUKBAAShQIACUKBIASBQJAiQIBoESBAFCiQAAoUSAAlCgQAEoUCAAlCgSAEgUCQIkCAaBEgQBQokAAKFEgAJQoEABKFAgAJQoEgBIFAkCJAgGgRIEAUKJAAChRIACUKBAAShQIACUKBIASBQJAiQIBoESBAFCiQAAo+R/aZcJUv8KDSwAAAABJRU5ErkJggg=="></dd></dl>
 
 </section>
 
@@ -1254,7 +1298,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

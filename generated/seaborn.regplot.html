@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.regplot &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.regplot &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1292,102 +1334,6 @@ function that combines <a class="reference internal" href="#seaborn.regplot" tit
 functions, although these do not directly accept all of <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a>’s
 parameters.</p>
 <p class="rubric">Examples</p>
-<p>Plot the relationship between two variables in a DataFrame:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-1.png" class="plot-directive" src="../_images/seaborn-regplot-1.png" />
-</figure>
-<p>Plot with two variables defined as numpy arrays; use a different color:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">.7</span><span class="p">),</span> <span class="p">(</span><span class="mf">.7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-2.png" class="plot-directive" src="../_images/seaborn-regplot-2.png" />
-</figure>
-<p>Plot with two variables defined as pandas Series; use a different marker:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x_var&quot;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y_var&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-3.png" class="plot-directive" src="../_images/seaborn-regplot-3.png" />
-</figure>
-<p>Use a 68% confidence interval, which corresponds with the standard error
-of the estimate, and extend the regression line to the axis limits:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-4.png" class="plot-directive" src="../_images/seaborn-regplot-4.png" />
-</figure>
-<p>Plot with a discrete <code class="docutils literal notranslate"><span class="pre">x</span></code> variable and add some jitter:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x_jitter</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-5.png" class="plot-directive" src="../_images/seaborn-regplot-5.png" />
-</figure>
-<p>Plot with a discrete <code class="docutils literal notranslate"><span class="pre">x</span></code> variable showing means and confidence intervals
-for unique values:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-6.png" class="plot-directive" src="../_images/seaborn-regplot-6.png" />
-</figure>
-<p>Plot with a continuous variable divided into discrete bins:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">x_bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-7.png" class="plot-directive" src="../_images/seaborn-regplot-7.png" />
-</figure>
-<p>Fit a higher-order polynomial regression:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ans</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;anscombe&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;II&quot;</span><span class="p">],</span>
-<span class="gp">... </span>                 <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
-<span class="gp">... </span>                 <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-8.png" class="plot-directive" src="../_images/seaborn-regplot-8.png" />
-</figure>
-<p>Fit a robust regression and don’t plot a confidence interval:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ans</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">],</span>
-<span class="gp">... </span>                 <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
-<span class="gp">... </span>                 <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-9.png" class="plot-directive" src="../_images/seaborn-regplot-9.png" />
-</figure>
-<p>Fit a logistic regression; jitter the y variable and use fewer bootstrap
-iterations:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;big_tip&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">tip</span> <span class="o">/</span> <span class="n">tips</span><span class="o">.</span><span class="n">total_bill</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">.175</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;big_tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">logistic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_boot</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">y_jitter</span><span class="o">=</span><span class="mf">.03</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-10.png" class="plot-directive" src="../_images/seaborn-regplot-10.png" />
-</figure>
-<p>Fit the regression model using log(x):</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">logx</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-regplot-11.png" class="plot-directive" src="../_images/seaborn-regplot-11.png" />
-</figure>
 </dd></dl>
 
 </section>
@@ -1426,7 +1372,7 @@ iterations:</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

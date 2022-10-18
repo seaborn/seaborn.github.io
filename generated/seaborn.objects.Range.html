@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Range &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.objects.Range &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="seaborn.objects.Bar" href="seaborn.objects.Bar.html" />
-    <link rel="prev" title="seaborn.objects.Paths" href="seaborn.objects.Paths.html" />
+    <link rel="prev" title="seaborn.objects.Dash" href="seaborn.objects.Dash.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -421,6 +441,11 @@
    seaborn.objects.Paths
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    seaborn.objects.Range
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1178,7 +1220,7 @@
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Est</span><span class="p">(</span><span class="n">errorbar</span><span class="o">=</span><span class="s2">&quot;pi&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Est</span><span class="p">(</span><span class="n">errorbar</span><span class="o">=</span><span class="s2">&quot;sd&quot;</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1186,18 +1228,25 @@
 <p>It’s also possible to directly assign the minimum and maximum values for the range:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">penguins</span>
-    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;penguin&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;penguin&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">so</span><span class="o">.</span><span class="n">Continuous</span><span class="p">()</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="o">.</span><span class="n">share</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Size (mm)&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;penguin&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;penguin&quot;</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;island&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Range_5_0.png"><img alt="../_images/objects.Range_5_0.png" src="../_images/objects.Range_5_0.png" style="width: 748.0px; height: 313.22499999999997px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Range_5_0.png"><img alt="../_images/objects.Range_5_0.png" src="../_images/objects.Range_5_0.png" style="width: 620.0749999999999px; height: 378.25px;" /></a>
+<p>When <code class="docutils literal notranslate"><span class="pre">min</span></code>/<code class="docutils literal notranslate"><span class="pre">max</span></code> variables are neither computed as part of a
+transform or explicitly assigned, the range will cover the full extent
+of the data at each unique observation on the orient axis:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">(</span><span class="n">pointsize</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Range_7_0.png"><img alt="../_images/objects.Range_7_0.png" src="../_images/objects.Range_7_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 </dd></dl>
 
 </section>
@@ -1236,7 +1285,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

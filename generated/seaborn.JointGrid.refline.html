@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.JointGrid.refline &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.JointGrid.refline &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1166,12 +1208,12 @@
 </dd>
 <dt><strong>joint, marginal</strong><span class="classifier">bools</span></dt><dd><p>Whether to add the reference line(s) to the joint/marginal axes.</p>
 </dd>
-<dt><strong>color</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/colors_api.html#module-matplotlib.colors" title="(in Matplotlib v3.5.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib</span> <span class="pre">color</span></code></a></span></dt><dd><p>Specifies the color of the reference line(s).</p>
+<dt><strong>color</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/colors_api.html#module-matplotlib.colors" title="(in Matplotlib v3.6.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib</span> <span class="pre">color</span></code></a></span></dt><dd><p>Specifies the color of the reference line(s).</p>
 </dd>
 <dt><strong>linestyle</strong><span class="classifier">str</span></dt><dd><p>Specifies the style of the reference line(s).</p>
 </dd>
-<dt><strong>line_kws</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axvline.html#matplotlib.axes.Axes.axvline" title="(in Matplotlib v3.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.axvline()</span></code></a>
-when <code class="docutils literal notranslate"><span class="pre">x</span></code> is not None and <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axhline.html#matplotlib.axes.Axes.axhline" title="(in Matplotlib v3.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.axhline()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">y</span></code>
+<dt><strong>line_kws</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axvline.html#matplotlib.axes.Axes.axvline" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.axvline()</span></code></a>
+when <code class="docutils literal notranslate"><span class="pre">x</span></code> is not None and <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axhline.html#matplotlib.axes.Axes.axhline" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.axhline()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">y</span></code>
 is not None.</p>
 </dd>
 </dl>
@@ -1221,7 +1263,7 @@ is not None.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

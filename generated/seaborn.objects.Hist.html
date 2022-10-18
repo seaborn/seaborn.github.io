@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Hist &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.objects.Hist &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -45,8 +45,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="seaborn.objects.PolyFit" href="seaborn.objects.PolyFit.html" />
-    <link rel="prev" title="seaborn.objects.Est" href="seaborn.objects.Est.html" />
+    <link rel="next" title="seaborn.objects.Perc" href="seaborn.objects.Perc.html" />
+    <link rel="prev" title="seaborn.objects.Count" href="seaborn.objects.Count.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -451,6 +476,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
@@ -462,9 +494,19 @@
    seaborn.objects.Est
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1159,6 +1201,107 @@
 <dt class="sig sig-object py" id="seaborn.objects.Hist">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'count'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Hist" title="Permalink to this definition">#</a></dt>
 <dd><p>Bin observations, count them, and optionally normalize or cumulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>stat</strong><span class="classifier">str</span></dt><dd><p>Aggregate statistic to compute in each bin:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>: the number of observations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">density</span></code>: normalize so that the total area of the histogram equals 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code>: normalize so that bar heights sum to 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probability</span></code> or <code class="docutils literal notranslate"><span class="pre">proportion</span></code>: normalize so that bar heights sum to 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code>: divide the number of observations by the bin width</p></li>
+</ul>
+</dd>
+<dt><strong>bins</strong><span class="classifier">str, int, or ArrayLike</span></dt><dd><p>Generic parameter that can be the name of a reference rule, the number
+of bins, or the bin breaks. Passed to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges()</span></code></a>.</p>
+</dd>
+<dt><strong>binwidth</strong><span class="classifier">float</span></dt><dd><p>Width of each bin; overrides <code class="docutils literal notranslate"><span class="pre">bins</span></code> but can be used with <code class="docutils literal notranslate"><span class="pre">binrange</span></code>.</p>
+</dd>
+<dt><strong>binrange</strong><span class="classifier">(min, max)</span></dt><dd><p>Lowest and highest value for bin edges; can be used with either
+<code class="docutils literal notranslate"><span class="pre">bins</span></code> (when a number) or <code class="docutils literal notranslate"><span class="pre">binwidth</span></code>. Defaults to data extremes.</p>
+</dd>
+<dt><strong>common_norm</strong><span class="classifier">bool or list of variables</span></dt><dd><p>When not <code class="docutils literal notranslate"><span class="pre">False</span></code>, the normalization is applied across groups. Use
+<code class="docutils literal notranslate"><span class="pre">True</span></code> to normalize across all groups, or pass variable name(s) that
+define normalization groups.</p>
+</dd>
+<dt><strong>common_bins</strong><span class="classifier">bool or list of variables</span></dt><dd><p>When not <code class="docutils literal notranslate"><span class="pre">False</span></code>, the same bins are used for all groups. Use <code class="docutils literal notranslate"><span class="pre">True</span></code> to
+share bins across all groups, or pass variable name(s) to share within.</p>
+</dd>
+<dt><strong>cumulative</strong><span class="classifier">bool</span></dt><dd><p>If True, cumulate the bin values.</p>
+</dd>
+<dt><strong>discrete</strong><span class="classifier">bool</span></dt><dd><p>If True, set <code class="docutils literal notranslate"><span class="pre">binwidth</span></code> and <code class="docutils literal notranslate"><span class="pre">binrange</span></code> so that bins have unit width and
+are centered on integer values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The choice of bins for computing and plotting a histogram can exert
+substantial influence on the insights that one is able to draw from the
+visualization. If the bins are too large, they may erase important features.
+On the other hand, bins that are too small may be dominated by random
+variability, obscuring the shape of the true underlying distribution. The
+default bin size is determined using a reference rule that depends on the
+sample size and variance. This works well in many cases, (i.e., with
+“well-behaved” data) but it fails in others. It is always a good to try
+different bin sizes to be sure that you are not missing something important.
+This function allows you to specify bins in several different ways, such as
+by setting the total number of bins to use, the width of each bin, or the
+specific locations where the bins should break.</p>
+<p class="rubric">Examples</p>
+<p>For discrete or categorical variables, this stat is commonly combined with a <a class="reference internal" href="seaborn.objects.Bar.html#seaborn.objects.Bar" title="seaborn.objects.Bar"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bar</span></code></a> mark:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="s2">&quot;island&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_1_0.png"><img alt="../_images/objects.Hist_1_0.png" src="../_images/objects.Hist_1_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>When used to estimate a univariate distribution, it is better to use the <a class="reference internal" href="seaborn.objects.Bars.html#seaborn.objects.Bars" title="seaborn.objects.Bars"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bars</span></code></a> mark:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_3_0.png"><img alt="../_images/objects.Hist_3_0.png" src="../_images/objects.Hist_3_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>The granularity of the bins will influence whether the underlying distribution is accurately represented. Adjust it by setting the total number:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_5_0.png"><img alt="../_images/objects.Hist_5_0.png" src="../_images/objects.Hist_5_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>Alternatively, specify the <em>width</em> of the bins:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_7_0.png"><img alt="../_images/objects.Hist_7_0.png" src="../_images/objects.Hist_7_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>By default, the transform returns the count of observations in each bin. The counts can be normalized, e.g. to show a proportion:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_9_0.png"><img alt="../_images/objects.Hist_9_0.png" src="../_images/objects.Hist_9_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>When additional variables define groups, the default behavior is to normalize across all groups:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;island&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_11_0.png"><img alt="../_images/objects.Hist_11_0.png" src="../_images/objects.Hist_11_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">common_norm=False</span></code> to normalize each distribution independently:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_13_0.png"><img alt="../_images/objects.Hist_13_0.png" src="../_images/objects.Hist_13_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>Or, with more than one grouping varible, specify a subset to normalize within:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_15_0.png"><img alt="../_images/objects.Hist_15_0.png" src="../_images/objects.Hist_15_0.png" style="width: 606.05px; height: 378.25px;" /></a>
+<p>When distributions overlap it may be easier to discern their shapes with an <a class="reference internal" href="seaborn.objects.Area.html#seaborn.objects.Area" title="seaborn.objects.Area"><code class="xref py py-class docutils literal notranslate"><span class="pre">Area</span></code></a> mark:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_17_0.png"><img alt="../_images/objects.Hist_17_0.png" src="../_images/objects.Hist_17_0.png" style="width: 606.05px; height: 378.25px;" /></a>
+<p>Or add <a class="reference internal" href="seaborn.objects.Stack.html#seaborn.objects.Stack" title="seaborn.objects.Stack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stack</span></code></a> move to represent a part-whole relationship:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Stack</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Hist_19_0.png"><img alt="../_images/objects.Hist_19_0.png" src="../_images/objects.Hist_19_0.png" style="width: 606.05px; height: 378.25px;" /></a>
 </dd></dl>
 
 </section>
@@ -1197,7 +1340,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

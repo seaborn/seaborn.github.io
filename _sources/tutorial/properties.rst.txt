@@ -146,7 +146,7 @@ They can also be programatically generated using a `(num_sides, fill_style, angl
 
 
 .. image:: properties_files/properties_23_0.png
-   :width: 671.0749999999999px
+   :width: 648.55px
    :height: 70.55px
 
 
@@ -256,10 +256,68 @@ The `stroke` property is akin to `edgewidth` but applies when a dot mark is defi
 
 
 
+Text properties
+---------------
+
+.. _horizontalalignment_property:
+
+.. _verticalalignment_property:
+
+halign, valign
+~~~~~~~~~~~~~~
+
+The `halign` and `valign` properties control the *horizontal* and *vertical* alignment of text marks. The options for horizontal alignment are `'left'`, `'right'`, and `'center'`, while the options for vertical alignment are `'top'`, `'bottom'`, `'center'`, `'baseline'`, and `'center_baseline'`.
+
+
+
+
+.. image:: properties_files/properties_40_0.png
+   :width: 585.225px
+   :height: 76.925px
+
+
+
+.. _fontsize_property:
+
+fontsize
+~~~~~~~~
+
+The `fontsize` property controls the size of textual marks. The value has point units:
+
+
+
+
+.. image:: properties_files/properties_42_0.png
+   :width: 585.225px
+   :height: 70.55px
+
+
+
+.. _offset_property:
+
+offset
+~~~~~~
+
+The `offset` property controls the spacing between a text mark and its anchor position. It applies when *not* using `center` alignment (i.e., when using left/right or top/bottom). The value has point units. 
+
+
+
+
+.. image:: properties_files/properties_44_0.png
+   :width: 585.225px
+   :height: 70.55px
+
+
+
 Other properties
 ----------------
 
 .. _property_property:
+
+text
+~~~~
+
+The `text` property is used to set the content of a textual mark. It is always used literally (not mapped), and cast to string when necessary.
 
 group
 ~~~~~

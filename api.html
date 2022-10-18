@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>API reference &#8212; seaborn 0.12.0 documentation</title>
+    <title>API reference &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="generated/seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="generated/seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="generated/seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1322,7 +1364,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Paths.html#seaborn.objects.Paths" title="seaborn.objects.Paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Paths</span></code></a></p></td>
 <td><p>A faster but less-flexible mark for drawing many paths.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Range.html#seaborn.objects.Range" title="seaborn.objects.Range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Range</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Dash.html#seaborn.objects.Dash" title="seaborn.objects.Dash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dash</span></code></a></p></td>
+<td><p>A line mark drawn as an oriented segment for each datapoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Range.html#seaborn.objects.Range" title="seaborn.objects.Range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Range</span></code></a></p></td>
 <td><p>An oriented line mark drawn between min/max values.</p></td>
 </tr>
 </tbody>
@@ -1349,6 +1394,14 @@
 </tr>
 </tbody>
 </table>
+<p class="rubric">Text marks</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Text.html#seaborn.objects.Text" title="seaborn.objects.Text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text</span></code></a></p></td>
+<td><p>A textual mark to annotate or represent data values.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="stat-objects">
 <h3>Stat objects<a class="headerlink" href="#stat-objects" title="Permalink to this heading">#</a></h3>
@@ -1360,8 +1413,14 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Est.html#seaborn.objects.Est" title="seaborn.objects.Est"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Est</span></code></a></p></td>
 <td><p>Calculate a point estimate and error bar interval.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Hist.html#seaborn.objects.Hist" title="seaborn.objects.Hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hist</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Count.html#seaborn.objects.Count" title="seaborn.objects.Count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Count</span></code></a></p></td>
+<td><p>Count distinct observations within groups.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Hist.html#seaborn.objects.Hist" title="seaborn.objects.Hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hist</span></code></a></p></td>
 <td><p>Bin observations, count them, and optionally normalize or cumulate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Perc.html#seaborn.objects.Perc" title="seaborn.objects.Perc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Perc</span></code></a></p></td>
+<td><p>Replace observations with percentile values.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.PolyFit.html#seaborn.objects.PolyFit" title="seaborn.objects.PolyFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyFit</span></code></a></p></td>
 <td><p>Fit a polynomial of the given order and resample data onto predicted curve.</p></td>
@@ -1377,7 +1436,7 @@
 <td><p>Displacement and narrowing of overlapping marks along orientation axis.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Jitter.html#seaborn.objects.Jitter" title="seaborn.objects.Jitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Jitter</span></code></a></p></td>
-<td><p>Random displacement of marks along either or both axes to reduce overplotting.</p></td>
+<td><p>Random displacement along one or both axes to reduce overplotting.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Norm.html#seaborn.objects.Norm" title="seaborn.objects.Norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Norm</span></code></a></p></td>
 <td><p>Divisive scaling on the value axis after aggregating within groups.</p></td>
@@ -1618,10 +1677,10 @@
 <td><p>Return a list of colors or continuous colormap defining a palette.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.husl_palette.html#seaborn.husl_palette" title="seaborn.husl_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">husl_palette</span></code></a></p></td>
-<td><p>Get a set of evenly spaced colors in HUSL hue space.</p></td>
+<td><p>Return hues with constant lightness and saturation in the HUSL system.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.hls_palette.html#seaborn.hls_palette" title="seaborn.hls_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hls_palette</span></code></a></p></td>
-<td><p>Get a set of evenly spaced colors in HLS hue space.</p></td>
+<td><p>Return hues with constant lightness and saturation in the HLS system.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.cubehelix_palette.html#seaborn.cubehelix_palette" title="seaborn.cubehelix_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cubehelix_palette</span></code></a></p></td>
 <td><p>Make a sequential palette from the cubehelix system.</p></td>
@@ -1645,7 +1704,7 @@
 <td><p>Make a palette with color names from Crayola crayons.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.mpl_palette.html#seaborn.mpl_palette" title="seaborn.mpl_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mpl_palette</span></code></a></p></td>
-<td><p>Return discrete colors from a matplotlib palette.</p></td>
+<td><p>Return a palette or colormap from the matplotlib registry.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1739,7 +1798,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

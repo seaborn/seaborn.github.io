@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Stack &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.objects.Stack &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1159,6 +1201,21 @@
 <dt class="sig sig-object py" id="seaborn.objects.Stack">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><a class="headerlink" href="#seaborn.objects.Stack" title="Permalink to this definition">#</a></dt>
 <dd><p>Displacement of overlapping bar or area marks along the value axis.</p>
+<p class="rubric">Examples</p>
+<p>This transform applies a vertical shift to eliminate overlap between marks with a baseline, such as <a class="reference internal" href="seaborn.objects.Bar.html#seaborn.objects.Bar" title="seaborn.objects.Bar"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bar</span></code></a> or <a class="reference internal" href="seaborn.objects.Area.html#seaborn.objects.Area" title="seaborn.objects.Area"><code class="xref py py-class docutils literal notranslate"><span class="pre">Area</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Count</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Stack</span><span class="p">())</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Stack_1_0.png"><img alt="../_images/objects.Stack_1_0.png" src="../_images/objects.Stack_1_0.png" style="width: 601.8px; height: 378.25px;" /></a>
+<p>Stacking can make it much harder to compare values between groups that get shifted, but it can work well when depicting a part-whole relationship:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bars</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="n">binwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Stack</span><span class="p">())</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Stack_3_0.png"><img alt="../_images/objects.Stack_3_0.png" src="../_images/objects.Stack_3_0.png" style="width: 583.9499999999999px; height: 378.25px;" /></a>
 </dd></dl>
 
 </section>
@@ -1197,7 +1254,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

@@ -572,28 +572,6 @@ As with :func:`jointplot`/:class:`JointGrid`, using the underlying :class:`PairG
     g.map_diag(sns.histplot, kde=True)
 
 
-.. parsed-literal::
 
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-    /Users/mwaskom/code/seaborn/seaborn/axisgrid.py:236: UserWarning: Legend does not support handles for QuadMesh instances.
-    See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
-      handles, labels = ax.get_legend_handles_labels()
-
-
-
-.. image:: distributions_files/distributions_92_1.png
+.. image:: distributions_files/distributions_92_0.png
 

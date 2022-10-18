@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.heatmap &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.heatmap &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1189,7 +1231,7 @@ of the data. Note that DataFrames will match on position, not index.</p>
 </dd>
 <dt><strong>fmt</strong><span class="classifier">str, optional</span></dt><dd><p>String formatting code to use when adding annotations.</p>
 </dd>
-<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
+<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
 is True.</p>
 </dd>
 <dt><strong>linewidths</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the lines that will divide each cell.</p>
@@ -1198,7 +1240,7 @@ is True.</p>
 </dd>
 <dt><strong>cbar</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to draw a colorbar.</p>
 </dd>
-<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
+<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
 </dd>
 <dt><strong>cbar_ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes in which to draw the colorbar, otherwise take space from the
 main Axes.</p>
@@ -1218,7 +1260,7 @@ Cells with missing values are automatically masked.</p>
 Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -1237,106 +1279,58 @@ Axes.</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Plot a heatmap for a numpy array:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">uniform_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">uniform_data</span><span class="p">)</span>
+<p>Pass a <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code> to plot with indices as row/column labels:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;glue&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Task&quot;</span><span class="p">,</span> <span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-1.png" class="plot-directive" src="../_images/seaborn-heatmap-1.png" />
-</figure>
-<p>Change the limits of the colormap:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">uniform_data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_35404</span><span class="o">/</span><span class="mf">2862412127.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span> <span class="n">of</span> <span class="n">pandas</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">keyword</span><span class="o">-</span><span class="n">only</span><span class="o">.</span>
+  <span class="n">glue</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;glue&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Task&quot;</span><span class="p">,</span> <span class="s2">&quot;Score&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-2.png" class="plot-directive" src="../_images/seaborn-heatmap-2.png" />
-</figure>
-<p>Plot a heatmap for data centered on 0 with a diverging colormap:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<img alt="../_images/heatmap_1_1.png" src="../_images/heatmap_1_1.png" />
+<p>Use <code class="docutils literal notranslate"><span class="pre">annot</span></code> to represent the cell values with text:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-3.png" class="plot-directive" src="../_images/seaborn-heatmap-3.png" />
-</figure>
-<p>Plot a dataframe with meaningful row and column labels:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flights</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;flights&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">flights</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">)</span>
+<img alt="../_images/heatmap_3_0.png" src="../_images/heatmap_3_0.png" />
+<p>Control the annotations with a formatting string:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-4.png" class="plot-directive" src="../_images/seaborn-heatmap-4.png" />
-</figure>
-<p>Annotate each cell with the numeric value using integer formatting:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<img alt="../_images/heatmap_5_0.png" src="../_images/heatmap_5_0.png" />
+<p>Use a separate dataframe for the annotations:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">glue</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-5.png" class="plot-directive" src="../_images/seaborn-heatmap-5.png" />
-</figure>
-<p>Add lines between each cell:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<img alt="../_images/heatmap_7_0.png" src="../_images/heatmap_7_0.png" />
+<p>Add lines between cells:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-6.png" class="plot-directive" src="../_images/seaborn-heatmap-6.png" />
-</figure>
-<p>Use a different colormap:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
+<img alt="../_images/heatmap_9_0.png" src="../_images/heatmap_9_0.png" />
+<p>Select a different colormap by name:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;crest&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-7.png" class="plot-directive" src="../_images/seaborn-heatmap-7.png" />
-</figure>
-<p>Center the colormap at a specific value:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">flights</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="mi">1955</span><span class="p">])</span>
+<img alt="../_images/heatmap_11_0.png" src="../_images/heatmap_11_0.png" />
+<p>Or pass a colormap object:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-8.png" class="plot-directive" src="../_images/seaborn-heatmap-8.png" />
-</figure>
-<p>Plot every other column label and don’t plot row labels:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<img alt="../_images/heatmap_13_0.png" src="../_images/heatmap_13_0.png" />
+<p>Set the colormap norm (data values corresponding to minimum and maximum points):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-9.png" class="plot-directive" src="../_images/seaborn-heatmap-9.png" />
-</figure>
-<p>Don’t draw a colorbar:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<img alt="../_images/heatmap_15_0.png" src="../_images/heatmap_15_0.png" />
+<p>Use methods on the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object to tweak the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-10.png" class="plot-directive" src="../_images/seaborn-heatmap-10.png" />
-</figure>
-<p>Use different axes for the colorbar:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid_kws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;height_ratios&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.05</span><span class="p">),</span> <span class="s2">&quot;hspace&quot;</span><span class="p">:</span> <span class="mf">.3</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">cbar_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="n">grid_kws</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">flights</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">cbar_ax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">,</span>
-<span class="gp">... </span>                 <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">})</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-11.png" class="plot-directive" src="../_images/seaborn-heatmap-11.png" />
-</figure>
-<p>Use a mask to plot only part of a matrix</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="gp">... </span>    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">.3</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/seaborn-heatmap-12.png" class="plot-directive" src="../_images/seaborn-heatmap-12.png" />
-</figure>
+<img alt="../_images/heatmap_17_0.png" src="../_images/heatmap_17_0.png" />
 </dd></dl>
 
 </section>
@@ -1375,7 +1369,7 @@ Axes.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

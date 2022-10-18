@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Properties of Mark objects &#8212; seaborn 0.12.0 documentation</title>
+    <title>Properties of Mark objects &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -506,10 +526,37 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-properties">
+   Text properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halign-valign">
+     halign, valign
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fontsize">
+     fontsize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#offset">
+     offset
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-properties">
    Other properties
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text">
+     text
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#group">
      group
@@ -593,11 +640,11 @@
 </section>
 <section id="marker">
 <span id="marker-property"></span><h3>marker<a class="headerlink" href="#marker" title="Permalink to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">marker</span></code> property is relevant for dot marks and some line marks. The API for specifying markers is very flexible, as detailed in the matplotlib API docs: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.5.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">marker</span></code> property is relevant for dot marks and some line marks. The API for specifying markers is very flexible, as detailed in the matplotlib API docs: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.6.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
 <p>Markers can be specified using a number of simple string codes:</p>
 <a class="reference internal image-reference" href="../_images/properties_21_0.png"><img alt="../_images/properties_21_0.png" src="../_images/properties_21_0.png" style="width: 648.55px; height: 70.55px;" /></a>
 <p>They can also be programatically generated using a <code class="docutils literal notranslate"><span class="pre">(num_sides,</span> <span class="pre">fill_style,</span> <span class="pre">angle)</span></code> tuple:</p>
-<a class="reference internal image-reference" href="../_images/properties_23_0.png"><img alt="../_images/properties_23_0.png" src="../_images/properties_23_0.png" style="width: 671.0749999999999px; height: 70.55px;" /></a>
+<a class="reference internal image-reference" href="../_images/properties_23_0.png"><img alt="../_images/properties_23_0.png" src="../_images/properties_23_0.png" style="width: 648.55px; height: 70.55px;" /></a>
 <p>See the matplotlib docs for additional formats, including mathtex character codes (<code class="docutils literal notranslate"><span class="pre">'$...$'</span></code>) and arrays of vertices.</p>
 <p>A marker property is always mapped with a nominal scale; there is no inherent ordering to the different shapes. If no scale is provided, the plot will programmatically generate a suitably large set of unique markers:</p>
 <a class="reference internal image-reference" href="../_images/properties_25_0.png"><img alt="../_images/properties_25_0.png" src="../_images/properties_25_0.png" style="width: 648.55px; height: 70.55px;" /></a>
@@ -638,10 +685,32 @@
 <a class="reference internal image-reference" href="../_images/properties_37_0.png"><img alt="../_images/properties_37_0.png" src="../_images/properties_37_0.png" style="width: 585.225px; height: 70.55px;" /></a>
 </section>
 </section>
+<section id="text-properties">
+<h2>Text properties<a class="headerlink" href="#text-properties" title="Permalink to this heading">#</a></h2>
+<section id="halign-valign">
+<span id="verticalalignment-property"></span><span id="horizontalalignment-property"></span><h3>halign, valign<a class="headerlink" href="#halign-valign" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">halign</span></code> and <code class="docutils literal notranslate"><span class="pre">valign</span></code> properties control the <em>horizontal</em> and <em>vertical</em> alignment of text marks. The options for horizontal alignment are <code class="docutils literal notranslate"><span class="pre">'left'</span></code>, <code class="docutils literal notranslate"><span class="pre">'right'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'center'</span></code>, while the options for vertical alignment are <code class="docutils literal notranslate"><span class="pre">'top'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bottom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'center'</span></code>, <code class="docutils literal notranslate"><span class="pre">'baseline'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'center_baseline'</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/properties_40_0.png"><img alt="../_images/properties_40_0.png" src="../_images/properties_40_0.png" style="width: 585.225px; height: 76.925px;" /></a>
+</section>
+<section id="fontsize">
+<span id="fontsize-property"></span><h3>fontsize<a class="headerlink" href="#fontsize" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> property controls the size of textual marks. The value has point units:</p>
+<a class="reference internal image-reference" href="../_images/properties_42_0.png"><img alt="../_images/properties_42_0.png" src="../_images/properties_42_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+<section id="offset">
+<span id="offset-property"></span><h3>offset<a class="headerlink" href="#offset" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">offset</span></code> property controls the spacing between a text mark and its anchor position. It applies when <em>not</em> using <code class="docutils literal notranslate"><span class="pre">center</span></code> alignment (i.e., when using left/right or top/bottom). The value has point units.</p>
+<a class="reference internal image-reference" href="../_images/properties_44_0.png"><img alt="../_images/properties_44_0.png" src="../_images/properties_44_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+</section>
 <section id="other-properties">
 <h2>Other properties<a class="headerlink" href="#other-properties" title="Permalink to this heading">#</a></h2>
+<section id="text">
+<span id="property-property"></span><h3>text<a class="headerlink" href="#text" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">text</span></code> property is used to set the content of a textual mark. It is always used literally (not mapped), and cast to string when necessary.</p>
+</section>
 <section id="group">
-<span id="property-property"></span><h3>group<a class="headerlink" href="#group" title="Permalink to this heading">#</a></h3>
+<h3>group<a class="headerlink" href="#group" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> property is special in that it does not change anything about the mark’s appearance but defines additional data subsets that transforms should operate on independently.</p>
 </section>
 </section>
@@ -681,7 +750,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

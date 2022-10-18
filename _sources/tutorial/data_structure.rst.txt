@@ -642,8 +642,14 @@ Many pandas operations, such as the split-apply-combine operations of a group-by
     sns.relplot(data=flights_avg, x="year", y="passengers", kind="line")
 
 
+.. parsed-literal::
 
-.. image:: data_structure_files/data_structure_30_0.png
+    /var/folders/qk/cdrdfhfn5g554pnb30pp4ylr0000gn/T/ipykernel_35039/885836857.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+      flights_avg = flights.groupby("year").mean()
+
+
+
+.. image:: data_structure_files/data_structure_30_1.png
 
 
 Additionally, it's possible to pass vectors of data directly as arguments to ``x``, ``y``, and other plotting variables. If these vectors are pandas objects, the ``name`` attribute will be used to label the plot:

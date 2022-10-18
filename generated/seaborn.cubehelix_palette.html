@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.cubehelix_palette &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.cubehelix_palette &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1166,19 +1208,18 @@ also available as a matplotlib-based palette, but this function gives the
 user more control over the look of the palette and has a different set of
 defaults.</p>
 <p>In addition to using this function, it is also possible to generate a
-cubehelix palette generally in seaborn using a string-shorthand; see the
-example below.</p>
-<dl class="field-list">
+cubehelix palette generally in seaborn using a string starting with
+<code class="docutils literal notranslate"><span class="pre">ch:</span></code> and containing other parameters (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;ch:s=.25,r=-.5&quot;</span></code>).</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>Number of colors in the palette.</p>
 </dd>
-<dt><strong>start</strong><span class="classifier">float, 0 &lt;= start &lt;= 3</span></dt><dd><p>The hue at the start of the helix.</p>
+<dt><strong>start</strong><span class="classifier">float, 0 &lt;= start &lt;= 3</span></dt><dd><p>The hue value at the start of the helix.</p>
 </dd>
 <dt><strong>rot</strong><span class="classifier">float</span></dt><dd><p>Rotations around the hue wheel over the range of the palette.</p>
 </dd>
-<dt><strong>gamma</strong><span class="classifier">float 0 &lt;= gamma</span></dt><dd><p>Gamma factor to emphasize darker (gamma &lt; 1) or lighter (gamma &gt; 1)
-colors.</p>
+<dt><strong>gamma</strong><span class="classifier">float 0 &lt;= gamma</span></dt><dd><p>Nonlinearity to emphasize dark (gamma &lt; 1) or light (gamma &gt; 1) colors.</p>
 </dd>
 <dt><strong>hue</strong><span class="classifier">float, 0 &lt;= hue &lt;= 1</span></dt><dd><p>Saturation of the colors.</p>
 </dd>
@@ -1188,13 +1229,14 @@ colors.</p>
 </dd>
 <dt><strong>reverse</strong><span class="classifier">bool</span></dt><dd><p>If True, the palette will go from dark to light.</p>
 </dd>
-<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a>.</p>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.ListedColormap.html#matplotlib.colors.ListedColormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.ListedColormap</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>list of RGB tuples or</strong><span class="classifier">class:<code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></span></dt><dd></dd>
+<dd class="field-even"><dl class="simple">
+<dt>palette</dt><dd><p>list of RGB tuples or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.ListedColormap.html#matplotlib.colors.ListedColormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.ListedColormap</span></code></a></p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -1214,61 +1256,47 @@ colors.</p>
 intensity images”. Bulletin of the Astromical Society of India, Vol. 39,
 p. 289-295.</p>
 <p class="rubric">Examples</p>
-<p>Generate the default palette:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">())</span>
+<p>Return a discrete palette with default parameters:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-1.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-1.png" />
-</figure>
-<p>Rotate backwards from the same starting location:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">rot</span><span class="o">=-</span><span class="mf">.4</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#edd1cb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#daa4ac;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#bd7a98;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#945785;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#613969;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#2d1e3e;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Increase the number of colors:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-2.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-2.png" />
-</figure>
-<p>Use a different starting point and shorter rotation:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mf">.1</span><span class="p">))</span>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#edd1cb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#e1b1b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#cf91a3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#b77495;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#9a5b88;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#774576;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#52315f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#2d1e3e;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Return a continuous colormap rather than a discrete palette:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-3.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-3.png" />
-</figure>
-<p>Reverse the direction of the lightness ramp:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABxElEQVR4nO3VQXbbMAwFQLT3v1lXPUivAHahqCFpKnH/embjmAJJQM8v/8ef379GVVX19VFVNca4/1jXPmrGtH7XLGs9zjX9cO78/ammqmpMz9+9+y7be/h4sJVea8c51++ffc5bp339sD6dt6+NPs80truvOV9r7n3/V3voc+r9s5+1bpz6P870cMdhpn3tuzuWc/vcZ7/b58Pd/c388zl9nPOhtta1/b71jPNM6/5zD11fzz3P97T+b61Ov83zO+4xatTa6PUv5PWMU21v723et840lufz2nxmL+/osL/2mc41+292Pnc+Zz/j7mc9t1/fRT312W/02cvc+ww9/eq+uuPq87V27fN6/rMAICBAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABIPIXdvLG+cgzw6cAAAAASUVORK5CYII="><p>Change the starting point of the helix:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-4.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-4.png" />
-</figure>
-<p>Generate a colormap object:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#d8d5f2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#a7b5dc;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#7399b8;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#467d88;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#255b52;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#0f3222;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Change the amount of rotation in the helix:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-5.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-5.png" />
-</figure>
-<p>Use the full lightness range:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#eccde5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#d0a2cf;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#ab7db6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#825c98;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#543d71;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#28203f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Rotate in the reverse direction:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">rot</span><span class="o">=-</span><span class="mf">.2</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-6.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-6.png" />
-</figure>
-<p>Use through the <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a> interface:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;ch:2,r=.2,l=.6&quot;</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#c4e1e5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#96c0cf;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#719ab6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#547398;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#3a4b71;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#20243f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Apply a nonlinearity to the luminance ramp:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-cubehelix_palette-7.png" class="plot-directive" src="../_images/seaborn-cubehelix_palette-7.png" />
-</figure>
-</dd></dl>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f7e7e3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#efccd1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#e1afc6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#ca92bd;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#a575af;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#6f548f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Increase the saturation of the colors:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">hue</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f3cfc8;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#e49faa;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#c8749a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#9d518b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#663471;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#2e1c44;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Change the luminance at the start and end points:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">dark</span><span class="o">=</span><span class="mf">.25</span><span class="p">,</span> <span class="n">light</span><span class="o">=</span><span class="mf">.75</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#e1b1b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#cf91a3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#b77495;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#9a5b88;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#774576;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#52315f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Reverse the direction of the luminance ramp:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">cubehelix_palette</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#2d1e3e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#613969;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#945785;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#bd7a98;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#daa4ac;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#edd1cb;stroke-width:2;stroke:rgb(255,255,255)"/></svg></dd></dl>
 
 </section>
 
@@ -1306,7 +1334,7 @@ p. 289-295.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

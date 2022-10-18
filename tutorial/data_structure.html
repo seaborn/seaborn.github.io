@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Data structures accepted by seaborn &#8212; seaborn 0.12.0 documentation</title>
+    <title>Data structures accepted by seaborn &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -737,7 +757,7 @@
 </pre></div>
 </div>
 <img alt="../_images/data_structure_17_0.png" src="../_images/data_structure_17_0.png" />
-<p>When using pandas to represent wide-form data, you are limited to just a few variables (no more than three). This is because seaborn does not make use of multi-index information, which is how pandas represents additional variables in a tabular format. The <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> project offers labeled N-dimensional array objects, which can be considered a generalization of wide-form data to higher dimensions. At present, seaborn does not directly support objects from <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, but they can be transformed into a long-form <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method and then plotted in seaborn like any other long-form data set.</p>
+<p>When using pandas to represent wide-form data, you are limited to just a few variables (no more than three). This is because seaborn does not make use of multi-index information, which is how pandas represents additional variables in a tabular format. The <a class="reference external" href="http://xarray.pydata.org/en/stable/">xarray</a> project offers labeled N-dimensional array objects, which can be considered a generalization of wide-form data to higher dimensions. At present, seaborn does not directly support objects from <code class="docutils literal notranslate"><span class="pre">xarray</span></code>, but they can be transformed into a long-form <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method and then plotted in seaborn like any other long-form data set.</p>
 <p>In summary, we can think of long-form and wide-form datasets as looking something like this:</p>
 <img alt="../_images/data_structure_19_0.png" src="../_images/data_structure_19_0.png" />
 </section>
@@ -937,7 +957,7 @@
   </tbody>
 </table>
 </div><p>The attention variable is <em>between-subjects</em>, but there is also a <em>within-subjects</em> variable: the number of possible solutions to the anagrams, which varied from 1 to 3. The dependent measure is a score of memory performance. These two variables (number and score) are jointly encoded across several columns. As a result, the whole dataset is neither clearly long-form nor clearly wide-form.</p>
-<p>How might we tell seaborn to plot the average score as a function of attention and number of solutions? We’d first need to coerce the data into one of our two structures. Let’s transform it to a tidy long-form table, such that each variable is a column and each row is an observation. We can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="(in pandas v1.4.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.melt()</span></code></a> to accomplish this task:</p>
+<p>How might we tell seaborn to plot the average score as a function of attention and number of solutions? We’d first need to coerce the data into one of our two structures. Let’s transform it to a tidy long-form table, such that each variable is a column and each row is an observation. We can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html#pandas.DataFrame.melt" title="(in pandas v1.5.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.melt()</span></code></a> to accomplish this task:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anagrams_long</span> <span class="o">=</span> <span class="n">anagrams</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;subidr&quot;</span><span class="p">,</span> <span class="s2">&quot;attnr&quot;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;solutions&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
 <span class="n">anagrams_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1018,7 +1038,7 @@
 </section>
 <section id="options-for-visualizing-long-form-data">
 <h2>Options for visualizing long-form data<a class="headerlink" href="#options-for-visualizing-long-form-data" title="Permalink to this heading">#</a></h2>
-<p>While long-form data has a precise definition, seaborn is fairly flexible in terms of how it is actually organized across the data structures in memory. The examples in the rest of the documentation will typically use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects and reference variables in them by assigning names of their columns to the variables in the plot. But it is also possible to store vectors in a Python dictionary or a class that implements that interface:</p>
+<p>While long-form data has a precise definition, seaborn is fairly flexible in terms of how it is actually organized across the data structures in memory. The examples in the rest of the documentation will typically use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects and reference variables in them by assigning names of their columns to the variables in the plot. But it is also possible to store vectors in a Python dictionary or a class that implements that interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_dict</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_dict</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1029,7 +1049,11 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_avg</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/data_structure_30_0.png" src="../_images/data_structure_30_0.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_35039</span><span class="o">/</span><span class="mf">885836857.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">The</span> <span class="n">default</span> <span class="n">value</span> <span class="n">of</span> <span class="n">numeric_only</span> <span class="ow">in</span> <span class="n">DataFrameGroupBy</span><span class="o">.</span><span class="n">mean</span> <span class="ow">is</span> <span class="n">deprecated</span><span class="o">.</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span><span class="p">,</span> <span class="n">numeric_only</span> <span class="n">will</span> <span class="n">default</span> <span class="n">to</span> <span class="kc">False</span><span class="o">.</span> <span class="n">Either</span> <span class="n">specify</span> <span class="n">numeric_only</span> <span class="ow">or</span> <span class="n">select</span> <span class="n">only</span> <span class="n">columns</span> <span class="n">which</span> <span class="n">should</span> <span class="n">be</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">the</span> <span class="n">function</span><span class="o">.</span>
+  <span class="n">flights_avg</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/data_structure_30_1.png" src="../_images/data_structure_30_1.png" />
 <p>Additionally, it’s possible to pass vectors of data directly as arguments to <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and other plotting variables. If these vectors are pandas objects, the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute will be used to label the plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="n">flights_avg</span><span class="o">.</span><span class="n">index</span>
 <span class="n">passengers</span> <span class="o">=</span> <span class="n">flights_avg</span><span class="p">[</span><span class="s2">&quot;passengers&quot;</span><span class="p">]</span>
@@ -1046,7 +1070,7 @@
 <section id="options-for-visualizing-wide-form-data">
 <h2>Options for visualizing wide-form data<a class="headerlink" href="#options-for-visualizing-wide-form-data" title="Permalink to this heading">#</a></h2>
 <p>The options for passing wide-form data are even more flexible. As with long-form data, pandas objects are preferable because the name (and, in some cases, index) information can be used. But in essence, any format that can be viewed as a single vector or a collection of vectors can be passed to <code class="docutils literal notranslate"><span class="pre">data</span></code>, and a valid plot can usually be constructed.</p>
-<p>The example we saw above used a rectangular <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, which can be thought of as a collection of its columns. A dict or list of pandas objects will also work, but we’ll lose the axis labels:</p>
+<p>The example we saw above used a rectangular <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, which can be thought of as a collection of its columns. A dict or list of pandas objects will also work, but we’ll lose the axis labels:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">flights_wide</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide_list</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1113,7 +1137,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>

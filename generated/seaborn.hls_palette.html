@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.hls_palette &#8212; seaborn 0.12.0 documentation</title>
+    <title>seaborn.hls_palette &#8212; seaborn 0.12.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -181,6 +181,16 @@
           
           
           
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
           <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
             <label class="sr-only">Twitter</label></a>
         </li>
@@ -287,6 +297,16 @@
           
           <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
             <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
         </li>
         <li class="nav-item">
           
@@ -422,6 +442,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Range.html">
    seaborn.objects.Range
   </a>
@@ -453,6 +478,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Agg.html">
    seaborn.objects.Agg
   </a>
@@ -463,8 +495,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Hist.html">
    seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
   </a>
  </li>
  <li class="toctree-l1">
@@ -1158,24 +1200,35 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="seaborn.hls_palette">
 <span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">hls_palette</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.65</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.hls_palette" title="Permalink to this definition">#</a></dt>
-<dd><p>Get a set of evenly spaced colors in HLS hue space.</p>
-<p>h, l, and s should be between 0 and 1</p>
-<dl class="field-list">
+<dd><p>Return hues with constant lightness and saturation in the HLS system.</p>
+<p>The hues are evenly sampled along a circular path. The resulting palette will be
+appropriate for categorical or cyclical data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code> values should be between 0 and 1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the separation of the resulting colors will be mathematically
+constant, the HLS system does not construct a perceptually-uniform space,
+so their apparent intensity will vary.</p>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>number of colors in the palette</p>
+<dt><strong>n_colors</strong><span class="classifier">int</span></dt><dd><p>Number of colors in the palette.</p>
 </dd>
-<dt><strong>h</strong><span class="classifier">float</span></dt><dd><p>first hue</p>
+<dt><strong>h</strong><span class="classifier">float</span></dt><dd><p>The value of the first hue.</p>
 </dd>
-<dt><strong>l</strong><span class="classifier">float</span></dt><dd><p>lightness</p>
+<dt><strong>l</strong><span class="classifier">float</span></dt><dd><p>The lightness value.</p>
 </dd>
-<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>saturation</p>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>The saturation intensity.</p>
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a matplotlib colormap object.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl>
-<dt><strong>list of RGB tuples or</strong><span class="classifier">class:<code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></span></dt><dd></dd>
+<dd class="field-even"><dl class="simple">
+<dt>palette</dt><dd><p>list of RGB tuples or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.ListedColormap.html#matplotlib.colors.ListedColormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.ListedColormap</span></code></a></p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -1187,36 +1240,31 @@
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Create a palette of 10 colors with the default parameters:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<p>By default, return 6 colors with identical lightness and saturation and evenly-sampled hues:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">()</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-hls_palette-1.png" class="plot-directive" src="../_images/seaborn-hls_palette-1.png" />
-</figure>
-<p>Create a palette of 10 colors that begins at a different hue value:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">.5</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#db5f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#d3db57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#57db5f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#57d3db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#5f57db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#db57d3;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Increase the number of colors:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-hls_palette-2.png" class="plot-directive" src="../_images/seaborn-hls_palette-2.png" />
-</figure>
-<p>Create a palette of 10 colors that are darker than the default:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mf">.4</span><span class="p">))</span>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#db5f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#dbc257;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#91db57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#57db80;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#57d3db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5770db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a157db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#db57b2;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Decrease the lightness:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-hls_palette-3.png" class="plot-directive" src="../_images/seaborn-hls_palette-3.png" />
-</figure>
-<p>Create a palette of 10 colors that are less saturated than the default:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">.4</span><span class="p">))</span>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#7e211b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#787e1b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#1b7e21;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#1b787e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#211b7e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#7e1b78;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Decrease the saturation:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default">
-<img alt="../_images/seaborn-hls_palette-4.png" class="plot-directive" src="../_images/seaborn-hls_palette-4.png" />
-</figure>
-</dd></dl>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#b87e7a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#b4b87a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#7ab87e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#7ab4b8;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#7e7ab8;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#b87ab4;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Change the start-point for hue sampling:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#57dbdb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#5757db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#db57db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#db5757;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#dbdb57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#57db57;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Return a continuous colormap. Notice the perceptual discontinuities, especially around yellow, cyan, and magenta:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">hls_palette</span><span class="p">(</span><span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="hls color map" title="hls"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABR0lEQVR4nO3VS27CMBRAUUO6xg678W6FTwdAYZJYurQwOWcSE/SiyHJ0d99fn+cxxhjLGL/X2/pj5f7avXfNLdfZMHfcXZbHcb8+rg8r9x/XW/8f3jw3e/f7ejfmG7e2yf81t3YwZs96cu60n29iPRh/PTd71pMHYzlv7+DWJ1tPxexZr55bxvn6a7b5r/7anzkYcW5/uiyvG7QfABAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJAICACJgACQCAgAiYAAkAgIAImAAJD8AFdAhe/9nGluAAAAAElFTkSuQmCC"></dd></dl>
 
 </section>
 
@@ -1254,7 +1302,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
     </div>
   </div>
 </footer>
