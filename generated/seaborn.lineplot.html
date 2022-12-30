@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.lineplot &#8212; seaborn 0.12.1 documentation</title>
+    <title>seaborn.lineplot &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1223,7 +1233,7 @@ interval for that estimate.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
 assigned to named variables or a wide-form dataset that will be internally
 reshaped.</p>
 </dd>
@@ -1246,14 +1256,14 @@ line will be drawn for each unit with appropriate semantics, but no
 legend entry will be added. Useful for showing distribution of
 experimental replicates when exact identities are not needed.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
 String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
 imply categorical mapping, while a colormap object implies numeric mapping.</p>
 </dd>
 <dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
 or an object that will map from data units into a [0, 1] interval. Usage
 implies numeric mapping.</p>
 </dd>
@@ -1308,8 +1318,8 @@ lines will connect points in the order they appear in the dataset.</p>
 or discrete error bars.</p>
 </dd>
 <dt><strong>err_kws</strong><span class="classifier">dict of keyword arguments</span></dt><dd><p>Additional parameters to control the aesthetics of the error bars. The
-kwargs are passed either to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>
-or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.errorbar()</span></code></a>, depending on <code class="docutils literal notranslate"><span class="pre">err_style</span></code>.</p>
+kwargs are passed either to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>
+or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.errorbar.html#matplotlib.axes.Axes.errorbar" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.errorbar()</span></code></a>, depending on <code class="docutils literal notranslate"><span class="pre">err_style</span></code>.</p>
 </dd>
 <dt><strong>legend</strong><span class="classifier">“auto”, “brief”, “full”, or False</span></dt><dd><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
 variables will be represented with a sample of evenly spaced values.
@@ -1322,17 +1332,17 @@ If <code class="docutils literal notranslate"><span class="pre">False</span></co
 <p><span class="versionmodified deprecated">Deprecated since version 0.12.0: </span>Use the new <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> parameter for more flexibility.</p>
 </div>
 </dd>
-<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.6.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
 internally.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed down to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
 </dd>
 </dl>
 </dd>
@@ -1419,7 +1429,7 @@ internally.</p>
 <span class="n">flights_wide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_35521</span><span class="o">/</span><span class="mf">1230890992.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span> <span class="n">of</span> <span class="n">pandas</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">keyword</span><span class="o">-</span><span class="n">only</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_77739</span><span class="o">/</span><span class="mf">1230890992.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span> <span class="n">of</span> <span class="n">pandas</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">keyword</span><span class="o">-</span><span class="n">only</span><span class="o">.</span>
   <span class="n">flights_wide</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1548,7 +1558,7 @@ internally.</p>
     </tr>
   </tbody>
 </table>
-</div><p>To plot a single vector, pass it to <code class="docutils literal notranslate"><span class="pre">data</span></code>. If the vector is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, it will be plotted against its index:</p>
+</div><p>To plot a single vector, pass it to <code class="docutils literal notranslate"><span class="pre">data</span></code>. If the vector is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a>, it will be plotted against its index:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flights_wide</span><span class="p">[</span><span class="s2">&quot;May&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1766,7 +1776,7 @@ internally.</p>
 </pre></div>
 </div>
 <img alt="../_images/lineplot_33_0.png" src="../_images/lineplot_33_0.png" />
-<p>Control the color mapping by setting the <code class="docutils literal notranslate"><span class="pre">palette</span></code> and passing a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object:</p>
+<p>Control the color mapping by setting the <code class="docutils literal notranslate"><span class="pre">palette</span></code> and passing a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">dots</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;coherence &gt; 0&quot;</span><span class="p">),</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;coherence&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
@@ -1856,7 +1866,7 @@ internally.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.scatterplot &#8212; seaborn 0.12.1 documentation</title>
+    <title>seaborn.scatterplot &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1220,7 +1230,7 @@ described and illustrated below.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, mapping, or sequence</span></dt><dd><p>Input data structure. Either a long-form collection of vectors that can be
 assigned to named variables or a wide-form dataset that will be internally
 reshaped.</p>
 </dd>
@@ -1237,14 +1247,14 @@ behave differently in latter case.</p>
 <dt><strong>style</strong><span class="classifier">vector or key in <code class="docutils literal notranslate"><span class="pre">data</span></code></span></dt><dd><p>Grouping variable that will produce points with different markers.
 Can have a numeric dtype but will always be treated as categorical.</p>
 </dd>
-<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
+<dt><strong>palette</strong><span class="classifier">string, list, dict, or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></span></dt><dd><p>Method for choosing the colors to use when mapping the <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.
 String values are passed to <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>. List or dict values
 imply categorical mapping, while a colormap object implies numeric mapping.</p>
 </dd>
 <dt><strong>hue_order</strong><span class="classifier">vector of strings</span></dt><dd><p>Specify the order of processing and plotting for categorical levels of the
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> semantic.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a></span></dt><dd><p>Either a pair of values that set the normalization range in data units
 or an object that will map from data units into a [0, 1] interval. Usage
 implies numeric mapping.</p>
 </dd>
@@ -1276,17 +1286,17 @@ If “full”, every group will get an entry in the legend. If “auto”,
 choose between brief or full representation based on number of levels.
 If <code class="docutils literal notranslate"><span class="pre">False</span></code>, no legend data is added and no legend is drawn.</p>
 </dd>
-<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.6.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
+<dt><strong>ax</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></span></dt><dd><p>Pre-existing axes for the plot. Otherwise, call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a>
 internally.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed down to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></dt><dd><p>The matplotlib axes containing the plot.</p>
 </dd>
 </dl>
 </dd>
@@ -1437,7 +1447,7 @@ internally.</p>
 </pre></div>
 </div>
 <img alt="../_images/scatterplot_19_0.png" src="../_images/scatterplot_19_0.png" />
-<p>Pass a tuple of values or a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object to <code class="docutils literal notranslate"><span class="pre">hue_norm</span></code> to control the quantitative hue mapping:</p>
+<p>Pass a tuple of values or a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object to <code class="docutils literal notranslate"><span class="pre">hue_norm</span></code> to control the quantitative hue mapping:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
     <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">hue_norm</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span>
@@ -1451,7 +1461,7 @@ internally.</p>
 </pre></div>
 </div>
 <img alt="../_images/scatterplot_23_0.png" src="../_images/scatterplot_23_0.png" />
-<p>Additional keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>, allowing you to directly set the attributes of the plot that are not semantically mapped:</p>
+<p>Additional keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>, allowing you to directly set the attributes of the plot that are not semantically mapped:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.2&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1512,7 +1522,7 @@ internally.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

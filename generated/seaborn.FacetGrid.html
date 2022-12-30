@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.FacetGrid &#8212; seaborn 0.12.1 documentation</title>
+    <title>seaborn.FacetGrid &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1281,8 +1291,8 @@ share{x, y} is True).</p>
 methods.</p>
 </dd>
 <dt><strong>gridspec_kws</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of keyword arguments passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a>
-(via <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subplots" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subplots()</span></code></a>).
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a>
+(via <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subplots" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subplots()</span></code></a>).
 Ignored if <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
@@ -1484,22 +1494,22 @@ arguments:</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ax</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> when no faceting variables are assigned.</p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> when no faceting variables are assigned.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code></p></td>
-<td><p>An array of the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects in the grid.</p></td>
+<td><p>An array of the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects in the grid.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes_dict</span></code></p></td>
-<td><p>A mapping of facet names to corresponding <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>.</p></td>
+<td><p>A mapping of facet names to corresponding <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fig</span></code></p></td>
 <td><p>DEPRECATED: prefer the <code class="docutils literal notranslate"><span class="pre">figure</span></code> property.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></p></td>
-<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
+<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></p></td>
-<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1541,7 +1551,7 @@ arguments:</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

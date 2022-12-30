@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.heatmap &#8212; seaborn 0.12.1 documentation</title>
+    <title>seaborn.heatmap &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1231,7 +1241,7 @@ of the data. Note that DataFrames will match on position, not index.</p>
 </dd>
 <dt><strong>fmt</strong><span class="classifier">str, optional</span></dt><dd><p>String formatting code to use when adding annotations.</p>
 </dd>
-<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
+<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
 is True.</p>
 </dd>
 <dt><strong>linewidths</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the lines that will divide each cell.</p>
@@ -1240,7 +1250,7 @@ is True.</p>
 </dd>
 <dt><strong>cbar</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to draw a colorbar.</p>
 </dd>
-<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
+<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
 </dd>
 <dt><strong>cbar_ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes in which to draw the colorbar, otherwise take space from the
 main Axes.</p>
@@ -1260,7 +1270,7 @@ Cells with missing values are automatically masked.</p>
 Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.6.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -1284,7 +1294,7 @@ Axes.</p>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_35404</span><span class="o">/</span><span class="mf">2862412127.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span> <span class="n">of</span> <span class="n">pandas</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">keyword</span><span class="o">-</span><span class="n">only</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qk</span><span class="o">/</span><span class="n">cdrdfhfn5g554pnb30pp4ylr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_77613</span><span class="o">/</span><span class="mf">2862412127.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="ne">FutureWarning</span><span class="p">:</span> <span class="n">In</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span> <span class="n">of</span> <span class="n">pandas</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">keyword</span><span class="o">-</span><span class="n">only</span><span class="o">.</span>
   <span class="n">glue</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;glue&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Task&quot;</span><span class="p">,</span> <span class="s2">&quot;Score&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1324,7 +1334,7 @@ Axes.</p>
 </pre></div>
 </div>
 <img alt="../_images/heatmap_15_0.png" src="../_images/heatmap_15_0.png" />
-<p>Use methods on the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object to tweak the plot:</p>
+<p>Use methods on the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object to tweak the plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
@@ -1369,7 +1379,7 @@ Axes.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

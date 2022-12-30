@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>API reference &#8212; seaborn 0.12.1 documentation</title>
+    <title>API reference &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="generated/seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="generated/seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1419,10 +1429,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Hist.html#seaborn.objects.Hist" title="seaborn.objects.Hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Hist</span></code></a></p></td>
 <td><p>Bin observations, count them, and optionally normalize or cumulate.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Perc.html#seaborn.objects.Perc" title="seaborn.objects.Perc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Perc</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.KDE.html#seaborn.objects.KDE" title="seaborn.objects.KDE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KDE</span></code></a></p></td>
+<td><p>Compute a univariate kernel density estimate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Perc.html#seaborn.objects.Perc" title="seaborn.objects.Perc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Perc</span></code></a></p></td>
 <td><p>Replace observations with percentile values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.PolyFit.html#seaborn.objects.PolyFit" title="seaborn.objects.PolyFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyFit</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.PolyFit.html#seaborn.objects.PolyFit" title="seaborn.objects.PolyFit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyFit</span></code></a></p></td>
 <td><p>Fit a polynomial of the given order and resample data onto predicted curve.</p></td>
 </tr>
 </tbody>
@@ -1454,13 +1467,16 @@
 <h3>Scale objects<a class="headerlink" href="#scale-objects" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Continuous.html#seaborn.objects.Continuous" title="seaborn.objects.Continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Continuous</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Boolean.html#seaborn.objects.Boolean" title="seaborn.objects.Boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code></a></p></td>
+<td><p>A scale with a discrete domain of True and False values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Continuous.html#seaborn.objects.Continuous" title="seaborn.objects.Continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Continuous</span></code></a></p></td>
 <td><p>A numeric scale supporting norms and functional transforms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Nominal.html#seaborn.objects.Nominal" title="seaborn.objects.Nominal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nominal</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Nominal.html#seaborn.objects.Nominal" title="seaborn.objects.Nominal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nominal</span></code></a></p></td>
 <td><p>A categorical scale without relative importance / magnitude.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/seaborn.objects.Temporal.html#seaborn.objects.Temporal" title="seaborn.objects.Temporal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Temporal</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/seaborn.objects.Temporal.html#seaborn.objects.Temporal" title="seaborn.objects.Temporal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Temporal</span></code></a></p></td>
 <td><p>A scale for date/time data.</p></td>
 </tr>
 </tbody>
@@ -1798,7 +1814,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

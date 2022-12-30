@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>An introduction to seaborn &#8212; seaborn 0.12.1 documentation</title>
+    <title>An introduction to seaborn &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -556,7 +556,7 @@
 </pre></div>
 </div>
 <p>Seaborn is the only library we need to import for this simple example. By convention, it is imported with the shorthand <code class="docutils literal notranslate"><span class="pre">sns</span></code>.</p>
-<p>Behind the scenes, seaborn uses matplotlib to draw its plots. For interactive work, it’s recommended to use a Jupyter/IPython interface in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">matplotlib mode</a>, or else you’ll have to call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.6.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> when you want to see the plot.</p>
+<p>Behind the scenes, seaborn uses matplotlib to draw its plots. For interactive work, it’s recommended to use a Jupyter/IPython interface in <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">matplotlib mode</a>, or else you’ll have to call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> when you want to see the plot.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the default theme</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
 </pre></div>
@@ -566,7 +566,7 @@
 <span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Most code in the docs will use the <a class="reference internal" href="../generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a> function to get quick access to an example dataset. There’s nothing special about these datasets: they are just pandas dataframes, and we could have loaded them with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.5.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a> or built them by hand. Most of the examples in the documentation will specify data using pandas dataframes, but seaborn is very flexible about the <a class="reference internal" href="data_structure.html"><span class="doc">data structures</span></a> that it accepts.</p>
+<p>Most code in the docs will use the <a class="reference internal" href="../generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a> function to get quick access to an example dataset. There’s nothing special about these datasets: they are just pandas dataframes, and we could have loaded them with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv" title="(in pandas v1.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a> or built them by hand. Most of the examples in the documentation will specify data using pandas dataframes, but seaborn is very flexible about the <a class="reference internal" href="data_structure.html"><span class="doc">data structures</span></a> that it accepts.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a visualization</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
@@ -742,7 +742,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

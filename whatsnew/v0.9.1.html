@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>v0.9.1 (January 2020) &#8212; seaborn 0.12.1 documentation</title>
+    <title>v0.9.1 (January 2020) &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -331,6 +331,11 @@
   <div class="bd-toc-item navbar-nav">
     <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.2.html">
+   v0.12.2 (December 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="v0.12.1.html">
    v0.12.1 (October 2022)
   </a>
@@ -531,7 +536,7 @@
 <ul class="simple">
 <li><p>Added more control over the arrangement of the elements drawn by <a class="reference internal" href="../generated/seaborn.clustermap.html#seaborn.clustermap" title="seaborn.clustermap"><code class="xref py py-func docutils literal notranslate"><span class="pre">clustermap()</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">{dendrogram,colors}_ratio</span></code> and <code class="docutils literal notranslate"><span class="pre">cbar_pos</span></code> parameters. Additionally, the default organization and scaling with different figure sizes has been improved.</p></li>
 <li><p>Added the <code class="docutils literal notranslate"><span class="pre">corner</span></code> option to <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> and <a class="reference internal" href="../generated/seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a> to make a grid without the upper triangle of bivariate axes.</p></li>
-<li><p>Added the ability to seed the random number generator for the bootstrap used to define error bars in several plots. Relevant functions now have a <code class="docutils literal notranslate"><span class="pre">seed</span></code> parameter, which can take either fixed seed (typically an <code class="docutils literal notranslate"><span class="pre">int</span></code>) or a numpy random number generator object (either the newer <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a> or the older <a class="reference external" href="https://numpy.org/doc/stable/reference/random/legacy.html#numpy.random.RandomState" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.random.mtrand.RandomState</span></code></a>).</p></li>
+<li><p>Added the ability to seed the random number generator for the bootstrap used to define error bars in several plots. Relevant functions now have a <code class="docutils literal notranslate"><span class="pre">seed</span></code> parameter, which can take either fixed seed (typically an <code class="docutils literal notranslate"><span class="pre">int</span></code>) or a numpy random number generator object (either the newer <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a> or the older <a class="reference external" href="https://numpy.org/doc/stable/reference/random/legacy.html#numpy.random.RandomState" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.random.mtrand.RandomState</span></code></a>).</p></li>
 <li><p>Generalized the idea of “diagonal” axes in <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> to any axes that share an x and y variable.</p></li>
 <li><p>In <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable is now excluded from the default list of variables that make up the rows and columns of the grid.</p></li>
 <li><p>Exposed the <code class="docutils literal notranslate"><span class="pre">layout_pad</span></code> parameter in <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> and set a smaller default than what matptlotlib sets for more efficient use of space in dense grids.</p></li>
@@ -606,7 +611,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>

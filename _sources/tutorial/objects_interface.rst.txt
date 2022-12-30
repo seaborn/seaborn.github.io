@@ -79,7 +79,7 @@ As with seaborn's functions, it is also possible to *map* data values to various
 
 
 .. image:: objects_interface_files/objects_interface_8_0.png
-   :width: 617.9499999999999px
+   :width: 617.525px
    :height: 378.25px
 
 
@@ -571,7 +571,7 @@ An alternate way to produce subplots is :meth:`Plot.pair`. Like :class:`seaborn.
 
 
 .. image:: objects_interface_files/objects_interface_58_0.png
-   :width: 617.9499999999999px
+   :width: 617.525px
    :height: 378.25px
 
 
@@ -591,7 +591,7 @@ You can combine faceting and pairing so long as the operations add subplots on o
 
 
 .. image:: objects_interface_files/objects_interface_60_0.png
-   :width: 617.9499999999999px
+   :width: 617.525px
    :height: 378.25px
 
 
@@ -756,9 +756,15 @@ For additional control, you can pass a :class:`Scale` object. There are several 
     )
 
 
+.. parsed-literal::
+
+    /Users/mwaskom/code/seaborn/seaborn/_core/properties.py:370: RuntimeWarning: invalid value encountered in cast
+      ixs = np.asarray(x, np.intp)
 
 
-.. image:: objects_interface_files/objects_interface_77_0.png
+
+
+.. image:: objects_interface_files/objects_interface_77_1.png
    :width: 614.125px
    :height: 378.25px
 
@@ -814,7 +820,7 @@ Customizing limits, labels, and titles
 
 
 .. image:: objects_interface_files/objects_interface_81_0.png
-   :width: 620.0749999999999px
+   :width: 619.65px
    :height: 378.25px
 
 

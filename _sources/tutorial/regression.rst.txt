@@ -35,7 +35,7 @@ In the simplest invocation, both functions draw a scatterplot of two variables, 
 .. image:: regression_files/regression_5_0.png
 
 
-These functions draw similar plots, but :func:regplot` is an :doc:`axes-level function </tutorial/function_overview>`, and :func:`lmplot` is a figure-level function. Additionally, :func:`regplot` accepts the ``x`` and ``y`` variables in a variety of formats including simple numpy arrays, :class:`pandas.Series` objects, or as references to variables in a :class:`pandas.DataFrame` object passed to `data`. In contrast, :func:`lmplot` has `data` as a required parameter and the `x` and `y` variables must be specified as strings. Finally, only :func:`lmplot` has `hue` as a parameter.
+These functions draw similar plots, but :func:`regplot` is an :doc:`axes-level function </tutorial/function_overview>`, and :func:`lmplot` is a figure-level function. Additionally, :func:`regplot` accepts the ``x`` and ``y`` variables in a variety of formats including simple numpy arrays, :class:`pandas.Series` objects, or as references to variables in a :class:`pandas.DataFrame` object passed to `data`. In contrast, :func:`lmplot` has `data` as a required parameter and the `x` and `y` variables must be specified as strings. Finally, only :func:`lmplot` has `hue` as a parameter.
 
 The core functionality is otherwise similar, though, so this tutorial will focus on :func:`lmplot`:.
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Plot.label &#8212; seaborn 0.12.1 documentation</title>
+    <title>seaborn.objects.Plot.label &#8212; seaborn 0.12.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -505,6 +505,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Perc.html">
    seaborn.objects.Perc
   </a>
@@ -543,6 +548,11 @@
  </li>
 </ul>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="seaborn.objects.Continuous.html">
    seaborn.objects.Continuous
@@ -1221,33 +1231,33 @@ When using a single subplot, <code class="docutils literal notranslate"><span cl
 <span class="n">p</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_1_0.png"><img alt="../_images/objects.Plot.label_1_0.png" src="../_images/objects.Plot.label_1_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_1_0.png"><img alt="../_images/objects.Plot.label_1_0.png" src="../_images/objects.Plot.label_1_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 <p>Pass a function to <em>modify</em> the default label:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_3_0.png"><img alt="../_images/objects.Plot.label_3_0.png" src="../_images/objects.Plot.label_3_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_3_0.png"><img alt="../_images/objects.Plot.label_3_0.png" src="../_images/objects.Plot.label_3_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 <p>Use this method to set the title for a single-axes plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Penguin species exhibit distinct bill shapes&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_5_0.png"><img alt="../_images/objects.Plot.label_5_0.png" src="../_images/objects.Plot.label_5_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_5_0.png"><img alt="../_images/objects.Plot.label_5_0.png" src="../_images/objects.Plot.label_5_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 <p>When faceting, the <code class="docutils literal notranslate"><span class="pre">title</span></code> parameter will modify default titles:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_7_0.png"><img alt="../_images/objects.Plot.label_7_0.png" src="../_images/objects.Plot.label_7_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_7_0.png"><img alt="../_images/objects.Plot.label_7_0.png" src="../_images/objects.Plot.label_7_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 <p>And the <code class="docutils literal notranslate"><span class="pre">col</span></code>/<code class="docutils literal notranslate"><span class="pre">row</span></code> parameters will add labels to the title for each
 facet:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;Sex:&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_9_0.png"><img alt="../_images/objects.Plot.label_9_0.png" src="../_images/objects.Plot.label_9_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_9_0.png"><img alt="../_images/objects.Plot.label_9_0.png" src="../_images/objects.Plot.label_9_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 <p>If more customization is needed, a format string can work well:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> penguins&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.label_11_0.png"><img alt="../_images/objects.Plot.label_11_0.png" src="../_images/objects.Plot.label_11_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.label_11_0.png"><img alt="../_images/objects.Plot.label_11_0.png" src="../_images/objects.Plot.label_11_0.png" style="width: 617.525px; height: 378.25px;" /></a>
 </dd></dl>
 
 </section>
@@ -1286,7 +1296,7 @@ facet:</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
     </div>
   </div>
 </footer>
