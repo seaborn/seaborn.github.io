@@ -1,0 +1,1559 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>seaborn.FacetGrid &#8212; seaborn 0.12.2 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/seaborn.FacetGrid';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.FacetGrid.__init__" href="seaborn.FacetGrid.__init__.html" />
+    <link rel="prev" title="seaborn.clustermap" href="seaborn.clustermap.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.objects.Plot.html">
+   seaborn.objects.Plot
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.add.html">
+     seaborn.objects.Plot.add
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.scale.html">
+     seaborn.objects.Plot.scale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.facet.html">
+     seaborn.objects.Plot.facet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.pair.html">
+     seaborn.objects.Plot.pair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.layout.html">
+     seaborn.objects.Plot.layout
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.label.html">
+     seaborn.objects.Plot.label
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.limit.html">
+     seaborn.objects.Plot.limit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.share.html">
+     seaborn.objects.Plot.share
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.theme.html">
+     seaborn.objects.Plot.theme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.on.html">
+     seaborn.objects.Plot.on
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.plot.html">
+     seaborn.objects.Plot.plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.save.html">
+     seaborn.objects.Plot.save
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.show.html">
+     seaborn.objects.Plot.show
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dot.html">
+   seaborn.objects.Dot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dots.html">
+   seaborn.objects.Dots
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Line.html">
+   seaborn.objects.Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Lines.html">
+   seaborn.objects.Lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Path.html">
+   seaborn.objects.Path
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Paths.html">
+   seaborn.objects.Paths
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Range.html">
+   seaborn.objects.Range
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Bar.html">
+   seaborn.objects.Bar
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Bars.html">
+   seaborn.objects.Bars
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Area.html">
+   seaborn.objects.Area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Band.html">
+   seaborn.objects.Band
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Agg.html">
+   seaborn.objects.Agg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Est.html">
+   seaborn.objects.Est
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Hist.html">
+   seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.PolyFit.html">
+   seaborn.objects.PolyFit
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dodge.html">
+   seaborn.objects.Dodge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Jitter.html">
+   seaborn.objects.Jitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Norm.html">
+   seaborn.objects.Norm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Stack.html">
+   seaborn.objects.Stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Shift.html">
+   seaborn.objects.Shift
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Continuous.html">
+   seaborn.objects.Continuous
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Mark.html">
+   seaborn.objects.Mark
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Stat.html">
+   seaborn.objects.Stat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Move.html">
+   seaborn.objects.Move
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Scale.html">
+   seaborn.objects.Scale
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.relplot.html">
+   seaborn.relplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.scatterplot.html">
+   seaborn.scatterplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.lineplot.html">
+   seaborn.lineplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.displot.html">
+   seaborn.displot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.histplot.html">
+   seaborn.histplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.kdeplot.html">
+   seaborn.kdeplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.ecdfplot.html">
+   seaborn.ecdfplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.rugplot.html">
+   seaborn.rugplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.distplot.html">
+   seaborn.distplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.catplot.html">
+   seaborn.catplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.stripplot.html">
+   seaborn.stripplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.swarmplot.html">
+   seaborn.swarmplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.boxplot.html">
+   seaborn.boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.violinplot.html">
+   seaborn.violinplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.boxenplot.html">
+   seaborn.boxenplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.pointplot.html">
+   seaborn.pointplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.barplot.html">
+   seaborn.barplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.countplot.html">
+   seaborn.countplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.lmplot.html">
+   seaborn.lmplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.regplot.html">
+   seaborn.regplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.residplot.html">
+   seaborn.residplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.heatmap.html">
+   seaborn.heatmap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.clustermap.html">
+   seaborn.clustermap
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   seaborn.FacetGrid
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.__init__.html">
+     seaborn.FacetGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.add_legend.html">
+     seaborn.FacetGrid.add_legend
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.apply.html">
+     seaborn.FacetGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.despine.html">
+     seaborn.FacetGrid.despine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.facet_axis.html">
+     seaborn.FacetGrid.facet_axis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.facet_data.html">
+     seaborn.FacetGrid.facet_data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.map.html">
+     seaborn.FacetGrid.map
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html">
+     seaborn.FacetGrid.map_dataframe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.pipe.html">
+     seaborn.FacetGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.refline.html">
+     seaborn.FacetGrid.refline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.savefig.html">
+     seaborn.FacetGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set.html">
+     seaborn.FacetGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_axis_labels.html">
+     seaborn.FacetGrid.set_axis_labels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_titles.html">
+     seaborn.FacetGrid.set_titles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_xlabels.html">
+     seaborn.FacetGrid.set_xlabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_xticklabels.html">
+     seaborn.FacetGrid.set_xticklabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_ylabels.html">
+     seaborn.FacetGrid.set_ylabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_yticklabels.html">
+     seaborn.FacetGrid.set_yticklabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.tick_params.html">
+     seaborn.FacetGrid.tick_params
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.tight_layout.html">
+     seaborn.FacetGrid.tight_layout
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.pairplot.html">
+   seaborn.pairplot
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.PairGrid.html">
+   seaborn.PairGrid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.__init__.html">
+     seaborn.PairGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.add_legend.html">
+     seaborn.PairGrid.add_legend
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.apply.html">
+     seaborn.PairGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map.html">
+     seaborn.PairGrid.map
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_diag.html">
+     seaborn.PairGrid.map_diag
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_lower.html">
+     seaborn.PairGrid.map_lower
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_offdiag.html">
+     seaborn.PairGrid.map_offdiag
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_upper.html">
+     seaborn.PairGrid.map_upper
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.pipe.html">
+     seaborn.PairGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.savefig.html">
+     seaborn.PairGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.set.html">
+     seaborn.PairGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.tick_params.html">
+     seaborn.PairGrid.tick_params
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.tight_layout.html">
+     seaborn.PairGrid.tight_layout
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.jointplot.html">
+   seaborn.jointplot
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.JointGrid.html">
+   seaborn.JointGrid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.__init__.html">
+     seaborn.JointGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.apply.html">
+     seaborn.JointGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.pipe.html">
+     seaborn.JointGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot.html">
+     seaborn.JointGrid.plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot_joint.html">
+     seaborn.JointGrid.plot_joint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot_marginals.html">
+     seaborn.JointGrid.plot_marginals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.refline.html">
+     seaborn.JointGrid.refline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.savefig.html">
+     seaborn.JointGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.set.html">
+     seaborn.JointGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.set_axis_labels.html">
+     seaborn.JointGrid.set_axis_labels
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_theme.html">
+   seaborn.set_theme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.axes_style.html">
+   seaborn.axes_style
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_style.html">
+   seaborn.set_style
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.plotting_context.html">
+   seaborn.plotting_context
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_context.html">
+   seaborn.set_context
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_color_codes.html">
+   seaborn.set_color_codes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.reset_defaults.html">
+   seaborn.reset_defaults
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.reset_orig.html">
+   seaborn.reset_orig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set.html">
+   seaborn.set
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_palette.html">
+   seaborn.set_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.color_palette.html">
+   seaborn.color_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.husl_palette.html">
+   seaborn.husl_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.hls_palette.html">
+   seaborn.hls_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.cubehelix_palette.html">
+   seaborn.cubehelix_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.dark_palette.html">
+   seaborn.dark_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.light_palette.html">
+   seaborn.light_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.diverging_palette.html">
+   seaborn.diverging_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.blend_palette.html">
+   seaborn.blend_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.xkcd_palette.html">
+   seaborn.xkcd_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.crayon_palette.html">
+   seaborn.crayon_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.mpl_palette.html">
+   seaborn.mpl_palette
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_colorbrewer_palette.html">
+   seaborn.choose_colorbrewer_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_cubehelix_palette.html">
+   seaborn.choose_cubehelix_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_light_palette.html">
+   seaborn.choose_light_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_dark_palette.html">
+   seaborn.choose_dark_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_diverging_palette.html">
+   seaborn.choose_diverging_palette
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.despine.html">
+   seaborn.despine
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.move_legend.html">
+   seaborn.move_legend
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.saturate.html">
+   seaborn.saturate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.desaturate.html">
+   seaborn.desaturate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_hls_values.html">
+   seaborn.set_hls_values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.load_dataset.html">
+   seaborn.load_dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.get_dataset_names.html">
+   seaborn.get_dataset_names
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.get_data_home.html">
+   seaborn.get_data_home
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="seaborn-facetgrid">
+<h1>seaborn.FacetGrid<a class="headerlink" href="#seaborn-facetgrid" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="seaborn.FacetGrid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">FacetGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">despine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridspec_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.FacetGrid" title="Permalink to this definition">#</a></dt>
+<dd><p>Multi-plot grid for plotting conditional relationships.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="seaborn.FacetGrid.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">despine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridspec_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.FacetGrid.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the matplotlib figure and FacetGrid object.</p>
+<p>This class maps a dataset onto multiple axes arrayed in a grid of rows
+and columns that correspond to <em>levels</em> of variables in the dataset.
+The plots it produces are often called “lattice”, “trellis”, or
+“small-multiple” graphics.</p>
+<p>It can also represent levels of a third variable with the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+parameter, which plots different subsets of data in different colors.
+This uses color to resolve elements on a third dimension, but only
+draws subsets on top of each other and will not tailor the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+parameter for the specific visualization the way that axes-level
+functions that accept <code class="docutils literal notranslate"><span class="pre">hue</span></code> will.</p>
+<p>The basic workflow is to initialize the <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object with
+the dataset and the variables that are used to structure the grid. Then
+one or more plotting functions can be applied to each subset by calling
+<a class="reference internal" href="seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map()</span></code></a> or <a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map_dataframe()</span></code></a>. Finally, the
+plot can be tweaked with other methods to do things like change the
+axis labels, use different ticks, or add a legend. See the detailed
+code examples below for more information.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When using seaborn functions that infer semantic mappings from a
+dataset, care must be taken to synchronize those mappings across
+facets (e.g., by defining the <code class="docutils literal notranslate"><span class="pre">hue</span></code> mapping with a palette dict or
+setting the data type of the variables to <code class="docutils literal notranslate"><span class="pre">category</span></code>). In most cases,
+it will be better to use a figure-level function (e.g. <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a>
+or <a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a>) than to use <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> directly.</p>
+</div>
+<p>See the <a class="reference internal" href="../tutorial/axis_grids.html#grid-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (“long-form”) dataframe where each column is a variable and each
+row is an observation.</p>
+</dd>
+<dt><strong>row, col, hue</strong><span class="classifier">strings</span></dt><dd><p>Variables that define subsets of the data, which will be drawn on
+separate facets in the grid. See the <code class="docutils literal notranslate"><span class="pre">{var}_order</span></code> parameters to
+control the order of levels of this variable.</p>
+</dd>
+<dt><strong>col_wrap</strong><span class="classifier">int</span></dt><dd><p>“Wrap” the column variable at this width, so that the column facets
+span multiple rows. Incompatible with a <code class="docutils literal notranslate"><span class="pre">row</span></code> facet.</p>
+</dd>
+<dt><strong>share{x,y}</strong><span class="classifier">bool, ‘col’, or ‘row’ optional</span></dt><dd><p>If true, the facets will share y axes across columns and/or x axes
+across rows.</p>
+</dd>
+<dt><strong>height</strong><span class="classifier">scalar</span></dt><dd><p>Height (in inches) of each facet. See also: <code class="docutils literal notranslate"><span class="pre">aspect</span></code>.</p>
+</dd>
+<dt><strong>aspect</strong><span class="classifier">scalar</span></dt><dd><p>Aspect ratio of each facet, so that <code class="docutils literal notranslate"><span class="pre">aspect</span> <span class="pre">*</span> <span class="pre">height</span></code> gives the width
+of each facet in inches.</p>
+</dd>
+<dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
+be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
+dictionary mapping hue levels to matplotlib colors.</p>
+</dd>
+<dt><strong>{row,col,hue}_order</strong><span class="classifier">lists</span></dt><dd><p>Order for the levels of the faceting variables. By default, this
+will be the order that the levels appear in <code class="docutils literal notranslate"><span class="pre">data</span></code> or, if the
+variables are pandas categoricals, the category order.</p>
+</dd>
+<dt><strong>hue_kws</strong><span class="classifier">dictionary of param -&gt; list of values mapping</span></dt><dd><p>Other keyword arguments to insert into the plotting call to let
+other plot attributes vary across levels of the hue variable (e.g.
+the markers in a scatterplot).</p>
+</dd>
+<dt><strong>legend_out</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the figure size will be extended, and the legend will be
+drawn outside the plot on the center right.</p>
+</dd>
+<dt><strong>despine</strong><span class="classifier">boolean</span></dt><dd><p>Remove the top and right spines from the plots.</p>
+</dd>
+<dt><strong>margin_titles</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the titles for the row variable are drawn to the right of
+the last column. This option is experimental and may not work in all
+cases.</p>
+</dd>
+<dt><strong>{x, y}lim: tuples</strong></dt><dd><p>Limits for each of the axes on each facet (only relevant when
+share{x, y} is True).</p>
+</dd>
+<dt><strong>subplot_kws</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of keyword arguments passed to matplotlib subplot(s)
+methods.</p>
+</dd>
+<dt><strong>gridspec_kws</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of keyword arguments passed to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.gridspec.GridSpec</span></code></a>
+(via <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subplots" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subplots()</span></code></a>).
+Ignored if <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PairGrid</span></code></a></dt><dd><p>Subplot grid for plotting pairwise relationships</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relplot</span></code></a></dt><dd><p>Combine a relational plot and a <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p>
+</dd>
+<dt><a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">displot</span></code></a></dt><dd><p>Combine a distribution plot and a <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p>
+</dd>
+<dt><a class="reference internal" href="seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catplot</span></code></a></dt><dd><p>Combine a categorical plot and a <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p>
+</dd>
+<dt><a class="reference internal" href="seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmplot</span></code></a></dt><dd><p>Combine a regression plot and a <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a></p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These examples use seaborn functions to demonstrate some of the
+advanced features of the class, but in most cases you will want
+to use figue-level functions (e.g. <a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a>, <a class="reference internal" href="seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a>)
+to make the plots shown here.</p>
+</div>
+<p>Calling the constructor requires a long-form data object. This
+initializes the grid, but doesn’t plot anything on it:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_1_0.png" src="../_images/FacetGrid_1_0.png" />
+<p>Assign column and/or row variables to add more subplots to the figure:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_3_0.png" src="../_images/FacetGrid_3_0.png" />
+<p>To draw a plot on every facet, pass a function and the name of one or more columns in the dataframe to <a class="reference internal" href="seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map()</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_5_0.png" src="../_images/FacetGrid_5_0.png" />
+<p>The variable specification in <a class="reference internal" href="seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map()</span></code></a> requires a positional argument mapping, but if the function has a <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter and accepts named variable assignments, you can also use <a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.map_dataframe()</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>  <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_7_0.png" src="../_images/FacetGrid_7_0.png" />
+<p>Notice how the bins have different widths in each facet. A separate plot is drawn on each facet, so if the plotting function derives any parameters from the data, they may not be shared across facets. You can pass additional keyword arguments to synchronize them. But when possible, using a figure-level function like <a class="reference internal" href="seaborn.displot.html#seaborn.displot" title="seaborn.displot"><code class="xref py py-func docutils literal notranslate"><span class="pre">displot()</span></code></a> will take care of this bookkeeping for you:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">binrange</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_9_0.png" src="../_images/FacetGrid_9_0.png" />
+<p>The <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> constructor accepts a <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter. Setting this will condition the data on another variable and make multiple plots in different colors. Where possible, label information is tracked so that a single legend can be drawn:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_11_0.png" src="../_images/FacetGrid_11_0.png" />
+<p>When <code class="docutils literal notranslate"><span class="pre">hue</span></code> is set on the <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>, however, a separate plot is drawn for each level of the variable. If the plotting function understands <code class="docutils literal notranslate"><span class="pre">hue</span></code>, it is better to let it handle that logic. But it is important to ensure that each facet will use the same hue mapping. In the sample <code class="docutils literal notranslate"><span class="pre">tips</span></code> data, the <code class="docutils literal notranslate"><span class="pre">sex</span></code> column has a categorical datatype, which ensures this. Otherwise, you may want to use the <code class="docutils literal notranslate"><span class="pre">hue_order</span></code> or similar parameter:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_13_0.png" src="../_images/FacetGrid_13_0.png" />
+<p>The size and shape of the plot is specified at the level of each subplot using the <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">aspect</span></code> parameters:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">.65</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_15_0.png" src="../_images/FacetGrid_15_0.png" />
+<p>If the variable assigned to <code class="docutils literal notranslate"><span class="pre">col</span></code> has many levels, it is possible to “wrap” it so that it spans multiple rows:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_17_0.png" src="../_images/FacetGrid_17_0.png" />
+<p>To add horizontal or vertical reference lines on every facet, use <a class="reference internal" href="seaborn.FacetGrid.refline.html#seaborn.FacetGrid.refline" title="seaborn.FacetGrid.refline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.refline()</span></code></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">refline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_19_0.png" src="../_images/FacetGrid_19_0.png" />
+<p>You can pass custom functions to plot with, or to annotate each facet.
+Your custom function must use the matplotlib state-machine interface to
+plot on the “current” axes, and it should catch additional keyword
+arguments:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">def</span> <span class="nf">annotate</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.6</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;N = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">annotate</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_21_0.png" src="../_images/FacetGrid_21_0.png" />
+<p>The <a class="reference internal" href="#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object has some other useful parameters and methods for tweaking the plot:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Total bill ($)&quot;</span><span class="p">,</span> <span class="s2">&quot;Tip ($)&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="n">col_template</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{col_name}</span><span class="s2"> patrons&quot;</span><span class="p">,</span> <span class="n">row_template</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{row_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">g</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">g</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;facet_plot.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_23_0.png" src="../_images/FacetGrid_23_0.png" />
+<p>You also have access to the underlying matplotlib objects for additional tweaking:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">despine</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_dataframe</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">row_val</span><span class="p">,</span> <span class="n">col_val</span><span class="p">),</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">row_val</span> <span class="o">==</span> <span class="s2">&quot;Lunch&quot;</span> <span class="ow">and</span> <span class="n">col_val</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;.95&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="../_images/FacetGrid_25_0.png" src="../_images/FacetGrid_25_0.png" />
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.__init__.html#seaborn.FacetGrid.__init__" title="seaborn.FacetGrid.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(data, *[, row, col, hue, col_wrap, ...])</p></td>
+<td><p>Initialize the matplotlib figure and FacetGrid object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.add_legend.html#seaborn.FacetGrid.add_legend" title="seaborn.FacetGrid.add_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_legend</span></code></a>([legend_data, title, ...])</p></td>
+<td><p>Draw a legend, maybe placing it outside axes and resizing the figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.apply.html#seaborn.FacetGrid.apply" title="seaborn.FacetGrid.apply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply</span></code></a>(func, *args, **kwargs)</p></td>
+<td><p>Pass the grid to a user-supplied function and return self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.despine.html#seaborn.FacetGrid.despine" title="seaborn.FacetGrid.despine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">despine</span></code></a>(**kwargs)</p></td>
+<td><p>Remove axis spines from the facets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.facet_axis.html#seaborn.FacetGrid.facet_axis" title="seaborn.FacetGrid.facet_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_axis</span></code></a>(row_i, col_j[, modify_state])</p></td>
+<td><p>Make the axis identified by these indices active and return it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.facet_data.html#seaborn.FacetGrid.facet_data" title="seaborn.FacetGrid.facet_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">facet_data</span></code></a>()</p></td>
+<td><p>Generator for name indices and data subsets for each facet.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.map.html#seaborn.FacetGrid.map" title="seaborn.FacetGrid.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map</span></code></a>(func, *args, **kwargs)</p></td>
+<td><p>Apply a plotting function to each facet's subset of the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="seaborn.FacetGrid.map_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_dataframe</span></code></a>(func, *args, **kwargs)</p></td>
+<td><p>Like <code class="docutils literal notranslate"><span class="pre">.map</span></code> but passes args as strings and inserts data in kwargs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.pipe.html#seaborn.FacetGrid.pipe" title="seaborn.FacetGrid.pipe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pipe</span></code></a>(func, *args, **kwargs)</p></td>
+<td><p>Pass the grid to a user-supplied function and return its value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.refline.html#seaborn.FacetGrid.refline" title="seaborn.FacetGrid.refline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">refline</span></code></a>(*[, x, y, color, linestyle])</p></td>
+<td><p>Add a reference line(s) to each facet.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.savefig.html#seaborn.FacetGrid.savefig" title="seaborn.FacetGrid.savefig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Save an image of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set.html#seaborn.FacetGrid.set" title="seaborn.FacetGrid.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(**kwargs)</p></td>
+<td><p>Set attributes on each subplot Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_axis_labels.html#seaborn.FacetGrid.set_axis_labels" title="seaborn.FacetGrid.set_axis_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis_labels</span></code></a>([x_var, y_var, clear_inner])</p></td>
+<td><p>Set axis labels on the left column and bottom row of the grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_titles.html#seaborn.FacetGrid.set_titles" title="seaborn.FacetGrid.set_titles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_titles</span></code></a>([template, row_template, ...])</p></td>
+<td><p>Draw titles either above each facet or on the grid margins.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_xlabels.html#seaborn.FacetGrid.set_xlabels" title="seaborn.FacetGrid.set_xlabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xlabels</span></code></a>([label, clear_inner])</p></td>
+<td><p>Label the x axis on the bottom row of the grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_xticklabels.html#seaborn.FacetGrid.set_xticklabels" title="seaborn.FacetGrid.set_xticklabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xticklabels</span></code></a>([labels, step])</p></td>
+<td><p>Set x axis tick labels of the grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_ylabels.html#seaborn.FacetGrid.set_ylabels" title="seaborn.FacetGrid.set_ylabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ylabels</span></code></a>([label, clear_inner])</p></td>
+<td><p>Label the y axis on the left column of the grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.set_yticklabels.html#seaborn.FacetGrid.set_yticklabels" title="seaborn.FacetGrid.set_yticklabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_yticklabels</span></code></a>([labels])</p></td>
+<td><p>Set y axis tick labels on the left column of the grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="seaborn.FacetGrid.tick_params.html#seaborn.FacetGrid.tick_params" title="seaborn.FacetGrid.tick_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code></a>([axis])</p></td>
+<td><p>Modify the ticks, tick labels, and gridlines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="seaborn.FacetGrid.tight_layout.html#seaborn.FacetGrid.tight_layout" title="seaborn.FacetGrid.tight_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Call fig.tight_layout within rect that exclude the legend.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ax</span></code></p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> when no faceting variables are assigned.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code></p></td>
+<td><p>An array of the <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> objects in the grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes_dict</span></code></p></td>
+<td><p>A mapping of facet names to corresponding <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fig</span></code></p></td>
+<td><p>DEPRECATED: prefer the <code class="docutils literal notranslate"><span class="pre">figure</span></code> property.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></p></td>
+<td><p>Access the <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object underlying the grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></p></td>
+<td><p>The <a class="reference external" href="https://matplotlib.org/stable/api/legend_api.html#matplotlib.legend.Legend" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code></a> object, if present.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

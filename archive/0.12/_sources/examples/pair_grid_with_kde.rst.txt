@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _pair_grid_with_kde:
+
+
+Paired density and scatterplot matrix
+=====================================
+
+
+
+.. image:: _images/pair_grid_with_kde.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`PairGrid`
+
+.. literalinclude:: pair_grid_with_kde.py
+    :lines: 7-
+

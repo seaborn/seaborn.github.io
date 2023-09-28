@@ -1,0 +1,20 @@
+
+
+.. currentmodule:: seaborn
+
+.. _scatter_bubbles:
+
+
+Scatterplot with varying point sizes and hues
+==============================================
+
+
+
+
+.. image:: _images/scatter_bubbles.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`relplot`
+
+.. literalinclude:: scatter_bubbles.py
+    :lines: 8-
+

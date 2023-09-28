@@ -1,0 +1,20 @@
+
+
+.. currentmodule:: seaborn
+
+.. _histogram_stacked:
+
+
+Stacked histogram on a log scale
+================================
+
+
+
+
+.. image:: _images/histogram_stacked.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`despine`, :func:`histplot`
+
+.. literalinclude:: histogram_stacked.py
+    :lines: 8-
+

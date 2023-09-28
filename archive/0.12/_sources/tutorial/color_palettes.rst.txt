@@ -1,0 +1,685 @@
+.. _palette_tutorial:
+
+.. currentmodule:: seaborn
+
+Choosing color palettes
+=======================
+
+Seaborn makes it easy to use colors that are well-suited to the characteristics of your data and your visualization goals. This chapter discusses both the general principles that should guide your choices and the tools in seaborn that help you quickly find the best solution for a given application.
+
+General principles for using color in plots
+-------------------------------------------
+
+Components of color
+~~~~~~~~~~~~~~~~~~~
+
+Because of the way our eyes work, a particular color can be defined using three components. We usually program colors in a computer by specifying their RGB values, which set the intensity of the red, green, and blue channels in a display. But for analyzing the perceptual attributes of a color, it's better to think in terms of *hue*, *saturation*, and *luminance* channels.
+
+Hue is the component that distinguishes "different colors" in a non-technical sense. It's property of color that leads to first-order names like "red" and "blue":
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#e77c8d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#c69255;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#98a255;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#56ad74;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#5aa9a2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5ea5c5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a291e1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#e274cf;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Saturation (or chroma) is the *colorfulness*. Two colors with different hues will look more distinct when they have more saturation:
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#8c8c8c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#828996;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#79869f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#6f83a9;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#6581b3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5b7ebd;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#527bc6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#4878d0;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+And lightness corresponds to how much light is emitted (or reflected, for printed colors), ranging from black to white:
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#1a1a1a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#27344d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#345082;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#416ab6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#618ad5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#91acdf;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#c2d0e9;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f2f2f2;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Vary hue to distinguish categories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you want to represent multiple categories in a plot, you typically should vary the color of the elements. Consider this simple example: in which of these two plots is it easier to count the number of triangular points?
+
+
+
+.. image:: color_palettes_files/color_palettes_9_0.png
+
+
+In the plot on the right, the orange triangles "pop out", making it easy to distinguish them from the circles. This pop-out effect happens because our visual system prioritizes color differences.
+
+The blue and orange colors differ mostly in terms of their hue. Hue is useful for representing categories: most people can distinguish a moderate number of hues relatively easily, and points that have different hues but similar brightness or intensity seem equally important. It also makes plots easier to talk about. Consider this example:
+
+
+
+.. image:: color_palettes_files/color_palettes_11_0.png
+
+
+Most people would be able to quickly ascertain that there are five distinct categories in the plot on the left and, if asked to characterize the "blue" points, would be able to do so.
+
+With the plot on the right, where the points are all blue but vary in their luminance and saturation, it's harder to say how many unique categories are present. And how would we talk about a particular category? "The fairly-but-not-too-blue points?" What's more, the gray dots seem to fade into the background, de-emphasizing them relative to the more intense blue dots. If the categories are equally important, this is a poor representation.
+
+So as a general rule, use hue variation to represent categories. With that said, here are few notes of caution. If you have more than a handful of colors in your plot, it can become difficult to keep in mind what each one means, unless there are pre-existing associations between the categories and the colors used to represent them. This makes your plot harder to interpret: rather than focusing on the data, a viewer will have to continually refer to the legend to make sense of what is shown. So you should strive not to make plots that are too complex. And be mindful that not everyone sees colors the same way. Varying both shape (or some other attribute) and color can help people with anomalous color vision understand your plots, and it can keep them (somewhat) interpretable if they are printed to black-and-white.
+
+Vary luminance to represent numbers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the other hand, hue variations are not well suited to representing numeric data. Consider this example, where we need colors to represent the counts in a bivariate histogram. On the left, we use a circular colormap, where gradual changes in the number of observation within each bin correspond to gradual changes in hue. On the right, we use a palette that uses brighter colors to represent bins with larger counts:
+
+
+
+.. image:: color_palettes_files/color_palettes_14_0.png
+
+
+With the hue-based palette, it's quite difficult to ascertain the shape of the bivariate distribution. In contrast, the luminance palette makes it much more clear that there are two prominent peaks.
+
+Varying luminance helps you see structure in data, and changes in luminance are more intuitively processed as changes in importance. But the plot on the right does not use a grayscale colormap. Its colorfulness makes it more interesting, and the subtle hue variation increases the perceptual distance between two values. As a result, small differences slightly easier to resolve.
+
+These examples show that color palette choices are about more than aesthetics: the colors you choose can reveal patterns in your data if used effectively or hide them if used poorly. There is not one optimal palette, but there are palettes that are better or worse for particular datasets and visualization approaches.
+
+And aesthetics do matter: the more that people want to look at your figures, the greater the chance that they will learn something from them. This is true even when you are making plots for yourself. During exploratory data analysis, you may generate many similar figures. Varying the color palettes will add a sense of novelty, which keeps you engaged and prepared to notice interesting features of your data.
+
+So how can you choose color palettes that both represent your data well and look attractive?
+
+Tools for choosing color palettes
+---------------------------------
+
+The most important function for working with color palettes is, aptly, :func:`color_palette`. This function provides an interface to most of the possible ways that one can generate color palettes in seaborn. And it's used internally by any function that has a ``palette`` argument.
+
+The primary argument to :func:`color_palette` is usually a string: either the name of a specific palette or the name of a family and additional arguments to select a specific member. In the latter case, :func:`color_palette` will delegate to more specific function, such as :func:`cubehelix_palette`. It's also possible to pass a list of colors specified any way that matplotlib accepts (an RGB tuple, a hex code, or a name in the X11 table). The return value is an object that wraps a list of RGB tuples with a few useful methods, such as conversion to hex codes and a rich HTML representation.
+
+Calling :func:`color_palette` with no arguments will return the current default color palette that matplotlib (and most seaborn functions) will use if colors are not otherwise specified. This default palette can be set with the corresponding :func:`set_palette` function, which calls :func:`color_palette` internally and accepts the same arguments.
+
+To motivate the different options that :func:`color_palette` provides, it will be useful to introduce a classification scheme for color palettes. Broadly, palettes fall into one of three categories:
+
+- qualitative palettes, good for representing categorical data
+- sequential palettes, good for representing numeric data
+- diverging palettes, good for representing numeric data with a categorical boundary
+
+.. _qualitative_palettes:
+
+Qualitative color palettes
+--------------------------
+
+Qualitative palettes are well-suited to representing categorical data because most of their variation is in the hue component. The default color palette in seaborn is a qualitative palette with ten distinct hues:
+
+.. code:: ipython3
+
+    sns.color_palette()
+
+
+
+
+.. raw:: html
+
+    <svg  width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#4c72b0;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#dd8452;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#55a868;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#c44e52;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#8172b3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#937860;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#da8bc3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#8c8c8c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#ccb974;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#64b5cd;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+These colors have the same ordering as the default matplotlib color palette, ``"tab10"``, but they are a bit less intense. Compare:
+
+.. code:: ipython3
+
+    sns.color_palette("tab10")
+
+
+
+
+.. raw:: html
+
+    <svg  width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#1f77b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ff7f0e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#2ca02c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#d62728;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#9467bd;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#8c564b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#e377c2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#7f7f7f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#bcbd22;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#17becf;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Seaborn in fact has six variations of matplotlib's palette, called ``deep``, ``muted``, ``pastel``, ``bright``, ``dark``, and ``colorblind``. These span a range of average luminance and saturation values:
+
+
+
+
+.. image:: color_palettes_files/color_palettes_22_0.svg
+
+
+
+Many people find the moderated hues of the default ``"deep"`` palette to be aesthetically pleasing, but they are also less distinct. As a result, they may be more difficult to discriminate in some contexts, which is something to keep in mind when making publication graphics. `This comparison <https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486>`_ can be helpful for estimating how the seaborn color palettes perform when simulating different forms of colorblindess.
+
+Using circular color systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you have an arbitrary number of categories, the easiest approach to finding unique hues is to draw evenly-spaced colors in a circular color space (one where the hue changes while keeping the brightness and saturation constant). This is what most seaborn functions default to when they need to use more colors than are currently set in the default color cycle.
+
+The most common way to do this uses the ``hls`` color space, which is a simple transformation of RGB values. We saw this color palette before as a counterexample for how to plot a histogram:
+
+.. code:: ipython3
+
+    sns.color_palette("hls", 8)
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#db5f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#dbc257;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#91db57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#57db80;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#57d3db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#5770db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a157db;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#db57b2;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Because of the way the human visual system works, colors that have the same luminance and saturation in terms of their RGB values won't necessarily look equally intense To remedy this, seaborn provides an interface to the `husl <https://www.hsluv.org/>`_ system (since renamed to HSLuv), which achieves less intensity variation as you rotate around the color wheel:
+
+.. code:: ipython3
+
+    sns.color_palette("husl", 8)
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#f77189;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ce9032;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#97a431;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#32b166;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#36ada4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#39a7d0;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#a48cf4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#f561dd;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+When seaborn needs a categorical palette with more colors than are available in the current default, it will use this approach.
+
+Using categorical Color Brewer palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Another source of visually pleasing categorical palettes comes from the `Color Brewer <https://colorbrewer2.org/>`_ tool (which also has sequential and diverging palettes, as we'll see below).
+
+.. code:: ipython3
+
+    sns.color_palette("Set2")
+
+
+
+
+.. raw:: html
+
+    <svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#66c2a5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#fc8d62;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#8da0cb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e78ac3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#a6d854;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#ffd92f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#e5c494;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#b3b3b3;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Be aware that the qualitative Color Brewer palettes have different lengths, and the default behavior of :func:`color_palette` is to give you the full list:
+
+.. code:: ipython3
+
+    sns.color_palette("Paired")
+
+
+
+
+.. raw:: html
+
+    <svg  width="660" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#a6cee3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#1f78b4;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#b2df8a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#33a02c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#fb9a99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#e31a1c;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#fdbf6f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#ff7f00;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#cab2d6;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#6a3d9a;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="550" y="0" width="55" height="55" style="fill:#ffff99;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="605" y="0" width="55" height="55" style="fill:#b15928;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+.. _sequential_palettes:
+
+Sequential color palettes
+-------------------------
+
+The second major class of color palettes is called "sequential". This kind of mapping is appropriate when data range from relatively low or uninteresting values to relatively high or interesting values (or vice versa). As we saw above, the primary dimension of variation in a sequential palette is luminance. Some seaborn functions will default to a sequential palette when you are mapping numeric data. (For historical reasons, both categorical and numeric mappings are specified with the ``hue`` parameter in functions like :func:`relplot` or :func:`displot`, even though numeric mappings use color palettes with relatively little hue variation).
+
+Perceptually uniform palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Because they are intended to represent numeric values, the best sequential palettes will be *perceptually uniform*, meaning that the relative discriminability of two colors is proportional to the difference between the corresponding data values. Seaborn includes four perceptually uniform sequential colormaps: ``"rocket"``, ``"mako"``, ``"flare"``, and ``"crest"``. The first two have a very wide luminance range and are well suited for applications such as heatmaps, where colors fill the space they are plotted into:
+
+.. code:: ipython3
+
+    sns.color_palette("rocket", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="rocket color map" title="rocket"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB8UlEQVR4nO3VS27jQAwFQJKeS8z9D6pZWHJ/IjkYrqs2ISh2UxYCvKw/f4+IiMyMiIiM/NSVGRlnPzMqRx0RUQ+zlbnc9/VcPMxu9e2O+P2+2+fTHRVfdjz2ryo+5x/PzbPLvri9q846p3q/4zpft/ti3HHc9JZ742H32Ttim53uO8bsPPPeu/aeZus4tm+xzx6f95hn4jw7esfy7p9zEZGf+qaX6/Pz00blscxERGQekTmdO+vMI6quevRHb9ybNe7Ieu+564/eVE/9mPrXmRwfZpodH+xd57IjMiKvH1hrPWZzfISn3l0/M6Lq5tzU+3zwmu6r8/g2e9Xf+hGRVQ+zte1bz6297X2y7uvzb+ZvO67nr+e7vu5Yz637XtM77/vG83zc8fqxL/e7auzIbcf1rwQA/0WAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoOUf1tIrI1jODScAAAAASUVORK5CYII=">
+
+
+
+.. code:: ipython3
+
+    sns.color_palette("mako", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="mako color map" title="mako"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB6ElEQVR4nO3VS27kMAwFQFLGrOb+5+1ZtN2WFDcyeOuqTRiK+jgI8Prv8edVVdXdVVXV1dU96urd/XHXy/r4sm+qK9i39P9/tnosb95na/uOu//Q28+a7q7tbbW/d56t+byr7h+z77dN6w/n1fTNS+9h37rev9avuX+dNd69V/dndq6ru17jrt/rd12j379fs1N9/VmWXl+9u65Ra7/O37+d9XDe8nN8WX+6e3nDl7sfzri/f737+f3b2T/2rXf0fsfyTc/7er/vbPbDvn22t7f1WGf74W29n1dVPfrreu+zU2/M/9J7v1+f+lof0/pv9TH1rvqY+kf3VFcd56OX9al3nI87qqez515/9j31x3TeOD/66K4x9T6z1evMWY/zn2HMvR7TfWPq//++0WOZee8BgIAAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgMg/8/ESGZu70+MAAAAASUVORK5CYII=">
+
+
+
+Because the extreme values of these colormaps approach white, they are not well-suited for coloring elements such as lines or points: it will be difficult to discriminate important values against a white or gray background. The "flare" and "crest" colormaps are a better choice for such plots. They have a more restricted range of luminance variations, which they compensate for with a slightly more pronounced variation in hue. The default direction of the luminance ramp is also reversed, so that smaller values have lighter colors:
+
+.. code:: ipython3
+
+    sns.color_palette("flare", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="flare color map" title="flare"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABp0lEQVR4nO3VQVbDMAwFQIWTcyMuxh3MAto4sZLSv57ZEGzZsl4Xf/v++hxVVTV+/9S4+h6//59ra98f8/7he67v9mu64+Id3V3Td3/ufqbxRu11j3WOcXdHTfXP/Xn+6s/N622/amovzr88d7FfW1u7ntseUx5+shrb/j0/71T/rD3csdd0a/uo2/Gn+avZ7zrdWxd3vLh3H/nUb+qz1v5vfdmf3nle389M++07j7P0Pfrez5ne6nFc73rUzfptj1fn2rePy7vXHuOm97idaUyTrb/TuHjneb3rMZZzj7Pd+9e3nec/9rh9Z9fj7+OjACAgQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASDyAywPZEDTzkfkAAAAAElFTkSuQmCC">
+
+
+
+.. code:: ipython3
+
+    sns.color_palette("crest", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="crest color map" title="crest"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABoklEQVR4nO3VQVbDIBiFUer+By7C5bgmcWBjgfwkPW9874imgRDs8Xt8fX/21lrr7U/vF+Pnh5/p+8f9vGF8zD/G/Z3xdl6/nDfv8729rWv99GzeOG6bNe7eeb13O2+4t1XPGDaxe4/Wlz0Xa+320frFtXH/03qvxe7Oqnqn8toxLn4X4/e377E853Wt2HOx1tX31Xm3Ye3998U+b57dei/PsPWLa8f8YuJ0ltX4dIhttl47/eBe48d63/aeZY3env+RzvP+15wOq17r9PxqT6d7++XeTtd26x73l2fZ5/e42uf6nsPneo3ieeuc5W/20QAgICAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEg8guKKEE/C1p1mgAAAABJRU5ErkJggg==">
+
+
+
+It is also possible to use the perceptually uniform colormaps provided by matplotlib, such as ``"magma"`` and ``"viridis"``:
+
+.. code:: ipython3
+
+    sns.color_palette("magma", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="magma color map" title="magma"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACAUlEQVR4nO3VSZbbMAwFQAC6/5mZhSyJ1JCXYF21MZoDSFnu9zNiGxEREbl/REUedVZE1F4+6oiM+q3Z63yrsyJjW/fl19pt7/lbU3GNP8/Yoqb62Fexrfc7xl7rioptXTumc2M764qMHPO+a/zYf9S13/Q3nst4Zt72RVTO8/Fa1/FKzrVxzWec72yvr/H49Z/Hrr5zj3zue5zxXp93+5j/Wls5Hvsqjue812O5Wy73HMszXWvGy93G6/z+rGPqcb/b+EuP8ezxNp/732e/nHqfPcb1zMcdctzqOOvn/HyHEVnXmuO8Y6xuY8t8Tf3qdt71bx+x7IvzpS319IKvfXOPnPY9X3DOP4zpR/QYP7/keT4f+9Z6uuTSt9735TR+7F/61j+uneqsZd8467de9x4fa36f47PHW/12n1rvczvj+PoB4L8IEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALT8AcKALxnFEKpcAAAAAElFTkSuQmCC">
+
+
+
+.. code:: ipython3
+
+    sns.color_palette("viridis", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="viridis color map" title="viridis"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACCElEQVR4nO3VQXbbMAwFQIC8Wo/Q+x9F6sKyCEVykmI9swkfCIJ8ceKff/LvHhERmfH6OSLHWsexzsyIMeLSO8arHvHqy1HWH2a8z9dZlxl5q+/jXnvNeOjNjDhG1979vONrPdbd7/MZ9/0yt/acczMus/bHGfF8bkSZ8TDvsn6/s876tP5pVnx426fefO59OPfT22531/O/fNt17v6rOyIj9vh+xsdz53q/1NeML/Uo/V967zOu/4Z1Py/r0ht1f53Px/Ve/uxL7Zgxcr/UR+kdpX72lnPjcm71jLife9ofuV3q9/09Rm4RETG/qUdEjFi1kXvM2Ervq2fGum++e2N/XucWs7yzrm+zYisztvNN6w3r/MwtRmzn+pxbZlzvXbVR9mf5XawZ7ztqLWKWr8B5fH4z8/y6nMenOjLXOkbMXOtx1OfxXf8+CwD/RYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGg5R9DQIlr2oxHRwAAAABJRU5ErkJggg==">
+
+
+
+As with the convention in matplotlib, every continuous colormap has a reversed version, which has the suffix ``"_r"``:
+
+.. code:: ipython3
+
+    sns.color_palette("rocket_r", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="rocket_r color map" title="rocket_r"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB9UlEQVR4nO3VQXIbIRAFUMj9j+gT5AipMp2FNMBIyEn99Xsb46ZpZkaL3//8/qrWWms1nn/GXLfxva1Hq209z4zvbb3qNdff9/7rfL3v18uMOftW+5/19kzX+blf5/v+NXfU53k/3PF419VTx3N17N3rtdev57ndt99Rq+dtbt33x4f6sff6LC/rWp9rnbvW2089Wmujz/Wq9+dirR/7fb7eXn/U+qyN6sd61eP/xyfoa39+lj73q/p87UfPNft6tN5Grbmj9a2+9czX7sdarc+y9bQ2ep/1VTuc6/ee9jy7fe5j72itVV/rn3qr1a1n+3m2Z6/1nLd5tfU8z/VD7XZHrdm1z13n7nPfe2qbdZqx31dbz3nWPuN8bj3Pa+9zXXWb91Z72b/NeL2j6rj+OK8+9J7u+HTuQ2+99P5qABAQIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABD5C9Rx55FE/f1gAAAAAElFTkSuQmCC">
+
+
+
+Discrete vs. continuous mapping
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One thing to be aware of is that seaborn can generate discrete values from sequential colormaps and, when doing so, it will not use the most extreme values. Compare the discrete version of ``"rocket"`` against the continuous version shown above:
+
+.. code:: ipython3
+
+    sns.color_palette("rocket")
+
+
+
+
+.. raw:: html
+
+    <svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#35193e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#701f57;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#ad1759;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e13342;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#f37651;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#f6b48f;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
+
+
+Internally, seaborn uses the discrete version for categorical data and the continuous version when in numeric mapping mode. Discrete sequential colormaps can be well-suited for visualizing categorical data with an intrinsic ordering, especially if there is some hue variation.
+
+.. _cubehelix_palettes:
+
+Sequential "cubehelix" palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The perceptually uniform colormaps are difficult to programmatically generate, because they are not based on the RGB color space. The `cubehelix <https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/>`_ system offers an RGB-based compromise: it generates sequential palettes with a linear increase or decrease in brightness and some continuous variation in hue. While not perfectly perceptually uniform, the resulting colormaps have many good properties. Importantly, many aspects of the design process are parameterizable.
+
+Matplotlib has the default cubehelix version built into it:
+
+.. code:: ipython3
+
+    sns.color_palette("cubehelix", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="cubehelix color map" title="cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACMUlEQVR4nO3Vy5LiMAwFUEnh/z+5PQuIHxlmqlrrczaorh0gKczNiBgRERkZERGVdcwVFRERmRmZ73llNbOMisoveVbEtue5HvtcZz6vy1xZ/b0elf+eP3vHnHN7j1z5tr6yZx7bZ7zHI5tzzPWofU9E5Jhf/5m9P2/Mr3nPUSNyvt+9PiK/zJEj8vN+6zZXljmi6mfNez4fxZivxxxf8oi4tj0REdd/5utzG1eO+biu7fXKe84z/zzQleWRvea857XNn9dRj/Xarlu/75Vf87rasm9zxTX371nlteZY832HlSvPeM3sXs9jfh35Wn9fF3kdeeT9xF4zn1lt63mtH+V23ahH/syqYsx8nc+Rj/m5XhXj/lHXOp/jy5kdlfMcjsrjLB/nb+6NNR/ncD/Xn3xbP7IvZzlrbPPau87e9qgy1pnb9q7zFvNM5/GXNY78vrXcv/r+V5a59sxHsbJ1yzn/R+vYk1GR53XH3tzy2q6r+V4A8GsKBIAWBQJAiwIBoEWBANCiQABoUSAAtCgQAFoUCAAtCgSAFgUCQIsCAaBFgQDQokAAaFEgALQoEABaFAgALQoEgBYFAkCLAgGgRYEA0KJAAGhRIAC0KBAAWhQIAC0KBIAWBQJAiwIBoEWBANCiQABoUSAAtCgQAFoUCAAtCgSAFgUCQIsCAaBFgQDQokAAaFEgALQoEABaFAgALQoEgBYFAkCLAgGgRYEA0KJAAGhRIAC0KBAAWhQIAC1/AG8IQ2DsD2phAAAAAElFTkSuQmCC">
+
+
+
+The default palette returned by the seaborn :func:`cubehelix_palette` function is a bit different from the matplotlib default in that it does not rotate as far around the hue wheel or cover as wide a range of intensities. It also reverses the luminance ramp:
+
+.. code:: ipython3
+
+    sns.cubehelix_palette(as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABxElEQVR4nO3VQXbbMAwFQLT3v1lXPUivAHahqCFpKnH/embjmAJJQM8v/8ef379GVVX19VFVNca4/1jXPmrGtH7XLGs9zjX9cO78/ammqmpMz9+9+y7be/h4sJVea8c51++ffc5bp339sD6dt6+NPs80truvOV9r7n3/V3voc+r9s5+1bpz6P870cMdhpn3tuzuWc/vcZ7/b58Pd/c388zl9nPOhtta1/b71jPNM6/5zD11fzz3P97T+b61Ov83zO+4xatTa6PUv5PWMU21v723et840lufz2nxmL+/osL/2mc41+292Pnc+Zz/j7mc9t1/fRT312W/02cvc+ww9/eq+uuPq87V27fN6/rMAICBAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABIPIXdvLG+cgzw6cAAAAASUVORK5CYII=">
+
+
+
+Other arguments to :func:`cubehelix_palette` control how the palette looks. The two main things you'll change are the ``start`` (a value between 0 and 3) and ``rot``, or number of rotations (an arbitrary value, but usually between -1 and 1)
+
+.. code:: ipython3
+
+    sns.cubehelix_palette(start=.5, rot=-.5, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABzklEQVR4nO3VwZEjIRAEQPb8t+qcWAfODnofK2mAaeki6p350qBmaBCK+vr777vGGGOOGk/1+DjrGptVr/Ea+/g656zdah7z5vJdVd2eu/c9x2rt6ZjzrFn7Pufta+1zP9fue3qdRfXn9t/a2c9/996+z+V59mfU1q5nPO/9v61d1/qw/239+aFmjs15xs+HmnvN74f+PMe21rVG18NWu+xpq5/3/Y+qY499zfXeo6cxtr3X8gP1790vUx3nNj7MP+e+ejrHzkvSrj3b+ddvcp7neQ9ne8l+a+dRW/eaRw/tnvZL0vR5zWv3tO39XOOqOf9bZz91/bFHzdsF3/qsbu2tz7X22v869vF9x3ddn+3YeFd7P+M/AwACAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiAgSAiAABICJAAIgIEAAiP0tPtPpjWEnLAAAAAElFTkSuQmCC">
+
+
+
+The more you rotate, the more hue variation you will see:
+
+.. code:: ipython3
+
+    sns.cubehelix_palette(start=.5, rot=-.75, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB3ElEQVR4nO3VQXbcIBAFwE7uf6fcIsschc5iohEgxvH766qVBzXQkpD/j99/fnVVVVfXZfTr7+5xj1W/f1/X53ljru0+r1fP+Z9q1z3uecvcuvpcx+aa6/rV3Vd773uMabwfe9/jz97v3l41571f97bvvc657mm7paV22eNYu/d5z1nX6OX63N++17H21Huvv+9nsfb0Xnc8a/f17h6+ru3xYfx9vs+1r4HvrTuvV5963+Yuc/7tdY9PPfyndt7sXbL00MeetsN1rK3DM7oe/mPscEi6u7ZPq2r08Vk9DuJ7/rPP6q7+zqGr7bnNB3H+33L64Lqrxph+fvhgrn7mFzKt1/uL2j6GPr30Mdb9vlv7upmPtb0d2h5b7VT/qN3XrfuZ/CwACAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiPwFwKyP+cAd3K8AAAAASUVORK5CYII=">
+
+
+
+You can control both how dark and light the endpoints are and their order:
+
+.. code:: ipython3
+
+    sns.cubehelix_palette(start=2, rot=0, dark=0, light=.95, reverse=True, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABvElEQVR4nO3VO5bjMAwEQAL3v/NuMNYI+tmejqsS61EQAdJB11rr35pqrVX189jjuWqt3mpq/+nxvl6vu55rXj2q63evbXmtN/uda6vG+ti795q9399qf6+ixwxVn3s83dtYP/eph+/m3uc9Lmtzj5v7Psw+7rD6vH79bp9lzNz1uPe+Nu6tb87x0G+e4/Y/+TDDu+e7c971e5ptzvBtv29r6/XH3r3vu3N822Ptz32ZrT/ucei97mboxznP3/XpnLP2Mtvaa5/27XWc4/3sfegxa7b3T/PUus5x991hfZy1113fPt3L/p/06Z7/UrvVb3fYs3bcbY/72vcY51yj97jvWfOzBgABAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECACR/0RJBDTPiFuMAAAAAElFTkSuQmCC">
+
+
+
+The :func:`color_palette` accepts a string code, starting with ``"ch:"``, for generating an arbitrary cubehelix palette. You can passs the names of parameters in the string:
+
+.. code:: ipython3
+
+    sns.color_palette("ch:start=.2,rot=-.3", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABuElEQVR4nO3VQVLEMAwEQMP/X8VTeIjFgdps7GjDMufuE2VsSU4C8/H1/V1jjFFV4+Hx49zW5qjx7t7znlljObf/rsbf9R7n7up2vY/Zj97n9Rrb1lFVb+2tF3v6+9/vXXrM7k79nH299/eO+Z879c+45rq+F7idc65zju39nt/7ZfbtfDfnOPVeajw/nPZOe5/unnufux593XX2fqYXdzrNcvy+fU+11pt9vWOGbn2+fibX3s8XUnPtfemxfyNz+xhezVO19Lmfcy5rfe+5nnn0nuvZ50zrnJdnfKq3/x8aNbdv5PhjX8737/06Z2319j11uX/z3Op6z9+63f2va58DAAICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACI/J9fS+IJt7S4AAAAASUVORK5CYII=">
+
+
+
+And for compactness, each parameter can be specified with its first letter:
+
+.. code:: ipython3
+
+    sns.color_palette("ch:s=-.2,r=.6", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="seaborn_cubehelix color map" title="seaborn_cubehelix"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB2klEQVR4nO3VS3IbMQwFQCb3v1RukXUOQnjhjESCVFL11t0bWxhwiPlI78ef379qjDFGzfGo+i6N2WpP/fk7xqinZ62tvbee3jvb5zbPc7yf9/m/5l6rtedZ//TWXj96l3m2Y3Xuc/TM97G9ftn7Ovt679fWGqOPOfdavc7XN/r7cXse9/PWdc79/O89LvXXo2u187aNmtXHHFXjuOfrvNv62tfXh3nqfD3f96qtn//o6b3H/Rh9/X3O+WnO57Gv9Xau5/j99T6vabY5b3u/X9n/z3lfXx97+3drLj2z97YXvF/n0z/Hvd5n6ntUfapfaqPafHWtv+Ycl96q1377NZ1z7vdtvs53nWH5Mnzfi9uc83qdc5y/8XP93V/2rWv9XP9zAEBAgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkBEgAAQESAARAQIABEBAkDkC3KRpvgh9YcxAAAAAElFTkSuQmCC">
+
+
+
+Custom sequential palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For a simpler interface to custom sequential palettes, you can use :func:`light_palette` or :func:`dark_palette`, which are both seeded with a single color and produce a palette that ramps either from light or dark desaturated values to that color:
+
+.. code:: ipython3
+
+    sns.light_palette("seagreen", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABkklEQVR4nO3VQXKCQBCG0U7uf9JUZZMLdBYqODCg/mzfWyRGx6GhAt/Xz99vV1VV3X51V3U93lpeVVdXP/5Y1o6fL1+rrr4vHn72fK+eHnt93cP392t73exgzs1ekzmGM/lwzvXTF3M+XYTXa6/MWcN12e01fH4w5/3N6ZzD3vNzWo8yzpHPOdlrmHNyTts5t+d0tvf2f+jknNM559dosvbpfpqtvV23q3Me3Pc9TLl/7+M592uPnxGfzbnf62zO43O6NOfsHnhjr6Nn7nqsd+Ycv3f+jHgx5/TY431dVfVdABAQEAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABD5B86su4I70Lg4AAAAAElFTkSuQmCC">
+
+
+
+.. code:: ipython3
+
+    sns.dark_palette("#69d", reverse=True, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABmUlEQVR4nO3VQXqCMBSF0dcutnvq4rqWdFDUBAjB+3V4zkgjhoeo/8fX90+rqmqt1Z9WtT3eXujWH48eD1o9Fw97PFe79Tq8b3zt4tzb89e2/R7dMas52369O/d+ntmch3M/3v/GnN1+w+e2mvP5+bSb829H93PO1s+uaTbndP7FnMN67d53d846Of9qj5Nju/sx7rGbc3fs7P4O66s5Z3u8M+f0N9af43z+19LsdzOb8+TY6fdwMedwf8fr7+/d5ZyH/4junl0dO1xrHa7h9pz//D+0/y5fHbu+v/trOJlz+V92NWfVZwFAQEAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJA5BdxR2zjclXaYQAAAABJRU5ErkJggg==">
+
+
+
+As with cubehelix palettes, you can also specify light or dark palettes through :func:`color_palette` or anywhere ``palette`` is accepted:
+
+.. code:: ipython3
+
+    sns.color_palette("light:b", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABg0lEQVR4nO3VQXaCMBhG0bT7X6xdwd+BAoGADZ8d3jtSDAESOe/r8fip1lqr9lTLh9ZaVa3HW/Vjqhuz/rx+6Sesw/hlWHVfZq59do3qBuzvYz16Mu92vO3uYzvnOH6da/dM+xPrMNfZNWbW7bgG4zNtE9xZt3t7Nr9u1Z14uQcX61bDM81d++waM3PM3s8w/o9nTq99te/Pn/7/3RvXe+4/dLb2M+/e+EzX796ne3b33evXYJz3zbvXHz855/M9m1+3d//DZa67ezY+08WevXw3AAgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIj8As1TZeD4YfYTAAAAAElFTkSuQmCC">
+
+
+
+Reverse the colormap by adding ``"_r"``:
+
+.. code:: ipython3
+
+    sns.color_palette("dark:salmon_r", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABtElEQVR4nO3VQXbDIAwFQLVH7gl67m7ook4AGxrnr2dWiRNbEob3P36+v1pVVWutqqpaVR0fq9Xx4bj2+N6Ga49vf7/3+1q/td/3fG7/b7U2PW+qcerjVm9DH/33ocYw6zzLtcZYZd/bdeY2DDvOOvZxq7dpveY1rFrP3KpdezvVWPc2r+ll5mldW9bbuF+m+dbvfFWjNnXHzu/s5WeNu72dZnu5l4dehu10ay+ve7s+77x3+3Ov7/d8zs41hm1z3cur87s5Q7t9tpz5nz10rrvqbZx9VWN7ft88Q8t9tnlPu3e57O3lGeozbs/v5l2+09u85r1m722+Nv73swAgIEAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEg8gvBBnrlggssIwAAAABJRU5ErkJggg==">
+
+
+
+Sequential Color Brewer palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Color Brewer library also has some good options for sequential palettes. They include palettes with one primary hue:
+
+.. code:: ipython3
+
+    sns.color_palette("Blues", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="Blues color map" title="Blues"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABsElEQVR4nO3Vy5LaMBAF0E7+/3+zmCppFgyoZWwCN1meUwWItp421P3152vOqqp5+6g5q26tVbuqz8fb7eOt+s9ca9651ee68NR/ti/zUD/udV/v9TmOYz6tf7LGu2v3842arc96TqO1t/pJ33t7zFf1fW+zqsa2n15ffY/jRm/P83OM2eZutT5utHnXeve+e63PNepk7X691dbeDmu3852tsd23Xm9zPO7P2XPs9bnXn+a9ql+Mvz+Pp/rJmc7bF/scfxt33V5zfdL3qr32WU9nur7+P8Y9/rdvzLvVD9drjnbY0X4w4/babsb4vP24seMfx71oV9XvAoCAAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBIDIN702GCQIZoxJAAAAAElFTkSuQmCC">
+
+
+
+Along with multi-hue options:
+
+.. code:: ipython3
+
+    sns.color_palette("YlOrBr", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="YlOrBr color map" title="YlOrBr"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABzUlEQVR4nO3VS47bMBAFQDr3v2aOEXUWluSWRDqTt64CBiM0ySb1gd+r6neNMcaobbzV/nfUqtX3OVXPuWO71Vu/S32fe+5xm7usH70mc0eNqtl+7bw1OWfN7unL+GxOf1Y1OWfVes5R6/d8rtvW12ftT6v9a+5/Xo/x7h+t67UaY5vc/9ae56U2W3frMRs/e9ze33bbo7bFuvneda4bo9q6T7tPj/errk/9WNdrZ4u2bmvrVrXVfvvZa3WGtl/1vffxWoxPr9sz+cncup3z67rtZ3P7Z9Nu73yll/FxndteyeOz2Kr92tTr+um1Pfr8e69vez/P+7qc/bP39froNT177z2ez6LG6zq+uO79nudcnG3//2sAQECAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQESAABARIABEBAgAEQECQOQvRJbdArCutSMAAAAASUVORK5CYII=">
+
+
+
+.. _diverging_palettes:
+
+Diverging color palettes
+------------------------
+
+The third class of color palettes is called "diverging". These are used for data where both large low and high values are interesting and span a midpoint value (often 0) that should be demphasized. The rules for choosing good diverging palettes are similar to good sequential palettes, except now there should be two dominant hues in the colormap, one at (or near) each pole. It's also important that the starting values are of similar brightness and saturation.
+
+Perceptually uniform diverging palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Seaborn includes two perceptually uniform diverging palettes: ``"vlag"`` and ``"icefire"``. They both use blue and red at their poles, which many intuitively processes as "cold" and "hot":
+
+.. code:: ipython3
+
+    sns.color_palette("vlag", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="vlag color map" title="vlag"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB8ElEQVR4nO3VW27cMBAEQFI+Sk6XO+ZsYj6yEod6YJH+rgIM03wOuWt0//X7z2ittZ/e2vH7aG9Le8z29jT+7+db+97XH/v707qtv4733l/P65cznub2Ws/2fV2d/zzez7c65vS+1jRr6GffOb715Y2u5/WybtvW8XttvfWtjj+cvbztXLfW0x/P6Nvsv9+/r/stb7uuu51Raq5zbvco6/r1PbfZf/T1NvvO/jKnOrvGmJ1jzL/HaKO2932ZP8bexn6Mz/bY9zbGZ+4+znYdb6Vvju+t7XPvudfnjL2cMfbWPvWMpbayb6l3lLlzXan/Za/1vJf2cbeHO7VL/bczru/z1v5Sw/JGo7zzef+Hz+m6R5nzfKdvZ9Q3/vIdedvrbNc3fPgO1c+x1LbuUfd+Ou/6HVnv9PkXBYD/I0AAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEgIkAAiAgQACICBICIAAEg8hcmDFGKLgWJNwAAAABJRU5ErkJggg==">
+
+
+
+.. code:: ipython3
+
+    sns.color_palette("icefire", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="icefire color map" title="icefire"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACVklEQVR4nO3Vy3XjOBAF0AKg/CPqSDqAicIEZiEQgGTOYmp974ZPhY9s2ue88uefvyMi4uojIiJ63/nqI3qPlff896yP+Fj/rxwRcY1x3PG1d5x3x9e5+Dr3kEccP3Mcv9Nz7kfes/K4fufRS4yV93NcZW6eLyQiyjU/R0Tp4/05Iuq93keU+QPVPqLML6lXX7n0a+frmrMepc/L+rXz+IlY859j9s5j/MQ45mPMeb92XrNjfVyfed7Rv+b3s/fr+dx8Ye9z169z9/oYV/SV+7Fnv/DxsT5z9PVHGTF2HvMfK/p7/h5G3DnGnq9nRLmf48jxnGuUnUtZ63VOa0SUUtbeWvZ87XlYbx97S7Qj32famR/Otahr/7neHu5tse9rJXaO3+fax/wrH3v2+kMuEW2+81bu9zeO9RGtjD2/99TP+ZrVPat3rnHkEbXtO+5nWbM9L+39+Z3HkctaL3NWWznmZ54bWo0yLyitRmnzC1t7zGtWz/XXsf6KqK+9t732fJ177XP1OHfuPedf3xH1dcyP++b3zt8MAP4fBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBIAUBQJAigIBIEWBAJCiQABIUSAApCgQAFIUCAApCgSAFAUCQIoCASBFgQCQokAASFEgAKQoEABSFAgAKQoEgBQFAkCKAgEgRYEAkKJAAEhRIACkKBAAUhQIACkKBICUfwGdkTrvIk24DwAAAABJRU5ErkJggg==">
+
+
+
+Custom diverging palettes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can also use the seaborn function :func:`diverging_palette` to create a custom colormap for diverging data. This function makes diverging palettes using the ``husl`` color system. You pass it two hues (in degrees) and, optionally, the lightness and saturation values for the extremes. Using ``husl`` means that the extreme values, and the resulting ramps to the midpoint, while not perfectly perceptually uniform, will be well-balanced:
+
+.. code:: ipython3
+
+    sns.diverging_palette(220, 20, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB1ElEQVR4nO3VQbKbMBAFQA05WI6WQ+S+KAuMkYz4Tr1198ZYEow0UPXq95+/vbXWqlo7fqttrd7X5/hW1er1Z6tzvk1j53VNa2pafx+rtp3jrT6ed62/7+Ean/c8177VqHWN+cwPNVb7f6j7tUdD3XF+267nRr2v+SyrXi57X/U+y7ca975c7/1rjbj3H32bvrf/qFEPNdr9fFWt/TrXtH48YN9b7/tx3Xvr+3XdXuO99+P/a/01NlwP9/Vzbd/f9/Vpfqixv+aHtavnjvWOfS5qPJ5jUWPf532+611jj+dY1Hs6R1/2bZgf6z31/tzDosa998MzbjU+5s8a+9zbr70/r5e9+ukbmu/7+RtavL/H+fU51r1/OMfHO90aAAQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAET+AaOhMcJyTuRZAAAAAElFTkSuQmCC">
+
+
+
+This is convenient when you want to stray from the boring confines of cold-hot approaches:
+
+.. code:: ipython3
+
+    sns.diverging_palette(145, 300, s=60, as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB0UlEQVR4nO3VS3LbMBAFwBkmp8s1cpMcnMhClkRSgCy/dffChQLxGQ7lev3n399RVdXdVVW1dVfXbdzd1b095/s5/zJXPZ/v7TT/OLdma9dn3O/Yvl3br/fV+j3e1dZ9vG9b3veutndnzPv2gzpP32z7aO2pnsXd89pXfZndt53PqEXN1x5213b41qs6vq/ttRere2e1dXf97l+39eN2Vu2jxrgNa4wa+304qsZkvN8HX/O3bVUf7hvj/ucy3i/z9/2Pc9f7xnjWNL33MP9418W+5/NLXybzx/2P8V7Tfefnkx4e33/Vi8U7Heefd/+gF4fv/kmPj/tm9Z7Wrn4vl16eenzY9/LdJ/XOfy+XHj3OXTzfz2u//jsA4GcECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAET+A3iqCCVk41njAAAAAElFTkSuQmCC">
+
+
+
+It's also possible to make a palette where the midpoint is dark rather than light:
+
+.. code:: ipython3
+
+    sns.diverging_palette(250, 30, l=65, center="dark", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="blend color map" title="blend"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABu0lEQVR4nO3VUZKaQABF0dcky82esrwsIjWQDzWCgjhv5vOcH7u0aZqWqjt+/f6zJEmW+fKxLJvxch3nYZwkS+b7eJkv117XOhrf1309d1m2a+/tYTnYc7Ien6z74h5P6x7e72Td9Rnl+Sw25zLP/38/PYu8cxafOOPvPIu8cRY778Xxu/eZua/f2Xfe0/njb5LkZz4unyOZxkiSjPU4yXQZZoxxH18+Mo2R69RMIxnXX6aR1fdjNX9/re29b98/rzXGyJSs5q6uy33O2R42c1bPsreHd/b81ee/7efH4XVnezv+z75y3eP5HD3r2VrfcW7rPd2eY7PG7fc8rHEbZ2c/I5myc0artQDg0wQEgIqAAFAREAAqAgJARUAAqAgIABUBAaAiIABUBASAioAAUBEQACoCAkBFQACoCAgAFQEBoCIgAFQEBICKgABQERAAKgICQEVAAKgICAAVAQGgIiAAVAQEgIqAAFAREAAqAgJARUAAqAgIABUBAaAiIABUBASAioAAUBEQACoCAkBFQACoCAgAFQEBoCIgAFQEBICKgABQERAAKgICQEVAAKgICAAVAQGgIiAAVP4Bi9tFKvZdo5QAAAAASUVORK5CYII=">
+
+
+
+It's important to emphasize here that using red and green, while intuitive, `should be avoided <https://en.wikipedia.org/wiki/Color_blindness>`_.
+
+Other diverging palettes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are a few other good diverging palettes built into matplotlib, including Color Brewer palettes:
+
+.. code:: ipython3
+
+    sns.color_palette("Spectral", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="Spectral color map" title="Spectral"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAAB9ElEQVR4nO3VSXbjMAwFQJC6WR+0byoyC02Q43jAumojBAIo2c57v/1v/2ZERO8R27VFX1J99JcWS6qPnd73ernqJdW93+eP/aNeHp/37Nn7tfWI3udZt1y3ec62c/73bE+zj/1j59xvV91zv+d+7EWL2D9nS3X0Fu384h5mIra/z15/2HtW93PvkzPOZ+Uvs6ezenq3XL+8/+KML/Za/mGPa677H/1396t7+Uc96tjed8aIGdv/ypx/1DFizqt+d/9Wp/O23rzX53lXHfvOOiPGVsaYLdZUH/011WO2tNf23jZz1LeZuPpvZ5+ct972Is1edZ6JiFjHZ7N55pvZ853X/f5oMcb+7muqX/S/nh1b/9Pnzf3d+pjR9w/Vx4y2zl/9lmfWcc2mvZ72nvVvvfOs+bx/XAMACgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASn4AFoYSwd/5oIUAAAAASUVORK5CYII=">
+
+
+
+And the ``coolwarm`` palette, which has less contrast between the middle values and the extremes:
+
+.. code:: ipython3
+
+    sns.color_palette("coolwarm", as_cmap=True)
+
+
+
+
+.. raw:: html
+
+    <img alt="coolwarm color map" title="coolwarm"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACAklEQVR4nO3VQXLbMAwFUJDH6hl66N4rMdmFLRFi5dbF+r1NOCAIKJnJ/Pbj568ZEdFai4iI1nv0vs653lI9IqK3dp5bbx/MeP7sW+2sv5l3zmotfUOLfplxfNPak9/nfdd5ce7+Y+8267XidT7qkb4nbucePb2nv/Ob2jmjp29qqf9yH7f3LdX32n7f23y/o83t3ep9/XpbT5oVqfeox0y752XGun+e+5v6Ze55nqu+9bbU85ybe8fl/jIj9UREtJlqc3xwXrXI9/P+XVz6I2LOtPt6f8yIub4t8rvb8/2Oc8bIM1ZvzBEx9n1b7U3vHGnP3ay/9Y4RM52P+hz7u9QT8Xxzdx7zsmOm+r4v75hj7Zhjxjz+Rrf3W++2Y699+m487t8962nG41XPsx5j9T5WfRznx4xxzP56vf+e/z5/rf9TAPhvAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlAgSAEgECQIkAAaBEgABQIkAAKBEgAJQIEABKBAgAJQIEgBIBAkCJAAGgRIAAUCJAACgRIACUCBAASgQIACUCBIASAQJAiQABoESAAFAiQAAoESAAlAgQAEoECAAlvwHsCVROVcP06wAAAABJRU5ErkJggg==">
+
+
+
+As you can see, there are many options for using color in your visualizations. Seaborn tries both to use good defaults and to offer a lot of flexibility.
+
+This discussion is only the beginning, and there are a number of good resources for learning more about techniques for using color in visualizations. One great example is this `series of blog posts <https://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/>`_ from the NASA Earth Observatory. The matplotlib docs also have a `nice tutorial <https://matplotlib.org/users/colormaps.html>`_ that illustrates some of the perceptual properties of their colormaps.

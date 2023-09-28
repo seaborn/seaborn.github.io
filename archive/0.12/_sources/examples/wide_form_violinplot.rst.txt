@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _wide_form_violinplot:
+
+
+Violinplot from a wide-form dataset
+===================================
+
+
+
+.. image:: _images/wide_form_violinplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`violinplot`, :func:`despine`
+
+.. literalinclude:: wide_form_violinplot.py
+    :lines: 7-
+

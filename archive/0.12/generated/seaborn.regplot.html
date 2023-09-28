@@ -1,0 +1,1390 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>seaborn.regplot &#8212; seaborn 0.12.2 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/seaborn.regplot';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="seaborn.residplot" href="seaborn.residplot.html" />
+    <link rel="prev" title="seaborn.lmplot" href="seaborn.lmplot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.objects.Plot.html">
+   seaborn.objects.Plot
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.add.html">
+     seaborn.objects.Plot.add
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.scale.html">
+     seaborn.objects.Plot.scale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.facet.html">
+     seaborn.objects.Plot.facet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.pair.html">
+     seaborn.objects.Plot.pair
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.layout.html">
+     seaborn.objects.Plot.layout
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.label.html">
+     seaborn.objects.Plot.label
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.limit.html">
+     seaborn.objects.Plot.limit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.share.html">
+     seaborn.objects.Plot.share
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.theme.html">
+     seaborn.objects.Plot.theme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.on.html">
+     seaborn.objects.Plot.on
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.plot.html">
+     seaborn.objects.Plot.plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.save.html">
+     seaborn.objects.Plot.save
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.objects.Plot.show.html">
+     seaborn.objects.Plot.show
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dot.html">
+   seaborn.objects.Dot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dots.html">
+   seaborn.objects.Dots
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Line.html">
+   seaborn.objects.Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Lines.html">
+   seaborn.objects.Lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Path.html">
+   seaborn.objects.Path
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Paths.html">
+   seaborn.objects.Paths
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dash.html">
+   seaborn.objects.Dash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Range.html">
+   seaborn.objects.Range
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Bar.html">
+   seaborn.objects.Bar
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Bars.html">
+   seaborn.objects.Bars
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Area.html">
+   seaborn.objects.Area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Band.html">
+   seaborn.objects.Band
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Text.html">
+   seaborn.objects.Text
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Agg.html">
+   seaborn.objects.Agg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Est.html">
+   seaborn.objects.Est
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Count.html">
+   seaborn.objects.Count
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Hist.html">
+   seaborn.objects.Hist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.KDE.html">
+   seaborn.objects.KDE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Perc.html">
+   seaborn.objects.Perc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.PolyFit.html">
+   seaborn.objects.PolyFit
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Dodge.html">
+   seaborn.objects.Dodge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Jitter.html">
+   seaborn.objects.Jitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Norm.html">
+   seaborn.objects.Norm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Stack.html">
+   seaborn.objects.Stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Shift.html">
+   seaborn.objects.Shift
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Boolean.html">
+   seaborn.objects.Boolean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Continuous.html">
+   seaborn.objects.Continuous
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Nominal.html">
+   seaborn.objects.Nominal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Temporal.html">
+   seaborn.objects.Temporal
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Mark.html">
+   seaborn.objects.Mark
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Stat.html">
+   seaborn.objects.Stat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Move.html">
+   seaborn.objects.Move
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.objects.Scale.html">
+   seaborn.objects.Scale
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.relplot.html">
+   seaborn.relplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.scatterplot.html">
+   seaborn.scatterplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.lineplot.html">
+   seaborn.lineplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.displot.html">
+   seaborn.displot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.histplot.html">
+   seaborn.histplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.kdeplot.html">
+   seaborn.kdeplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.ecdfplot.html">
+   seaborn.ecdfplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.rugplot.html">
+   seaborn.rugplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.distplot.html">
+   seaborn.distplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.catplot.html">
+   seaborn.catplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.stripplot.html">
+   seaborn.stripplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.swarmplot.html">
+   seaborn.swarmplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.boxplot.html">
+   seaborn.boxplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.violinplot.html">
+   seaborn.violinplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.boxenplot.html">
+   seaborn.boxenplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.pointplot.html">
+   seaborn.pointplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.barplot.html">
+   seaborn.barplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.countplot.html">
+   seaborn.countplot
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.lmplot.html">
+   seaborn.lmplot
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   seaborn.regplot
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.residplot.html">
+   seaborn.residplot
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.heatmap.html">
+   seaborn.heatmap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.clustermap.html">
+   seaborn.clustermap
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.FacetGrid.html">
+   seaborn.FacetGrid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.__init__.html">
+     seaborn.FacetGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.add_legend.html">
+     seaborn.FacetGrid.add_legend
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.apply.html">
+     seaborn.FacetGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.despine.html">
+     seaborn.FacetGrid.despine
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.facet_axis.html">
+     seaborn.FacetGrid.facet_axis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.facet_data.html">
+     seaborn.FacetGrid.facet_data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.map.html">
+     seaborn.FacetGrid.map
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.map_dataframe.html">
+     seaborn.FacetGrid.map_dataframe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.pipe.html">
+     seaborn.FacetGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.refline.html">
+     seaborn.FacetGrid.refline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.savefig.html">
+     seaborn.FacetGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set.html">
+     seaborn.FacetGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_axis_labels.html">
+     seaborn.FacetGrid.set_axis_labels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_titles.html">
+     seaborn.FacetGrid.set_titles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_xlabels.html">
+     seaborn.FacetGrid.set_xlabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_xticklabels.html">
+     seaborn.FacetGrid.set_xticklabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_ylabels.html">
+     seaborn.FacetGrid.set_ylabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.set_yticklabels.html">
+     seaborn.FacetGrid.set_yticklabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.tick_params.html">
+     seaborn.FacetGrid.tick_params
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.FacetGrid.tight_layout.html">
+     seaborn.FacetGrid.tight_layout
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.pairplot.html">
+   seaborn.pairplot
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.PairGrid.html">
+   seaborn.PairGrid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.__init__.html">
+     seaborn.PairGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.add_legend.html">
+     seaborn.PairGrid.add_legend
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.apply.html">
+     seaborn.PairGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map.html">
+     seaborn.PairGrid.map
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_diag.html">
+     seaborn.PairGrid.map_diag
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_lower.html">
+     seaborn.PairGrid.map_lower
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_offdiag.html">
+     seaborn.PairGrid.map_offdiag
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.map_upper.html">
+     seaborn.PairGrid.map_upper
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.pipe.html">
+     seaborn.PairGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.savefig.html">
+     seaborn.PairGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.set.html">
+     seaborn.PairGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.tick_params.html">
+     seaborn.PairGrid.tick_params
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.PairGrid.tight_layout.html">
+     seaborn.PairGrid.tight_layout
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.jointplot.html">
+   seaborn.jointplot
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="seaborn.JointGrid.html">
+   seaborn.JointGrid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.__init__.html">
+     seaborn.JointGrid.__init__
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.apply.html">
+     seaborn.JointGrid.apply
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.pipe.html">
+     seaborn.JointGrid.pipe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot.html">
+     seaborn.JointGrid.plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot_joint.html">
+     seaborn.JointGrid.plot_joint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.plot_marginals.html">
+     seaborn.JointGrid.plot_marginals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.refline.html">
+     seaborn.JointGrid.refline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.savefig.html">
+     seaborn.JointGrid.savefig
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.set.html">
+     seaborn.JointGrid.set
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="seaborn.JointGrid.set_axis_labels.html">
+     seaborn.JointGrid.set_axis_labels
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_theme.html">
+   seaborn.set_theme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.axes_style.html">
+   seaborn.axes_style
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_style.html">
+   seaborn.set_style
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.plotting_context.html">
+   seaborn.plotting_context
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_context.html">
+   seaborn.set_context
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_color_codes.html">
+   seaborn.set_color_codes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.reset_defaults.html">
+   seaborn.reset_defaults
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.reset_orig.html">
+   seaborn.reset_orig
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set.html">
+   seaborn.set
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_palette.html">
+   seaborn.set_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.color_palette.html">
+   seaborn.color_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.husl_palette.html">
+   seaborn.husl_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.hls_palette.html">
+   seaborn.hls_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.cubehelix_palette.html">
+   seaborn.cubehelix_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.dark_palette.html">
+   seaborn.dark_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.light_palette.html">
+   seaborn.light_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.diverging_palette.html">
+   seaborn.diverging_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.blend_palette.html">
+   seaborn.blend_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.xkcd_palette.html">
+   seaborn.xkcd_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.crayon_palette.html">
+   seaborn.crayon_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.mpl_palette.html">
+   seaborn.mpl_palette
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_colorbrewer_palette.html">
+   seaborn.choose_colorbrewer_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_cubehelix_palette.html">
+   seaborn.choose_cubehelix_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_light_palette.html">
+   seaborn.choose_light_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_dark_palette.html">
+   seaborn.choose_dark_palette
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.choose_diverging_palette.html">
+   seaborn.choose_diverging_palette
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.despine.html">
+   seaborn.despine
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.move_legend.html">
+   seaborn.move_legend
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.saturate.html">
+   seaborn.saturate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.desaturate.html">
+   seaborn.desaturate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.set_hls_values.html">
+   seaborn.set_hls_values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.load_dataset.html">
+   seaborn.load_dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.get_dataset_names.html">
+   seaborn.get_dataset_names
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="seaborn.get_data_home.html">
+   seaborn.get_data_home
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="seaborn-regplot">
+<h1>seaborn.regplot<a class="headerlink" href="#seaborn-regplot" title="Permalink to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="seaborn.regplot">
+<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">regplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_estimator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ci'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logistic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_partial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_partial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_jitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_jitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'o'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_kws</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.regplot" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot data and a linear regression model fit.</p>
+<p>There are a number of mutually exclusive options for estimating the
+regression model. See the <a class="reference internal" href="../tutorial/regression.html#regression-tutorial"><span class="std std-ref">tutorial</span></a> for more
+information.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>x, y: string, series, or vector array</strong></dt><dd><p>Input variables. If strings, these should correspond with column names
+in <code class="docutils literal notranslate"><span class="pre">data</span></code>. When pandas objects are used, axes will be labeled with
+the series name.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>Tidy (“long-form”) dataframe where each column is a variable and each
+row is an observation.</p>
+</dd>
+<dt><strong>x_estimator</strong><span class="classifier">callable that maps vector -&gt; scalar, optional</span></dt><dd><p>Apply this function to each unique value of <code class="docutils literal notranslate"><span class="pre">x</span></code> and plot the
+resulting estimate. This is useful when <code class="docutils literal notranslate"><span class="pre">x</span></code> is a discrete variable.
+If <code class="docutils literal notranslate"><span class="pre">x_ci</span></code> is given, this estimate will be bootstrapped and a
+confidence interval will be drawn.</p>
+</dd>
+<dt><strong>x_bins</strong><span class="classifier">int or vector, optional</span></dt><dd><p>Bin the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable into discrete bins and then estimate the central
+tendency and a confidence interval. This binning only influences how
+the scatterplot is drawn; the regression is still fit to the original
+data.  This parameter is interpreted either as the number of
+evenly-sized (not necessary spaced) bins or the positions of the bin
+centers. When this parameter is used, it implies that the default of
+<code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> is <code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code>.</p>
+</dd>
+<dt><strong>x_ci</strong><span class="classifier">“ci”, “sd”, int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval used when plotting a central tendency
+for discrete values of <code class="docutils literal notranslate"><span class="pre">x</span></code>. If <code class="docutils literal notranslate"><span class="pre">&quot;ci&quot;</span></code>, defer to the value of the
+<code class="docutils literal notranslate"><span class="pre">ci</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">&quot;sd&quot;</span></code>, skip bootstrapping and show the
+standard deviation of the observations in each bin.</p>
+</dd>
+<dt><strong>scatter</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, draw a scatterplot with the underlying observations (or
+the <code class="docutils literal notranslate"><span class="pre">x_estimator</span></code> values).</p>
+</dd>
+<dt><strong>fit_reg</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate and plot a regression model relating the <code class="docutils literal notranslate"><span class="pre">x</span></code>
+and <code class="docutils literal notranslate"><span class="pre">y</span></code> variables.</p>
+</dd>
+<dt><strong>ci</strong><span class="classifier">int in [0, 100] or None, optional</span></dt><dd><p>Size of the confidence interval for the regression estimate. This will
+be drawn using translucent bands around the regression line. The
+confidence interval is estimated using a bootstrap; for large
+datasets, it may be advisable to avoid that computation by setting
+this parameter to None.</p>
+</dd>
+<dt><strong>n_boot</strong><span class="classifier">int, optional</span></dt><dd><p>Number of bootstrap resamples used to estimate the <code class="docutils literal notranslate"><span class="pre">ci</span></code>. The default
+value attempts to balance time and stability; you may want to increase
+this value for “final” versions of plots.</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">variable name in <code class="docutils literal notranslate"><span class="pre">data</span></code>, optional</span></dt><dd><p>If the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> observations are nested within sampling units,
+those can be specified here. This will be taken into account when
+computing the confidence intervals by performing a multilevel bootstrap
+that resamples both units and observations (within unit). This does not
+otherwise influence how the regression is estimated or drawn.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int, numpy.random.Generator, or numpy.random.RandomState, optional</span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
+<dt><strong>order</strong><span class="classifier">int, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">order</span></code> is greater than 1, use <code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code> to estimate a
+polynomial regression.</p>
+</dd>
+<dt><strong>logistic</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, assume that <code class="docutils literal notranslate"><span class="pre">y</span></code> is a binary variable and use
+<code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a logistic regression model. Note that this
+is substantially more computationally intensive than linear regression,
+so you may wish to decrease the number of bootstrap resamples
+(<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set <code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
+</dd>
+<dt><strong>lowess</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a nonparametric lowess
+model (locally weighted linear regression). Note that confidence
+intervals cannot currently be drawn for this kind of model.</p>
+</dd>
+<dt><strong>robust</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to estimate a robust regression. This
+will de-weight outliers. Note that this is substantially more
+computationally intensive than standard linear regression, so you may
+wish to decrease the number of bootstrap resamples (<code class="docutils literal notranslate"><span class="pre">n_boot</span></code>) or set
+<code class="docutils literal notranslate"><span class="pre">ci</span></code> to None.</p>
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate a linear regression of the form y ~ log(x), but
+plot the scatterplot and regression model in the input space. Note that
+<code class="docutils literal notranslate"><span class="pre">x</span></code> must be positive for this to work.</p>
+</dd>
+<dt><strong>{x,y}_partial</strong><span class="classifier">strings in <code class="docutils literal notranslate"><span class="pre">data</span></code> or matrices</span></dt><dd><p>Confounding variables to regress out of the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code> variables
+before plotting.</p>
+</dd>
+<dt><strong>truncate</strong><span class="classifier">bool, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the regression line is bounded by the data limits. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, it extends to the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis limits.</p>
+</dd>
+<dt><strong>{x,y}_jitter</strong><span class="classifier">floats, optional</span></dt><dd><p>Add uniform random noise of this size to either the <code class="docutils literal notranslate"><span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">y</span></code>
+variables. The noise is added to a copy of the data after fitting the
+regression, and only influences the look of the scatterplot. This can
+be helpful when plotting variables that take discrete values.</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">string</span></dt><dd><p>Label to apply to either the scatterplot or regression line (if
+<code class="docutils literal notranslate"><span class="pre">scatter</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>) for use in a legend.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier">matplotlib color</span></dt><dd><p>Color to apply to all plot elements; will be superseded by colors
+passed in <code class="docutils literal notranslate"><span class="pre">scatter_kws</span></code> or <code class="docutils literal notranslate"><span class="pre">line_kws</span></code>.</p>
+</dd>
+<dt><strong>marker</strong><span class="classifier">matplotlib marker code</span></dt><dd><p>Marker to use for the scatterplot glyphs.</p>
+</dd>
+<dt><strong>{scatter,line}_kws</strong><span class="classifier">dictionaries</span></dt><dd><p>Additional keyword arguments to pass to <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> and
+<code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>The Axes object containing the plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lmplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> to plot multiple linear relationships in a dataset.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jointplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairplot</span></code></a></dt><dd><p>Combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> (when used with <code class="docutils literal notranslate"><span class="pre">kind=&quot;reg&quot;</span></code>).</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.residplot.html#seaborn.residplot" title="seaborn.residplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residplot</span></code></a></dt><dd><p>Plot the residuals of a linear regression model.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lmplot()</span></code></a> functions are closely related, but
+the former is an axes-level function while the latter is a figure-level
+function that combines <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>.</p>
+<p>It’s also easy to combine <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a> and <a class="reference internal" href="seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a> or
+<a class="reference internal" href="seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> through the <a class="reference internal" href="seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> and <a class="reference internal" href="seaborn.pairplot.html#seaborn.pairplot" title="seaborn.pairplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairplot()</span></code></a>
+functions, although these do not directly accept all of <a class="reference internal" href="#seaborn.regplot" title="seaborn.regplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">regplot()</span></code></a>’s
+parameters.</p>
+<p class="rubric">Examples</p>
+</dd></dl>
+
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

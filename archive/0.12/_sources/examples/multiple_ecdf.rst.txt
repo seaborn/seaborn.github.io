@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _multiple_ecdf:
+
+
+Facetted ECDF plots
+===================
+
+
+
+.. image:: _images/multiple_ecdf.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`blend_palette`, :func:`displot`
+
+.. literalinclude:: multiple_ecdf.py
+    :lines: 7-
+

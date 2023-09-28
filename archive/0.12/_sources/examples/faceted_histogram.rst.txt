@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _faceted_histogram:
+
+
+Facetting histograms by subsets of data
+=======================================
+
+
+
+.. image:: _images/faceted_histogram.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`displot`
+
+.. literalinclude:: faceted_histogram.py
+    :lines: 7-
+

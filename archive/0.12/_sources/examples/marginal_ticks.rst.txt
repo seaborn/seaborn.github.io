@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _marginal_ticks:
+
+
+Scatterplot with marginal ticks
+===============================
+
+
+
+.. image:: _images/marginal_ticks.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`JointGrid`
+
+.. literalinclude:: marginal_ticks.py
+    :lines: 7-
+

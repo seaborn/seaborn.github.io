@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _many_pairwise_correlations:
+
+
+Plotting a diagonal correlation matrix
+======================================
+
+
+
+.. image:: _images/many_pairwise_correlations.png
+
+**seaborn components used:** :func:`set_theme`, :func:`diverging_palette`, :func:`heatmap`
+
+.. literalinclude:: many_pairwise_correlations.py
+    :lines: 7-
+

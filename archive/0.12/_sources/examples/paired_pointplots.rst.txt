@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _paired_pointplots:
+
+
+Paired categorical plots
+========================
+
+
+
+.. image:: _images/paired_pointplots.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`PairGrid`, :func:`despine`
+
+.. literalinclude:: paired_pointplots.py
+    :lines: 6-
+

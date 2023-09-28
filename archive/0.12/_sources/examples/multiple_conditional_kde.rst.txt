@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _multiple_conditional_kde:
+
+
+Conditional kernel density estimate
+===================================
+
+
+
+.. image:: _images/multiple_conditional_kde.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`displot`
+
+.. literalinclude:: multiple_conditional_kde.py
+    :lines: 7-
+

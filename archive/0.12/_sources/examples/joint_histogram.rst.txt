@@ -1,0 +1,20 @@
+
+
+.. currentmodule:: seaborn
+
+.. _joint_histogram:
+
+
+Joint and marginal histograms
+=============================
+
+
+
+
+.. image:: _images/joint_histogram.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`JointGrid`
+
+.. literalinclude:: joint_histogram.py
+    :lines: 8-
+

@@ -1,0 +1,20 @@
+
+
+.. currentmodule:: seaborn
+
+.. _different_scatter_variables:
+
+
+Scatterplot with multiple semantics
+===================================
+
+
+
+
+.. image:: _images/different_scatter_variables.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`despine`, :func:`scatterplot`
+
+.. literalinclude:: different_scatter_variables.py
+    :lines: 8-
+

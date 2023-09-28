@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Frequently asked questions &#8212; seaborn 0.12.2 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0.12.2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'faq';</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Citing and logo" href="citing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <img src="_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-ve-installed-seaborn-why-can-t-i-import-it">
+     I’ve installed seaborn, why can’t I import it?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-can-t-import-seaborn-even-though-it-s-definitely-installed">
+     I can’t import seaborn, even though it’s definitely installed!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-aren-t-my-plots-showing-up">
+     Why aren’t my plots showing up?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-something-printed-after-every-notebook-cell">
+     Why is something printed after every notebook cell?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-do-the-plots-look-fuzzy-in-a-jupyter-notebook">
+     Why do the plots look fuzzy in a Jupyter notebook?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tricky-concepts">
+   Tricky concepts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-figure-level-and-axes-level-mean">
+     What do “figure-level” and “axes-level” mean?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-categorical-plot-or-categorical-function">
+     What is a “categorical plot” or “categorical function”?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specifying-data">
+   Specifying data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-my-data-need-to-be-organized">
+     How does my data need to be organized?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-seaborn-only-work-with-pandas">
+     Does seaborn only work with pandas?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layout-problems">
+   Layout problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-i-change-the-figure-size">
+     How do I change the figure size?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-isn-t-seaborn-drawing-the-plot-where-i-tell-it-to">
+     Why isn’t seaborn drawing the plot where I tell it to?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-can-t-i-draw-a-line-over-a-bar-box-strip-violin-plot">
+     Why can’t I draw a line over a bar/box/strip/violin plot?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-i-move-the-legend">
+     How do I move the legend?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-customizations">
+   Other customizations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-can-i-change-something-about-the-figure">
+     How can I can I change something about the figure?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wait-i-need-to-learn-how-to-use-matplotlib-too">
+     Wait, I need to learn how to use matplotlib too?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-i-use-seaborn-with-matplotlib-s-object-oriented-interface">
+     How do I use seaborn with matplotlib’s object-oriented interface?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-i-annotate-bar-plots-with-the-bar-values">
+     Can I annotate bar plots with the bar values?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-i-use-seaborn-in-dark-mode">
+     Can I use seaborn in dark mode?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-inquiries">
+   Statistical inquiries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-i-access-the-results-of-seaborn-s-statistical-transformations">
+     Can I access the results of seaborn’s statistical transformations?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-i-show-standard-error-instead-of-a-confidence-interval">
+     Can I show standard error instead of a confidence interval?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-does-the-y-axis-for-a-kde-plot-go-above-1">
+     Why does the y axis for a KDE plot go above 1?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-curiosities">
+   Common curiosities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-seaborn-imported-as-sns">
+     Why is seaborn imported as
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sns
+      </span>
+     </code>
+     ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-ggplot-so-much-better-than-seaborn">
+     Why is ggplot so much better than seaborn?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="frequently-asked-questions">
+<h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading">#</a></h1>
+<p>This is a collection of answers to questions that are commonly raised about seaborn.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<section id="i-ve-installed-seaborn-why-can-t-i-import-it">
+<span id="faq-cant-import"></span><h3>I’ve installed seaborn, why can’t I import it?<a class="headerlink" href="#i-ve-installed-seaborn-why-can-t-i-import-it" title="Permalink to this heading">#</a></h3>
+<p><em>It looks like you successfully installed seaborn by doing</em> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code> <em>but it cannot be imported. You get an error like “ModuleNotFoundError: No module named ‘seaborn’” when you try.</em></p>
+<p>This is probably not a <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> problem, <em>per se</em>. If you have multiple Python environments on your computer, it is possible that you did <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> in one environment and tried to import the library in another. On a unix system, you could check whether the terminal commands <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python</span></code>, and (if applicable) <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">jupyter</span></code> point to the same <code class="docutils literal notranslate"><span class="pre">bin/</span></code> directory. If not, you’ll need to sort out the definition of your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variable.</p>
+<p>Two alternate patterns for installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code> may also be more robust to this problem:</p>
+<ul class="simple">
+<li><p>Invoke <code class="docutils literal notranslate"><span class="pre">pip</span></code> on the command line with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></code> rather than <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></code> in a Jupyter notebook to install it in the same place as the kernel</p></li>
+</ul>
+</section>
+<section id="i-can-t-import-seaborn-even-though-it-s-definitely-installed">
+<span id="faq-import-fails"></span><h3>I can’t import seaborn, even though it’s definitely installed!<a class="headerlink" href="#i-can-t-import-seaborn-even-though-it-s-definitely-installed" title="Permalink to this heading">#</a></h3>
+<p><em>You’ve definitely installed seaborn in the right place, but importing it produces a long traceback and a confusing error message, perhaps something like</em> <code class="docutils literal notranslate"><span class="pre">ImportError:</span> <span class="pre">DLL</span> <span class="pre">load</span> <span class="pre">failed:</span> <span class="pre">The</span> <span class="pre">specified</span> <span class="pre">module</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">found</span></code>.</p>
+<p>Such errors usually indicate a problem with the way Python libraries are using compiled resources. Because seaborn is pure Python, it won’t directly encounter these problems, but its dependencies (numpy, scipy, matplotlib, and pandas) might. To fix the issue, you’ll first need to read through the traceback and figure out which dependency was being imported at the time of the error. Then consult the installation documentation for the relevant package, which might have advice for getting an installation working on your specific system.</p>
+<p>The most common culprit of these issues is scipy, which has many compiled components. Starting in seaborn version 0.12, scipy is an optional dependency, which should help to reduce the frequency of these issues.</p>
+</section>
+<section id="why-aren-t-my-plots-showing-up">
+<span id="faq-no-plots"></span><h3>Why aren’t my plots showing up?<a class="headerlink" href="#why-aren-t-my-plots-showing-up" title="Permalink to this heading">#</a></h3>
+<p><em>You’re calling seaborn functions — maybe in a terminal or IDE with an integrated IPython console — but not seeing any plots.)</em></p>
+<p>In matplotlib, there is a distinction between <em>creating</em> a figure and <em>showing</em> it, and in some cases it’s necessary to explicitly call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> at the point when you want to see the plot. Because that command blocks by default and is not always desired (for instance, you may be executing a script that saves files to disk) seaborn does not deviate from standard matplotlib practice here.</p>
+<p>Yet most of the examples in the seaborn docs do not have this line, because there are multiple ways to avoid needing it. In a Jupyter notebook with the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html#id1">“inline”</a> (default) or <a class="reference external" href="https://github.com/matplotlib/ipympl">“widget”</a> backends, <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code></a> is automatically called after executing a cell, so any figures will appear in the cell’s outputs. You can also activate a more interactive experience by executing <code class="docutils literal notranslate"><span class="pre">%matplotlib</span></code> in any Jupyter or IPython interface or by calling <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ion.html#matplotlib.pyplot.ion" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.ion()</span></code></a> anywhere in Python. Both methods will configure matplotlib to show or update the figure after every plotting command.</p>
+</section>
+<section id="why-is-something-printed-after-every-notebook-cell">
+<span id="faq-repl-output"></span><h3>Why is something printed after every notebook cell?<a class="headerlink" href="#why-is-something-printed-after-every-notebook-cell" title="Permalink to this heading">#</a></h3>
+<p><em>You’re using seaborn in a Jupyter notebook, and every cell prints something like &lt;AxesSuplot:&gt; or &lt;seaborn.axisgrid.FacetGrid at 0x7f840e279c10&gt; before showing the plot.</em></p>
+<p>Jupyter notebooks will show the result of the final statement in the cell as part of its output, and each of seaborn’s plotting functions return a reference to the matplotlib or seaborn object that contain the plot. If this is bothersome, you can suppress this output in a few ways:</p>
+<ul class="simple">
+<li><p>Always assign the result of the final statement to a variable (e.g. <code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">sns.histplot(...)</span></code>)</p></li>
+<li><p>Add a semicolon to the end of the final statement (e.g. <code class="docutils literal notranslate"><span class="pre">sns.histplot(...);</span></code>)</p></li>
+<li><p>End every cell with a function that has no return value (e.g. <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>, which isn’t needed but also causes no problems)</p></li>
+<li><p>Add <a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html#cell-metadata">cell metadata tags</a>, if you’re converting the notebook to a different representation</p></li>
+</ul>
+</section>
+<section id="why-do-the-plots-look-fuzzy-in-a-jupyter-notebook">
+<span id="faq-inline-dpi"></span><h3>Why do the plots look fuzzy in a Jupyter notebook?<a class="headerlink" href="#why-do-the-plots-look-fuzzy-in-a-jupyter-notebook" title="Permalink to this heading">#</a></h3>
+<p>The default “inline” backend (defined by <a class="reference external" href="https://github.com/ipython/matplotlib-inline">IPython</a>) uses an unusually low dpi (<a class="reference external" href="https://en.wikipedia.org/wiki/Dots_per_inch">“dots per inch”</a>) for figure output. This is a space-saving measure: lower dpi figures take up less disk space. (Also, lower dpi inline graphics appear <em>physically</em> smaller because they are represented as <a class="reference external" href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">PNGs</a>, which do not exactly have a concept of resolution.) So one faces an economy/quality tradeoff.</p>
+<p>You can increase the DPI by resetting the rc parameters through the matplotlib API, using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;figure.dpi&quot;</span><span class="p">:</span> <span class="mi">96</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Or do it as you activate the seaborn theme:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.dpi&quot;</span><span class="p">:</span> <span class="mi">96</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>If you have a high pixel-density monitor, you can make your plots sharper using “retina mode”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s2">&quot;retina&quot;</span>
+</pre></div>
+</div>
+<p>This won’t change the apparent size of your plots in a Jupyter interface, but they might appear very large in other contexts (i.e. on GitHub). And they will take up 4x the disk space. Alternatively, you can make SVG plots:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s2">&quot;svg&quot;</span>
+</pre></div>
+</div>
+<p>This will configure matplotlib to emit <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_graphics">vector graphics</a> with “infinite resolution”. The downside is that file size will now scale with the number and complexity of the artists in your plot, and in some cases (e.g., a large scatterplot matrix) the load will impact browser responsiveness.</p>
+</section>
+</section>
+<section id="tricky-concepts">
+<h2>Tricky concepts<a class="headerlink" href="#tricky-concepts" title="Permalink to this heading">#</a></h2>
+<section id="what-do-figure-level-and-axes-level-mean">
+<span id="faq-function-levels"></span><h3>What do “figure-level” and “axes-level” mean?<a class="headerlink" href="#what-do-figure-level-and-axes-level-mean" title="Permalink to this heading">#</a></h3>
+<p><em>You’ve encountered the term “figure-level” or “axes-level”, maybe in the seaborn docs, StackOverflow answer, or GitHub thread, but you don’t understand what it means.</em></p>
+<p>In brief, all plotting functions in seaborn fall into one of two categories:</p>
+<ul class="simple">
+<li><p>“axes-level” functions, which plot onto a single subplot that may or may not exist at the time the function is called</p></li>
+<li><p>“figure-level” functions, which internally create a matplotlib figure, potentially including multiple subplots</p></li>
+</ul>
+<p>This design is intended to satisfy two objectives:</p>
+<ul class="simple">
+<li><p>seaborn should offer functions that are “drop-in” replacements for matplotlib methods</p></li>
+<li><p>seaborn should be able to produce figures that show “facets” or marginal distributions on distinct subplots</p></li>
+</ul>
+<p>The figure-level functions always combine one or more axes-level functions with an object that manages the layout. So, for example, <a class="reference internal" href="generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> is a figure-level function that combines either <a class="reference internal" href="generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> or <a class="reference internal" href="generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> with a <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a>. In contrast, <a class="reference internal" href="generated/seaborn.jointplot.html#seaborn.jointplot" title="seaborn.jointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">jointplot()</span></code></a> is a figure-level function that can combine multiple different axes-level functions — <a class="reference internal" href="generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> by default — with a <a class="reference internal" href="generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>.</p>
+<p>If all you’re doing is creating a plot with a single seaborn function call, this is not something you need to worry too much about. But it becomes relevant when you want to customize at a level beyond what the API of each function offers. It is also the source of various other points of confusion, so it is an important distinction understand (at least broadly) and keep in mind.</p>
+<p>This is explained in more detail in the <a class="reference internal" href="tutorial/function_overview.html"><span class="doc">tutorial</span></a> and in <a class="reference external" href="https://michaelwaskom.medium.com/three-common-seaborn-difficulties-10fdd0cc2a8b">this blog post</a>.</p>
+</section>
+<section id="what-is-a-categorical-plot-or-categorical-function">
+<span id="faq-categorical-plots"></span><h3>What is a “categorical plot” or “categorical function”?<a class="headerlink" href="#what-is-a-categorical-plot-or-categorical-function" title="Permalink to this heading">#</a></h3>
+<p>Next to the figure-level/axes-level distinction, this concept is probably the second biggest source of confusing behavior.</p>
+<p>Several <a class="reference internal" href="api.html#categorical-api"><span class="std std-ref">seaborn functions</span></a> are referred to as “categorical” because they are designed to support a use-case where either the x or y variable in a plot is categorical (that is, the variable takes a finite number of potentially non-numeric values).</p>
+<p>At the time these functions were written, matplotlib did not have any direct support for non-numeric data types. So seaborn internally builds a mapping from unique values in the data to 0-based integer indexes, which is what it passes to matplotlib. If your data are strings, that’s great, and it more-or-less matches how <a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/categorical_variables.html">matplotlib now handles</a> string-typed data.</p>
+<p>But a potential gotcha is that these functions <em>always do this</em>, even if both the x and y variables are numeric. This gives rise to a number of confusing behaviors, especially when mixing categorical and non-categorical plots (e.g., a combo bar-and-line plot).</p>
+<p>The v0.12 release added a <code class="docutils literal notranslate"><span class="pre">native_scale</span></code> parameter to <a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">stripplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">swarmplot()</span></code></a>, which provides control over this behavior. It will be rolled out to other categorical functions in future releases. But the current behavior will almost certainly remain the default, so this is an important API wrinkle to understand.</p>
+</section>
+</section>
+<section id="specifying-data">
+<h2>Specifying data<a class="headerlink" href="#specifying-data" title="Permalink to this heading">#</a></h2>
+<section id="how-does-my-data-need-to-be-organized">
+<span id="faq-data-format"></span><h3>How does my data need to be organized?<a class="headerlink" href="#how-does-my-data-need-to-be-organized" title="Permalink to this heading">#</a></h3>
+<p>To get the most out of seaborn, your data should have a “long-form” or “tidy” representation. In a dataframe, <a class="reference external" href="https://r4ds.had.co.nz/tidy-data.html#tidy-data">this means that</a> each variable has its own column, each observation has its own row, and each value has its own cell. With long-form data, you can succinctly and exactly specify a visualization by assigning variables in the dataset (columns) to roles in the plot.</p>
+<p>Data organization is a common stumbling block for beginners, in part because data are often not collected or stored in a long-form representation. Therefore, it is often necessary to <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html">reshape</a> the data using pandas before plotting. Data reshaping can be a complex undertaking, requiring both a solid grasp of dataframe structure and knowledge of the pandas API. Investing some time in developing this skill can pay large dividends.</p>
+<p>But while seaborn is <em>most</em> powerful when provided with long-form data, nearly every seaborn function will accept and plot “wide-form” data too. You can trigger this by passing an object to seaborn’s <code class="docutils literal notranslate"><span class="pre">data=</span></code> parameter without specifying other plot variables (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, …). You’ll be limited when using wide-form data: each function can make only one kind of wide-form plot. In most cases, seaborn tries to match what matplotlib or pandas would do with a dataset of the same structure. Reshaping your data into long-form will give you substantially more flexibility, but it can be helpful to take a quick look at your data very early in the process, and seaborn tries to make this possible.</p>
+<p>Understanding how your data should be represented — and how to get it that way if it starts out messy — is very important for making efficient and complete use of seaborn, and it is elaborated on at length in the <a class="reference internal" href="tutorial/data_structure.html"><span class="doc">user-guide</span></a>.</p>
+</section>
+<section id="does-seaborn-only-work-with-pandas">
+<span id="faq-pandas-requirement"></span><h3>Does seaborn only work with pandas?<a class="headerlink" href="#does-seaborn-only-work-with-pandas" title="Permalink to this heading">#</a></h3>
+<p>Generally speaking, no: seaborn is <a class="reference external" href="https://seaborn.pydata.org/tutorial/data_structure.html#options-for-visualizing-long-form-data">quite flexible</a> about how your dataset needs to be represented.</p>
+<p>In most cases, <a class="reference internal" href="#faq-data-format"><span class="std std-ref">long-form data</span></a> represented by multiple vector-like types can be passed directly to <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, or other plotting parameters. Or you can pass a dictionary of vector types to <code class="docutils literal notranslate"><span class="pre">data</span></code> rather than a DataFrame. And when plotting with wide-form data, you can use a 2D numpy array or even nested lists to plot in wide-form mode.</p>
+<p>There are a couple older functions (namely, <a class="reference internal" href="generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.lmplot.html#seaborn.lmplot" title="seaborn.lmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lmplot()</span></code></a>) that do require you to pass a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>. But at this point, they are the exception, and they will gain more flexibility over the next few release cycles.</p>
+</section>
+</section>
+<section id="layout-problems">
+<h2>Layout problems<a class="headerlink" href="#layout-problems" title="Permalink to this heading">#</a></h2>
+<section id="how-do-i-change-the-figure-size">
+<span id="faq-figure-size"></span><h3>How do I change the figure size?<a class="headerlink" href="#how-do-i-change-the-figure-size" title="Permalink to this heading">#</a></h3>
+<p>This is going to be more complicated than you might hope, in part because there are multiple ways to change the figure size in matplotlib, and in part because of the <a class="reference internal" href="#faq-function-levels"><span class="std std-ref">figure-level/axes-level</span></a> distinction in seaborn.</p>
+<p>In matplotlib, you can usually set the default size for all figures through the <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/customizing.html">rc parameters</a>, specifically <code class="docutils literal notranslate"><span class="pre">figure.figsize</span></code>. And you can set the size of an individual figure when you create it (e.g. <code class="docutils literal notranslate"><span class="pre">plt.subplots(figsize=(w,</span> <span class="pre">h))</span></code>). If you’re using an axes-level seaborn function, both of these will work as expected.</p>
+<p>Figure-level functions both ignore the default figure size and <a class="reference internal" href="tutorial/function_overview.html#figure-size-tutorial"><span class="std std-ref">parameterize the figure size differently</span></a>. When calling a figure-level function, you can pass values to <code class="docutils literal notranslate"><span class="pre">height=</span></code> and <code class="docutils literal notranslate"><span class="pre">aspect=</span></code> to set (roughly) the size of each <em>subplot</em>. The advantage here is that the size of the figure automatically adapts when you add faceting variables. But it can be confusing.</p>
+<p>Fortunately, there’s a consistent way to set the exact figure size in a function-independent manner. Instead of setting the figure size when the figure is created, modify it after you plot by calling <code class="docutils literal notranslate"><span class="pre">obj.figure.set_size_inches(...)</span></code>, where <code class="docutils literal notranslate"><span class="pre">obj</span></code> is either a matplotlib axes (usually assigned to <code class="docutils literal notranslate"><span class="pre">ax</span></code>) or a seaborn <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code> (usually assigned to <code class="docutils literal notranslate"><span class="pre">g</span></code>).</p>
+<p>Note that <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.figure</span></code> exists only on seaborn &gt;= 0.11.2; before that you’ll have to access <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.fig</span></code>.</p>
+<p>Also, if you’re making pngs (or in a Jupyter notebook), you can — perhaps surprisingly — scale all your plots up or down by <a class="reference internal" href="#faq-inline-dpi"><span class="std std-ref">changing the dpi</span></a>.</p>
+</section>
+<section id="why-isn-t-seaborn-drawing-the-plot-where-i-tell-it-to">
+<span id="faq-plot-misplaced"></span><h3>Why isn’t seaborn drawing the plot where I tell it to?<a class="headerlink" href="#why-isn-t-seaborn-drawing-the-plot-where-i-tell-it-to" title="Permalink to this heading">#</a></h3>
+<p><em>You’ve explicitly created a matplotlib figure with one or more subplots and tried to draw a seaborn plot on it, but you end up with an extra figure and a blank subplot. Perhaps your code looks something like</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a <a class="reference internal" href="#faq-function-levels"><span class="std std-ref">figure-level/axes-level</span></a> gotcha. Figure-level functions always create their own figure, so you can’t direct them towards an existing axes the way you can with axes-level functions. Most functions will warn you when this happens, suggest the appropriate axes-level function, and ignore the <code class="docutils literal notranslate"><span class="pre">ax=</span></code> parameter. A few older functions might put the plot where you want it (because they internally pass <code class="docutils literal notranslate"><span class="pre">ax</span></code> to their axes-level function) while still creating an extra figure. This latter behavior should be considered a bug, and it is not to be relied on.</p>
+<p>The way things currently work, you can either set up the matplotlib figure yourself, or you can use a figure-level function, but you can’t do both at the same time.</p>
+</section>
+<section id="why-can-t-i-draw-a-line-over-a-bar-box-strip-violin-plot">
+<span id="faq-categorical-line"></span><h3>Why can’t I draw a line over a bar/box/strip/violin plot?<a class="headerlink" href="#why-can-t-i-draw-a-line-over-a-bar-box-strip-violin-plot" title="Permalink to this heading">#</a></h3>
+<p><em>You’re trying to create a single plot using multiple seaborn functions, perhaps by drawing a lineplot or regplot over a barplot or violinplot. You expect the line to go through the mean value for each box (etc.), but it looks to be misalgined, or maybe it’s all the way off to the side.</em></p>
+<p>You are trying to combine a <a class="reference internal" href="#faq-categorical-plots"><span class="std std-ref">“categorical plot”</span></a> with another plot type. If your <code class="docutils literal notranslate"><span class="pre">x</span></code> variable has numeric values, it seems like this should work. But recall: seaborn’s categorical plots map unique values on the categorical axis to integer indexes. So if your data have unique <code class="docutils literal notranslate"><span class="pre">x</span></code> values of 1, 6, 20, 94, the corresponding plot elements will get drawn at 0, 1, 2, 3 (and the tick labels will be changed to represent the actual value).</p>
+<p>The line or regression plot doesn’t know that this has happened, so it will use the actual numeric values, and the plots won’t line up at all.</p>
+<p>As of now, there are two ways to work around this. In situations where you want to draw a line, you could use the (somewhat misleadingly named) <a class="reference internal" href="generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pointplot()</span></code></a> function, which is also a “categorical” function and will use the same rules for drawing the plot. If this doesn’t solve the problem (for one, it’s not as visually flexible as <a class="reference internal" href="generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a>, you could implement the mapping from actual values to integer indexes yourself and draw the plot that way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unique_xs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">unique_xs</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is something that will be easier in a planned future release, as it will become possible to make the categorical functions treat numeric data as numeric. (As of v0.12, it’s possible only in <a class="reference internal" href="generated/seaborn.stripplot.html#seaborn.stripplot" title="seaborn.stripplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">stripplot()</span></code></a> and <a class="reference internal" href="generated/seaborn.swarmplot.html#seaborn.swarmplot" title="seaborn.swarmplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">swarmplot()</span></code></a>, using <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code>).</p>
+</section>
+<section id="how-do-i-move-the-legend">
+<h3>How do I move the legend?<a class="headerlink" href="#how-do-i-move-the-legend" title="Permalink to this heading">#</a></h3>
+<p><em>When applying a semantic mapping to a plot, seaborn will automatically create a legend and add it to the figure. But the automatic choice of legend position is not always ideal.</em></p>
+<p>With seaborn v0.11.2 or later, use the <a class="reference internal" href="generated/seaborn.move_legend.html#seaborn.move_legend" title="seaborn.move_legend"><code class="xref py py-func docutils literal notranslate"><span class="pre">move_legend()</span></code></a> function.</p>
+<p>On older versions, a common pattern was to call <code class="docutils literal notranslate"><span class="pre">ax.legend(loc=...)</span></code> after plotting. While this appears to move the legend, it actually <em>replaces</em> it with a new one, using any labeled artists that happen to be attached to the axes. This does <a class="reference external" href="https://github.com/mwaskom/seaborn/issues/2280">not consistently work</a> across plot types. And it does not propagate the legend title or positioning tweaks that are used to format a multi-variable legend.</p>
+<p>The <a class="reference internal" href="generated/seaborn.move_legend.html#seaborn.move_legend" title="seaborn.move_legend"><code class="xref py py-func docutils literal notranslate"><span class="pre">move_legend()</span></code></a> function is actually more powerful than its name suggests, and it can also be used to modify other <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html">legend parameters</a> (font size, handle length, etc.) after plotting.</p>
+</section>
+</section>
+<section id="other-customizations">
+<h2>Other customizations<a class="headerlink" href="#other-customizations" title="Permalink to this heading">#</a></h2>
+<section id="how-can-i-can-i-change-something-about-the-figure">
+<span id="faq-figure-customization"></span><h3>How can I can I change something about the figure?<a class="headerlink" href="#how-can-i-can-i-change-something-about-the-figure" title="Permalink to this heading">#</a></h3>
+<p><em>You want to make a very specific plot, and seaborn’s defaults aren’t doing it for you.</em></p>
+<p>There’s basically a four-layer hierarchy to customizing a seaborn figure:</p>
+<ol class="arabic simple">
+<li><p>Explicit seaborn function parameters</p></li>
+<li><p>Passed-through matplotlib keyword arguments</p></li>
+<li><p>Matplotlib axes methods</p></li>
+<li><p>Matplotlib artist methods</p></li>
+</ol>
+<p>First, read through the API docs for the relevant seaborn function. Each has a lot of parameters (probably too many), and you may be able to accomplish your desired customization using seaborn’s own API.</p>
+<p>But seaborn does delegate a lot of customization to matplotlib. Most functions have <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> in their signature, which will catch extra keyword arguments and pass them through to the underlying matplotlib function. For example, <a class="reference internal" href="generated/seaborn.scatterplot.html#seaborn.scatterplot" title="seaborn.scatterplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">scatterplot()</span></code></a> has a number of parameters, but you can also use any valid keyword argument for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>, which it calls internally.</p>
+<p>Passing through keyword arguments lets you customize the artists that represent data, but often you will want to customize other aspects of the figure, such as labels, ticks, and titles. You can do this by calling methods on the object that seaborn’s plotting functions return. Depending on whether you’re calling an <a class="reference internal" href="#faq-function-levels"><span class="std std-ref">axes-level or figure-level function</span></a>, this may be a <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object or a seaborn wrapper (such as <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">seaborn.FacetGrid</span></code></a>). Both kinds of objects have numerous methods that you can call to customize nearly anything about the figure. The easiest thing is usually to call <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set.html#matplotlib.axes.Axes.set" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.set()</span></code></a> or <a class="reference internal" href="generated/seaborn.FacetGrid.set.html#seaborn.FacetGrid.set" title="seaborn.FacetGrid.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">seaborn.FacetGrid.set()</span></code></a>, which let you modify multiple attributes at once, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;The x label&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;The y label&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The title&quot;</span>
+    <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">),</span>
+    <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+    <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, the deepest customization may require you to reach “into” the matplotlib axes and tweak the artists that are stored on it. These will be in artist lists, such as <code class="docutils literal notranslate"><span class="pre">ax.lines</span></code>, <code class="docutils literal notranslate"><span class="pre">ax.collections</span></code>, <code class="docutils literal notranslate"><span class="pre">ax.patches</span></code>, etc.</p>
+<p><em>Warning:</em> Neither matplotlib nor seaborn consider the specific artists produced by their plotting functions to be part of stable API. Because it’s not possible to gracefully warn about upcoming changes to the artist types or the order in which they are stored, code that interacts with these attributes could break unexpectedly. With that said, seaborn does try hard to avoid making this kind of change.</p>
+</section>
+<section id="wait-i-need-to-learn-how-to-use-matplotlib-too">
+<span id="faq-matplotlib-requirement"></span><h3>Wait, I need to learn how to use matplotlib too?<a class="headerlink" href="#wait-i-need-to-learn-how-to-use-matplotlib-too" title="Permalink to this heading">#</a></h3>
+<p>It really depends on how much customization you need. You can certainly perform a lot of exploratory data analysis while primarily or exclusively interacting with the seaborn API. But, if you’re polishing a figure for a presentation or publication, you’ll likely find yourself needing to understand at least a little bit about how matplotlib works. Matplotlib is extremely flexible, and it lets you control literally everything about a figure if you drill down far enough.</p>
+<p>Seaborn was originally designed with the idea that it would handle a specific set of well-defined operations through a very high-level API, while letting users “drop down” to matplotlib when they desired additional customization. This can be a pretty powerful combination, and it works reasonably well if you already know how to use matplotlib. But as seaborn as gained more features, it has become more feasible to learn seaborn <em>first</em>. In that situation, the need to switch APIs tends to be a bit more confusing / frustrating. This has motivated the development of seaborn’s new <a class="reference internal" href="tutorial/objects_interface.html"><span class="doc">objects interface</span></a>, which aims to provide a more cohesive API for both high-level and low-level figure specification. Hopefully, it will alleviate the “two-library problem” as it matures.</p>
+<p>With that said, the level of deep control that matplotlib affords really can’t be beat, so if you care about doing very specific things, it really is worth learning.</p>
+</section>
+<section id="how-do-i-use-seaborn-with-matplotlib-s-object-oriented-interface">
+<span id="faq-object-oriented"></span><h3>How do I use seaborn with matplotlib’s object-oriented interface?<a class="headerlink" href="#how-do-i-use-seaborn-with-matplotlib-s-object-oriented-interface" title="Permalink to this heading">#</a></h3>
+<p><em>You prefer to use matplotlib’s explicit or</em> <a class="reference external" href="https://matplotlib.org/stable/users/explain/api_interfaces.html">“object-oriented”</a> <em>interface, because it makes your code easier to reason about and maintain. But the object-orient interface consists of methods on matplotlib objects, whereas seaborn offers you independent functions.</em></p>
+<p>This is another case where it will be helpful to keep the <a class="reference internal" href="#faq-function-levels"><span class="std std-ref">figure-level/axes-level</span></a> distinction in mind.</p>
+<p>Axes-level functions can be used like any matplotlib axes method, but instead of calling <code class="docutils literal notranslate"><span class="pre">ax.func(...)</span></code>, you call <code class="docutils literal notranslate"><span class="pre">func(...,</span> <span class="pre">ax=ax)</span></code>. They also return the axes object (which they may have created, if no figure was currently active in matplotlib’s global state). You can use the methods on that object to further customize the plot even if you didn’t start with <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a> or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.subplots()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Figure-level functions <a class="reference internal" href="#faq-plot-misplaced"><span class="std std-ref">can’t be directed towards an existing figure</span></a>, but they do store the matplotlib objects on the <a class="reference internal" href="generated/seaborn.FacetGrid.html#seaborn.FacetGrid" title="seaborn.FacetGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">FacetGrid</span></code></a> object that they return (which seaborn docs always assign to a variable named <code class="docutils literal notranslate"><span class="pre">g</span></code>).</p>
+<p>If your figure-level function created only one subplot, you can access it directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For multiple subplots, you can either use <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.axes</span></code> (which is always a 2D array of axes) or <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.axes_dict</span></code> (which maps the row/col keys to the corresponding matplotlib object):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">col</span><span class="o">=...</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But if you’re batch-setting attributes on all subplots, use the <a class="reference internal" href="generated/seaborn.FacetGrid.set.html#seaborn.FacetGrid.set" title="seaborn.FacetGrid.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">FacetGrid.set()</span></code></a> method rather than iterating over the individual axes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To access the underlying matplotlib <em>figure</em>, use <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.figure</span></code> on seaborn &gt;= 0.11.2 (or <code class="xref py py-attr docutils literal notranslate"><span class="pre">FacetGrid.fig</span></code> on any other version).</p>
+</section>
+<section id="can-i-annotate-bar-plots-with-the-bar-values">
+<span id="faq-bar-annotations"></span><h3>Can I annotate bar plots with the bar values?<a class="headerlink" href="#can-i-annotate-bar-plots-with-the-bar-values" title="Permalink to this heading">#</a></h3>
+<p>Nothing like this is built into seaborn, but matplotlib v3.4.0 added a convenience function (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar_label.html#matplotlib.axes.Axes.bar_label" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.bar_label()</span></code></a>) that makes it relatively easy. Here are a couple of recipes; note that you’ll need to use a different approach depending on whether your bars come from a <a class="reference internal" href="#faq-function-levels"><span class="std std-ref">figure-level or axes-level function</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Axes-level</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x_var&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bars</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+
+<span class="c1"># Figure-level, one subplot</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x_var&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bars</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+
+<span class="c1"># Figure-level, multiple subplots</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x_var&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;col_var)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">bars</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="can-i-use-seaborn-in-dark-mode">
+<span id="faq-dar-mode"></span><h3>Can I use seaborn in dark mode?<a class="headerlink" href="#can-i-use-seaborn-in-dark-mode" title="Permalink to this heading">#</a></h3>
+<p>There’s no direct support for this in seaborn, but matplotlib has a <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/dark_background.html">“dark_background”</a> style-sheet that you could use, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">library</span><span class="p">[</span><span class="s2">&quot;dark_background&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that “dark_background” changes the default color palette to “Set2”, and that will override any palette you define in <a class="reference internal" href="generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_theme()</span></code></a>. If you’d rather use a different color palette, you’ll have to call <code class="xref py py-func docutils literal notranslate"><span class="pre">sns.set_palette()</span></code> separately. The default <a class="reference internal" href="tutorial/color_palettes.html"><span class="doc">seaborn palette</span></a> (“deep”) has poor contrast against a dark background, so you’d be better off using “muted”, “bright”, or “pastel”.</p>
+</section>
+</section>
+<section id="statistical-inquiries">
+<h2>Statistical inquiries<a class="headerlink" href="#statistical-inquiries" title="Permalink to this heading">#</a></h2>
+<section id="can-i-access-the-results-of-seaborn-s-statistical-transformations">
+<span id="faq-stat-results"></span><h3>Can I access the results of seaborn’s statistical transformations?<a class="headerlink" href="#can-i-access-the-results-of-seaborn-s-statistical-transformations" title="Permalink to this heading">#</a></h3>
+<p>Because seaborn performs some statistical operations as it builds plots (aggregating, bootstrapping, fitting regression models), some users would like access to the statistics that it computes. This is not possible: it’s explicitly considered out of scope for seaborn (a visualization library) to offer an API for interrogating statistical models.</p>
+<p>If you simply want to be diligent and verify that seaborn is doing things correctly (or that it matches your own code), it’s open-source, so feel free to read the code. Or, because it’s Python, you can call into the private methods that calculate the stats (just don’t do this in production code). But don’t expect seaborn to offer features that are more at home in <a class="reference external" href="https://scipy.org/">scipy</a> or <a class="reference external" href="https://www.statsmodels.org/">statsmodels</a>.</p>
+</section>
+<section id="can-i-show-standard-error-instead-of-a-confidence-interval">
+<span id="faq-standard-error"></span><h3>Can I show standard error instead of a confidence interval?<a class="headerlink" href="#can-i-show-standard-error-instead-of-a-confidence-interval" title="Permalink to this heading">#</a></h3>
+<p>As of v0.12, this is possible in most places, using the new <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> API (see the <a class="reference internal" href="tutorial/error_bars.html"><span class="doc">tutorial</span></a> for more details).</p>
+</section>
+<section id="why-does-the-y-axis-for-a-kde-plot-go-above-1">
+<span id="faq-kde-value"></span><h3>Why does the y axis for a KDE plot go above 1?<a class="headerlink" href="#why-does-the-y-axis-for-a-kde-plot-go-above-1" title="Permalink to this heading">#</a></h3>
+<p><em>You’ve estimated a probability distribution for your data using</em> <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>, <em>but the y axis goes above 1. Aren’t probabilities bounded by 1? Is this a bug?</em></p>
+<p>This is not a bug, but it is a common confusion (about kernel density plots and probability distributions more broadly). A continuous probability distribution is defined by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a>, which <a class="reference internal" href="generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a> estimates. The probability density function does <strong>not</strong> output <em>a probability</em>: a continuous random variable can take an infinite number of values, so the probability of observing any <em>specific</em> value is infinitely small. You can only talk meaningfully about the probability of observing a value that falls within some <em>range</em>. The probability of observing a value that falls within the complete range of possible values is 1. Likewise, the probability density function is normalized so that the area under it (that is, the integral of the function across its domain) equals 1. If the range of likely values is small, the curve will have to go above 1 to make this possible.</p>
+</section>
+</section>
+<section id="common-curiosities">
+<h2>Common curiosities<a class="headerlink" href="#common-curiosities" title="Permalink to this heading">#</a></h2>
+<section id="why-is-seaborn-imported-as-sns">
+<span id="faq-import-convention"></span><h3>Why is seaborn imported as <code class="docutils literal notranslate"><span class="pre">sns</span></code>?<a class="headerlink" href="#why-is-seaborn-imported-as-sns" title="Permalink to this heading">#</a></h3>
+<p>This is an obscure reference to the <a class="reference external" href="https://pbs.twimg.com/media/C3C6q1ZUYAALXX0.jpg">namesake</a> of the library, but you can also think of it as “seaborn name space”.</p>
+</section>
+<section id="why-is-ggplot-so-much-better-than-seaborn">
+<span id="faq-seaborn-sucks"></span><h3>Why is ggplot so much better than seaborn?<a class="headerlink" href="#why-is-ggplot-so-much-better-than-seaborn" title="Permalink to this heading">#</a></h3>
+<p>Good question. Probably because you get to use the word “geom” a lot, and it’s fun to say. “Geom”. “Geeeeeooom”.</p>
+</section>
+</section>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

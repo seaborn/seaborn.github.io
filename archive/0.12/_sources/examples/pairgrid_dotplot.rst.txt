@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _pairgrid_dotplot:
+
+
+Dot plot with several variables
+===============================
+
+
+
+.. image:: _images/pairgrid_dotplot.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :class:`PairGrid`, :func:`despine`
+
+.. literalinclude:: pairgrid_dotplot.py
+    :lines: 7-
+

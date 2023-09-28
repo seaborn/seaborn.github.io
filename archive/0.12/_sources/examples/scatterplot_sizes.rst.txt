@@ -1,0 +1,20 @@
+
+
+.. currentmodule:: seaborn
+
+.. _scatterplot_sizes:
+
+
+Scatterplot with continuous hues and sizes
+==========================================
+
+
+
+
+.. image:: _images/scatterplot_sizes.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`cubehelix_palette`, :func:`relplot`
+
+.. literalinclude:: scatterplot_sizes.py
+    :lines: 8-
+

@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _joint_kde:
+
+
+Joint kernel density estimate
+=============================
+
+
+
+.. image:: _images/joint_kde.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`jointplot`
+
+.. literalinclude:: joint_kde.py
+    :lines: 7-
+

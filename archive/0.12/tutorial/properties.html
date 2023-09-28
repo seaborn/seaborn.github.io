@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Properties of Mark objects &#8212; seaborn 0.12.2 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/properties';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualizing statistical relationships" href="relational.html" />
+    <link rel="prev" title="The seaborn.objects interface" href="objects_interface.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../whatsnew/index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   An introduction to seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_overview.html">
+   Overview of seaborn plotting functions
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_structure.html">
+   Data structures accepted by seaborn
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="objects_interface.html">
+   The seaborn.objects interface
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Properties of Mark objects
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="relational.html">
+   Visualizing statistical relationships
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="distributions.html">
+   Visualizing distributions of data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="categorical.html">
+   Visualizing categorical data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="error_bars.html">
+   Statistical estimation and error bars
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression.html">
+   Estimating regression fits
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="axis_grids.html">
+   Building structured multi-plot grids
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="aesthetics.html">
+   Controlling figure aesthetics
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="color_palettes.html">
+   Choosing color palettes
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coordinate-properties">
+   Coordinate properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#x-y-xmin-xmax-ymin-ymax">
+     x, y, xmin, xmax, ymin, ymax
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#color-properties">
+   Color properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-fillcolor-edgecolor">
+     color, fillcolor, edgecolor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alpha-fillalpha-edgealpha">
+     alpha, fillalpha, edgealpha
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#style-properties">
+   Style properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fill">
+     fill
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#marker">
+     marker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linestyle-edgestyle">
+     linestyle, edgestyle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#size-properties">
+   Size properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pointsize">
+     pointsize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linewidth">
+     linewidth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edgewidth">
+     edgewidth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stroke">
+     stroke
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-properties">
+   Text properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#halign-valign">
+     halign, valign
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fontsize">
+     fontsize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#offset">
+     offset
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-properties">
+   Other properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text">
+     text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#group">
+     group
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="properties-of-mark-objects">
+<span id="properties-tutorial"></span><h1>Properties of Mark objects<a class="headerlink" href="#properties-of-mark-objects" title="Permalink to this heading">#</a></h1>
+<section id="coordinate-properties">
+<h2>Coordinate properties<a class="headerlink" href="#coordinate-properties" title="Permalink to this heading">#</a></h2>
+<section id="x-y-xmin-xmax-ymin-ymax">
+<span id="coordinate-property"></span><h3>x, y, xmin, xmax, ymin, ymax<a class="headerlink" href="#x-y-xmin-xmax-ymin-ymax" title="Permalink to this heading">#</a></h3>
+<p>Coordinate properties determine where a mark is drawn on a plot. Canonically, the <code class="docutils literal notranslate"><span class="pre">x</span></code> coordinate is the horizontal positon and the <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinate is the vertical position. Some marks accept a span (i.e., <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>) parameterization for one or both variables. Others may accept <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> but also use a <code class="docutils literal notranslate"><span class="pre">baseline</span></code> parameter to show a span. The layer’s <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter determines how this works.</p>
+<p>If a variable does not contain numeric data, its scale will apply a conversion so that data can be drawn on a screen. For instance, <code class="xref py py-class docutils literal notranslate"><span class="pre">Nominal</span></code> scales assign an integer index to each distinct category, and <code class="xref py py-class docutils literal notranslate"><span class="pre">Temporal</span></code> scales represent dates as the number of days from a reference “epoch”:</p>
+<a class="reference internal image-reference" href="../_images/properties_3_0.png"><img alt="../_images/properties_3_0.png" src="../_images/properties_3_0.png" style="width: 563.125px; height: 68.425px;" /></a>
+<p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">Continuous</span></code> scale can also apply a nonlinear transform between data values and spatial positions:</p>
+<a class="reference internal image-reference" href="../_images/properties_5_0.png"><img alt="../_images/properties_5_0.png" src="../_images/properties_5_0.png" style="width: 555.475px; height: 68.425px;" /></a>
+</section>
+</section>
+<section id="color-properties">
+<h2>Color properties<a class="headerlink" href="#color-properties" title="Permalink to this heading">#</a></h2>
+<section id="color-fillcolor-edgecolor">
+<span id="color-property"></span><h3>color, fillcolor, edgecolor<a class="headerlink" href="#color-fillcolor-edgecolor" title="Permalink to this heading">#</a></h3>
+<p>All marks can be given a <code class="docutils literal notranslate"><span class="pre">color</span></code>, and many distinguish between the color of the mark’s “edge” and “fill”. Often, simply using <code class="docutils literal notranslate"><span class="pre">color</span></code> will set both, while the more-specific properties allow further control:</p>
+<a class="reference internal image-reference" href="../_images/properties_8_0.png"><img alt="../_images/properties_8_0.png" src="../_images/properties_8_0.png" style="width: 585.225px; height: 66.3px;" /></a>
+<p>When the color property is mapped, the default palette depends on the type of scale. Nominal scales use discrete, unordered hues, while continuous scales (including temporal ones) use a sequential gradient:</p>
+<a class="reference internal image-reference" href="../_images/properties_10_0.png"><img alt="../_images/properties_10_0.png" src="../_images/properties_10_0.png" style="width: 585.225px; height: 66.3px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default continuous scale is subject to change in future releases to improve discriminability.</p>
+</div>
+<p>Color scales are parameterized by the name of a palette, such as <code class="docutils literal notranslate"><span class="pre">'viridis'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rocket'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'deep'</span></code>. Some palette names can include parameters, including simple gradients (e.g. <code class="docutils literal notranslate"><span class="pre">'dark:blue'</span></code>) or the cubehelix system (e.g. <code class="docutils literal notranslate"><span class="pre">'ch:start=.2,rot=-.4`</span></code>). See the <a class="reference internal" href="color_palettes.html"><span class="doc">color palette tutorial</span></a> for guidance on making an appropriate selection.</p>
+<p>Continuous scales can also be parameterized by a tuple of colors that the scale should interpolate between. When using a nominal scale, it is possible to provide either the name of the palette (which will be discretely-sampled, if necessary), a list of individual color values, or a dictionary directly mapping data values to colors.</p>
+<p>Individual colors may be specified <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colors.html">in a wide range of formats</a>. These include indexed references to the current color cycle (<code class="docutils literal notranslate"><span class="pre">'C0'</span></code>), single-letter shorthands (<code class="docutils literal notranslate"><span class="pre">'b'</span></code>), grayscale values (<code class="docutils literal notranslate"><span class="pre">'.4'</span></code>), RGB hex codes (<code class="docutils literal notranslate"><span class="pre">'#4c72b0'</span></code>), X11 color names (<code class="docutils literal notranslate"><span class="pre">'seagreen'</span></code>), and XKCD color survey names (<code class="docutils literal notranslate"><span class="pre">'purpleish'</span></code>):</p>
+<a class="reference internal image-reference" href="../_images/properties_12_0.png"><img alt="../_images/properties_12_0.png" src="../_images/properties_12_0.png" style="width: 662.15px; height: 103.27499999999999px;" /></a>
+</section>
+<section id="alpha-fillalpha-edgealpha">
+<span id="alpha-property"></span><h3>alpha, fillalpha, edgealpha<a class="headerlink" href="#alpha-fillalpha-edgealpha" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> property determines the mark’s opacity. Lowering the alpha can be helpful for representing density in the case of overplotting:</p>
+<a class="reference internal image-reference" href="../_images/properties_14_0.png"><img alt="../_images/properties_14_0.png" src="../_images/properties_14_0.png" style="width: 585.225px; height: 95.625px;" /></a>
+<p>Mapping the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> property can also be useful even when marks do not overlap because it conveys a sense of importance and can be combined with a <code class="docutils literal notranslate"><span class="pre">color</span></code> scale to represent two variables. Moreover, colors with lower alpha appear less saturated, which can improve the appearance of larger filled marks (such as bars).</p>
+<p>As with <code class="docutils literal notranslate"><span class="pre">color</span></code>, some marks define separate <code class="docutils literal notranslate"><span class="pre">edgealpha</span></code> and <code class="docutils literal notranslate"><span class="pre">fillalpha</span></code> properties for additional control.</p>
+</section>
+</section>
+<section id="style-properties">
+<h2>Style properties<a class="headerlink" href="#style-properties" title="Permalink to this heading">#</a></h2>
+<section id="fill">
+<span id="fill-property"></span><h3>fill<a class="headerlink" href="#fill" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill</span></code> property is relevant to marks with a distinction between the edge and interior and determines whether the interior is visible. It is a boolean state: <code class="docutils literal notranslate"><span class="pre">fill</span></code> can be set only to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<a class="reference internal image-reference" href="../_images/properties_18_0.png"><img alt="../_images/properties_18_0.png" src="../_images/properties_18_0.png" style="width: 585.225px; height: 119.85px;" /></a>
+</section>
+<section id="marker">
+<span id="marker-property"></span><h3>marker<a class="headerlink" href="#marker" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">marker</span></code> property is relevant for dot marks and some line marks. The API for specifying markers is very flexible, as detailed in the matplotlib API docs: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.6.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
+<p>Markers can be specified using a number of simple string codes:</p>
+<a class="reference internal image-reference" href="../_images/properties_21_0.png"><img alt="../_images/properties_21_0.png" src="../_images/properties_21_0.png" style="width: 648.55px; height: 70.55px;" /></a>
+<p>They can also be programatically generated using a <code class="docutils literal notranslate"><span class="pre">(num_sides,</span> <span class="pre">fill_style,</span> <span class="pre">angle)</span></code> tuple:</p>
+<a class="reference internal image-reference" href="../_images/properties_23_0.png"><img alt="../_images/properties_23_0.png" src="../_images/properties_23_0.png" style="width: 648.55px; height: 70.55px;" /></a>
+<p>See the matplotlib docs for additional formats, including mathtex character codes (<code class="docutils literal notranslate"><span class="pre">'$...$'</span></code>) and arrays of vertices.</p>
+<p>A marker property is always mapped with a nominal scale; there is no inherent ordering to the different shapes. If no scale is provided, the plot will programmatically generate a suitably large set of unique markers:</p>
+<a class="reference internal image-reference" href="../_images/properties_25_0.png"><img alt="../_images/properties_25_0.png" src="../_images/properties_25_0.png" style="width: 648.55px; height: 70.55px;" /></a>
+<p>While this ensures that the shapes are technically distinct, bear in mind that — in most cases — it will be difficult to tell the markers apart if more than a handful are used in a single plot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default marker scale is subject to change in future releases to improve discriminability.</p>
+</div>
+</section>
+<section id="linestyle-edgestyle">
+<span id="linestyle-property"></span><h3>linestyle, edgestyle<a class="headerlink" href="#linestyle-edgestyle" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> property is relevant to line marks, and the <code class="docutils literal notranslate"><span class="pre">edgestyle</span></code> propety is relevant to a number of marks with “edges. Both properties determine the “dashing” of a line in terms of on-off segments.</p>
+<p>Dashes can be specified with a small number of shorthand codes (<code class="docutils literal notranslate"><span class="pre">'-'</span></code>, <code class="docutils literal notranslate"><span class="pre">'--'</span></code>, <code class="docutils literal notranslate"><span class="pre">'-.'</span></code>, and <code class="docutils literal notranslate"><span class="pre">':'</span></code>) or programatically using <code class="docutils literal notranslate"><span class="pre">(on,</span> <span class="pre">off,</span> <span class="pre">...)</span></code> tuples. In the tuple specification, the unit is equal to the linewidth:</p>
+<a class="reference internal image-reference" href="../_images/properties_28_0.png"><img alt="../_images/properties_28_0.png" src="../_images/properties_28_0.png" style="width: 657.9px; height: 173.4px;" /></a>
+</section>
+</section>
+<section id="size-properties">
+<h2>Size properties<a class="headerlink" href="#size-properties" title="Permalink to this heading">#</a></h2>
+<section id="pointsize">
+<span id="pointsize-property"></span><h3>pointsize<a class="headerlink" href="#pointsize" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pointsize</span></code> property is relevant to dot marks and to line marks that can show markers at individual data points. The units correspond to the diameter of the mark in points.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pointsize</span></code> scales with the square root of the data by default so that magnitude is represented by diameter rather than area:</p>
+<a class="reference internal image-reference" href="../_images/properties_31_0.png"><img alt="../_images/properties_31_0.png" src="../_images/properties_31_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+<section id="linewidth">
+<span id="linewidth-property"></span><h3>linewidth<a class="headerlink" href="#linewidth" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> property is relevant to line marks and determines their thickness. The value should be non-negative and has point units:</p>
+<a class="reference internal image-reference" href="../_images/properties_33_0.png"><img alt="../_images/properties_33_0.png" src="../_images/properties_33_0.png" style="width: 614.975px; height: 104.125px;" /></a>
+</section>
+<section id="edgewidth">
+<span id="edgewidth-property"></span><h3>edgewidth<a class="headerlink" href="#edgewidth" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">edgewidth</span></code> property is akin to <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> but applies to marks with an edge/fill rather than to lines. It also has a different default range when used in a scale. The units are the same:</p>
+<a class="reference internal image-reference" href="../_images/properties_35_0.png"><img alt="../_images/properties_35_0.png" src="../_images/properties_35_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+<section id="stroke">
+<span id="stroke-property"></span><h3>stroke<a class="headerlink" href="#stroke" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">stroke</span></code> property is akin to <code class="docutils literal notranslate"><span class="pre">edgewidth</span></code> but applies when a dot mark is defined by its stroke rather than its fill. It also has a slightly different default scale range, but otherwise behaves similarly:</p>
+<a class="reference internal image-reference" href="../_images/properties_37_0.png"><img alt="../_images/properties_37_0.png" src="../_images/properties_37_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+</section>
+<section id="text-properties">
+<h2>Text properties<a class="headerlink" href="#text-properties" title="Permalink to this heading">#</a></h2>
+<section id="halign-valign">
+<span id="verticalalignment-property"></span><span id="horizontalalignment-property"></span><h3>halign, valign<a class="headerlink" href="#halign-valign" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">halign</span></code> and <code class="docutils literal notranslate"><span class="pre">valign</span></code> properties control the <em>horizontal</em> and <em>vertical</em> alignment of text marks. The options for horizontal alignment are <code class="docutils literal notranslate"><span class="pre">'left'</span></code>, <code class="docutils literal notranslate"><span class="pre">'right'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'center'</span></code>, while the options for vertical alignment are <code class="docutils literal notranslate"><span class="pre">'top'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bottom'</span></code>, <code class="docutils literal notranslate"><span class="pre">'center'</span></code>, <code class="docutils literal notranslate"><span class="pre">'baseline'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'center_baseline'</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/properties_40_0.png"><img alt="../_images/properties_40_0.png" src="../_images/properties_40_0.png" style="width: 585.225px; height: 76.925px;" /></a>
+</section>
+<section id="fontsize">
+<span id="fontsize-property"></span><h3>fontsize<a class="headerlink" href="#fontsize" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">fontsize</span></code> property controls the size of textual marks. The value has point units:</p>
+<a class="reference internal image-reference" href="../_images/properties_42_0.png"><img alt="../_images/properties_42_0.png" src="../_images/properties_42_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+<section id="offset">
+<span id="offset-property"></span><h3>offset<a class="headerlink" href="#offset" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">offset</span></code> property controls the spacing between a text mark and its anchor position. It applies when <em>not</em> using <code class="docutils literal notranslate"><span class="pre">center</span></code> alignment (i.e., when using left/right or top/bottom). The value has point units.</p>
+<a class="reference internal image-reference" href="../_images/properties_44_0.png"><img alt="../_images/properties_44_0.png" src="../_images/properties_44_0.png" style="width: 585.225px; height: 70.55px;" /></a>
+</section>
+</section>
+<section id="other-properties">
+<h2>Other properties<a class="headerlink" href="#other-properties" title="Permalink to this heading">#</a></h2>
+<section id="text">
+<span id="property-property"></span><h3>text<a class="headerlink" href="#text" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">text</span></code> property is used to set the content of a textual mark. It is always used literally (not mapped), and cast to string when necessary.</p>
+</section>
+<section id="group">
+<h3>group<a class="headerlink" href="#group" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> property is special in that it does not change anything about the mark’s appearance but defines additional data subsets that transforms should operate on independently.</p>
+</section>
+</section>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

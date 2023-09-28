@@ -1,0 +1,19 @@
+
+
+.. currentmodule:: seaborn
+
+.. _grouped_violinplots:
+
+
+Grouped violinplots with split violins
+======================================
+
+
+
+.. image:: _images/grouped_violinplots.png
+
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`violinplot`, :func:`despine`
+
+.. literalinclude:: grouped_violinplots.py
+    :lines: 7-
+
