@@ -3,7 +3,7 @@
     
     var showWarning = (msg) => {
         // Handle the migration in style from 0.11 -> 0.12 with pydata sphinx theme
-        const content = $('.bd-content') || $('.content')
+        const content = $('.bd-content').length ? $('.bd-content') : $('.content')
         content.prepend(
             '<br>' +
             '<p style="' +
