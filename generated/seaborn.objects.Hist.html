@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.Hist &#8212; seaborn 0.12.2 documentation</title>
+    <title>seaborn.objects.Hist &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -1183,6 +1184,27 @@
           
 <div class="toc-item">
   
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn.objects.Hist">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Hist
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
 </div>
 
 <div class="toc-item">
@@ -1224,9 +1246,11 @@
 </ul>
 </dd>
 <dt><strong>bins</strong><span class="classifier">str, int, or ArrayLike</span></dt><dd><p>Generic parameter that can be the name of a reference rule, the number
-of bins, or the bin breaks. Passed to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges()</span></code></a>.</p>
+of bins, or the bin breaks. Passed to <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges" title="(in NumPy v1.26)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges()</span></code></a>.</p>
 </dd>
-<dt><strong>binwidth</strong><span class="classifier">float</span></dt><dd><p>Width of each bin; overrides <code class="docutils literal notranslate"><span class="pre">bins</span></code> but can be used with <code class="docutils literal notranslate"><span class="pre">binrange</span></code>.</p>
+<dt><strong>binwidth</strong><span class="classifier">float</span></dt><dd><p>Width of each bin; overrides <code class="docutils literal notranslate"><span class="pre">bins</span></code> but can be used with <code class="docutils literal notranslate"><span class="pre">binrange</span></code>.
+Note that if <code class="docutils literal notranslate"><span class="pre">binwidth</span></code> does not evenly divide the bin range, the actual
+bin width used will be only approximately equal to the parameter value.</p>
 </dd>
 <dt><strong>binrange</strong><span class="classifier">(min, max)</span></dt><dd><p>Lowest and highest value for bin edges; can be used with either
 <code class="docutils literal notranslate"><span class="pre">bins</span></code> (when a number) or <code class="docutils literal notranslate"><span class="pre">binwidth</span></code>. Defaults to data extremes.</p>
@@ -1336,7 +1360,7 @@ specific locations where the bins should break.</p>
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1345,12 +1369,13 @@ specific locations where the bins should break.</p>
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

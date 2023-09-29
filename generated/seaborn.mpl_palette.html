@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.mpl_palette &#8212; seaborn 0.12.2 documentation</title>
+    <title>seaborn.mpl_palette &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -1183,6 +1184,27 @@
           
 <div class="toc-item">
   
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn.mpl_palette">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mpl_palette()
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
 </div>
 
 <div class="toc-item">
@@ -1233,7 +1255,27 @@ if the palette does not define that many.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-</dd></dl>
+<p>Return discrete samples from a continuous matplotlib colormap:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">mpl_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#46327e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#365c8d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#277f8e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#1fa187;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#4ac16d;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#a0da39;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Return the continuous colormap instead; note how the extreme values are more intense:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">mpl_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="viridis color map" title="viridis"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAACCElEQVR4nO3VQXbbMAwFQIC8Wo/Q+x9F6sKyCEVykmI9swkfCIJ8ceKff/LvHhERmfH6OSLHWsexzsyIMeLSO8arHvHqy1HWH2a8z9dZlxl5q+/jXnvNeOjNjDhG1979vONrPdbd7/MZ9/0yt/acczMus/bHGfF8bkSZ8TDvsn6/s876tP5pVnx426fefO59OPfT22531/O/fNt17v6rOyIj9vh+xsdz53q/1NeML/Uo/V967zOu/4Z1Py/r0ht1f53Px/Ve/uxL7Zgxcr/UR+kdpX72lnPjcm71jLife9ofuV3q9/09Rm4RETG/qUdEjFi1kXvM2Ervq2fGum++e2N/XucWs7yzrm+zYisztvNN6w3r/MwtRmzn+pxbZlzvXbVR9mf5XawZ7ztqLWKWr8B5fH4z8/y6nMenOjLXOkbMXOtx1OfxXf8+CwD/RYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGgRYAA0CJAAGgRIAC0CBAAWgQIAC0CBIAWAQJAiwABoEWAANAiQABoESAAtAgQAFoECAAtAgSAFgECQIsAAaBFgADQIkAAaBEgALQIEABaBAgALQIEgBYBAkCLAAGg5R9DQIlr2oxHRwAAAABJRU5ErkJggg=="><p>Return more colors:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">mpl_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#482878;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#3e4989;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#31688e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#26828e;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#1f9e89;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#35b779;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#6ece58;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#b5de2b;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Return values from a qualitative colormap:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">mpl_palette</span><span class="p">(</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="330" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#66c2a5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#fc8d62;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#8da0cb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e78ac3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#a6d854;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#ffd92f;stroke-width:2;stroke:rgb(255,255,255)"/></svg><p>Notice how the palette will only contain distinct colors and can be shorter than requested:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">mpl_palette</span><span class="p">(</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg  width="440" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#66c2a5;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#fc8d62;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#8da0cb;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e78ac3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#a6d854;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#ffd92f;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#e5c494;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#b3b3b3;stroke-width:2;stroke:rgb(255,255,255)"/></svg></dd></dl>
 
 </section>
 
@@ -1257,7 +1299,7 @@ if the palette does not define that many.</p>
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1266,12 +1308,13 @@ if the palette does not define that many.</p>
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

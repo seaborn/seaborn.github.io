@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.Plot.on &#8212; seaborn 0.12.2 documentation</title>
+    <title>seaborn.objects.Plot.on &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -1183,6 +1184,27 @@
           
 <div class="toc-item">
   
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn.objects.Plot.on">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Plot.on()
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
 </div>
 
 <div class="toc-item">
@@ -1218,29 +1240,29 @@ first to compile the plot without rendering it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>target</strong><span class="classifier">Axes, SubFigure, or Figure</span></dt><dd><p>Matplotlib object to use. Passing <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> will add
+<dt><strong>target</strong><span class="classifier">Axes, SubFigure, or Figure</span></dt><dd><p>Matplotlib object to use. Passing <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> will add
 artists without otherwise modifying the figure. Otherwise, subplots will be
-created within the space of the given <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> or
-<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.SubFigure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.SubFigure</span></code></a>.</p>
+created within the space of the given <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> or
+<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.SubFigure" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.SubFigure</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Passing a <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object provides functionality closest to seaborn’s axes-level plotting functions. Notice how the resulting image looks different from others created with <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>. This is because the plot theme uses the global rcParams at the time the axes were created, rather than <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> defaults:</p>
+<p>Passing a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object provides functionality closest to seaborn’s axes-level plotting functions. Notice how the resulting image looks different from others created with <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>. This is because the plot theme uses the global rcParams at the time the axes were created, rather than <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> defaults:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dots</span><span class="p">())</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects.Plot.on_2_0.png"><img alt="../_images/objects.Plot.on_2_0.png" src="../_images/objects.Plot.on_2_0.png" style="width: 513px; height: 379px;" /></a>
-<p>Alternatively, calling <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a> will defer axes creation to <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>, which will apply the default theme (and any customizations specified with <a class="reference internal" href="seaborn.objects.Plot.theme.html#seaborn.objects.Plot.theme" title="seaborn.objects.Plot.theme"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.theme()</span></code></a>):</p>
+<p>Alternatively, calling <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="(in Matplotlib v3.8.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.figure()</span></code></a> will defer axes creation to <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a>, which will apply the default theme (and any customizations specified with <a class="reference internal" href="seaborn.objects.Plot.theme.html#seaborn.objects.Plot.theme" title="seaborn.objects.Plot.theme"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.theme()</span></code></a>):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects.Plot.on_4_0.png"><img alt="../_images/objects.Plot.on_4_0.png" src="../_images/objects.Plot.on_4_0.png" style="width: 522px; height: 385px;" /></a>
-<p>Creating a <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object will bypass <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> altogether. This may be useful for embedding <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> figures in a GUI application:</p>
+<p>Creating a <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> object will bypass <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> altogether. This may be useful for embedding <a class="reference internal" href="seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> figures in a GUI application:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -1267,7 +1289,7 @@ created within the space of the given <a class="reference external" href="https:
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects.Plot.on_8_0.png"><img alt="../_images/objects.Plot.on_8_0.png" src="../_images/objects.Plot.on_8_0.png" style="width: 483.22499999999997px; height: 387.175px;" /></a>
-<p>Matplotlib 3.4 introduced the concept of <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subfigures" title="(in Matplotlib v3.6.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subfigures()</span></code></a>, which make it easier to composite multiple arrangements of subplots. These can also be passed to <a class="reference internal" href="#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.on()</span></code></a>,</p>
+<p>Matplotlib 3.4 introduced the concept of <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.subfigures" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.subfigures()</span></code></a>, which make it easier to composite multiple arrangements of subplots. These can also be passed to <a class="reference internal" href="#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.on()</span></code></a>,</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;constrained&quot;</span><span class="p">)</span>
 <span class="n">sf1</span><span class="p">,</span> <span class="n">sf2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -1282,7 +1304,7 @@ created within the space of the given <a class="reference external" href="https:
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.Plot.on_10_0.png"><img alt="../_images/objects.Plot.on_10_0.png" src="../_images/objects.Plot.on_10_0.png" style="width: 585.65px; height: 328.525px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.Plot.on_10_0.png"><img alt="../_images/objects.Plot.on_10_0.png" src="../_images/objects.Plot.on_10_0.png" style="width: 580.55px; height: 335.75px;" /></a>
 </dd></dl>
 
 </section>
@@ -1307,7 +1329,7 @@ created within the space of the given <a class="reference external" href="https:
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1316,12 +1338,13 @@ created within the space of the given <a class="reference external" href="https:
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

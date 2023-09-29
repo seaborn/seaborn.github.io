@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>The seaborn.objects interface &#8212; seaborn 0.12.2 documentation</title>
+    <title>The seaborn.objects interface &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -629,7 +630,7 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects_interface_8_0.png"><img alt="../_images/objects_interface_8_0.png" src="../_images/objects_interface_8_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects_interface_8_0.png"><img alt="../_images/objects_interface_8_0.png" src="../_images/objects_interface_8_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 <p>While this basic functionality is not novel, an important difference from the function API is that properties are mapped using the same parameter names that would set them directly (instead of having <code class="docutils literal notranslate"><span class="pre">hue</span></code> vs. <code class="docutils literal notranslate"><span class="pre">color</span></code>, etc.). What matters is <em>where</em> the property is defined: passing a value when you initialize <a class="reference internal" href="../generated/seaborn.objects.Dot.html#seaborn.objects.Dot" title="seaborn.objects.Dot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dot</span></code></a> will set it directly, whereas assigning a variable when you set up the <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> will <em>map</em> the corresponding data.</p>
 <p>Beyond this difference, the objects interface also allows a much wider range of mark properties to be mapped:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -778,7 +779,7 @@
 </section>
 <section id="building-and-displaying-the-plot">
 <h2>Building and displaying the plot<a class="headerlink" href="#building-and-displaying-the-plot" title="Permalink to this heading">#</a></h2>
-<p>Each example thus far has produced a single subplot with a single kind of mark on it. But <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> does not limit you to this.</p>
+<p>Most examples this far have produced a single subplot with just one kind of mark on it. But <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> does not limit you to this.</p>
 <section id="adding-multiple-layers">
 <h3>Adding multiple layers<a class="headerlink" href="#adding-multiple-layers" title="Permalink to this heading">#</a></h3>
 <p>More complex single-subplot graphics can be created by calling <a class="reference internal" href="../generated/seaborn.objects.Plot.add.html#seaborn.objects.Plot.add" title="seaborn.objects.Plot.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.add()</span></code></a> repeatedly. Each time it is called, it defines a <em>layer</em> in the plot. For example, we may want to add a scatterplot (now using <a class="reference internal" href="../generated/seaborn.objects.Dots.html#seaborn.objects.Dots" title="seaborn.objects.Dots"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dots</span></code></a>) and then a regression fit:</p>
@@ -820,7 +821,7 @@
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects_interface_46_0.png"><img alt="../_images/objects_interface_46_0.png" src="../_images/objects_interface_46_0.png" style="width: 600.9499999999999px; height: 378.25px;" /></a>
-<p>To recap, there are three ways to specify the value of a mark property: (1) by mapping a variable in all layers, (2) by mapping a variable in a specific layer, and (3) by setting the property directy:</p>
+<p>To recap, there are three ways to specify the value of a mark property: (1) by mapping a variable in all layers, (2) by mapping a variable in a specific layer, and (3) by setting the property directly:</p>
 <img alt="../_images/objects_interface_48_0.svg" src="../_images/objects_interface_48_0.svg" /></section>
 <section id="faceting-and-pairing-subplots">
 <h3>Faceting and pairing subplots<a class="headerlink" href="#faceting-and-pairing-subplots" title="Permalink to this heading">#</a></h3>
@@ -870,7 +871,7 @@ be useful for providing additional context on each subplot:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects_interface_58_0.png"><img alt="../_images/objects_interface_58_0.png" src="../_images/objects_interface_58_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects_interface_58_0.png"><img alt="../_images/objects_interface_58_0.png" src="../_images/objects_interface_58_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 <p>You can combine faceting and pairing so long as the operations add subplots on opposite dimensions:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
@@ -880,11 +881,11 @@ be useful for providing additional context on each subplot:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects_interface_60_0.png"><img alt="../_images/objects_interface_60_0.png" src="../_images/objects_interface_60_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects_interface_60_0.png"><img alt="../_images/objects_interface_60_0.png" src="../_images/objects_interface_60_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 </section>
 <section id="integrating-with-matplotlib">
 <h3>Integrating with matplotlib<a class="headerlink" href="#integrating-with-matplotlib" title="Permalink to this heading">#</a></h3>
-<p>There may be cases where you want multiple subplots to appear in a figure with a more complex structure than what <a class="reference internal" href="../generated/seaborn.objects.Plot.facet.html#seaborn.objects.Plot.facet" title="seaborn.objects.Plot.facet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.facet()</span></code></a> or <a class="reference internal" href="../generated/seaborn.objects.Plot.pair.html#seaborn.objects.Plot.pair" title="seaborn.objects.Plot.pair"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.pair()</span></code></a> can provide. The current solution is to delegate figure setup to matplotlib and to supply the matplotlib object that <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> should use with the <a class="reference internal" href="../generated/seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.on()</span></code></a> method. This object can be either a <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a>, or <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.SubFigure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.SubFigure</span></code></a>; the latter is most useful for constructing bespoke subplot layouts:</p>
+<p>There may be cases where you want multiple subplots to appear in a figure with a more complex structure than what <a class="reference internal" href="../generated/seaborn.objects.Plot.facet.html#seaborn.objects.Plot.facet" title="seaborn.objects.Plot.facet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.facet()</span></code></a> or <a class="reference internal" href="../generated/seaborn.objects.Plot.pair.html#seaborn.objects.Plot.pair" title="seaborn.objects.Plot.pair"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.pair()</span></code></a> can provide. The current solution is to delegate figure setup to matplotlib and to supply the matplotlib object that <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> should use with the <a class="reference internal" href="../generated/seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.on()</span></code></a> method. This object can be either a <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a>, or <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.SubFigure" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.SubFigure</span></code></a>; the latter is most useful for constructing bespoke subplot layouts:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">sf1</span><span class="p">,</span> <span class="n">sf2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">subfigures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="p">(</span>
@@ -923,7 +924,7 @@ be useful for providing additional context on each subplot:</p>
 <a class="reference internal image-reference" href="../_images/objects_interface_68_0.png"><img alt="../_images/objects_interface_68_0.png" src="../_images/objects_interface_68_0.png" style="width: 634.525px; height: 378.25px;" /></a>
 <p>The <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> methods are fully declarative. Calling them updates the plot spec, but it doesn’t actually do any plotting. One consequence of this is that methods can be called in any order, and many of them can be called multiple times.</p>
 <p>When does the plot actually get rendered? <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> is optimized for use in notebook environments. The rendering is automatically triggered when the <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> gets displayed in the Jupyter REPL. That’s why we didn’t see anything in the example above, where we defined a <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> but assigned it to <code class="docutils literal notranslate"><span class="pre">p</span></code> rather than letting it return out to the REPL.</p>
-<p>To see a plot in a notebook, either return it from the final line of a cell or call Jupyter’s built-in <code class="docutils literal notranslate"><span class="pre">display</span></code> function on the object. The notebook integration bypasses <a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html#module-matplotlib.pyplot" title="(in Matplotlib v3.6.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></a> entirely, but you can use its figure-display machinery in other contexts by calling <a class="reference internal" href="../generated/seaborn.objects.Plot.show.html#seaborn.objects.Plot.show" title="seaborn.objects.Plot.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.show()</span></code></a>.</p>
+<p>To see a plot in a notebook, either return it from the final line of a cell or call Jupyter’s built-in <code class="docutils literal notranslate"><span class="pre">display</span></code> function on the object. The notebook integration bypasses <a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html#module-matplotlib.pyplot" title="(in Matplotlib v3.8.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></a> entirely, but you can use its figure-display machinery in other contexts by calling <a class="reference internal" href="../generated/seaborn.objects.Plot.show.html#seaborn.objects.Plot.show" title="seaborn.objects.Plot.show"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.show()</span></code></a>.</p>
 <p>You can also save the plot to a file (or buffer) by calling <a class="reference internal" href="../generated/seaborn.objects.Plot.save.html#seaborn.objects.Plot.save" title="seaborn.objects.Plot.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.save()</span></code></a>.</p>
 </section>
 </section>
@@ -970,11 +971,7 @@ be useful for providing additional context on each subplot:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">mwaskom</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">seaborn</span><span class="o">/</span><span class="n">_core</span><span class="o">/</span><span class="n">properties</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">370</span><span class="p">:</span> <span class="ne">RuntimeWarning</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">value</span> <span class="n">encountered</span> <span class="ow">in</span> <span class="n">cast</span>
-  <span class="n">ixs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../_images/objects_interface_77_1.png"><img alt="../_images/objects_interface_77_1.png" src="../_images/objects_interface_77_1.png" style="width: 614.125px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects_interface_77_0.png"><img alt="../_images/objects_interface_77_0.png" src="../_images/objects_interface_77_0.png" style="width: 614.125px; height: 378.25px;" /></a>
 </section>
 <section id="customizing-legends-and-ticks">
 <h3>Customizing legends and ticks<a class="headerlink" href="#customizing-legends-and-ticks" title="Permalink to this heading">#</a></h3>
@@ -1009,16 +1006,21 @@ be useful for providing additional context on each subplot:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects_interface_81_0.png"><img alt="../_images/objects_interface_81_0.png" src="../_images/objects_interface_81_0.png" style="width: 619.65px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects_interface_81_0.png"><img alt="../_images/objects_interface_81_0.png" src="../_images/objects_interface_81_0.png" style="width: 620.0749999999999px; height: 378.25px;" /></a>
 </section>
 <section id="theme-customization">
 <h3>Theme customization<a class="headerlink" href="#theme-customization" title="Permalink to this heading">#</a></h3>
 <p>Finally, <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> supports data-independent theming through the <a class="reference internal" href="../generated/seaborn.objects.Plot.theme.html#seaborn.objects.Plot.theme" title="seaborn.objects.Plot.theme"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot.theme</span></code></a> method. Currently, this method accepts a dictionary of matplotlib rc parameters. You can set them directly and/or pass a package of parameters from seaborn’s theming functions:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">seaborn</span> <span class="kn">import</span> <span class="n">axes_style</span>
-<span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">()</span><span class="o">.</span><span class="n">theme</span><span class="p">({</span><span class="o">**</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">),</span> <span class="s2">&quot;grid.linestyle&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">})</span>
+<span class="n">theme_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">),</span> <span class="s2">&quot;grid.linestyle&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">}</span>
+<span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">()</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">theme_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects_interface_83_0.png"><img alt="../_images/objects_interface_83_0.png" src="../_images/objects_interface_83_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>To change the theme for all <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Plot</span></code></a> instances, update the settings in <code class="xref py py-attr docutils literal notranslate"><span class="pre">Plot.config</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">theme_dict</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -1043,7 +1045,7 @@ be useful for providing additional context on each subplot:</p>
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1052,12 +1054,13 @@ be useful for providing additional context on each subplot:</p>
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

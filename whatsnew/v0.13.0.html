@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>v0.13.0 (September 2023) &#8212; seaborn 0.13.0 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'whatsnew/v0.13.0';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.12.2 (December 2022)" href="v0.12.2.html" />
+    <link rel="prev" title="What’s new in each version" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   v0.13.0 (September 2023)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.2.html">
+   v0.12.2 (December 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.1.html">
+   v0.12.1 (October 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.0.html">
+   v0.12.0 (September 2022)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.2.html">
+   v0.11.2 (August 2021)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.1.html">
+   v0.11.1 (December 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.0.html">
+   v0.11.0 (September 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.1.html">
+   v0.10.1 (April 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.0.html">
+   v0.10.0 (January 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.1.html">
+   v0.9.1 (January 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.0.html">
+   v0.9.0 (July 2018)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.1.html">
+   v0.8.1 (September 2017)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.0.html">
+   v0.8.0 (July 2017)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.1.html">
+   v0.7.1 (June 2016)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.0.html">
+   v0.7.0 (January 2016)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.6.0.html">
+   v0.6.0 (June 2015)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.1.html">
+   v0.5.1 (November 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.0.html">
+   v0.5.0 (November 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.4.0.html">
+   v0.4.0 (September 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.1.html">
+   v0.3.1 (April 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.0.html">
+   v0.3.0 (March 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.1.html">
+   v0.2.1 (December 2013)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.0.html">
+   v0.2.0 (December 2013)
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#major-enhancements-to-categorical-plots">
+   Major enhancements to categorical plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#support-for-numeric-and-datetime-data">
+     Support for numeric and datetime data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-to-color-defaults-and-specification">
+     Changes to color defaults and specification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-features-enhancements-and-changes">
+     Other features, enhancements, and changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#support-for-alternate-dataframe-libraries">
+   Support for alternate dataframe libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#improved-configuration-for-the-objects-interface">
+   Improved configuration for the objects interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-updates">
+   Other updates
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="v0-13-0-september-2023">
+<h1>v0.13.0 (September 2023)<a class="headerlink" href="#v0-13-0-september-2023" title="Permalink to this heading">#</a></h1>
+<p>This is a major release with a number of important new features and changes. The highlight is a major overhaul to seaborn’s categorical plotting functions, providing them with many new capabilities and better aligning their API with the rest of the library. There is also provisional support for alternate dataframe libraries like <a class="reference external" href="https://www.pola.rs">polars</a>, a new theme and display configuration system for <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Plot</span></code></a>, and many smaller bugfixes and enhancements.</p>
+<p>Updating is recommended, but users are encouraged to carefully check the outputs of existing code that uses the categorical functions, and they should be aware of some deprecations and intentional changes to the default appearance of the resulting plots (see notes below with <span class="raw-html"><span class="badge badge-api">API</span></span>  and <span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  tags).</p>
+<section id="major-enhancements-to-categorical-plots">
+<h2>Major enhancements to categorical plots<a class="headerlink" href="#major-enhancements-to-categorical-plots" title="Permalink to this heading">#</a></h2>
+<p>Seaborn’s <a class="reference internal" href="../api.html#categorical-api"><span class="std std-ref">categorical functions</span></a> have been completely rewritten for this release. This provided the opportunity to address some longstanding quirks as well as to add a number of smaller but much-desired features and enhancements.</p>
+<section id="support-for-numeric-and-datetime-data">
+<h3>Support for numeric and datetime data<a class="headerlink" href="#support-for-numeric-and-datetime-data" title="Permalink to this heading">#</a></h3>
+<p><span class="raw-html"><span class="badge badge-feature">Feature</span></span> </p>
+<p>The categorical functions have historically treated <em>all</em> data as categorical, even when it has a numeric or datetime type. This can now be controlled with the new <code class="docutils literal notranslate"><span class="pre">native_scale</span></code> parameter. The default remains <code class="docutils literal notranslate"><span class="pre">False</span></code> to preserve existing behavior. But with <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code>, values will be treated as they would by other seaborn or matplotlib functions. Element widths will be derived from the minimum distance between two unique values on the categorical axis.</p>
+<p>Additionally, while seaborn previously determined the mapping from categorical values to ordinal positions internally, this is now delegated to matplotlib. The change should mostly be transparent to the user, but categorical plots (even with <code class="docutils literal notranslate"><span class="pre">native_scale=False</span></code>) will better align with artists added by other seaborn or matplotlib functions in most cases, and matplotlib’s interactive machinery will work better.</p>
+</section>
+<section id="changes-to-color-defaults-and-specification">
+<h3>Changes to color defaults and specification<a class="headerlink" href="#changes-to-color-defaults-and-specification" title="Permalink to this heading">#</a></h3>
+<p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-defaults">Defaults</span></span> </p>
+<p>The categorical functions now act more like the rest of seaborn in that they will produce a plot with a single main color unless the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable is assigned. Previously, there would be an implicit redundant color mapping (e.g., each box in a boxplot would get a separate color from the default palette). To retain the previous behavior, explicitly assign a redundant <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable (e.g., <code class="docutils literal notranslate"><span class="pre">boxplot(data,</span> <span class="pre">x=&quot;x&quot;,</span> <span class="pre">y=&quot;y&quot;,</span> <span class="pre">hue=&quot;x&quot;)</span></code>).</p>
+<p>Two related idiosyncratic color specifications are deprecated, but they will continue to work (with a warning) for one release cycle:</p>
+<ul class="simple">
+<li><p>Passing a <code class="docutils literal notranslate"><span class="pre">palette</span></code> without explicitly assigning <code class="docutils literal notranslate"><span class="pre">hue</span></code> is no longer supported (add an explicitly redundant <code class="docutils literal notranslate"><span class="pre">hue</span></code> assignment instead).</p></li>
+<li><p>Passing a <code class="docutils literal notranslate"><span class="pre">color</span></code> while assigning <code class="docutils literal notranslate"><span class="pre">hue</span></code> to produce a gradient is no longer supported (use <code class="docutils literal notranslate"><span class="pre">palette=&quot;dark:{color}&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">palette=&quot;light:{color}&quot;</span></code> instead).</p></li>
+</ul>
+<p>Finally, like other seaborn functions, the default palette now depends on the variable type, and a sequential palette will be used with numeric data. To retain the previous behavior, pass the name of a qualitative palette (e.g., <code class="docutils literal notranslate"><span class="pre">palette=&quot;deep&quot;</span></code> for seaborn’s default). Accordingly, the functions have gained a parameter to control numeric color mappings (<code class="docutils literal notranslate"><span class="pre">hue_norm</span></code>).</p>
+</section>
+<section id="other-features-enhancements-and-changes">
+<h3>Other features, enhancements, and changes<a class="headerlink" href="#other-features-enhancements-and-changes" title="Permalink to this heading">#</a></h3>
+<p>The following updates apply to multiple categorical functions.</p>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  All functions now accept a <code class="docutils literal notranslate"><span class="pre">legend</span></code> parameter, which can be a boolean (to suppress the legend) or one of <code class="docutils literal notranslate"><span class="pre">{&quot;auto&quot;,</span> <span class="pre">&quot;brief&quot;,</span> <span class="pre">&quot;full&quot;}</span></code> to control the amount of information shown in the legend for a numerical color mapping.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  All functions now accept a callable <code class="docutils literal notranslate"><span class="pre">formatter</span></code> parameter to control the string representation of the data.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  All functions that draw a solid patch now accept a boolean <code class="docutils literal notranslate"><span class="pre">fill</span></code> parameter, which when set to <code class="docutils literal notranslate"><span class="pre">False</span></code> will draw line-art elements.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  All functions that support dodging now have an additional <code class="docutils literal notranslate"><span class="pre">gap</span></code> parameter that can be set to a non-zero value to leave space between dodged elements.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  The <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a> functions now support a single <code class="docutils literal notranslate"><span class="pre">linecolor</span></code> parameter.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  The default value for <code class="docutils literal notranslate"><span class="pre">dodge</span></code> has changed from <code class="docutils literal notranslate"><span class="pre">True</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>. With <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>, elements will dodge only when at least one set of elements would otherwise overlap.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  When the value axis of the plot has a non-linear scale, the statistical operations (e.g. an aggregation in <a class="reference internal" href="../generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pointplot()</span></code></a> or the kernel density fit in <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a>) are now applied in that scale space.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  All functions now accept a <code class="docutils literal notranslate"><span class="pre">log_scale</span></code> parameter. With a single argument, this will set the scale on the “value” axis (<em>opposite</em> the categorical axis). A tuple will set each axis directly (although setting a log scale categorical axis also requires <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  The <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter now accepts <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;/&quot;y&quot;</span></code> to specify the categorical axis, matching the objects interface.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  The categorical functions are generally more deferential to the user’s additional matplotlib keyword arguments.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Using <code class="docutils literal notranslate"><span class="pre">&quot;gray&quot;</span></code> to select an automatic gray value that complements the main palette is now deprecated in favor of <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>.</p></li>
+</ul>
+<p>The following updates are function-specific.</p>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-feature">Feature</span></span>  In <a class="reference internal" href="../generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pointplot()</span></code></a>, a single <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a> artist is now used rather than adding separate <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.PathCollection</span></code></a> artist for the points. As a result, it is now possible to pass additional keyword arguments for complete customization the appearance of both the lines and markers; additionally, the legend representation is improved. Accordingly, parameters that previously allowed only partial customization (<code class="docutils literal notranslate"><span class="pre">scale</span></code>, <code class="docutils literal notranslate"><span class="pre">join</span></code>, and <code class="docutils literal notranslate"><span class="pre">errwidth</span></code>) are now deprecated. The old parameters will now trigger detailed warning messages with instructions for adapting existing code.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-feature">Feature</span></span>  The bandwidth specification in <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a> better aligns with <a class="reference internal" href="../generated/seaborn.kdeplot.html#seaborn.kdeplot" title="seaborn.kdeplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">kdeplot()</span></code></a>, as the <code class="docutils literal notranslate"><span class="pre">bw</span></code> parameter is now deprecated in favor of <code class="docutils literal notranslate"><span class="pre">bw_method</span></code> and <code class="docutils literal notranslate"><span class="pre">bw_adjust</span></code>.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a>, the boxen are now drawn with separate patch artists in each tail. This may have consequences for code that works with the underlying artists, but it produces a better result for low-alpha / unfilled plots and enables proper area/density scaling.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">errcolor</span></code> and <code class="docutils literal notranslate"><span class="pre">errwidth</span></code> parameters are now deprecated in favor of a more general <code class="docutils literal notranslate"><span class="pre">err_kws`</span></code> dictionary. The existing parameters will continue to work for two releases.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  In <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">scale</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_hue</span></code> parameters have been renamed to <code class="docutils literal notranslate"><span class="pre">density_norm</span></code> and <code class="docutils literal notranslate"><span class="pre">common_norm</span></code> for clarity and to reflect the fact that common normalization is now applied over both hue and faceting variables in <a class="reference internal" href="../generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a>.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  In <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a>, the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter has been renamed to <code class="docutils literal notranslate"><span class="pre">width_method</span></code> as part of a broader effort to de-confound the meaning of “scale” in seaborn parameters.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  When passing a vector to the <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter of <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a> or <a class="reference internal" href="../generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pointplot()</span></code></a>, a bar or point will be drawn for each entry in the vector rather than plotting a single aggregated value. To retain the previous behavior, assign the vector to the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a>, the default flier marker now follows the matplotlib rcparams so that it can be globally customized.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  When using <code class="docutils literal notranslate"><span class="pre">split=True</span></code> and <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code> in <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a>, a separate mini-box is now drawn for each split violin.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a>, all plots now use a consistent luminance ramp for the different box levels. This leads to a change in the appearance of existing plots, but reduces the chances of a misleading result.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-defaults">Defaults</span></span>  <span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  The <code class="docutils literal notranslate"><span class="pre">&quot;area&quot;</span></code> scaling in <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a> now approximates the density of the underlying observations, including for asymmetric distributions. This produces a substantial change in the appearance of plots with <code class="docutils literal notranslate"><span class="pre">width_method=&quot;area&quot;</span></code>, although the existing behavior was poorly defined.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  In <a class="reference internal" href="../generated/seaborn.countplot.html#seaborn.countplot" title="seaborn.countplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">countplot()</span></code></a>, the new <code class="docutils literal notranslate"><span class="pre">stat</span></code> parameter can be used to apply a normalization (e.g to show a <code class="docutils literal notranslate"><span class="pre">&quot;percent&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;proportion&quot;</span></code>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  The <code class="docutils literal notranslate"><span class="pre">split</span></code> parameter in <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a> is now more general and can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> regardless of the number of <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable levels (or even without <code class="docutils literal notranslate"><span class="pre">hue</span></code>). This is probably most useful for showing half violins.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  In <a class="reference internal" href="../generated/seaborn.violinplot.html#seaborn.violinplot" title="seaborn.violinplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">violinplot()</span></code></a>, the new <code class="docutils literal notranslate"><span class="pre">inner_kws</span></code> parameter allows additional control over the interior artists.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  It is no longer required to use a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in <a class="reference internal" href="../generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a>, as data vectors can now be passed directly.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a>, the artists that comprise each box plot are now packaged in a <code class="docutils literal notranslate"><span class="pre">BoxPlotContainer</span></code> for easier post-plotting access.</p></li>
+</ul>
+</section>
+</section>
+<section id="support-for-alternate-dataframe-libraries">
+<h2>Support for alternate dataframe libraries<a class="headerlink" href="#support-for-alternate-dataframe-libraries" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Nearly all functions / objects now use the <a class="reference external" href="https://data-apis.org/dataframe-protocol/latest/index.html">dataframe exchange protocol</a> to accept <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects from libraries other than <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">polars</span></code>). Note that seaborn will still convert the data object to pandas internally, but this feature will simplify code for users of other dataframe libraries (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3369">#3369</a>).</p></li>
+</ul>
+</section>
+<section id="improved-configuration-for-the-objects-interface">
+<h2>Improved configuration for the objects interface<a class="headerlink" href="#improved-configuration-for-the-objects-interface" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Added control over the default theme to <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Plot</span></code></a> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3223">#3223</a>)</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Added control over the default notebook display to <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Plot</span></code></a> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3225">#3225</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Added the concept of a “layer legend” in <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Plot</span></code></a> via the new <code class="docutils literal notranslate"><span class="pre">label</span></code> parameter in <a class="reference internal" href="../generated/seaborn.objects.Plot.add.html#seaborn.objects.Plot.add" title="seaborn.objects.Plot.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.add()</span></code></a> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3456">#3456</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.objects.Plot.scale.html#seaborn.objects.Plot.scale" title="seaborn.objects.Plot.scale"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.scale()</span></code></a>, <a class="reference internal" href="../generated/seaborn.objects.Plot.limit.html#seaborn.objects.Plot.limit" title="seaborn.objects.Plot.limit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.limit()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.objects.Plot.label.html#seaborn.objects.Plot.label" title="seaborn.objects.Plot.label"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.label()</span></code></a> the <code class="docutils literal notranslate"><span class="pre">x</span></code> / <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters can be used to set a common scale / limit / label for paired subplots (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3458">#3458</a>).</p></li>
+</ul>
+</section>
+<section id="other-updates">
+<h2>Other updates<a class="headerlink" href="#other-updates" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  Improved the legend display for relational and categorical functions to better represent the user’s additional keyword arguments (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3467">#3467</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.ecdfplot.html#seaborn.ecdfplot" title="seaborn.ecdfplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">ecdfplot()</span></code></a>, <code class="docutils literal notranslate"><span class="pre">stat=&quot;percent&quot;</span></code> is now a valid option (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3336">#3336</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  Data values outside the scale transform domain (e.g. non-positive values with a log scale) are now dropped prior to any statistical operations (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3488">#3488</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  In <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, infinite values are now ignored when choosing the default bin range (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3488">#3488</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  There is now generalized support for performing statistics in the appropriate space based on axes scales; previously support for this was spotty and at best worked only for log scales (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3440">#3440</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  Updated <a class="reference internal" href="../generated/seaborn.load_dataset.html#seaborn.load_dataset" title="seaborn.load_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_dataset()</span></code></a> to use an approach more compatible with <code class="docutils literal notranslate"><span class="pre">pyiodide</span></code> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3234">#3234</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Support for array-typed palettes is now deprecated. This was not previously documented as supported, but it worked by accident in a few places (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3452">#3452</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  <span class="raw-html"><span class="badge badge-fix">Fix</span></span>  In <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a>, treatment of the <code class="docutils literal notranslate"><span class="pre">binwidth</span></code> parameter has changed such that the actual bin width will be only approximately equal to the requested width when that value does not evenly divide the bin range. This fixes an issue where the largest data value was sometimes dropped due to floating point error (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3489">#3489</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed <a class="reference internal" href="../generated/seaborn.objects.Bar.html#seaborn.objects.Bar" title="seaborn.objects.Bar"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Bar</span></code></a> and <a class="reference internal" href="../generated/seaborn.objects.Bars.html#seaborn.objects.Bars" title="seaborn.objects.Bars"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Bars</span></code></a> widths when using a nonlinear scale (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3217">#3217</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Worked around an issue in matplotlib that caused incorrect results in <a class="reference internal" href="../generated/seaborn.move_legend.html#seaborn.move_legend" title="seaborn.move_legend"><code class="xref py py-func docutils literal notranslate"><span class="pre">move_legend()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">labels</span></code> were provided (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3454">#3454</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug introduced in v0.12.0 where <a class="reference internal" href="../generated/seaborn.histplot.html#seaborn.histplot" title="seaborn.histplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">histplot()</span></code></a> added a stray empty <code class="docutils literal notranslate"><span class="pre">BarContainer</span></code> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3246">#3246</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug where <a class="reference internal" href="../generated/seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.on()</span></code></a> would override a figure’s layout engine (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3216">#3216</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug introduced in v0.12.0 where <a class="reference internal" href="../generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> with a list of tuples for the keyword argument dashes caused a TypeError (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3316">#3316</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.PairGrid.html#seaborn.PairGrid" title="seaborn.PairGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">PairGrid</span></code></a> that caused an exception when the input dataframe had a column multiindex (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3407">#3407</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Improved a few edge cases when using pandas nullable dtypes (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3394">#3394</a>).</p></li>
+</ul>
+</section>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

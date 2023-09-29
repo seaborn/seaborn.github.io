@@ -11,7 +11,7 @@ Coordinate properties
 x, y, xmin, xmax, ymin, ymax
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Coordinate properties determine where a mark is drawn on a plot. Canonically, the `x` coordinate is the horizontal positon and the `y` coordinate is the vertical position. Some marks accept a span (i.e., `min`, `max`) parameterization for one or both variables. Others may accept `x` and `y` but also use a `baseline` parameter to show a span. The layer's `orient` parameter determines how this works.
+Coordinate properties determine where a mark is drawn on a plot. Canonically, the `x` coordinate is the horizontal position and the `y` coordinate is the vertical position. Some marks accept a span (i.e., `min`, `max`) parameterization for one or both variables. Others may accept `x` and `y` but also use a `baseline` parameter to show a span. The layer's `orient` parameter determines how this works.
 
 If a variable does not contain numeric data, its scale will apply a conversion so that data can be drawn on a screen. For instance, :class:`Nominal` scales assign an integer index to each distinct category, and :class:`Temporal` scales represent dates as the number of days from a reference "epoch":
 
@@ -174,7 +174,7 @@ While this ensures that the shapes are technically distinct, bear in mind that â
 linestyle, edgestyle
 ~~~~~~~~~~~~~~~~~~~~
 
-The `linestyle` property is relevant to line marks, and the `edgestyle` propety is relevant to a number of marks with "edges. Both properties determine the "dashing" of a line in terms of on-off segments.
+The `linestyle` property is relevant to line marks, and the `edgestyle` property is relevant to a number of marks with "edges. Both properties determine the "dashing" of a line in terms of on-off segments.
 
 Dashes can be specified with a small number of shorthand codes (`'-'`, `'--'`, `'-.'`, and `':'`) or programatically using `(on, off, ...)` tuples. In the tuple specification, the unit is equal to the linewidth:
 
@@ -182,7 +182,7 @@ Dashes can be specified with a small number of shorthand codes (`'-'`, `'--'`, `
 
 
 .. image:: properties_files/properties_28_0.png
-   :width: 657.9px
+   :width: 658.3249999999999px
    :height: 173.4px
 
 

@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.objects.KDE &#8212; seaborn 0.12.2 documentation</title>
+    <title>seaborn.objects.KDE &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -1183,6 +1184,27 @@
           
 <div class="toc-item">
   
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn.objects.KDE">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     KDE
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
 </div>
 
 <div class="toc-item">
@@ -1218,7 +1240,7 @@
 <code class="docutils literal notranslate"><span class="pre">bw_method</span></code>. Increasing will make the curve smoother. See Notes.</p>
 </dd>
 <dt><strong>bw_method</strong><span class="classifier">string, scalar, or callable</span></dt><dd><p>Method for determining the smoothing bandwidth to use. Passed directly
-to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gaussian_kde.html#scipy.stats.gaussian_kde" title="(in SciPy v1.9.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.stats.gaussian_kde</span></code></a>; see there for options.</p>
+to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gaussian_kde.html#scipy.stats.gaussian_kde" title="(in SciPy v1.11.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.stats.gaussian_kde</span></code></a>; see there for options.</p>
 </dd>
 <dt><strong>common_norm</strong><span class="classifier">bool or list of variables</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, normalize so that the areas of all curves sums to 1.
 If <code class="docutils literal notranslate"><span class="pre">False</span></code>, normalize each curve independently. If a list, defines
@@ -1305,12 +1327,12 @@ the density axis depends on the data values.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">KDE</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.KDE_15_0.png"><img alt="../_images/objects.KDE_15_0.png" src="../_images/objects.KDE_15_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.KDE_15_0.png"><img alt="../_images/objects.KDE_15_0.png" src="../_images/objects.KDE_15_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 <p>By default, the density is normalized across all groups (i.e., the joint density is shown); pass <code class="docutils literal notranslate"><span class="pre">common_norm=False</span></code> to show conditional densities:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">KDE</span><span class="p">(</span><span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.KDE_17_0.png"><img alt="../_images/objects.KDE_17_0.png" src="../_images/objects.KDE_17_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.KDE_17_0.png"><img alt="../_images/objects.KDE_17_0.png" src="../_images/objects.KDE_17_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 <p>Or pass a list of variables to condition on:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">p</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
@@ -1318,7 +1340,7 @@ the density axis depends on the data values.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/objects.KDE_19_0.png"><img alt="../_images/objects.KDE_19_0.png" src="../_images/objects.KDE_19_0.png" style="width: 617.525px; height: 378.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/objects.KDE_19_0.png"><img alt="../_images/objects.KDE_19_0.png" src="../_images/objects.KDE_19_0.png" style="width: 617.9499999999999px; height: 378.25px;" /></a>
 <p>This stat can be combined with other transforms, such as <a class="reference internal" href="seaborn.objects.Stack.html#seaborn.objects.Stack" title="seaborn.objects.Stack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stack</span></code></a> (when <code class="docutils literal notranslate"><span class="pre">common_grid=True</span></code>):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">KDE</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Stack</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1353,7 +1375,7 @@ the density axis depends on the data values.</p>
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1362,12 +1384,13 @@ the density axis depends on the data values.</p>
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

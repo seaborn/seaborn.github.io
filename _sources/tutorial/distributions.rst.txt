@@ -483,7 +483,7 @@ Several other figure-level plotting functions in seaborn make use of the :func:`
 Plotting joint and marginal distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first is :func:`jointplot`, which augments a bivariate relatonal or distribution plot with the marginal distributions of the two variables. By default, :func:`jointplot` represents the bivariate distribution using :func:`scatterplot` and the marginal distributions using :func:`histplot`:
+The first is :func:`jointplot`, which augments a bivariate relational or distribution plot with the marginal distributions of the two variables. By default, :func:`jointplot` represents the bivariate distribution using :func:`scatterplot` and the marginal distributions using :func:`histplot`:
 
 .. code:: ipython3
 

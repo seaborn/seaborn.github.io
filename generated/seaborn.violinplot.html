@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>seaborn.violinplot &#8212; seaborn 0.12.2 documentation</title>
+    <title>seaborn.violinplot &#8212; seaborn 0.13.0 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -38,6 +38,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/design-tabs.js"></script>
@@ -1183,6 +1184,27 @@
           
 <div class="toc-item">
   
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seaborn.violinplot">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     violinplot()
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
 </div>
 
 <div class="toc-item">
@@ -1209,92 +1231,181 @@
 <h1>seaborn.violinplot<a class="headerlink" href="#seaborn-violinplot" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="seaborn.violinplot">
-<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">violinplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scott'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_hue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'box'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.violinplot" title="Permalink to this definition">#</a></dt>
-<dd><p>Draw a combination of boxplot and kernel density estimate.</p>
-<p>A violin plot plays a similar role as a box and whisker plot. It shows the
-distribution of quantitative data across several levels of one (or more)
-categorical variables such that those distributions can be compared. Unlike
-a box plot, in which all of the plot components correspond to actual
-datapoints, the violin plot features a kernel density estimation of the
-underlying distribution.</p>
-<p>This can be an effective and attractive way to show multiple distributions
-of data at once, but keep in mind that the estimation procedure is
-influenced by the sample size, and violins for relatively small samples
-might look misleadingly smooth.</p>
+<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">violinplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saturation=0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner='box'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width=0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linecolor='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridsize=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw_method='scott'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw_adjust=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_norm='area'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_norm=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_norm=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_scale=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_hue=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_kws=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.violinplot" title="Permalink to this definition">#</a></dt>
+<dd><p>Draw a patch representing a KDE and add observations or box plot statistics.</p>
+<p>A violin plot plays a similar role as a box-and-whisker plot. It shows the
+distribution of data points after grouping by one (or more) variables.
+Unlike a box plot, each violin is drawn using a kernel density estimate
+of the underlying distribution.</p>
+<p>See the <a class="reference internal" href="../tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This function always treats one of the variables as categorical and
-draws data at ordinal positions (0, 1, … n) on the relevant axis,
-even when the data has a numeric or date type.</p>
+<p>By default, this function treats one of the variables as categorical
+and draws data at ordinal positions (0, 1, … n) on the relevant axis.
+As of version 0.13.0, this can be disabled by setting <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code>.</p>
 </div>
-<p>See the <a class="reference internal" href="../tutorial/categorical.html#categorical-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>data</strong><span class="classifier">DataFrame, array, or list of arrays, optional</span></dt><dd><p>Dataset for plotting. If <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are absent, this is
+<dt><strong>data</strong><span class="classifier">DataFrame, Series, dict, array, or list of arrays</span></dt><dd><p>Dataset for plotting. If <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are absent, this is
 interpreted as wide-form. Otherwise it is expected to be long-form.</p>
 </dd>
-<dt><strong>x, y, hue</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data, optional</span></dt><dd><p>Inputs for plotting long-form data. See examples for interpretation.</p>
+<dt><strong>x, y, hue</strong><span class="classifier">names of variables in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data</span></dt><dd><p>Inputs for plotting long-form data. See examples for interpretation.</p>
 </dd>
-<dt><strong>order, hue_order</strong><span class="classifier">lists of strings, optional</span></dt><dd><p>Order to plot the categorical levels in; otherwise the levels are
+<dt><strong>order, hue_order</strong><span class="classifier">lists of strings</span></dt><dd><p>Order to plot the categorical levels in; otherwise the levels are
 inferred from the data objects.</p>
 </dd>
-<dt><strong>bw</strong><span class="classifier">{‘scott’, ‘silverman’, float}, optional</span></dt><dd><p>Either the name of a reference rule or the scale factor to use when
-computing the kernel bandwidth. The actual kernel size will be
-determined by multiplying the scale factor by the standard deviation of
-the data within each bin.</p>
-</dd>
-<dt><strong>cut</strong><span class="classifier">float, optional</span></dt><dd><p>Distance, in units of bandwidth size, to extend the density past the
-extreme datapoints. Set to 0 to limit the violin range within the range
-of the observed data (i.e., to have the same effect as <code class="docutils literal notranslate"><span class="pre">trim=True</span></code> in
-<code class="docutils literal notranslate"><span class="pre">ggplot</span></code>.</p>
-</dd>
-<dt><strong>scale</strong><span class="classifier">{“area”, “count”, “width”}, optional</span></dt><dd><p>The method used to scale the width of each violin. If <code class="docutils literal notranslate"><span class="pre">area</span></code>, each
-violin will have the same area. If <code class="docutils literal notranslate"><span class="pre">count</span></code>, the width of the violins
-will be scaled by the number of observations in that bin. If <code class="docutils literal notranslate"><span class="pre">width</span></code>,
-each violin will have the same width.</p>
-</dd>
-<dt><strong>scale_hue</strong><span class="classifier">bool, optional</span></dt><dd><p>When nesting violins using a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable, this parameter
-determines whether the scaling is computed within each level of the
-major grouping variable (<code class="docutils literal notranslate"><span class="pre">scale_hue=True</span></code>) or across all the violins
-on the plot (<code class="docutils literal notranslate"><span class="pre">scale_hue=False</span></code>).</p>
-</dd>
-<dt><strong>gridsize</strong><span class="classifier">int, optional</span></dt><dd><p>Number of points in the discrete grid used to compute the kernel
-density estimate.</p>
-</dd>
-<dt><strong>width</strong><span class="classifier">float, optional</span></dt><dd><p>Width of a full element when not using hue nesting, or width of all the
-elements for one level of the major grouping variable.</p>
-</dd>
-<dt><strong>inner</strong><span class="classifier">{“box”, “quartile”, “point”, “stick”, None}, optional</span></dt><dd><p>Representation of the datapoints in the violin interior. If <code class="docutils literal notranslate"><span class="pre">box</span></code>,
-draw a miniature boxplot. If <code class="docutils literal notranslate"><span class="pre">quartiles</span></code>, draw the quartiles of the
-distribution.  If <code class="docutils literal notranslate"><span class="pre">point</span></code> or <code class="docutils literal notranslate"><span class="pre">stick</span></code>, show each underlying
-datapoint. Using <code class="docutils literal notranslate"><span class="pre">None</span></code> will draw unadorned violins.</p>
-</dd>
-<dt><strong>split</strong><span class="classifier">bool, optional</span></dt><dd><p>When using hue nesting with a variable that takes two levels, setting
-<code class="docutils literal notranslate"><span class="pre">split</span></code> to True will draw half of a violin for each level. This can
-make it easier to directly compare the distributions.</p>
-</dd>
-<dt><strong>dodge</strong><span class="classifier">bool, optional</span></dt><dd><p>When hue nesting is used, whether elements should be shifted along the
-categorical axis.</p>
-</dd>
-<dt><strong>orient</strong><span class="classifier">“v” | “h”, optional</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
+<dt><strong>orient</strong><span class="classifier">“v” | “h” | “x” | “y”</span></dt><dd><p>Orientation of the plot (vertical or horizontal). This is usually
 inferred based on the type of the input variables, but it can be used
 to resolve ambiguity when both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are numeric or when
 plotting wide-form data.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version v0.13.0: </span>Added ‘x’/’y’ as options, equivalent to ‘v’/’h’.    </p>
+</div>
 </dd>
-<dt><strong>linewidth</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the gray lines that frame the plot elements.</p>
-</dd>
-<dt><strong>color</strong><span class="classifier">matplotlib color, optional</span></dt><dd><p>Single color for the elements in the plot.</p>
+<dt><strong>color</strong><span class="classifier">matplotlib color</span></dt><dd><p>Single color for the elements in the plot.</p>
 </dd>
 <dt><strong>palette</strong><span class="classifier">palette name, list, or dict</span></dt><dd><p>Colors to use for the different levels of the <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable. Should
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
 </dd>
-<dt><strong>saturation</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion of the original saturation to draw colors at. Large patches
-often look better with slightly desaturated colors, but set this to
-<code class="docutils literal notranslate"><span class="pre">1</span></code> if you want the plot colors to perfectly match the input color.</p>
+<dt><strong>saturation</strong><span class="classifier">float</span></dt><dd><p>Proportion of the original saturation to draw fill colors in. Large
+patches often look better with desaturated colors, but set this to
+<code class="docutils literal notranslate"><span class="pre">1</span></code> if you want the colors to perfectly match the input values.</p>
 </dd>
-<dt><strong>ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+<dt><strong>fill</strong><span class="classifier">bool</span></dt><dd><p>If True, use a solid patch. Otherwise, draw as line art.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>inner</strong><span class="classifier">{“box”, “quart”, “point”, “stick”, None}</span></dt><dd><p>Representation of the data in the violin interior. One of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;box&quot;</span></code>: draw a miniature box-and-whisker plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;quart&quot;</span></code>: show the quartiles of the data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;point&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;stick&quot;</span></code>: show each observation</p></li>
+</ul>
+</dd>
+<dt><strong>split</strong><span class="classifier">bool</span></dt><dd><p>Show an un-mirrored distribution, alternating sides when using <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version v0.13.0: </span>Previously, this option required a <code class="docutils literal notranslate"><span class="pre">hue</span></code> variable with exactly two levels.</p>
+</div>
+</dd>
+<dt><strong>width</strong><span class="classifier">float</span></dt><dd><p>Width allotted to each element on the orient axis. When <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code>,
+it is relative to the minimum distance between two values in the native scale.</p>
+</dd>
+<dt><strong>dodge</strong><span class="classifier">“auto” or bool</span></dt><dd><p>When hue mapping is used, whether elements should be narrowed and shifted along
+the orient axis to eliminate overlap. If <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>, set to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the
+orient variable is crossed with the categorical variable or <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.13.0: </span>Added <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> mode as a new default.</p>
+</div>
+</dd>
+<dt><strong>gap</strong><span class="classifier">float</span></dt><dd><p>Shrink on the orient axis by this factor to add a gap between dodged elements.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>linewidth</strong><span class="classifier">float</span></dt><dd><p>Width of the lines that frame the plot elements.</p>
+</dd>
+<dt><strong>linecolor</strong><span class="classifier">color</span></dt><dd><p>Color to use for line elements, when <code class="docutils literal notranslate"><span class="pre">fill</span></code> is True.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>cut</strong><span class="classifier">float</span></dt><dd><p>Distance, in units of bandwidth, to extend the density past extreme
+datapoints. Set to 0 to limit the violin within the data range.</p>
+</dd>
+<dt><strong>gridsize</strong><span class="classifier">int</span></dt><dd><p>Number of points in the discrete grid used to evaluate the KDE.</p>
+</dd>
+<dt><strong>bw_method</strong><span class="classifier">{“scott”, “silverman”, float}</span></dt><dd><p>Either the name of a reference rule or the scale factor to use when
+computing the kernel bandwidth. The actual kernel size will be
+determined by multiplying the scale factor by the standard deviation of
+the data within each group.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>bw_adjust: float</strong></dt><dd><p>Factor that scales the bandwidth to use more or less smoothing.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>density_norm</strong><span class="classifier">{“area”, “count”, “width”}</span></dt><dd><p>Method that normalizes each density to determine the violin’s width.
+If <code class="docutils literal notranslate"><span class="pre">area</span></code>, each violin will have the same area. If <code class="docutils literal notranslate"><span class="pre">count</span></code>, the width
+will be proportional to the number of observations. If <code class="docutils literal notranslate"><span class="pre">width</span></code>, each
+violin will have the same width.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>common_norm</strong><span class="classifier">bool</span></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">True</span></code>, normalize the density across all violins.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+variable when it is numeric. Not relevant if <code class="docutils literal notranslate"><span class="pre">hue</span></code> is categorical.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.12.0.</span></p>
+</div>
+</dd>
+<dt><strong>formatter</strong><span class="classifier">callable</span></dt><dd><p>Function for converting categorical data into strings. Affects both grouping
+and tick labels.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>log_scale</strong><span class="classifier">bool or number, or pair of bools or numbers</span></dt><dd><p>Set axis scale(s) to log. A single value sets the data axis for any numeric
+axes in the plot. A pair of values sets each axis independently.
+Numeric values are interpreted as the desired base (default 10).
+When <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, seaborn defers to the existing Axes scale.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>native_scale</strong><span class="classifier">bool</span></dt><dd><p>When True, numeric or datetime values on the categorical axis will maintain
+their original scaling rather than being converted to fixed indices.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>legend</strong><span class="classifier">“auto”, “brief”, “full”, or False</span></dt><dd><p>How to draw the legend. If “brief”, numeric <code class="docutils literal notranslate"><span class="pre">hue</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>
+variables will be represented with a sample of evenly spaced values.
+If “full”, every group will get an entry in the legend. If “auto”,
+choose between brief or full representation based on number of levels.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, no legend data is added and no legend is drawn.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>scale</strong><span class="classifier">{“area”, “count”, “width”}</span></dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version v0.13.0: </span>See <code class="docutils literal notranslate"><span class="pre">density_norm</span></code>.</p>
+</div>
+</dd>
+<dt><strong>scale_hue</strong><span class="classifier">bool</span></dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version v0.13.0: </span>See <code class="docutils literal notranslate"><span class="pre">common_norm</span></code>.</p>
+</div>
+</dd>
+<dt><strong>bw</strong><span class="classifier">{‘scott’, ‘silverman’, float}</span></dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version v0.13.0: </span>See <code class="docutils literal notranslate"><span class="pre">bw_method</span></code> and <code class="docutils literal notranslate"><span class="pre">bw_adjust</span></code>.</p>
+</div>
+</dd>
+<dt><strong>inner_kws</strong><span class="classifier">dict of key, value mappings</span></dt><dd><p>Keyword arguments for the “inner” plot, passed to one of:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;stick&quot;</span></code>)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;point&quot;</span></code>)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;quart&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code>)</p></li>
+</ul>
+<p>Additionally, with <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code>, the keywords <code class="docutils literal notranslate"><span class="pre">box_width</span></code>, <code class="docutils literal notranslate"><span class="pre">whis_width</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">marker</span></code> receive special handling for the components of the “box” plot.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.0.</span></p>
+</div>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Keyword arguments for the violin patches, passsed through to
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -1319,48 +1430,83 @@ often look better with slightly desaturated colors, but set this to
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<p>Draw a single horizontal boxplot, assigning the data directly to the
-coordinate variable:</p>
+<p>The default violinplot represents a distribution two ways: a patch showing a symmetric kernel density estimate (KDE), and the quartiles / whiskers of a box plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_1_0.png" src="../_images/violinplot_1_0.png" />
-<p>Group by a categorical variable, referencing columns in a dataframe:</p>
+<p>In a bivariate plot, one of the variables will “group” so that multiple violins are drawn:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_3_0.png" src="../_images/violinplot_3_0.png" />
-<p>Draw vertical violins, grouped by two variables:</p>
+<p>By default, the orientation of the plot is determined by the variable types, preferring to group by a categorical variable:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_5_0.png" src="../_images/violinplot_5_0.png" />
-<p>Draw split violins to take up less space:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">fill=False</span></code> to draw line-art violins:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_7_0.png" src="../_images/violinplot_7_0.png" />
-<p>Prevent the density from smoothing beyond the limits of the data:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<p>Draw “split” violins to take up less space, and only show the data quarties:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;quart&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_9_0.png" src="../_images/violinplot_9_0.png" />
-<p>Use a narrower bandwidth to reduce the amount of smoothing:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mf">.15</span><span class="p">)</span>
+<p>Add a small gap between the dodged violins:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;quart&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_11_0.png" src="../_images/violinplot_11_0.png" />
-<p>Represent every observation inside the distribution</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;embark_town&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;stick&quot;</span><span class="p">)</span>
+<p>Starting in version 0.13.0, it is possilbe to “split” single violins:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;quart&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_13_0.png" src="../_images/violinplot_13_0.png" />
-<p>Use a different scaling rule for normalizing the density:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;embark_town&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<p>Represent every observation inside the distribution by setting <code class="docutils literal notranslate"><span class="pre">inner=&quot;stick&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">inner=&quot;point&quot;</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/violinplot_15_0.png" src="../_images/violinplot_15_0.png" />
+<p>Normalize the width of each violin to represent the number of observations:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;deck&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">,</span> <span class="n">density_norm</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_17_0.png" src="../_images/violinplot_17_0.png" />
+<p>By default, the KDE will smooth past the extremes of the observed data; set <code class="docutils literal notranslate"><span class="pre">cut=0</span></code> to prevent this:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">cut</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;stick&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_19_0.png" src="../_images/violinplot_19_0.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">bw_adjust</span></code> parameter controls the amount of smoothing:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;alive&quot;</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="s2">&quot;stick&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_21_0.png" src="../_images/violinplot_21_0.png" />
+<p>By default, the violins are drawn at fixed positions on a categorical scale, even if the grouping variable is numeric. Starting in version 0.13.0, pass the <code class="docutils literal notranslate"><span class="pre">native_scale=True</span></code> parameter to preserve the original scale on both axes:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;fare&quot;</span><span class="p">],</span> <span class="n">native_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_23_0.png" src="../_images/violinplot_23_0.png" />
+<p>When using a categorical scale, the <code class="docutils literal notranslate"><span class="pre">formatter</span></code> parameter accepts a function that defines categories:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decades</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">–</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;fare&quot;</span><span class="p">],</span> <span class="n">formatter</span><span class="o">=</span><span class="n">decades</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_25_0.png" src="../_images/violinplot_25_0.png" />
+<p>By default, the “inner” representation scales with the <code class="docutils literal notranslate"><span class="pre">linewidth</span></code> and <code class="docutils literal notranslate"><span class="pre">linecolor</span></code> parameters:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_27_0.png" src="../_images/violinplot_27_0.png" />
+<p>Use <code class="docutils literal notranslate"><span class="pre">inner_kws</span></code> to pass parameters directly to the inner plotting functions:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">inner_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">box_width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">whis_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;.8&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="../_images/violinplot_29_0.png" src="../_images/violinplot_29_0.png" />
 </dd></dl>
 
 </section>
@@ -1385,7 +1531,7 @@ coordinate variable:</p>
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -1394,12 +1540,13 @@ coordinate variable:</p>
             Archive
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
           <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
           <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
     </div>
   </div>
 </footer>

@@ -5,15 +5,15 @@
 .. _simple_violinplots:
 
 
-Violinplots with observations
-=============================
+Horizontal, unfilled violinplots
+================================
 
 
 
 .. image:: _images/simple_violinplots.png
 
-**seaborn components used:** :func:`set_theme`, :func:`violinplot`
+**seaborn components used:** :func:`set_theme`, :func:`load_dataset`, :func:`violinplot`
 
 .. literalinclude:: simple_violinplots.py
-    :lines: 6-
+    :lines: 7-
 

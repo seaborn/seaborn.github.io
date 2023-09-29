@@ -79,7 +79,7 @@ As with seaborn's functions, it is also possible to *map* data values to various
 
 
 .. image:: objects_interface_files/objects_interface_8_0.png
-   :width: 617.525px
+   :width: 617.9499999999999px
    :height: 378.25px
 
 
@@ -383,7 +383,7 @@ Sometimes, the correct orientation is ambiguous, as when both the `x` and `y` va
 Building and displaying the plot
 --------------------------------
 
-Each example thus far has produced a single subplot with a single kind of mark on it. But :class:`Plot` does not limit you to this.
+Most examples this far have produced a single subplot with just one kind of mark on it. But :class:`Plot` does not limit you to this.
 
 Adding multiple layers
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -467,7 +467,7 @@ Alternatively, define the layer for the entire plot, but *remove* it from a spec
 
 
 
-To recap, there are three ways to specify the value of a mark property: (1) by mapping a variable in all layers, (2) by mapping a variable in a specific layer, and (3) by setting the property directy:
+To recap, there are three ways to specify the value of a mark property: (1) by mapping a variable in all layers, (2) by mapping a variable in a specific layer, and (3) by setting the property directly:
 
 
 
@@ -571,7 +571,7 @@ An alternate way to produce subplots is :meth:`Plot.pair`. Like :class:`seaborn.
 
 
 .. image:: objects_interface_files/objects_interface_58_0.png
-   :width: 617.525px
+   :width: 617.9499999999999px
    :height: 378.25px
 
 
@@ -591,7 +591,7 @@ You can combine faceting and pairing so long as the operations add subplots on o
 
 
 .. image:: objects_interface_files/objects_interface_60_0.png
-   :width: 617.525px
+   :width: 617.9499999999999px
    :height: 378.25px
 
 
@@ -756,15 +756,9 @@ For additional control, you can pass a :class:`Scale` object. There are several 
     )
 
 
-.. parsed-literal::
-
-    /Users/mwaskom/code/seaborn/seaborn/_core/properties.py:370: RuntimeWarning: invalid value encountered in cast
-      ixs = np.asarray(x, np.intp)
 
 
-
-
-.. image:: objects_interface_files/objects_interface_77_1.png
+.. image:: objects_interface_files/objects_interface_77_0.png
    :width: 614.125px
    :height: 378.25px
 
@@ -820,7 +814,7 @@ Customizing limits, labels, and titles
 
 
 .. image:: objects_interface_files/objects_interface_81_0.png
-   :width: 619.65px
+   :width: 620.0749999999999px
    :height: 378.25px
 
 
@@ -833,7 +827,8 @@ Finally, :class:`Plot` supports data-independent theming through the :class:`Plo
 .. code:: ipython3
 
     from seaborn import axes_style
-    so.Plot().theme({**axes_style("whitegrid"), "grid.linestyle": ":"})
+    theme_dict = {**axes_style("whitegrid"), "grid.linestyle": ":"}
+    so.Plot().theme(theme_dict)
 
 
 
@@ -844,3 +839,8 @@ Finally, :class:`Plot` supports data-independent theming through the :class:`Plo
 
 
 
+To change the theme for all :class:`Plot` instances, update the settings in :attr:`Plot.config`:
+
+.. code:: ipython3
+
+    so.Plot.config.theme.update(theme_dict)
