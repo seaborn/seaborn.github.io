@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>v0.2.0 (December 2013) &#8212; seaborn 0.12.2 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.12.2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'whatsnew/v0.2.0';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Citing and logo" href="../citing.html" />
+    <link rel="prev" title="v0.2.1 (December 2013)" href="v0.2.1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.2.html">
+   v0.12.2 (December 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.1.html">
+   v0.12.1 (October 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.0.html">
+   v0.12.0 (September 2022)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.2.html">
+   v0.11.2 (August 2021)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.1.html">
+   v0.11.1 (December 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.0.html">
+   v0.11.0 (September 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.1.html">
+   v0.10.1 (April 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.0.html">
+   v0.10.0 (January 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.1.html">
+   v0.9.1 (January 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.0.html">
+   v0.9.0 (July 2018)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.1.html">
+   v0.8.1 (September 2017)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.0.html">
+   v0.8.0 (July 2017)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.1.html">
+   v0.7.1 (June 2016)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.0.html">
+   v0.7.0 (January 2016)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.6.0.html">
+   v0.6.0 (June 2015)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.1.html">
+   v0.5.1 (November 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.0.html">
+   v0.5.0 (November 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.4.0.html">
+   v0.4.0 (September 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.1.html">
+   v0.3.1 (April 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.0.html">
+   v0.3.0 (March 2014)
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.1.html">
+   v0.2.1 (December 2013)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   v0.2.0 (December 2013)
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-changes">
+   API changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#new-plotting-functions">
+   New plotting functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-changes">
+   Other changes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-functions">
+     Plotting functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#color-palettes">
+     Color palettes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-styling">
+     Plot styling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-package-issues">
+     General package issues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bug-fixes">
+   Bug fixes
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="v0-2-0-december-2013">
+<h1>v0.2.0 (December 2013)<a class="headerlink" href="#v0-2-0-december-2013" title="Permalink to this heading">#</a></h1>
+<p>This is a major release from 0.1 with a number of API changes, enhancements,
+and bug fixes.</p>
+<p>Highlights include an overhaul of timeseries plotting to work intelligently
+with dataframes, the new function <code class="docutils literal notranslate"><span class="pre">interactplot()</span></code> for visualizing continuous
+interactions, bivariate kernel density estimates in <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code>, and
+significant improvements to color palette handling.</p>
+<p>Version 0.2 also introduces experimental support for Python 3.</p>
+<p>In addition to the library enhancements, the documentation has been
+substantially rewritten to reflect the new features and improve the
+presentation of the ideas behind the package.</p>
+<section id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tsplot()</span></code> function was rewritten to accept data in a long-form
+<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and to plot different traces by condition. This introduced a
+relatively minor but unavoidable API change, where instead of doing
+<code class="docutils literal notranslate"><span class="pre">sns.tsplot(time,</span> <span class="pre">heights)</span></code>, you now must do <code class="docutils literal notranslate"><span class="pre">sns.tsplot(heights,</span>
+<span class="pre">time=time)</span></code> (the <code class="docutils literal notranslate"><span class="pre">time</span></code> parameter is now optional, for quicker
+specification of simple plots). Additionally, the <code class="docutils literal notranslate"><span class="pre">&quot;obs_traces&quot;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&quot;obs_points&quot;</span></code> error styles in <code class="docutils literal notranslate"><span class="pre">tsplot()</span></code> have been renamed to
+<code class="docutils literal notranslate"><span class="pre">&quot;unit_traces&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;unit_points&quot;</span></code>, respectively.</p></li>
+<li><p>Functions that fit kernel density estimates (<code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">violinplot()</span></code>) now use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> instead of <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, and the
+parameters that influence the density estimate have changed accordingly. This
+allows for increased flexibility in specifying the bandwidth and kernel, and
+smarter choices for defining the range of the support. Default options should
+produce plots that are very close to the old defaults.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function now takes a second positional argument of data for
+drawing bivariate densities.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">violin()</span></code> function has been changed to <code class="docutils literal notranslate"><span class="pre">violinplot()</span></code>, for consistency.
+In 0.2, <code class="docutils literal notranslate"><span class="pre">violin</span></code> will still work, but it will fire a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code>.</p></li>
+</ul>
+</section>
+<section id="new-plotting-functions">
+<h2>New plotting functions<a class="headerlink" href="#new-plotting-functions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">interactplot()</span></code> function draws a contour plot for an interactive
+linear model (i.e., the contour shows <code class="docutils literal notranslate"><span class="pre">y-hat</span></code> from the model <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">~</span> <span class="pre">x1</span> <span class="pre">*</span>
+<span class="pre">x2</span></code>) over a scatterplot between the two predictor variables. This plot
+should aid the understanding of an interaction between two continuous
+variables.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> function can now draw a bivariate density estimate as a
+contour plot if provided with two-dimensional input data.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">palplot()</span></code> function provides a simple grid-based visualization of a
+color palette.</p></li>
+</ul>
+</section>
+<section id="other-changes">
+<h2>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this heading">#</a></h2>
+<section id="plotting-functions">
+<h3>Plotting functions<a class="headerlink" href="#plotting-functions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">corrplot()</span></code> function can be drawn without the correlation coefficient
+annotation and with variable names on the side of the plot to work with large
+datasets.</p></li>
+<li><p>Additionally, <code class="docutils literal notranslate"><span class="pre">corrplot()</span></code> sets the color palette intelligently based on
+the direction of the specified test.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">distplot()</span></code> histogram uses a reference rule to choose the bin size if it
+is not provided.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">x_bins</span></code> option in <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> for binning a continuous
+predictor variable, allowing for clearer trends with many datapoints.</p></li>
+<li><p>Enhanced support for labeling plot elements and axes based on <code class="docutils literal notranslate"><span class="pre">name</span></code>
+attributes in several distribution plot functions and <code class="docutils literal notranslate"><span class="pre">tsplot()</span></code> for
+smarter Pandas integration.</p></li>
+<li><p>Scatter points in <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> are slightly transparent so it is easy to see
+where observations overlap.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">order</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">boxplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">violinplot()</span></code> to
+control the order of the bins when using a Pandas object.</p></li>
+<li><p>When an <code class="docutils literal notranslate"><span class="pre">ax</span></code> argument is not provided to a plotting function, it grabs the
+currently active axis instead of drawing a new one.</p></li>
+</ul>
+</section>
+<section id="color-palettes">
+<h3>Color palettes<a class="headerlink" href="#color-palettes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">dark_palette()</span></code> and <code class="docutils literal notranslate"><span class="pre">blend_palette()</span></code> for on-the-fly creation
+of blended color palettes.</p></li>
+<li><p>The color palette machinery is now intelligent about qualitative ColorBrewer
+palettes (<code class="docutils literal notranslate"><span class="pre">Set1</span></code>, <code class="docutils literal notranslate"><span class="pre">Paired</span></code>, etc.), which are properly treated as discrete.</p></li>
+<li><p>Seaborn color palettes (<code class="docutils literal notranslate"><span class="pre">deep</span></code>, <code class="docutils literal notranslate"><span class="pre">muted</span></code>, etc.) have been standardized in
+terms of basic hue sequence, and all palettes now have 6 colors.</p></li>
+<li><p>Introduced <code class="docutils literal notranslate"><span class="pre">{mpl_palette}_d</span></code> palettes, which make a palette with the basic
+color scheme of the source palette, but with a sequential blend from dark
+instead of light colors for use with line/scatter/contour plots.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">palette_context()</span></code> function for blockwise color palettes
+controlled by a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p></li>
+</ul>
+</section>
+<section id="plot-styling">
+<h3>Plot styling<a class="headerlink" href="#plot-styling" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">despine()</span></code> function for easily removing plot spines.</p></li>
+<li><p>A new plot style, <code class="docutils literal notranslate"><span class="pre">&quot;ticks&quot;</span></code> has been added.</p></li>
+<li><p>Tick labels are padded a bit farther from the axis in all styles, avoiding
+collisions at (0, 0).</p></li>
+</ul>
+</section>
+<section id="general-package-issues">
+<h3>General package issues<a class="headerlink" href="#general-package-issues" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reorganized the package by breaking up the monolithic <code class="docutils literal notranslate"><span class="pre">plotobjs</span></code> module
+into smaller modules grouped by general objective of the constituent plots.</p></li>
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">scikits-learn</span></code> dependency in <code class="docutils literal notranslate"><span class="pre">moss</span></code>.</p></li>
+<li><p>Installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code> should automatically install most missing dependencies.</p></li>
+<li><p>The example notebooks are now used as an automated test suite.</p></li>
+</ul>
+</section>
+</section>
+<section id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fixed a bug where labels did not match data for <code class="docutils literal notranslate"><span class="pre">boxplot()</span></code> and <code class="docutils literal notranslate"><span class="pre">violinplot()</span></code>
+when using a groupby.</p></li>
+<li><p>Fixed a bug in the <code class="docutils literal notranslate"><span class="pre">desaturate()</span></code> function.</p></li>
+<li><p>Fixed a bug in the <code class="docutils literal notranslate"><span class="pre">coefplot()</span></code> figure size calculation.</p></li>
+<li><p>Fixed a bug where <code class="docutils literal notranslate"><span class="pre">regplot()</span></code> choked on list input.</p></li>
+<li><p>Fixed buggy behavior when drawing horizontal boxplots.</p></li>
+<li><p>Specifying bins for the <code class="docutils literal notranslate"><span class="pre">distplot()</span></code> histogram now works.</p></li>
+<li><p>Fixed a bug where <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> would reset the axis height and cut off
+existing data.</p></li>
+<li><p>All axis styling has been moved out of the top-level <code class="docutils literal notranslate"><span class="pre">seaborn.set()</span></code>
+function, so context or color palette can be cleanly changed.</p></li>
+</ul>
+</section>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2022, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.12.2</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>
