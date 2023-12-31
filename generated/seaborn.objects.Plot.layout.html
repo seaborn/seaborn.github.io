@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Plot.layout &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.objects.Plot.layout &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1231,7 +1231,7 @@
 <h1>seaborn.objects.Plot.layout<a class="headerlink" href="#seaborn-objects-plot-layout" title="Permalink to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="seaborn.objects.Plot.layout">
-<span class="sig-prename descclassname"><span class="pre">Plot.</span></span><span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine=&lt;default&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.layout" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Plot.</span></span><span class="sig-name descname"><span class="pre">layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent=&lt;default&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Plot.layout" title="Permalink to this definition">#</a></dt>
 <dd><p>Control the figure size and layout.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1245,8 +1245,13 @@ layout engine may also change.</p>
 <dt><strong>size</strong><span class="classifier">(width, height)</span></dt><dd><p>Size of the resulting figure, in inches. Size is inclusive of legend when
 using pyplot, but not otherwise.</p>
 </dd>
-<dt><strong>engine</strong><span class="classifier">{{“tight”, “constrained”, None}}</span></dt><dd><p>Name of method for automatically adjusting the layout to remove overlap.
+<dt><strong>engine</strong><span class="classifier">{{“tight”, “constrained”, “none”}}</span></dt><dd><p>Name of method for automatically adjusting the layout to remove overlap.
 The default depends on whether <a class="reference internal" href="seaborn.objects.Plot.on.html#seaborn.objects.Plot.on" title="seaborn.objects.Plot.on"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Plot.on()</span></code></a> is used.</p>
+</dd>
+<dt><strong>extent</strong><span class="classifier">(left, bottom, right, top)</span></dt><dd><p>Boundaries of the plot layout, in fractions of the figure size. Takes
+effect through the layout engine; exact results will vary across engines.
+Note: the extent includes axis decorations when using a layout engine,
+but it is exclusive of them when <code class="docutils literal notranslate"><span class="pre">engine=&quot;none&quot;</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -1269,6 +1274,15 @@ worse results with specific plots:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects.Plot.layout_5_0.png"><img alt="../_images/objects.Plot.layout_5_0.png" src="../_images/objects.Plot.layout_5_0.png" style="width: 335.75px; height: 335.75px;" /></a>
+<p>With <code class="docutils literal notranslate"><span class="pre">extent</span></code>, you can control the size of the plot relative to the
+underlying figure. Because the notebook display adapts the figure
+background to the plot, this appears only to change the plot size in a
+notebook context. But it can be useful when saving or displaying through
+a <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> GUI window:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/objects.Plot.layout_7_0.png" src="../_images/objects.Plot.layout_7_0.png" />
 </dd></dl>
 
 </section>
@@ -1308,7 +1322,7 @@ worse results with specific plots:</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

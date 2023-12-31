@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Properties of Mark objects &#8212; seaborn 0.13.0 documentation</title>
+    <title>Properties of Mark objects &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -641,7 +641,7 @@
 </section>
 <section id="marker">
 <span id="marker-property"></span><h3>marker<a class="headerlink" href="#marker" title="Permalink to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">marker</span></code> property is relevant for dot marks and some line marks. The API for specifying markers is very flexible, as detailed in the matplotlib API docs: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.8.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">marker</span></code> property is relevant for dot marks and some line marks. The API for specifying markers is very flexible, as detailed in the matplotlib API docs: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.8.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
 <p>Markers can be specified using a number of simple string codes:</p>
 <a class="reference internal image-reference" href="../_images/properties_21_0.png"><img alt="../_images/properties_21_0.png" src="../_images/properties_21_0.png" style="width: 648.55px; height: 70.55px;" /></a>
 <p>They can also be programatically generated using a <code class="docutils literal notranslate"><span class="pre">(num_sides,</span> <span class="pre">fill_style,</span> <span class="pre">angle)</span></code> tuple:</p>
@@ -667,7 +667,7 @@
 <section id="pointsize">
 <span id="pointsize-property"></span><h3>pointsize<a class="headerlink" href="#pointsize" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">pointsize</span></code> property is relevant to dot marks and to line marks that can show markers at individual data points. The units correspond to the diameter of the mark in points.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">pointsize</span></code> scales with the square root of the data by default so that magnitude is represented by diameter rather than area:</p>
+<p>Note that, while the parameterization corresponds to diameter, scales will be applied with a square root transform so that data values are linearly proportional to area:</p>
 <a class="reference internal image-reference" href="../_images/properties_31_0.png"><img alt="../_images/properties_31_0.png" src="../_images/properties_31_0.png" style="width: 585.225px; height: 70.55px;" /></a>
 </section>
 <section id="linewidth">
@@ -752,7 +752,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

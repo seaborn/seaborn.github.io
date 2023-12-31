@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.violinplot &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.violinplot &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1343,7 +1343,7 @@ violin will have the same width.</p>
 <p><span class="versionmodified added">New in version v0.13.0.</span></p>
 </div>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
 variable when it is numeric. Not relevant if <code class="docutils literal notranslate"><span class="pre">hue</span></code> is categorical.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
@@ -1392,9 +1392,9 @@ If <code class="docutils literal notranslate"><span class="pre">False</span></co
 </dd>
 <dt><strong>inner_kws</strong><span class="classifier">dict of key, value mappings</span></dt><dd><p>Keyword arguments for the “inner” plot, passed to one of:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;stick&quot;</span></code>)</p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;point&quot;</span></code>)</p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;quart&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code>)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.LineCollection" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.collections.LineCollection</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;stick&quot;</span></code>)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;point&quot;</span></code>)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a> (with <code class="docutils literal notranslate"><span class="pre">inner=&quot;quart&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code>)</p></li>
 </ul>
 <p>Additionally, with <code class="docutils literal notranslate"><span class="pre">inner=&quot;box&quot;</span></code>, the keywords <code class="docutils literal notranslate"><span class="pre">box_width</span></code>, <code class="docutils literal notranslate"><span class="pre">whis_width</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">marker</span></code> receive special handling for the components of the “box” plot.</p>
@@ -1405,7 +1405,7 @@ and <code class="docutils literal notranslate"><span class="pre">marker</span></
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Keyword arguments for the violin patches, passsed through to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html#matplotlib.axes.Axes.fill_between" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -1492,7 +1492,7 @@ and <code class="docutils literal notranslate"><span class="pre">marker</span></
 </div>
 <img alt="../_images/violinplot_23_0.png" src="../_images/violinplot_23_0.png" />
 <p>When using a categorical scale, the <code class="docutils literal notranslate"><span class="pre">formatter</span></code> parameter accepts a function that defines categories:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decades</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">–</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decades</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">–</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;fare&quot;</span><span class="p">],</span> <span class="n">formatter</span><span class="o">=</span><span class="n">decades</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1546,7 +1546,7 @@ and <code class="docutils literal notranslate"><span class="pre">marker</span></
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

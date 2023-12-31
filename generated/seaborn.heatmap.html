@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.heatmap &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.heatmap &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1263,7 +1263,7 @@ of the data. Note that DataFrames will match on position, not index.</p>
 </dd>
 <dt><strong>fmt</strong><span class="classifier">str, optional</span></dt><dd><p>String formatting code to use when adding annotations.</p>
 </dd>
-<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
+<dt><strong>annot_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html#matplotlib.axes.Axes.text" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.text()</span></code></a> when <code class="docutils literal notranslate"><span class="pre">annot</span></code>
 is True.</p>
 </dd>
 <dt><strong>linewidths</strong><span class="classifier">float, optional</span></dt><dd><p>Width of the lines that will divide each cell.</p>
@@ -1272,7 +1272,7 @@ is True.</p>
 </dd>
 <dt><strong>cbar</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to draw a colorbar.</p>
 </dd>
-<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
+<dt><strong>cbar_kws</strong><span class="classifier">dict of key, value mappings, optional</span></dt><dd><p>Keyword arguments for <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.colorbar" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.figure.Figure.colorbar()</span></code></a>.</p>
 </dd>
 <dt><strong>cbar_ax</strong><span class="classifier">matplotlib Axes, optional</span></dt><dd><p>Axes in which to draw the colorbar, otherwise take space from the
 main Axes.</p>
@@ -1292,7 +1292,7 @@ Cells with missing values are automatically masked.</p>
 Axes.</p>
 </dd>
 <dt><strong>kwargs</strong><span class="classifier">other keyword arguments</span></dt><dd><p>All other keyword arguments are passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.pcolormesh()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
@@ -1352,7 +1352,7 @@ Axes.</p>
 </pre></div>
 </div>
 <img alt="../_images/heatmap_15_0.png" src="../_images/heatmap_15_0.png" />
-<p>Use methods on the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object to tweak the plot:</p>
+<p>Use methods on the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> object to tweak the plot:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">glue</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
@@ -1398,7 +1398,7 @@ Axes.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

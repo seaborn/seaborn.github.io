@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.pointplot &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.pointplot &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1231,7 +1231,7 @@
 <h1>seaborn.pointplot<a class="headerlink" href="#seaborn-pointplot" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="seaborn.pointplot">
-<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">pointplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator='mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar=('ci'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot=1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_norm=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyles=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_scale=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capsize=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err_kws=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errwidth=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.pointplot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">pointplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator='mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar=('ci'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot=1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_norm=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyles=&lt;default&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_scale=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capsize=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err_kws=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errwidth=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.pointplot" title="Permalink to this definition">#</a></dt>
 <dd><p>Show point estimates and errors using lines with markers.</p>
 <p>A point plot represents an estimate of central tendency for a numeric
 variable by the position of the dot and provides some indication of the
@@ -1266,17 +1266,24 @@ inferred from the data objects.</p>
 </dd>
 <dt><strong>errorbar</strong><span class="classifier">string, (string, number) tuple, callable or None</span></dt><dd><p>Name of errorbar method (either “ci”, “pi”, “se”, or “sd”), or a tuple
 with a method name and a level parameter, or a function that maps from a
-vector to a (min, max) interval, or None to hide errorbar.</p>
+vector to a (min, max) interval, or None to hide errorbar. See the
+<a class="reference internal" href="../tutorial/error_bars.html"><span class="doc">errorbar tutorial</span></a> for more information.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
 </div>
 </dd>
 <dt><strong>n_boot</strong><span class="classifier">int</span></dt><dd><p>Number of bootstrap samples used to compute confidence intervals.</p>
 </dd>
+<dt><strong>seed</strong><span class="classifier">int, <code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random.RandomState</span></code></span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
 <dt><strong>units</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data</span></dt><dd><p>Identifier of sampling units; used by the errorbar function to
 perform a multilevel bootstrap and account for repeated measures</p>
 </dd>
-<dt><strong>seed</strong><span class="classifier">int, <code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random.RandomState</span></code></span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+<dt><strong>weights</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data</span></dt><dd><p>Data values or column used to compute weighted statistics.
+Note that the use of weights may limit other statistical options.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.1.</span></p>
+</div>
 </dd>
 <dt><strong>color</strong><span class="classifier">matplotlib color</span></dt><dd><p>Single color for the elements in the plot.</p>
 </dd>
@@ -1330,7 +1337,7 @@ If <code class="docutils literal notranslate"><span class="pre">False</span></co
 <p><span class="versionmodified added">New in version v0.13.0.</span></p>
 </div>
 </dd>
-<dt><strong>err_kws</strong><span class="classifier">dict</span></dt><dd><p>Parameters of <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>, for the error bar artists.</p>
+<dt><strong>err_kws</strong><span class="classifier">dict</span></dt><dd><p>Parameters of <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>, for the error bar artists.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.13.0.</span></p>
 </div>
@@ -1352,12 +1359,12 @@ If <code class="docutils literal notranslate"><span class="pre">False</span></co
 </dd>
 <dt><strong>scale</strong><span class="classifier">float</span></dt><dd><p>Scale factor for the plot elements.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version v0.13.0: </span>Control element sizes with <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a> parameters.</p>
+<p><span class="versionmodified deprecated">Deprecated since version v0.13.0: </span>Control element sizes with <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a> parameters.</p>
 </div>
 </dd>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
-<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other parameters are passed through to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>.</p>
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other parameters are passed through to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.13.0.</span></p>
 </div>
@@ -1387,7 +1394,7 @@ show the distribution of values at each level of the categorical variables.
 In that case, other approaches such as a box or violin plot may be more
 appropriate.</p>
 <p class="rubric">Examples</p>
-<p>Group by a categorical varaible and plot aggregated values, with confidence intervals:</p>
+<p>Group by a categorical variable and plot aggregated values, with confidence intervals:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1425,7 +1432,7 @@ appropriate.</p>
 </pre></div>
 </div>
 <img alt="../_images/pointplot_11_0.png" src="../_images/pointplot_11_0.png" />
-<p>Dodge by a specific amount, relative to the width alloted for each level:</p>
+<p>Dodge by a specific amount, relative to the width allotted for each level:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span>
     <span class="n">dodge</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1438,7 +1445,7 @@ appropriate.</p>
 </pre></div>
 </div>
 <img alt="../_images/pointplot_13_0.png" src="../_images/pointplot_13_0.png" />
-<p>When variables are not explicity assigned and the dataset is two-dimensional, the plot will aggregate over each column:</p>
+<p>When variables are not explicitly assigned and the dataset is two-dimensional, the plot will aggregate over each column:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_wide</span> <span class="o">=</span> <span class="n">flights</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;passengers&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">flights_wide</span><span class="p">)</span>
 </pre></div>
@@ -1450,7 +1457,7 @@ appropriate.</p>
 </div>
 <img alt="../_images/pointplot_17_0.png" src="../_images/pointplot_17_0.png" />
 <p>Control the formatting of the categorical variable as it appears in the tick labels:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">flights_wide</span><span class="p">[</span><span class="s2">&quot;Jun&quot;</span><span class="p">],</span> <span class="n">formatter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">x</span> <span class="o">%</span> <span class="mi">1900</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">flights_wide</span><span class="p">[</span><span class="s2">&quot;Jun&quot;</span><span class="p">],</span> <span class="n">formatter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1900</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/pointplot_19_0.png" src="../_images/pointplot_19_0.png" />
@@ -1499,7 +1506,7 @@ appropriate.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

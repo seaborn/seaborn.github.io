@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.objects.Est &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.objects.Est &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1233,8 +1233,14 @@
 <dt class="sig sig-object py" id="seaborn.objects.Est">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seaborn.objects.</span></span><span class="sig-name descname"><span class="pre">Est</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('ci',</span> <span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.objects.Est" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculate a point estimate and error bar interval.</p>
-<p>For additional information about the various <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> choices, see
-the <a class="reference internal" href="../tutorial/error_bars.html"><span class="doc">errorbar tutorial</span></a>.</p>
+<p>For more information about the various <code class="docutils literal notranslate"><span class="pre">errorbar</span></code> choices, see the
+<a class="reference internal" href="../tutorial/error_bars.html"><span class="doc">errorbar tutorial</span></a>.</p>
+<p>Additional variables:</p>
+<ul class="simple">
+<li><p><strong>weight</strong>: When passed to a layer that uses this stat, a weighted estimate
+will be computed. Note that use of weights currently limits the choice of
+function and error bar method  to <code class="docutils literal notranslate"><span class="pre">&quot;mean&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ci&quot;</span></code>, respectively.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -1278,6 +1284,12 @@ vector to a (min, max) interval.</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/objects.Est_9_0.png"><img alt="../_images/objects.Est_9_0.png" src="../_images/objects.Est_9_0.png" style="width: 509.15px; height: 378.25px;" /></a>
+<p>To compute a weighted estimate (and confidence interval), assign a
+<code class="docutils literal notranslate"><span class="pre">weight</span></code> variable in the layer where you use the stat:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Range</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">Est</span><span class="p">(),</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/objects.Est_11_0.png"><img alt="../_images/objects.Est_11_0.png" src="../_images/objects.Est_11_0.png" style="width: 509.15px; height: 378.25px;" /></a>
 </dd></dl>
 
 </section>
@@ -1317,7 +1329,7 @@ vector to a (min, max) interval.</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

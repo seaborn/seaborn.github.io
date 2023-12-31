@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>v0.13.1 (December 2023) &#8212; seaborn 0.13.1 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'whatsnew/v0.13.1';</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.13.0 (September 2023)" href="v0.13.0.html" />
+    <link rel="prev" title="What’s new in each version" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo-wide-lightbg.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container container-xl">
+    <div class="bd-container__inner row">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Navigation">
+      Site Navigation
+    </p>
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../installing.html">
+  Installing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../examples/index.html">
+  Gallery
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Releases
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../citing.html">
+  Citing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../faq.html">
+  FAQ
+ </a>
+</li>
+
+</ul>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mwaskom/seaborn" title="GitHub" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://stackoverflow.com/tags/seaborn" title="StackOverflow" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-stack-overflow"></i></span>
+            <label class="sr-only">StackOverflow</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/michaelwaskom" title="Twitter" class="nav-link" rel="noopener" target="_blank"><span><i class="fab fa-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   v0.13.1 (December 2023)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.13.0.html">
+   v0.13.0 (September 2023)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.2.html">
+   v0.12.2 (December 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.1.html">
+   v0.12.1 (October 2022)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.12.0.html">
+   v0.12.0 (September 2022)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.2.html">
+   v0.11.2 (August 2021)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.1.html">
+   v0.11.1 (December 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.11.0.html">
+   v0.11.0 (September 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.1.html">
+   v0.10.1 (April 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.10.0.html">
+   v0.10.0 (January 2020)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.1.html">
+   v0.9.1 (January 2020)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.9.0.html">
+   v0.9.0 (July 2018)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.1.html">
+   v0.8.1 (September 2017)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.8.0.html">
+   v0.8.0 (July 2017)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.1.html">
+   v0.7.1 (June 2016)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.7.0.html">
+   v0.7.0 (January 2016)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.6.0.html">
+   v0.6.0 (June 2015)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.1.html">
+   v0.5.1 (November 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.5.0.html">
+   v0.5.0 (November 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.4.0.html">
+   v0.4.0 (September 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.1.html">
+   v0.3.1 (April 2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.3.0.html">
+   v0.3.0 (March 2014)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.1.html">
+   v0.2.1 (December 2013)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.2.0.html">
+   v0.2.0 (December 2013)
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+
+      
+      
+      
+        <div class="bd-sidebar-secondary bd-toc">
+          
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+        </div>
+      
+      
+
+      
+      
+      <div class="bd-content col">
+          
+          <div class="bd-header-article">
+              
+          </div>
+
+          
+          
+          <article class="bd-article" role="main">
+            
+  <section id="v0-13-1-december-2023">
+<h1>v0.13.1 (December 2023)<a class="headerlink" href="#v0-13-1-december-2023" title="Permalink to this heading">#</a></h1>
+<p>This is a minor release with some bug fixes and a couple new features. All users are encouraged to update.</p>
+<ul class="simple">
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Added support for weighted mean estimation (with boostrap CIs) in <a class="reference internal" href="../generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.pointplot.html#seaborn.pointplot" title="seaborn.pointplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pointplot()</span></code></a>, and <a class="reference internal" href="../generated/seaborn.objects.Est.html#seaborn.objects.Est" title="seaborn.objects.Est"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Est</span></code></a> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3580">#3580</a>, <a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3586">#3586</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-feature">Feature</span></span>  Added the <code class="docutils literal notranslate"><span class="pre">extent</span></code> option to <a class="reference internal" href="../generated/seaborn.objects.Plot.layout.html#seaborn.objects.Plot.layout" title="seaborn.objects.Plot.layout"><code class="xref py py-meth docutils literal notranslate"><span class="pre">objects.Plot.layout()</span></code></a> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3552">#3552</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a regression in v0.13.0 that triggered an exception when working with non-numpy data types (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3516">#3516</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.objects.Plot.html#seaborn.objects.Plot" title="seaborn.objects.Plot"><code class="xref py py-class docutils literal notranslate"><span class="pre">objects.Plot</span></code></a> so that tick labels are shown for wrapped axes that aren’t in the bottom-most row (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3600">#3600</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> where a blank legend would be added when <code class="docutils literal notranslate"><span class="pre">hue</span></code> was redundantly assigned (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3540">#3540</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.catplot.html#seaborn.catplot" title="seaborn.catplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">catplot()</span></code></a> where the <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> parameter was ignored with <code class="docutils literal notranslate"><span class="pre">kind=&quot;bar&quot;</span></code> (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3547">#3547</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.boxplot.html#seaborn.boxplot" title="seaborn.boxplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxplot()</span></code></a> where an exception was raised when using the matplotlib <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> option (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3562">#3562</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in <a class="reference internal" href="../generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a> where an exception was raised when <code class="docutils literal notranslate"><span class="pre">hue</span></code> was assigned with an empty dataframe (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3569">#3569</a>).</p></li>
+<li><p><span class="raw-html"><span class="badge badge-fix">Fix</span></span>  Fixed a bug in multiple categorical plots that raised with <code class="docutils literal notranslate"><span class="pre">hue=None</span></code> and <code class="docutils literal notranslate"><span class="pre">dodge=True</span></code>; this is now has no effect (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/3605">#3605</a>).</p></li>
+</ul>
+</section>
+
+
+          </article>
+          
+
+          
+          
+      </div>
+      
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+<footer class="footer" style="border-top: 1px solid #ccc; padding-top: 10px">
+  <div class="container">
+    <div id="credits" style="width: 50%; float: left">
+      <p>
+      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
+      </p>
+    </div>
+    <div class="dropup show" style="float: right; margin: 10px">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Archive
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/archive/0.12/index.html">v0.12</a>
+          <a class="dropdown-item" href="/archive/0.11/index.html">v0.11</a>
+          <a class="dropdown-item" href="/archive/0.10/index.html">v0.10</a>
+          <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
+        </div>
+    </div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.catplot &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.catplot &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1231,7 +1231,7 @@
 <h1>seaborn.catplot<a class="headerlink" href="#seaborn-catplot" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="seaborn.catplot">
-<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">catplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind='strip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator='mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar=('ci'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot=1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_wrap=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_scale=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_norm=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_out=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_titles=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facet_kws=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.catplot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">seaborn.</span></span><span class="sig-name descname"><span class="pre">catplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind='strip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator='mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbar=('ci'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">95)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_boot=1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_wrap=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_scale=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_norm=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_out=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin_titles=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facet_kws=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci=&lt;deprecated&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seaborn.catplot" title="Permalink to this definition">#</a></dt>
 <dd><p>Figure-level interface for drawing categorical plots onto a FacetGrid.</p>
 <p>This function provides access to several axes-level functions that
 show the relationship between a numerical and one or more categorical
@@ -1283,17 +1283,24 @@ axes-level plotting function. Options are: “strip”, “swarm”, “box”, 
 </dd>
 <dt><strong>errorbar</strong><span class="classifier">string, (string, number) tuple, callable or None</span></dt><dd><p>Name of errorbar method (either “ci”, “pi”, “se”, or “sd”), or a tuple
 with a method name and a level parameter, or a function that maps from a
-vector to a (min, max) interval, or None to hide errorbar.</p>
+vector to a (min, max) interval, or None to hide errorbar. See the
+<a class="reference internal" href="../tutorial/error_bars.html"><span class="doc">errorbar tutorial</span></a> for more information.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
 </div>
 </dd>
 <dt><strong>n_boot</strong><span class="classifier">int</span></dt><dd><p>Number of bootstrap samples used to compute confidence intervals.</p>
 </dd>
+<dt><strong>seed</strong><span class="classifier">int, <code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random.RandomState</span></code></span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+</dd>
 <dt><strong>units</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data</span></dt><dd><p>Identifier of sampling units; used by the errorbar function to
 perform a multilevel bootstrap and account for repeated measures</p>
 </dd>
-<dt><strong>seed</strong><span class="classifier">int, <code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random.RandomState</span></code></span></dt><dd><p>Seed or random number generator for reproducible bootstrapping.</p>
+<dt><strong>weights</strong><span class="classifier">name of variable in <code class="docutils literal notranslate"><span class="pre">data</span></code> or vector data</span></dt><dd><p>Data values or column used to compute weighted statistics.
+Note that the use of weights may limit other statistical options.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version v0.13.1.</span></p>
+</div>
 </dd>
 <dt><strong>order, hue_order</strong><span class="classifier">lists of strings</span></dt><dd><p>Order to plot the categorical levels in; otherwise the levels are
 inferred from the data objects.</p>
@@ -1335,7 +1342,7 @@ plotting wide-form data.</p>
 be something that can be interpreted by <a class="reference internal" href="seaborn.color_palette.html#seaborn.color_palette" title="seaborn.color_palette"><code class="xref py py-func docutils literal notranslate"><span class="pre">color_palette()</span></code></a>, or a
 dictionary mapping hue levels to matplotlib colors.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
 variable when it is numeric. Not relevant if <code class="docutils literal notranslate"><span class="pre">hue</span></code> is categorical.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
@@ -1471,7 +1478,7 @@ representations:</p>
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>

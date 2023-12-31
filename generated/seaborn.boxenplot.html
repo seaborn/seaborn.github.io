@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>seaborn.boxenplot &#8212; seaborn 0.13.0 documentation</title>
+    <title>seaborn.boxenplot &#8212; seaborn 0.13.1 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.0" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -1323,7 +1323,7 @@ it is relative to the minimum distance between two values in the native scale.</
 </dd>
 <dt><strong>showfliers</strong><span class="classifier">bool</span></dt><dd><p>If False, suppress the plotting of outliers.</p>
 </dd>
-<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+<dt><strong>hue_norm</strong><span class="classifier">tuple or <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> object</span></dt><dd><p>Normalization in data units for colormap applied to the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
 variable when it is numeric. Not relevant if <code class="docutils literal notranslate"><span class="pre">hue</span></code> is categorical.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
@@ -1359,26 +1359,26 @@ If <code class="docutils literal notranslate"><span class="pre">False</span></co
 </div>
 </dd>
 <dt><strong>box_kws: dict</strong></dt><dd><p>Keyword arguments for the box artists; passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.patches.Rectangle</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.patches.Rectangle</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
 </div>
 </dd>
 <dt><strong>line_kws: dict</strong></dt><dd><p>Keyword arguments for the line denoting the median; passed to
-<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.plot()</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
 </div>
 </dd>
 <dt><strong>flier_kws: dict</strong></dt><dd><p>Keyword arguments for the scatter denoting the outlier observations;
-passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.8.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
+passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="(in Matplotlib v3.8.2)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.scatter()</span></code></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version v0.12.0.</span></p>
 </div>
 </dd>
 <dt><strong>ax</strong><span class="classifier">matplotlib Axes</span></dt><dd><p>Axes object to draw the plot onto, otherwise uses the current Axes.</p>
 </dd>
-<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.patches.Rectangle</span></code></a>,
+<dt><strong>kwargs</strong><span class="classifier">key, value mappings</span></dt><dd><p>Other keyword arguments are passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle" title="(in Matplotlib v3.8.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.patches.Rectangle</span></code></a>,
 superceded by those in <code class="docutils literal notranslate"><span class="pre">box_kws</span></code>.</p>
 </dd>
 </dl>
@@ -1490,7 +1490,7 @@ superceded by those in <code class="docutils literal notranslate"><span class="p
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.0</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
     </div>
   </div>
 </footer>
