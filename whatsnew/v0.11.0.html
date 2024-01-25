@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>v0.11.0 (September 2020) &#8212; seaborn 0.13.1 documentation</title>
+    <title>v0.11.0 (September 2020) &#8212; seaborn 0.13.2 documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0.13.2" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
@@ -331,6 +331,11 @@
     <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
   <div class="bd-toc-item navbar-nav">
     <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="v0.13.2.html">
+   v0.13.2 (January 2024)
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="v0.13.1.html">
    v0.13.1 (December 2023)
@@ -678,7 +683,7 @@
 <p>The code that processes input data has been refactored and enhanced. In v0.11, this new code takes effect for the relational and distribution modules; other modules will be refactored to use it in future releases (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/2071">#2071</a>).</p>
 <p>These changes should be transparent for most use-cases, although they allow a few new features:</p>
 <ul class="simple">
-<li><p>Named variables for long-form data can refer to the named index of a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or to levels in the case of a multi-index. Previously, it was necessary to call <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reset_index.html#pandas.DataFrame.reset_index" title="(in pandas v2.1.4)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.reset_index()</span></code></a> before using index variables (e.g., after a groupby operation).</p></li>
+<li><p>Named variables for long-form data can refer to the named index of a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or to levels in the case of a multi-index. Previously, it was necessary to call <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reset_index.html#pandas.DataFrame.reset_index" title="(in pandas v2.2.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.reset_index()</span></code></a> before using index variables (e.g., after a groupby operation).</p></li>
 <li><p><a class="reference internal" href="../generated/seaborn.relplot.html#seaborn.relplot" title="seaborn.relplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">relplot()</span></code></a> now has the same flexibility as the axes-level functions to accept data in long- or wide-format and to accept data vectors (rather than named variables) in long-form mode.</p></li>
 <li><p>The data parameter can now be a Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> or an object that implements that interface. This is a new feature for wide-form data. For long-form data, it was previously supported but not documented.</p></li>
 <li><p>A wide-form data object can have a mixture of types; the non-numeric types will be removed before plotting. Previously, this caused an error.</p></li>
@@ -781,7 +786,7 @@
 <ul class="simple">
 <li><p><span class="raw-html"><span class="badge badge-enhancement">Enhancement</span></span>  Removed an optional (and undocumented) dependency on BeautifulSoup (<a class="reference external" href="https://github.com/mwaskom/seaborn/pull/2190">#2190</a>) in <a class="reference internal" href="../generated/seaborn.get_dataset_names.html#seaborn.get_dataset_names" title="seaborn.get_dataset_names"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_dataset_names()</span></code></a>.</p></li>
 <li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Deprecated the <code class="docutils literal notranslate"><span class="pre">axlabel</span></code> function; use <code class="docutils literal notranslate"><span class="pre">ax.set(xlabel=,</span> <span class="pre">ylabel=)</span></code> instead.</p></li>
-<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Deprecated the <code class="docutils literal notranslate"><span class="pre">iqr</span></code> function; use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.iqr.html#scipy.stats.iqr" title="(in SciPy v1.11.4)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.iqr()</span></code></a> instead.</p></li>
+<li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Deprecated the <code class="docutils literal notranslate"><span class="pre">iqr</span></code> function; use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.iqr.html#scipy.stats.iqr" title="(in SciPy v1.12.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.iqr()</span></code></a> instead.</p></li>
 <li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Final removal of the previously-deprecated <code class="docutils literal notranslate"><span class="pre">annotate</span></code> method on <a class="reference internal" href="../generated/seaborn.JointGrid.html#seaborn.JointGrid" title="seaborn.JointGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">JointGrid</span></code></a>, along with related parameters.</p></li>
 <li><p><span class="raw-html"><span class="badge badge-api">API</span></span>  Final removal of the <code class="docutils literal notranslate"><span class="pre">lvplot</span></code> function (the previously-deprecated name for <a class="reference internal" href="../generated/seaborn.boxenplot.html#seaborn.boxenplot" title="seaborn.boxenplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">boxenplot()</span></code></a>).</p></li>
 </ul>
@@ -809,7 +814,7 @@
   <div class="container">
     <div id="credits" style="width: 50%; float: left">
       <p>
-      &#169; Copyright 2012-2023, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
+      &#169; Copyright 2012-2024, <a href="https://mwaskom.github.io/">Michael Waskom</a>.<br/>
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/">PyData Theme</a>.<br/>
       </p>
     </div>
@@ -824,7 +829,7 @@
           <a class="dropdown-item" href="/archive/0.9/index.html">v0.9</a>
         </div>
     </div>
-    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.1</div>
+    <div id="version" style="color: #999; float: right; margin: 15px">v0.13.2</div>
     </div>
   </div>
 </footer>
